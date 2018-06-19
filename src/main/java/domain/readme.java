@@ -9,6 +9,6 @@ public class readme {
 
     @RequestMapping(value = "/security/movetologin")
     public ModelAndView index(){
-        return new ModelAndView("show");
+        return new ModelAndView("home/homepage");
     }
 }
