@@ -1,22 +1,34 @@
 package domain.shiro.controller;
 
 import domain.shiro.entity.JsonResponseVO;
+import domain.shiro.entity.ResourceEntity;
+import domain.shiro.service.UserSecurityService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(value = "/security")
 public class UserSecurityController extends AbstractActionController{
-
     private static final Logger LOGGER = LoggerFactory.getLogger(UserSecurityController.class);
+
+    final private UserSecurityService userSecurityService;
+
+    @Autowired
+    public UserSecurityController(UserSecurityService userSecurityService){
+        this.userSecurityService = userSecurityService;
+    }
 
     /**
      * 去登陆页
@@ -33,7 +45,17 @@ public class UserSecurityController extends AbstractActionController{
      */
     @RequestMapping(value = "/home")
     public ModelAndView moveToHome(){
-        return new ModelAndView("home");
+
+        //角色id
+        final Long roleId= getRoleId();
+        //角色名称
+        final String roleName = getRoleName();
+
+        final ModelAndView mv = new ModelAndView("home");
+        mv.addObject("roleId",roleId);
+        mv.addObject("roleName",roleName);
+
+        return mv;
     }
 
     /**
@@ -84,5 +106,15 @@ public class UserSecurityController extends AbstractActionController{
         return result;
     }
 
+    /**
+     * 获取资源
+     * @param roleId 角色ID
+     * @return List<ResourceEntity> 资源信息
+     */
+    @RequestMapping(value = "/resources/{roleId}")
+    @ResponseBody
+    public List<ResourceEntity> getResourceInfoByRoleId(@PathVariable("roleId") Long roleId){
 
+        return userSecurityService.getResourceInfoByRoleId(roleId);
+    }
 }
