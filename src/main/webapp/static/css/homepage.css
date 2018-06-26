@@ -1,5 +1,32 @@
-.floatImg01{
-	position: fixed;
-	top: 0;
-	left: 0;
+/*导航栏*/
+.navigation{
+	background: #76563F;
+	height: 60px;
+	font-family: 'Microsoft YaHei';
+}
+
+.title_tab{
+	float: left;
+	width: 100px;
+	text-align: center;
+	line-height: 60px;
+}
+
+.title_tab .first_title{
+	cursor: pointer;
+	color: #fff;
+}
+
+.title_tab .second_title{
+	display: none;
+	line-height: 40px;
+}
+
+.title_tab .second_title a{
+	display: block;
+}
+
+.title_tab .second_title .title_over{
+	color: #666;
+	background: red;
 }

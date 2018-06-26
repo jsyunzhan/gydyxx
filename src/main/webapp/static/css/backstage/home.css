@@ -1,0 +1,135 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+.tit_bg{
+    height: 70px;
+}
+
+.tit_home div{
+    line-height: 70px;
+    font-size: 20px;
+}
+
+.title_project{
+    top: 0;
+    left: 8%;
+}
+
+.sidebar{
+    cursor: pointer;
+    background: #2B3541;
+    overflow-y: scroll;
+    width: 110%;
+}
+
+.scroll_hide{
+    width: 15%;
+    float: left;
+    overflow: hidden;
+}
+
+.main_content{
+    float: right;
+    width: 85%;
+}
+
+iframe{
+    outline: 0;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.modular .title_first{
+    line-height: 50px;
+    font-size: 16px;
+}
+
+.modular li{
+    line-height: 40px;
+    font-size: 14px;
+}
+
+.modular .icon_title,.modular .arrow{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.modular .arrow{
+    margin-right: 0px;
+    margin-left: 30px;
+    transition: 0.5s;
+}
+
+.rotate90{
+    transform: rotate(90deg);
+    -ms-transform:rotate(90deg);
+    -o-tranform:rotate(90deg);
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+}
+
+.rotate0{
+    transform: rotate(0deg);
+    -ms-transform:rotate(0deg);
+    -o-tranform:rotate(0deg);
+    -webkit-transform:rotate(0deg);
+    -moz-transform:rotate(0deg);
+}
+
+.modular .none{
+    display: none;
+}
+
+.personal{
+    width: 140px;
+    padding: 5px 0;
+    top: 15px;
+    right: 8%;
+    cursor: pointer;
+}
+
+.personal div{
+    float: left;
+    font-size: 14px;
+    text-align: center;
+}
+
+.tit_home .personal div img{
+    width: 100%;
+}
+
+.personal_ul{
+    min-width: 140px;
+    margin: 0;
+}
+
+.personal_ul li a{
+    float: left;
+    clear: inherit;
+    width: 100%;
+    text-align: center;
+    padding: 3px 25px;
+}
+
+.personal_ul li a span{
+    display: inline-block;
+    vertical-align: top;
+    width: 17px;
+    height: 17px;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+/*重置EasyUI*/
+#content{
+    padding:0 !important;
+    overflow: hidden;
+    background: #fff;
+}

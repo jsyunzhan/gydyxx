@@ -1,12 +1,17 @@
-$(function(){
+$(function () {
+	// 导航栏下拉菜单
+	$(".title_tab").mouseover(function () {
+		$(this).find(".second_title").show();
 
-	var lin = new imgFloat(".floatImg01",{
-		"time":10,
-        "speedx":1,
-        "speedy":1
-	});
-
-	lin.resize();
-	lin.move();
+        $(".title_tab .second_title a").mouseover(function () {
+            $(this).addClass("title_over");
+        })
+        $(".title_tab .second_title a").mouseout(function () {
+            $(this).removeClass("title_over");
+        })
+    });
+    $(".title_tab").mouseout(function () {
+        $(this).find(".second_title").hide();
+    });
 
 })
