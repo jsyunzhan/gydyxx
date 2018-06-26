@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.shiro.dao.AccountDao">
+
+    <sql id="accountConditionSql">
+
+    </sql>
+
+
+    <!--根据用户名查询-用登录验证-->
+    <select id="accoutInfo" resultType="AccountEntityInfo">
+        select
+        t.ID id,
+        t.USER_NAME userName,
+        t.LOGIN_NAME loginName,
+        t.PASSWORD password,
+        t.ROLE_ID roleId,
+        b.ROLE_NAME roleName,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        from t_sys_account t
+        LEFT JOIN t_sys_role b ON t.ROLE_ID=b.ID
+        where t.LOGIN_NAME=#{loginName} AND t.DELETE_FLAG='1'
+    </select>
+
+    <!--新增-->
+    <insert id="addAccout" >
+        INSERT INTO t_sys_account
+        (
+        USER_NAME,
+        LOGIN_NAME,
+        PASSWORD,
+        ROLE_ID,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{userName},
+        #{loginName},
+        #{password},
+        #{roleId},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--查总数-->
+    <select id="accountCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_sys_account t
+        WHERE t.DELETE_FLAG='1'
+        <include refid="accountConditionSql"/>
+    </select>
+
+    <!--查询集合-->
+    <select id="accountListInfo" resultType="AccountEntityInfo">
+        SELECT
+        t.ID id,
+        t.USER_NAME userName,
+        t.LOGIN_NAME loginName,
+        t.ROLE_ID roleId,
+        b.ROLE_NAME roleName,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_sys_account t
+        LEFT JOIN t_sys_role b ON t.ROLE_ID=b.ID
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA DESC
+        LIMIT #{rows} OFFSET #{page}
+        <include refid="accountConditionSql"/>
+    </select>
+
+    <!--判断loginName是否重复-->
+    <select id="checkLoginName" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_sys_account t
+        WHERE t.DELETE_FLAG='1'
+        AND t.LOGIN_NAME = #{loginName}
+        <if test="id!=null">
+            AND t.ID!= #{id}
+        </if>
+    </select>
+
+    <!--修改-->
+    <update id="editAccount">
+        UPDATE t_sys_account SET
+        USER_NAME=#{userName},
+        LOGIN_NAME=#{loginName},
+        PASSWORD=#{password},
+        ROLE_ID=#{roleId},
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="deleteAccount">
+        UPDATE t_sys_account SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--修改密码-->
+    <update id="editPassWord">
+        UPDATE t_sys_account SET
+        PASSWORD=#{password},
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+</mapper>

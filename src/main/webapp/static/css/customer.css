@@ -1,0 +1,259 @@
+body { font-size: 12px; padding: 0; margin: 0; overflow: hidden; }
+.required-mark:after {
+    content: '*';
+    color: red;
+}
+
+.control-form {
+    padding: 10px;
+}
+
+.control-form-table {
+    padding: 2px;
+}
+
+.table {
+    display: table;
+    margin: 0 auto;
+}
+
+.row {
+    display: table-row;
+}
+
+.cell {
+    display: table-cell;
+    padding-bottom: 5px;
+}
+
+.cell-label {
+    text-align: right;
+}
+
+.label-disabled {
+    color: #808080;
+}
+
+.control-label {
+    width: 80px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 5px;
+}
+
+.control {
+    width: 170px;
+    padding-bottom: 5px;
+}
+
+.control-small {
+    width: 130px;
+}
+
+.filebox-label {
+    background: url("../easyui/themes/gray/images/blank.gif");
+}
+
+/*.footer {*/
+/*text-align: center;*/
+/*padding: 5px;*/
+/*height: 26px;*/
+/*}*/
+
+.photo-container-table {
+    display: table;
+}
+
+.photo-container-cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.photo {
+    width: 98%;
+    border: none;
+}
+
+.table_browse td {
+    min-height: 25px;
+}
+
+.table_title th {
+    text-align: center;
+}
+
+.table_list th,
+.table_list td {
+    border: 1px dashed #97b4d6;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.table_list {
+    table-layout: fixed;
+    margin: 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table_list th {
+    background: #edf6ff;
+    padding-right: 5px;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: right;
+}
+
+.table_list td {
+    font-size: 12px;
+    padding: 3px 6px;
+    border-collapse: separate;
+    text-align: left;
+}
+
+th.list_head {
+    height: 24px;
+    text-indent: 1em;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 14px;
+    color: #416aa3;
+}
+
+tr.list_colspan > th {
+    height: 24px;
+    text-indent: 2em;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.table_list {
++ width: 100 %; /*IE7下面的登记表格的宽度过宽，要控制*/
+}
+
+.top-bar-left-distributor {
+    position: absolute;
+    background-image: url("../images/distributor.jpg");
+    width: 568px;
+    height: 85px;
+    left: 0px;
+}
+
+.top-bar-left-tax-officer {
+    position: absolute;
+    background-image: url("../images/logo.png");
+    width: 665px;
+    height: 85px;
+    left: 0px;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+}
+
+.top-toolbar {
+    position: absolute;
+    font-weight: normal;
+    padding: 0;
+    width: 100%;
+    height: 85px;
+    top: 0px;
+    left: 0;
+    border-top-width: 1px;
+    border-bottom-width: 0;
+    z-index: 100;
+    background-image: url("../images/top.png");
+    background-size: 100% 100%;
+}
+
+.top-bar-center {
+    position: absolute;
+    /*background-image: url("../images/3.jpg");*/
+    background-repeat: repeat-x;
+    width: 2900px;
+    height: 85px;
+    left: 568px;
+    right: 128px;
+}
+
+.top-bar-right {
+    position: absolute;
+    /*background-image: url("../images/2.jpg");*/
+    width: 128px;
+    right: 0px;
+    height: 85px;
+}
+
+.top-toolbar #infobar {
+    position: absolute;
+    height: 49px;
+    line-height: 49px;
+    left: 10px;
+}
+
+.top-toolbar #searchbar {
+    position: absolute;
+    height: 49px;
+    left: 400px;
+    padding-top: 1px;
+}
+
+.top-toolbar #buttonbar {
+    position: absolute;
+    height: 49px;
+    right: 5px;
+    padding-top: 10px;
+    text-align: right;
+}
+
+.top-bar-right #timerSpan {
+    position: absolute;
+    padding-top: 5px;
+    right: 10px;
+}
+
+.top-bar-right #themeSpan {
+    position: absolute;
+    width: 350px;
+    top: 24px;
+    right: 5px;
+    text-align: right;
+}
+
+.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber{
+    text-overflow: ellipsis;
+}
+
+.tree-title {
+    display: inline
+}
+
+.showImage{
+    width:200px;
+    height:200px;
+    margin: 0 auto;
+}
+
+#listenerPicture{
+    position: relative;
+}
+
+.listenerLeft,.listenerRight{
+    width: 40px;
+    position: absolute;
+    top: 80px;
+    cursor: pointer;
+}
+
+.listenerLeft{
+    left: 0;
+}
+
+.listenerRight{
+    right: 0;
+}
+
+img{
+    display: block;
+    width: 100%;
+}
