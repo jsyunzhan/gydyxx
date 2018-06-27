@@ -2,19 +2,22 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../../../static/css/public.css">
-    <link rel="stylesheet" type="text/css" href="../../../static/css/homepage.css">
-    <script type="text/javascript" src="../../../static/js/jq/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="../../../static/js/public.js"></script>
-    <script type="text/javascript" src="../../../static/js/homepage.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/swiper/idangerous.swiper.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
+    <script type="text/javascript" src="../static/jq/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../static/swiper/idangerous.swiper.min.js"></script>
+    <script type="text/javascript" src="../static/js/public.js"></script>
+    <script type="text/javascript" src="../static/js/homepage.js"></script>
     <title>高邮市第一实验小学</title>
 </head>
 <body>
     <div class="wrapper">
-
-        <div class="navigation clearfix">
+        <div class="content">
+            <%--导航栏--%>
+            <div class="navigation clearfix">
             <div class="title_tab">
-                <div class="first_title">首页</div>
+                <div class="first_title">学校首页</div>
             </div>
             <div class="title_tab">
                 <div class="first_title">致用校园</div>
@@ -49,14 +52,6 @@
                 </div>
             </div>
             <div class="title_tab">
-                <div class="first_title">一级标题</div>
-                <div class="second_title">
-                    <a href="javascript:;">二级标题</a>
-                    <a href="javascript:;">二级标题</a>
-                    <a href="javascript:;">二级标题</a>
-                </div>
-            </div>
-            <div class="title_tab">
                 <div class="first_title">致用少年</div>
                 <div class="second_title">
                     <a href="javascript:;">致用邑</a>
@@ -84,6 +79,22 @@
             </div>
             <div class="title_tab">
                 <div class="first_title">联系我们</div>
+            </div>
+        </div>
+
+            <%--轮播图--%>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1530080668&di=f1c878835e023b989c05a5834111904c&src=http://h.hiphotos.baidu.com/zhidao/pic/item/9345d688d43f8794fb05122ed01b0ef41bd53a33.jpg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1530080668&di=f1c878835e023b989c05a5834111904c&src=http://h.hiphotos.baidu.com/zhidao/pic/item/9345d688d43f8794fb05122ed01b0ef41bd53a33.jpg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1530080668&di=f1c878835e023b989c05a5834111904c&src=http://h.hiphotos.baidu.com/zhidao/pic/item/9345d688d43f8794fb05122ed01b0ef41bd53a33.jpg">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

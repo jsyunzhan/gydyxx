@@ -1,20 +1,31 @@
+/*主题内容*/
+.content{
+	width: 1200px;
+	margin: 0 auto;
+}
+
 /*导航栏*/
 .navigation{
-	background: #76563F;
+	background: #915519;
 	height: 60px;
+	color: #fff;
 	font-family: 'Microsoft YaHei';
+    font-size: 16px;
 }
 
 .title_tab{
 	float: left;
-	width: 100px;
+	width: 150px;
 	text-align: center;
-	line-height: 60px;
+	line-height: 57px;
+}
+
+.title_tab:hover{
+	background: #ce6e0a;
 }
 
 .title_tab .first_title{
 	cursor: pointer;
-	color: #fff;
 }
 
 .title_tab .second_title{
@@ -24,6 +35,7 @@
 
 .title_tab .second_title a{
 	display: block;
+	color: #fff;
 }
 
 .title_tab .second_title .title_over{
