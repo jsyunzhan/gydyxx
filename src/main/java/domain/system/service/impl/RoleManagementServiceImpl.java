@@ -2,7 +2,9 @@ package domain.system.service.impl;
 
 import domain.shiro.dao.ResourceDao;
 import domain.shiro.entity.PageQueryResult;
+import domain.shiro.entity.ResourceEntity;
 import domain.system.dao.RoleDao;
+import domain.system.entity.AuthorizationVOEntity;
 import domain.system.entity.RoleEntity;
 import domain.system.service.RoleManagementService;
 import org.slf4j.Logger;
@@ -60,46 +62,46 @@ public class RoleManagementServiceImpl implements RoleManagementService{
         return roleDao.checkRoleName(id,roleName) < 1;
     }
 
-//    @Override
-//    public Boolean editRole(RoleEntity roleEntity) {
-//        final Boolean flag = roleDao.editRole(roleEntity) > 0;
-//        if (LOGGER.isDebugEnabled()){
-//            LOGGER.debug("角色修改结果:{}",flag);
-//        }
-//        return flag;
-//    }
-//
-//    @Override
-//    public Boolean deleRole(Long id, Long loginId) {
-//        final Boolean flag = roleDao.deleRole(id,loginId) > 0;
-//        if (LOGGER.isDebugEnabled()){
-//            LOGGER.debug("角色删除结果:{}",flag);
-//        }
-//        return flag;
-//    }
-//
-//    @Override
-//    public List<ResourceEntity> resourceList() {
-//        return resourceDao.resourceList();
-//    }
-//
-//    @Override
-//    public Boolean authorization(AuthorizationVOEntity authorizationVOEntity, Long loginId) {
-//        final Long roleId = authorizationVOEntity.getRoleId();
-//        final List<ResourceEntity> resourceEntities = authorizationVOEntity.getResourceEntities();
-//
-//        final Boolean flag = resourceDao.deleteResourceByRoleId(roleId,loginId) > 0;
-//
-//        if (LOGGER.isDebugEnabled()){
-//            LOGGER.debug("角色授权结果:{}",flag);
-//        }
-//
-//        for (ResourceEntity resourceEntity:
-//                resourceEntities) {
-//            resourceEntity.setCreateUserId(loginId);
-//            resourceDao.addAuthorization(resourceEntity.getId(),roleId,loginId);
-//        }
-//
-//        return flag;
-//    }
+    @Override
+    public Boolean editRole(RoleEntity roleEntity) {
+        final Boolean flag = roleDao.editRole(roleEntity) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("角色修改结果:{}",flag);
+        }
+        return flag;
+    }
+
+    @Override
+    public Boolean deleRole(Long id, Long loginId) {
+        final Boolean flag = roleDao.deleRole(id,loginId) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("角色删除结果:{}",flag);
+        }
+        return flag;
+    }
+
+    @Override
+    public List<ResourceEntity> resourceList() {
+        return resourceDao.resourceList();
+    }
+
+    @Override
+    public Boolean authorization(AuthorizationVOEntity authorizationVOEntity, Long loginId) {
+        final Long roleId = authorizationVOEntity.getRoleId();
+        final List<ResourceEntity> resourceEntities = authorizationVOEntity.getResourceEntities();
+
+        final Boolean flag = resourceDao.deleteResourceByRoleId(roleId,loginId) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("角色授权结果:{}",flag);
+        }
+
+        for (ResourceEntity resourceEntity:
+                resourceEntities) {
+            resourceEntity.setCreateUserId(loginId);
+            resourceDao.addAuthorization(resourceEntity.getId(),roleId,loginId);
+        }
+
+        return flag;
+    }
 }
