@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.system.dao.RoleDao">
+
+    <sql id="roleConditionSql">
+
+    </sql>
+
+    <!--查总数-->
+    <select id="roleCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_sys_role t
+        WHERE t.DELETE_FLAG='1'
+        <include refid="roleConditionSql"/>
+    </select>
+
+    <!--查询集合-->
+    <select id="roleListInfo" resultType="RoleEntityInfo">
+        SELECT
+        t.ID id,
+        t.ROLE_NAME roleName,
+        (SELECT COUNT(*) FROM t_sys_account b WHERE t.id = b.ROLE_ID) useCount,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_sys_role t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+        <include refid="roleConditionSql"/>
+    </select>
+
+    <!--新增-->
+    <insert id="addRole" >
+        INSERT INTO t_sys_role
+        (
+        ROLE_NAME,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{roleName},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--判断roleName是否重复-->
+    <select id="checkRoleName" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_sys_role t
+        WHERE t.DELETE_FLAG='1'
+        AND t.ROLE_NAME = #{roleName}
+        <if test="id!=null">
+            AND t.ID!= #{id}
+        </if>
+    </select>
+
+    <!--修改-->
+    <update id="editRole">
+        UPDATE t_sys_role SET
+        ROLE_NAME=#{roleName},
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="deleRole">
+        UPDATE t_sys_role SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--获取所有角色-供下拉框加载-->
+    <select id="getAllRole" resultType="RoleEntityInfo">
+        SELECT
+        t.ID id,
+        t.ROLE_NAME roleName
+        FROM t_sys_role t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+</mapper>
+

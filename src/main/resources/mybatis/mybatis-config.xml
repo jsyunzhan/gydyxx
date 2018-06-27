@@ -7,6 +7,8 @@
     <typeAliases>
         <typeAlias alias="AccountEntityInfo" type="domain.shiro.entity.AccountEntity"/>
         <typeAlias alias="ResourceEntityInfo" type="domain.shiro.entity.ResourceEntity"/>
+        <typeAlias alias="RoleEntityInfo" type="domain.system.entity.RoleEntity"/>
+        <typeAlias alias="ParamEntityInfo" type="domain.shiro.entity.ParamEntity"/>
     </typeAliases>
 
 </configuration>

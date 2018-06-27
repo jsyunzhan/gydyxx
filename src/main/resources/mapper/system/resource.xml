@@ -20,4 +20,56 @@
         where b.ROLE_ID=#{roleId} AND t.DELETE_FLAG='1' AND b.DELETE_FLAG='1'
     </select>
 
+    <select id="resourceList" resultType="ResourceEntityInfo">
+        select
+        t.ID id,
+        t.RESOURCE_NAME resourceName,
+        t.RESOURCE_URL resourceUrl,
+        t.IMAGE_URL imageUrl,
+        t.ORDER_NUMBER orderNumber,
+        t.PARENT_ID parentId,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        from t_sys_resource t
+        where t.DELETE_FLAG='1'
+    </select>
+
+    <!--授权前的删除-->
+    <delete id="deleteResourceByRoleId">
+        DELETE FROM t_mapping_role_resource
+        WHERE ROLE_ID=#{roleId}
+    </delete>
+
+    <!--授权-->
+    <insert id="addAuthorization">
+        INSERT INTO t_mapping_role_resource
+        (
+        ROLE_ID,
+        RESOURCE_ID,
+        CREATE_USER_ID,
+        CREATE_DATA
+        )VALUE (
+        #{roleId},
+        #{resourceId},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--查询参数-->
+    <select id="getParams" resultType="ParamEntityInfo">
+        SELECT
+        t.ID id,
+        t.PARAM_NAME paramName,
+        t.PARAM_TYPE paramType,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_sys_parameter t
+        WHERE t.DELETE_FLAG='1'
+        AND t.PARAM_TYPE=#{paramType}
+    </select>
 </mapper>
