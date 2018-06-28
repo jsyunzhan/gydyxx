@@ -1,7 +1,9 @@
 package domain.home.controller;
 
+import domain.home.entity.NoticeEntity;
 import domain.home.service.NoticeManagementService;
 import domain.shiro.controller.AbstractActionController;
+import domain.shiro.entity.PageQueryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,21 @@ public class NoticeManagementController extends AbstractActionController{
         this.noticeManagementService = noticeManagementService;
     }
 
+    /**
+     * 去消息管理页面
+     * @return ModelAndView
+     */
     @RequestMapping(value = NOTICE_MANAGEMENT_PAGE)
     public ModelAndView index(){
         return new ModelAndView(TO_NOTICE_PAGE);
+    }
+
+    /**
+     *  首页公告分页
+     * @param noticeEntity noticeEntity
+     * @return PageQueryResult
+     */
+    public PageQueryResult noticeListInfo(NoticeEntity noticeEntity){
+        return noticeManagementService.noticeListInfo(noticeEntity);
     }
 }

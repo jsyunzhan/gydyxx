@@ -1,13 +1,18 @@
 package domain.home.service.impl;
 
-import domain.home.controller.NoticeManagementController;
 import domain.home.dao.NoticeDao;
+import domain.home.entity.NoticeEntity;
 import domain.home.service.NoticeManagementService;
+import domain.shiro.entity.PageQueryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+import static com.google.common.collect.Lists.newArrayList;
 
 @Service
 @Transactional
@@ -23,4 +28,20 @@ public class NoticeManagementServiceImpl implements NoticeManagementService{
     }
 
 
+    @Override
+    public PageQueryResult noticeListInfo(NoticeEntity noticeEntity) {
+        PageQueryResult pageQueryResult = new PageQueryResult();
+
+        List<NoticeEntity> noticeEntities = newArrayList();
+
+        final Integer count = noticeDao.noticeCount(noticeEntity);
+
+        if (count > 0){
+            noticeEntities = noticeDao.noticeListInfo(noticeEntity);
+        }
+
+        pageQueryResult.setTotal(count);
+        pageQueryResult.setRows(noticeEntities);
+        return pageQueryResult;
+    }
 }
