@@ -26,4 +26,30 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <!--首页公告新增-->
+    <insert id="noticeAdd" >
+        INSERT INTO t_sys_notice
+        (
+        NOTICE_TITLE,
+        NOTICE_DETAILS,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{noticeTitle},
+        #{noticeDetails},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="noticeEdit">
+        UPDATE t_sys_notice SET
+        NOTICE_TITLE=#{noticeTitle},
+        NOTICE_DETAILS=#{noticeDetails},
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
 </mapper>

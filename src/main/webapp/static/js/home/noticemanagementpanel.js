@@ -24,18 +24,18 @@ $(function () {
             {
                 text: "新增", iconCls: 'icon-add',
                 handler: function () {
-                    $addMessageWin.window('open');
+                    $addNoticeWin.window('open');
                 }
             },
             {
                 text: "修改", iconCls: 'icon-edit',
                 handler: function () {
 
-                    if (!selectedPhoneMess) {
+                    if (!selectedNotice) {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
-                        $editMessageForm.form('load', selectedPhoneMess);
-                        $editMessageWin.window('open');
+                        $editNoticeForm.form('load', selectedNotice);
+                        $editNoticeWin.window('open');
                     }
 
                 }
@@ -60,4 +60,88 @@ $(function () {
         }
     });
 
+    /*************新增*******************/
+
+    var $addNoticeForm = $('#addNoticeForm').form({
+        novalidate: true
+    });
+
+    var $addNoticeWin = $('#addNoticeWin').window({
+        title: "新增", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
+        footer: '#addNoticeWinFooter',
+        onClose: function () {
+            $('#addNoticeForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#addNoticeWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#addNoticeForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var noticeData = $addNoticeForm.serializeObject(),
+                url = path + "/home/noticemanpage/add";
+
+
+            $.ajax({
+                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(noticeData),
+                success:function (r) {
+                    $noticeGrid.datagrid('reload');
+                    $addNoticeWin.window('close');
+                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                }
+            })
+
+        }
+    });
+
+    $('#addNoticeWinCloseBtn').linkbutton({
+        onClick: function () {
+            $addNoticeWin.window('close');
+        }
+    });
+
+    /*************修改*******************/
+
+    var $editNoticeForm = $('#editNoticeForm').form({
+        novalidate: true
+    });
+
+    var $editNoticeWin = $('#editNoticeWin').window({
+        title: "新增", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
+        footer: '#editNoticeWinFooter',
+        onClose: function () {
+            $('#editNoticeForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#editNoticeWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#editMessageForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var noticeData = $editNoticeForm.serializeObject(),
+                url = path + "/home/noticemanpage/edit";
+            noticeData.id = selectedNotice.id;
+            $.ajax({
+                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(noticeData),
+                success:function (r) {
+                    $noticeGrid.datagrid('reload');
+                    $editNoticeWin.window('close');
+                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                }
+            })
+
+        }
+    });
+
+    $('#editNoticeWinCloseBtn').linkbutton({
+        onClick: function () {
+            $editNoticeWin.window('close');
+        }
+    });
 });

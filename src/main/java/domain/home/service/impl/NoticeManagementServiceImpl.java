@@ -44,4 +44,25 @@ public class NoticeManagementServiceImpl implements NoticeManagementService{
         pageQueryResult.setRows(noticeEntities);
         return pageQueryResult;
     }
+
+    @Override
+    public Boolean noticeAdd(NoticeEntity noticeEntity) {
+        final Boolean flag = noticeDao.noticeAdd(noticeEntity) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("公告新增结果:",flag);
+        }
+        return flag;
+    }
+
+    @Override
+    public Boolean noticeEdit(NoticeEntity noticeEntity) {
+        final Boolean flag = noticeDao.noticeEdit(noticeEntity);
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("公告修改结果:",flag);
+        }
+
+        return flag;
+    }
 }
