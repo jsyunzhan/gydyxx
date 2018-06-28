@@ -11,4 +11,6 @@ public final class HomeWebURLMapping {
      * 去消息管理页面
      */
     public static final String NOTICE_MANAGEMENT_PAGE = HOME_ROOT + "noticemanpage";
+
+    public static final String NOTICE_MANAGEMENT_LIST = NOTICE_MANAGEMENT_PAGE + "/list";
 }
