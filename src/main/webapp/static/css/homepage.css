@@ -1,13 +1,71 @@
+/*整体背景图*/
+.wrapper .bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+/*学校logo*/
+.wrapper .school_logo{
+    width: 1200px;
+    margin: 0 auto;
+}
+
 /*主题内容*/
 .content{
-	width: 1200px;
-	margin: 0 auto;
+    width: 1200px;
+    margin: 0 auto;
+    background: #f4f4f4;
+}
+
+.wrapper .logo{
+    float: left;
+    width: 600px;
+    margin: 25px 20px;
+}
+
+/*搜索*/
+.wrapper .search{
+    float: left;
+    width: 500px;
+}
+
+.wrapper .search .search_input{
+    position: relative;
+    margin-left: 280px;
+    margin-top: 80px;
+}
+
+.wrapper .search input{
+    width: 225px;
+    height: 30px;
+    line-height: 30px;
+    border: 3px solid #e3e3e3;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 50px;
+    padding-right: 50px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+
+.wrapper .search span{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
 }
 
 /*导航栏*/
 .navigation{
 	background: #915519;
-	height: 60px;
+	height: 57px;
+    line-height: 57px;
 	color: #fff;
 	font-family: 'Microsoft YaHei';
     font-size: 16px;
@@ -15,9 +73,9 @@
 
 .title_tab{
 	float: left;
+    position: relative;
 	width: 150px;
 	text-align: center;
-	line-height: 57px;
 }
 
 .title_tab:hover{
@@ -30,6 +88,11 @@
 
 .title_tab .second_title{
 	display: none;
+    position: absolute;
+    top: 57px;
+    left: 0;
+    z-index: 3;
+    width: 100%;
 	line-height: 40px;
 }
 
@@ -41,4 +104,62 @@
 .title_tab .second_title .title_over{
 	color: #666;
 	background: red;
+}
+
+/*banner轮播*/
+.banner{
+    height: 310px;
+}
+
+.pagination {
+    position: absolute;
+    left: 0;
+    text-align: center;
+    bottom:15px;
+    width: 100%;
+}
+
+.swiper-pagination-switch {
+    display: inline-block;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 1px 2px #555 inset;
+    margin: 0 5px;
+    cursor: pointer;
+    width: 11px;
+    height: 11px;
+}
+
+.banner .swiper-active-switch {
+    background: #ce6e0a;
+}
+
+.arrow-left,.arrow-right{
+    position: absolute;
+    width: 15px;
+    height: 50px;
+    top: 130px;
+    z-index: 2;
+}
+
+.arrow-left{
+    left: 55px;
+}
+
+.arrow-right{
+    right: 55px;
+}
+
+/*通知公告*/
+.notice{
+    width: 390px;
+    border: 5px solid #e3e3e3;
+}
+
+.notice .title_notice{
+    background: #90531a;
+    font-size: 20px;
+    line-height: 48px;
+    padding-left: 20px;
+    color: #fff;
 }

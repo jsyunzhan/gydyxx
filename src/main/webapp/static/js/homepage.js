@@ -14,4 +14,24 @@ $(function () {
         $(this).find(".second_title").hide();
     });
 
+    // 轮播图
+    var banner = new Swiper(".banner",{
+        autoplay : 3000,
+        speed: 1000,
+        loop:true,
+        pagination: '.pagination',
+        autoplayDisableOnInteraction : false,
+
+    });
+    $(".arrow-left").on("click", function(e){
+        e.preventDefault();
+        banner.swipePrev();
+    })
+    $(".arrow-right").on("click", function(e){
+        e.preventDefault();
+        banner.swipeNext();
+    })
+
+
+
 })
