@@ -9,9 +9,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import static domain.home.HomeWebForward.TO_NOTICE_PAGE;
+import static domain.home.HomeWebURLMapping.NOTICE_MANAGEMENT_LIST;
 import static domain.home.HomeWebURLMapping.NOTICE_MANAGEMENT_PAGE;
 
 @Controller
@@ -39,6 +41,8 @@ public class NoticeManagementController extends AbstractActionController{
      * @param noticeEntity noticeEntity
      * @return PageQueryResult
      */
+    @RequestMapping(value = NOTICE_MANAGEMENT_LIST)
+    @ResponseBody
     public PageQueryResult noticeListInfo(NoticeEntity noticeEntity){
         return noticeManagementService.noticeListInfo(noticeEntity);
     }
