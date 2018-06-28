@@ -127,6 +127,10 @@
             <div class="infor">
                 <div class="notice">
                     <div class="title_notice">通知公告</div>
+                    <div class="content_notice">
+                        <div class="notification">公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                        <div class="notification">公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                    </div>
                 </div>
             </div>
         </div>
