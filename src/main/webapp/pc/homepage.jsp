@@ -2,6 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <!-- 设置360浏览器渲染模式,webkit 为极速内核，ie-comp 为 IE 兼容内核，ie-stand 为 IE 标准内核。 -->
+    <meta name="renderer" content="webkit">
+    <meta name="google" value="notranslate"><!-- 禁止Chrome 浏览器中自动提示翻译 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <link rel="stylesheet" type="text/css" href="../static/swiper/idangerous.swiper.css">
     <link rel="stylesheet" type="text/css" href="../static/css/public.css">
     <link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
@@ -13,6 +17,21 @@
 </head>
 <body>
     <div class="wrapper">
+        <div class="bg">
+            <img src="../static/images/bg.png">
+        </div>
+        <%--学校logo--%>
+        <div class="school_logo clearfix">
+            <div class="logo">
+                <img src="../static/images/logo.png">
+            </div>
+            <div class="search">
+                <div class="search_input">
+                    <input type="text" placeholder="请输入关键词">
+                    <span><img src="../static/images/search.png"></span>
+                </div>
+            </div>
+        </div>
         <div class="content">
             <%--导航栏--%>
             <div class="navigation clearfix">
@@ -83,17 +102,31 @@
         </div>
 
             <%--轮播图--%>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
+            <div class="swiper-container banner">
+                <a class="arrow-left" href="#">
+                    <img src="../static/images/arrow_left.png">
+                </a>
+                <a class="arrow-right" href="#">
+                    <img src="../static/images/arrow_right.png">
+                </a>
+                <div class="swiper-wrapper clearfix">
                     <div class="swiper-slide">
-                        <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1530080668&di=f1c878835e023b989c05a5834111904c&src=http://h.hiphotos.baidu.com/zhidao/pic/item/9345d688d43f8794fb05122ed01b0ef41bd53a33.jpg">
+                        <img src="../static/images/banner.jpg">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1530080668&di=f1c878835e023b989c05a5834111904c&src=http://h.hiphotos.baidu.com/zhidao/pic/item/9345d688d43f8794fb05122ed01b0ef41bd53a33.jpg">
+                        <img src="../static/images/banner.jpg">
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1530080668&di=f1c878835e023b989c05a5834111904c&src=http://h.hiphotos.baidu.com/zhidao/pic/item/9345d688d43f8794fb05122ed01b0ef41bd53a33.jpg">
+                        <img src="../static/images/banner.jpg">
                     </div>
+                </div>
+                <div class="pagination"></div>
+            </div>
+
+            <%--通知新闻类--%>
+            <div class="infor">
+                <div class="notice">
+                    <div class="title_notice">通知公告</div>
                 </div>
             </div>
         </div>
