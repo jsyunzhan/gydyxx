@@ -24,4 +24,12 @@ public interface NoticeManagementService {
      * @return Boolean
      */
     Boolean noticeEdit(NoticeEntity noticeEntity);
+
+    /**
+     * 首页公告删除
+     * @param id id
+     * @param loginId 更新id
+     * @return Boolean
+     */
+    Boolean noticeDelete(Long id, Long loginId);
 }

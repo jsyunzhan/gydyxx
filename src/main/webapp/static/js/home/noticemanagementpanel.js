@@ -144,4 +144,29 @@ $(function () {
             $editNoticeWin.window('close');
         }
     });
+
+
+    /************删除*************/
+
+    function removeHandle() {
+        if (!selectedNotice) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+
+
+        var msg = String.format("您确定要删除公告：<span style='color: red;'>{0}</span>？", selectedNotice.noticeTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/noticemanpage/delete/"+selectedNotice.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $noticeGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
 });

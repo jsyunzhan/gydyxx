@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -85,6 +86,24 @@ public class NoticeManagementController extends AbstractActionController{
             }
             Boolean flag =  noticeManagementService.noticeEdit(noticeEntity);
 
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
+    }
+
+    @RequestMapping(value = NOTICE_MANAGEMENT_DELETE)
+    @ResponseBody
+    public JsonResponseVO noticeDelete(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("公告消息删除,id:{}",id);
+            }
+            Boolean flag =  noticeManagementService.noticeDelete(id,getLoginId());
             jsonResponseVO.setSuccess(flag);
         }catch (Exception e){
             LOGGER.error("业务处理异常:",e);

@@ -26,4 +26,9 @@ public final class HomeWebURLMapping {
      * 消息管理修改
      */
     public static final String NOTICE_MANAGEMENT_EDIT = NOTICE_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 消息管理删除
+     */
+    public static final String NOTICE_MANAGEMENT_DELETE = NOTICE_MANAGEMENT_PAGE + "/delete/{id}";
 }

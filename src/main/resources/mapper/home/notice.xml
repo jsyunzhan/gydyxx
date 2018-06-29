@@ -52,4 +52,13 @@
         WHERE ID=#{id}
     </update>
 
+    <!--删除-->
+    <update id="noticeDelete">
+        UPDATE t_sys_notice SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
 </mapper>
