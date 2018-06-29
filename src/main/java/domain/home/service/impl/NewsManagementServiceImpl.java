@@ -42,4 +42,16 @@ public class NewsManagementServiceImpl implements NewsManagementService{
         pageQueryResult.setTotal(count);
         return pageQueryResult;
     }
+
+    @Override
+    public Boolean newsAdd(NewsEntity newsEntity) {
+
+        final Boolean flag = newsDao.newsAdd(newsEntity) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("新闻新增:",flag);
+        }
+
+        return flag;
+    }
 }

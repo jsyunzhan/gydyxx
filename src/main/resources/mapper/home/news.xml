@@ -28,16 +28,22 @@
     </select>
 
     <!--首页公告新增-->
-    <insert id="noticeAdd" >
-        INSERT INTO t_home_notice
+    <insert id="newsAdd" >
+        INSERT INTO t_home_news
         (
-        NOTICE_TITLE,
-        NOTICE_DETAILS,
+        NEWS_TITLE,
+        NEWS_DETAILS,
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH,
+        </if>
         CREATE_USER_ID,
         CREATE_DATA
         ) VALUE (
-        #{noticeTitle},
-        #{noticeDetails},
+        #{newsTitle},
+        #{newsDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            #{picturePath},
+        </if>
         #{createUserId},
         NOW()
         )

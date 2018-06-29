@@ -24,7 +24,7 @@ $(function () {
             {
                 text: "新增", iconCls: 'icon-add',
                 handler: function () {
-                    $addNoticeWin.window('open');
+                    $addNewsWin.window('open');
                 }
             },
             {
@@ -57,6 +57,49 @@ $(function () {
         },
         onLoadSuccess: function () {
             selectedNews = $newsGrid.datagrid('getSelected');
+        }
+    });
+
+    /*************新增*******************/
+
+    var $addNewsForm = $('#addNewsForm').form({
+        novalidate: true
+    });
+
+    var $addNewsWin = $('#addNewsWin').window({
+        title: "新增", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
+        footer: '#addNewsWinFooter',
+        onClose: function () {
+            $('#addNewsForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#addNewsWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#addMessageForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var newsData = $addNewsForm.serializeObject(),
+                url = path + "/home/newsmanpage/add";
+
+
+            $.ajax({
+                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(newsData),
+                success:function (r) {
+                    $newsGrid.datagrid('reload');
+                    $addNewsWin.window('close');
+                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                }
+            })
+
+        }
+    });
+
+    $('#addNewsWinCloseBtn').linkbutton({
+        onClick: function () {
+            $addNewsWin.window('close');
         }
     });
 

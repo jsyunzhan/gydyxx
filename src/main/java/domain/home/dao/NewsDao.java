@@ -20,4 +20,11 @@ public interface NewsDao {
      * @return List<NewsEntity>
      */
     List<NewsEntity> newsListInfo(NewsEntity newsEntity);
+
+    /**
+     * 新闻新增
+     * @param newsEntity 新增实体
+     * @return Integer
+     */
+    Integer newsAdd(NewsEntity newsEntity);
 }
