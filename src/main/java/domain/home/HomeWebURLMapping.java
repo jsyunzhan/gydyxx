@@ -47,4 +47,9 @@ public final class HomeWebURLMapping {
      * 新闻管理新增
      */
     public static final String NEWS_MANAGEMENT_ADD = NEWS_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 新闻管理修改
+     */
+    public static final String NEWS_MANAGEMENT_EDIT = NEWS_MANAGEMENT_PAGE + "/edit";
 }

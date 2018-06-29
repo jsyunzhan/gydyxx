@@ -27,4 +27,11 @@ public interface NewsDao {
      * @return Integer
      */
     Integer newsAdd(NewsEntity newsEntity);
+
+    /**
+     * 新闻修改
+     * @param newsEntity 修改实体
+     * @return Integer
+     */
+    Integer newsEdit(NewsEntity newsEntity);
 }

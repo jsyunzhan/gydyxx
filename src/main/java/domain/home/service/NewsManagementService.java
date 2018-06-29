@@ -12,9 +12,16 @@ public interface NewsManagementService {
     PageQueryResult newsListInfo(NewsEntity newsEntity);
 
     /**
-     * 新增中心新增
+     * 新闻中心新增
      * @param newsEntity 新增实体
      * @return Boolean
      */
     Boolean newsAdd(NewsEntity newsEntity);
+
+    /**
+     * 新闻中心修改
+     * @param newsEntity 修改实体
+     * @return Boolean
+     */
+    Boolean newsEdit(NewsEntity newsEntity);
 }

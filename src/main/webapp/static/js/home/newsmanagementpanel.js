@@ -31,11 +31,11 @@ $(function () {
                 text: "修改", iconCls: 'icon-edit',
                 handler: function () {
 
-                    if (!selectedNotice) {
+                    if (!selectedNews) {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
-                        $editNoticeForm.form('load', selectedNotice);
-                        $editNoticeWin.window('open');
+                        $editNewsForm.form('load', selectedNews);
+                        $editNewsWin.window('open');
                     }
 
                 }
@@ -100,6 +100,48 @@ $(function () {
     $('#addNewsWinCloseBtn').linkbutton({
         onClick: function () {
             $addNewsWin.window('close');
+        }
+    });
+
+    /*************修改*******************/
+
+    var $editNewsForm = $('#editNewsForm').form({
+        novalidate: true
+    });
+
+    var $editNewsWin = $('#editNewsWin').window({
+        title: "新增", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
+        footer: '#editNewsWinFooter',
+        onClose: function () {
+            $('#editNewsForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#editNewsWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#editNewsForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var newsData = $editNewsForm.serializeObject(),
+                url = path + "/home/newsmanpage/edit";
+            newsData.id = selectedNews.id;
+            $.ajax({
+                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(newsData),
+                success:function (r) {
+                    $newsGrid.datagrid('reload');
+                    $editNewsWin.window('close');
+                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                }
+            })
+
+        }
+    });
+
+    $('#editNewsWinCloseBtn').linkbutton({
+        onClick: function () {
+            $editNewsWin.window('close');
         }
     });
 

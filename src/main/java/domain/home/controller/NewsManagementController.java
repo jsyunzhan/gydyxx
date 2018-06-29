@@ -72,4 +72,28 @@ public class NewsManagementController extends AbstractActionController{
 
         return jsonResponseVO;
     }
+
+    /**
+     * 新闻修改
+     * @param newsEntity 修改实体
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = NEWS_MANAGEMENT_EDIT)
+    @ResponseBody
+    public JsonResponseVO newsEdit(@RequestBody NewsEntity newsEntity){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("新闻修改,newsTitle:{}",newsEntity.getNewsTitle());
+            }
+            newsEntity.setCreateUserId(getLoginId());
+            final Boolean flag = newsManagementService.newsEdit(newsEntity);
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
+    }
 }
