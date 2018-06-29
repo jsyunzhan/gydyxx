@@ -124,12 +124,27 @@
             </div>
 
             <%--通知新闻类--%>
-            <div class="infor">
+            <div class="infor clearfix">
                 <div class="notice">
                     <div class="title_notice">通知公告</div>
                     <div class="content_notice">
-                        <div class="notification">公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                        <div class="notification">公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                        <div class="notice_scroll">
+                            <div class="notification">1.公公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                            <div class="notification">2.公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                            <div class="notification">3.公告公告公告公告公告公公告公告公告公告公告</div>
+                            <div class="notification">4.公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                            <div class="notification">5.公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                            <div class="notification">6.公告公告公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="news">
+                    <div class="title_news">
+                        新闻中心丨News Center
+                        <a href="javascript:;">更多<span><img src=""></span></a>
+                    </div>
+                    <div class="content_news">
+
                     </div>
                 </div>
             </div>

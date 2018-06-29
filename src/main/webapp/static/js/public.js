@@ -12,11 +12,11 @@ function rollDisplay(obj,speedtime,stoptime){
     var obj = obj;
     var speedtime = speedtime;
     var stoptime = stoptime;
+    var roll_one = $(obj);
+    var roll_two = $(obj).children();
+    var roll_three = $(obj).children().children();
+    var long = roll_three.css("height");
     function rolltimer(){
-        var roll_one = $(obj);
-        var roll_two = $(obj).children();
-        var roll_three = $(obj).children().children();
-        var long = roll_three.css("line-height");
         roll_two.animate({"margin-top":"-"+long},speedtime,function(){
             var odiv = $(obj+" div"+" div:nth-child(1)");
             odiv.remove();

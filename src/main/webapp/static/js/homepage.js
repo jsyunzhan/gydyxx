@@ -21,7 +21,6 @@ $(function () {
         loop:true,
         pagination: '.pagination',
         autoplayDisableOnInteraction : false,
-
     });
     $(".arrow-left").on("click", function(e){
         e.preventDefault();
@@ -32,6 +31,7 @@ $(function () {
         banner.swipeNext();
     })
 
-
+    // 滚动通知
+    rollDisplay(".content_notice",2000,2000)
 
 })
