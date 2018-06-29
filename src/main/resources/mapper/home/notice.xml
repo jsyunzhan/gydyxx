@@ -6,7 +6,7 @@
     <!--查总数-->
     <select id="noticeCount" resultType="Integer">
         SELECT COUNT(*)
-        FROM t_sys_notice t
+        FROM t_home_notice t
         WHERE t.DELETE_FLAG='1'
     </select>
 
@@ -20,7 +20,7 @@
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,
         t.UPDATE_DATA updateDate
-        FROM t_sys_notice t
+        FROM t_home_notice t
         WHERE t.DELETE_FLAG='1'
         ORDER BY t.CREATE_DATA
         LIMIT #{rows} OFFSET #{page}
@@ -28,7 +28,7 @@
 
     <!--首页公告新增-->
     <insert id="noticeAdd" >
-        INSERT INTO t_sys_notice
+        INSERT INTO t_home_notice
         (
         NOTICE_TITLE,
         NOTICE_DETAILS,
@@ -44,7 +44,7 @@
 
     <!--修改-->
     <update id="noticeEdit">
-        UPDATE t_sys_notice SET
+        UPDATE t_home_notice SET
         NOTICE_TITLE=#{noticeTitle},
         NOTICE_DETAILS=#{noticeDetails},
         UPDATE_USER_ID=#{updateUserId},
@@ -54,7 +54,7 @@
 
     <!--删除-->
     <update id="noticeDelete">
-        UPDATE t_sys_notice SET
+        UPDATE t_home_notice SET
         DELETE_FLAG='0',
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()
