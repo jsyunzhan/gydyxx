@@ -187,8 +187,71 @@
             </div>
 
             <%--功能模块快捷方式--%>
-            <div class="">
-
+            <div class="infor clearfix">
+                <div class="icon">
+                    <img src="../static/images/icon01.png">
+                    <div class="icon_font">学校概况</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon02.png">
+                    <div class="icon_font">通知公告</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon03.png">
+                    <div class="icon_font">校园新闻</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon04.png">
+                    <div class="icon_font">责任督学</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon05.png">
+                    <div class="icon_font">文明创建</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon06.png">
+                    <div class="icon_font">党建工会</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon07.png">
+                    <div class="icon_font">校长信箱</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon08.png">
+                    <div class="icon_font">班本课程</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon09.png">
+                    <div class="icon_font">教育科研</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon10.png">
+                    <div class="icon_font">校园节庆</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon11.png">
+                    <div class="icon_font">精品社区</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon12.png">
+                    <div class="icon_font">家校心桥</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon13.png">
+                    <div class="icon_font">教学资源</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon14.png">
+                    <div class="icon_font">校本培训</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon15.png">
+                    <div class="icon_font">健康教育</div>
+                </div>
+                <div class="icon">
+                    <img src="../static/images/icon16.png">
+                    <div class="icon_font">法制校园</div>
+                </div>
             </div>
         </div>
     </div>

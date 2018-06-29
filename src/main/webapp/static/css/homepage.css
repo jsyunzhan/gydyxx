@@ -330,3 +330,15 @@
     vertical-align: middle;
     margin-right: 5px;
 }
+
+/*功能模块快捷方式*/
+.infor .icon{
+    float: left;
+    width: 12.5%;
+}
+
+.infor .icon .icon_font{
+    text-align: center;
+    line-height: 40px;
+    color: #565656;
+}
