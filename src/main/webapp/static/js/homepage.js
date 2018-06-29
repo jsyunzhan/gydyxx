@@ -14,7 +14,7 @@ $(function () {
         $(this).find(".second_title").hide();
     });
 
-    // 轮播图
+    // banner轮播图
     var banner = new Swiper(".banner",{
         autoplay : 3000,
         speed: 1000,
@@ -33,5 +33,14 @@ $(function () {
 
     // 滚动通知
     rollDisplay(".content_notice",2000,2000)
+
+    // 新闻轮播图
+    var news_banner = new Swiper(".news_banner",{
+        autoplay : 3000,
+        speed: 1000,
+        loop:true,
+        pagination: '.pagination01',
+        autoplayDisableOnInteraction : false,
+    });
 
 })

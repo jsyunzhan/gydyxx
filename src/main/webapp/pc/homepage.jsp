@@ -141,12 +141,54 @@
                 <div class="news">
                     <div class="title_news">
                         新闻中心丨News Center
-                        <a href="javascript:;">更多<span><img src=""></span></a>
+                        <a href="javascript:;">更多<span><img src="../static/images/more.png"></span></a>
                     </div>
                     <div class="content_news">
-
+                        <div class="main_title">
+                            新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题
+                        </div>
+                        <div class="secondary_title">
+                            新闻副标题新闻副标题新闻副标题<a href="javascript:;">[更多]</a>
+                        </div>
+                    </div>
+                    <div class="main_content clearfix">
+                        <div class="main_content_left">
+                            <div class="swiper-container news_banner">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="../static/images/news.jpg">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../static/images/news.jpg">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="../static/images/news.jpg">
+                                    </div>
+                                </div>
+                                <div class="pagination01"></div>
+                                <div class="newsPic_title"></div>
+                                <div class="newsPic_font">
+                                    <div>标题</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_content_right">
+                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
+                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
+                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
+                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
+                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
+                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
+                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
+                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <%--功能模块快捷方式--%>
+            <div class="">
+
             </div>
         </div>
     </div>
