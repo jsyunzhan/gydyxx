@@ -17,7 +17,6 @@
     <script type="text/javascript"
             src="<c:url value="/static/js/home/newsmanagementpanel.js"/>"></script>
 </head>
-<body>
 <body class="easyui-layout">
 
 
@@ -104,5 +103,5 @@
 <%--</div>--%>
 
 </body>
-</body>
+
 </html>
