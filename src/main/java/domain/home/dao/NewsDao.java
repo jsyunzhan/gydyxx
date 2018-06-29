@@ -1,0 +1,23 @@
+package domain.home.dao;
+
+import domain.home.entity.NewsEntity;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface NewsDao {
+    /**
+     * 新闻管理分页个数
+     * @param newsEntity newsEntity
+     * @return Integer
+     */
+    Integer newsCount(NewsEntity newsEntity);
+
+    /**
+     * 新闻管理分页
+     * @param newsEntity 分页实体
+     * @return List<NewsEntity>
+     */
+    List<NewsEntity> newsListInfo(NewsEntity newsEntity);
+}

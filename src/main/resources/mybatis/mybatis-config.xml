@@ -10,6 +10,7 @@
         <typeAlias alias="RoleEntityInfo" type="domain.system.entity.RoleEntity"/>
         <typeAlias alias="ParamEntityInfo" type="domain.shiro.entity.ParamEntity"/>
         <typeAlias alias="NoticeEntityInfo" type="domain.home.entity.NoticeEntity"/>
+        <typeAlias alias="NewsEntityInfo" type="domain.home.entity.NewsEntity"/>
     </typeAliases>
 
 </configuration>

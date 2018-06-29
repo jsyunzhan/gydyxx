@@ -6,29 +6,40 @@ public final class HomeWebURLMapping {
 
     public static final String HOME_ROOT = "/home/";
 
-    /*******************消息管理*************************/
+    /*******************通知管理*************************/
     /**
-     * 去消息管理页面
+     * 去通知管理页面
      */
     public static final String NOTICE_MANAGEMENT_PAGE = HOME_ROOT + "noticemanpage";
 
     /**
-     * 消息管理分页
+     * 通知管理分页
      */
     public static final String NOTICE_MANAGEMENT_LIST = NOTICE_MANAGEMENT_PAGE + "/list";
 
     /**
-     * 消息管理新增
+     * 通知管理新增
      */
     public static final String NOTICE_MANAGEMENT_ADD = NOTICE_MANAGEMENT_PAGE + "/add";
 
     /**
-     * 消息管理修改
+     * 通知管理修改
      */
     public static final String NOTICE_MANAGEMENT_EDIT = NOTICE_MANAGEMENT_PAGE + "/edit";
 
     /**
-     * 消息管理删除
+     * 通知管理删除
      */
     public static final String NOTICE_MANAGEMENT_DELETE = NOTICE_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************新闻管理*************************/
+    /**
+     * 去新闻管理页面
+     */
+    public static final String NEWS_MANAGEMENT_PAGE = HOME_ROOT + "newsmanpage";
+
+    /**
+     * 新闻管理分页
+     */
+    public static final String NEWS_MANAGEMENT_LIST = NEWS_MANAGEMENT_PAGE + "/list";
 }

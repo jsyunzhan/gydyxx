@@ -1,0 +1,45 @@
+package domain.home.service.impl;
+
+import domain.home.dao.NewsDao;
+import domain.home.entity.NewsEntity;
+import domain.home.service.NewsManagementService;
+import domain.shiro.entity.PageQueryResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+import static com.google.common.collect.Lists.newArrayList;
+
+@Service
+@Transactional
+public class NewsManagementServiceImpl implements NewsManagementService{
+    private static final Logger LOGGER = LoggerFactory.getLogger(NewsManagementServiceImpl.class);
+
+    final private NewsDao newsDao;
+
+    @Autowired
+    public NewsManagementServiceImpl(NewsDao newsDao){
+        this.newsDao = newsDao;
+    }
+
+    @Override
+    public PageQueryResult newsListInfo(NewsEntity newsEntity) {
+        final PageQueryResult pageQueryResult = new PageQueryResult();
+
+        final Integer count = newsDao.newsCount(newsEntity);
+
+        List<NewsEntity> newsEntities = newArrayList();
+
+        if (count > 0){
+            newsEntities = newsDao.newsListInfo(newsEntity);
+        }
+
+        pageQueryResult.setRows(newsEntities);
+        pageQueryResult.setTotal(count);
+        return pageQueryResult;
+    }
+}
