@@ -145,4 +145,27 @@ $(function () {
         }
     });
 
+    /************删除*************/
+
+    function removeHandle() {
+        if (!selectedNews) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+
+
+        var msg = String.format("您确定要删除新闻：<span style='color: red;'>{0}</span>？", selectedNews.newsTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/newsmanpage/delete/"+selectedNews.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $newsGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
 });

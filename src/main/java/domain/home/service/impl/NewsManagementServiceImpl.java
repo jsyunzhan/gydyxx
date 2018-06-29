@@ -65,4 +65,16 @@ public class NewsManagementServiceImpl implements NewsManagementService{
 
         return flag;
     }
+
+    @Override
+    public Boolean newsDelete(Long id, Long loginId) {
+
+        final Boolean flag = newsDao.newsDelete(id,loginId) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("新闻删除:",flag);
+        }
+
+        return flag;
+    }
 }

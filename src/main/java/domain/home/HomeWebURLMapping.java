@@ -52,4 +52,9 @@ public final class HomeWebURLMapping {
      * 新闻管理修改
      */
     public static final String NEWS_MANAGEMENT_EDIT = NEWS_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 新闻管理删除
+     */
+    public static final String NEWS_MANAGEMENT_DELETE = NEWS_MANAGEMENT_PAGE + "/delete/{id}";
 }

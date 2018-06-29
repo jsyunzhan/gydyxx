@@ -24,4 +24,12 @@ public interface NewsManagementService {
      * @return Boolean
      */
     Boolean newsEdit(NewsEntity newsEntity);
+
+    /**
+     * 新闻中心删除
+     * @param id id
+     * @param loginId 登录id
+     * @return Boolean
+     */
+    Boolean newsDelete(Long id, Long loginId);
 }

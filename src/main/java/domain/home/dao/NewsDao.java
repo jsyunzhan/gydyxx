@@ -1,6 +1,7 @@
 package domain.home.dao;
 
 import domain.home.entity.NewsEntity;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,4 +35,12 @@ public interface NewsDao {
      * @return Integer
      */
     Integer newsEdit(NewsEntity newsEntity);
+
+    /**
+     * 新闻删除
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Integer
+     */
+    Integer newsDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 }
