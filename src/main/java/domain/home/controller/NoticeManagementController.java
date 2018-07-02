@@ -5,16 +5,19 @@ import domain.home.service.NoticeManagementService;
 import domain.shiro.controller.AbstractActionController;
 import domain.shiro.entity.JsonResponseVO;
 import domain.shiro.entity.PageQueryResult;
+import org.apache.shiro.codec.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
+import java.util.List;
+
+import static com.google.common.collect.Lists.newArrayList;
 import static domain.home.HomeWebForward.TO_NOTICE_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -110,5 +113,20 @@ public class NoticeManagementController extends AbstractActionController{
         }
 
         return jsonResponseVO;
+    }
+
+    @RequestMapping(value = NOTICE_MANAGEMENT_PICTURE)
+    @ResponseBody
+    public List<String> picture(@RequestParam("file")MultipartFile[] fileByte) throws IOException {
+
+        List<String> strings = newArrayList();
+
+        for (MultipartFile file:
+        fileByte) {
+            final String string64 = Base64.encodeToString(file.getBytes());
+            strings.add(string64);
+        }
+
+        return strings;
     }
 }

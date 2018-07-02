@@ -32,6 +32,11 @@ public final class HomeWebURLMapping {
      */
     public static final String NOTICE_MANAGEMENT_DELETE = NOTICE_MANAGEMENT_PAGE + "/delete/{id}";
 
+    /**
+     * 通知管理图片
+     */
+    public static final String NOTICE_MANAGEMENT_PICTURE = NOTICE_MANAGEMENT_PAGE + "/picture";
+
     /*******************新闻管理*************************/
     /**
      * 去新闻管理页面

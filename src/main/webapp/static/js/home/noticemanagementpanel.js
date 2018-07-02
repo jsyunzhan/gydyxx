@@ -169,4 +169,53 @@ $(function () {
         })
     }
 
+    /***************************图片上传*********************************************/
+    $('#pictureNoticeUploadBtnAdd,#pictureNoticeUploadBtnEdit').linkbutton({
+        onClick: function () {
+            $pictureNoticeWin.window('open');
+        }
+    });
+
+    $('#pictureNoticeWinCloseBtn').linkbutton({
+        onClick: function () {
+            $pictureNoticeWin.window('close');
+        }
+    });
+
+    var $pictureNoticeWin = $('#pictureNoticeWin').window({
+        title: "图片上传",
+        closed: true,
+        modal: true,
+        height: 155,
+        width: 400,
+        iconCls: 'icon-add',
+        collapsible: false,
+        minimizable: false,
+        footer: '#pictureNoticeWinFooter',
+        onClose: function () {
+            $('#distributionLogoUploadForm').form('reset');
+        }
+    });
+
+    $('#pictureNoticeWinSubmitBtn').linkbutton({
+        onClick: function () {
+            var $pictureNoticeForm = $('#pictureNoticeForm');
+
+            $.ajax({
+                url: path + "/home/noticemanpage/picture",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data : new FormData($pictureNoticeForm[0]),
+                success:function (data) {
+                    console.log(data);
+                    $pictureNoticeWin.window('close');
+                }
+            });
+
+        }
+    });
+
+
 });
