@@ -43,4 +43,13 @@ $(function () {
         autoplayDisableOnInteraction : false,
     });
 
+    /*功能模块快捷方式*/
+    $(".infor .icon").mouseover(function(){
+        $(".infor .icon .icon_font").css("color","#565656");
+        $(this).find(".icon_font").css("color","#ce6e0a");
+    })
+    $(".infor .icon").mouseout(function(){
+        $(".infor .icon .icon_font").css("color","#565656");
+    })
+
 })

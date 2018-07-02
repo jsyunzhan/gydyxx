@@ -253,6 +253,36 @@
                     <div class="icon_font">法制校园</div>
                 </div>
             </div>
+
+            <%--校史--%>
+            <div class="infor clearfix">
+                <div class="history">
+                    <div class="title_news">
+                        校史天地丨School History
+                        <a href="javascript:;">更多<span><img src="../static/images/more.png"></span></a>
+                    </div>
+                    <div class="history_con">
+                        <div class="history_list">关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项</div>
+                        <div class="history_list">关于某活动获得奖项</div>
+                        <div class="history_list">关于某活动获得奖项</div>
+                        <div class="history_list">关于某活动获得奖项</div>
+                        <div class="history_list">关于某活动获得奖项</div>
+                        <div class="history_list">关于某活动获得奖项</div>
+                    </div>
+                    <div class="link">
+                        <a href="javascript:;" class="linking">友情链接丨LINK</a>
+                        <a href="javascript:;" class="linking">国家教育资源平台</a>
+                    </div>
+                </div>
+                <div class="exhibition">
+                    <div class="ex_child">
+                        <div class="title_news">
+                            <img src="">
+                            <a href="javascript:;">更多<span><img src="../static/images/more.png"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
