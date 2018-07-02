@@ -71,6 +71,8 @@ $(function () {
         width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
         footer: '#addNoticeWinFooter',
         onClose: function () {
+            $('#pictureNoticeForm').form('reset');
+            $('#addPicture').empty();
             $('#addNoticeForm').form('disableValidation').form('reset');
         }
     });
@@ -86,13 +88,29 @@ $(function () {
 
 
             $.ajax({
-                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(noticeData),
+                url: path + "/home/noticemanpage/pictureUpload",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureNoticeForm')[0]),
                 success:function (r) {
-                    $noticeGrid.datagrid('reload');
-                    $addNoticeWin.window('close');
-                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                    noticeData.picturePath = r;
+                    console.log(r);
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(noticeData),
+                        success:function (r) {
+                            $noticeGrid.datagrid('reload');
+                            $addNoticeWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
                 }
-            })
+            });
+
+
+
 
         }
     });
@@ -202,7 +220,7 @@ $(function () {
             var $pictureNoticeForm = $('#pictureNoticeForm');
 
             $.ajax({
-                url: path + "/home/noticemanpage/picture",
+                url: path + "/home/noticemanpage/pictureDetail",
                 type:'POST',
                 cache: false,
                 contentType: false,

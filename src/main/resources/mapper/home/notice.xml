@@ -32,11 +32,17 @@
         (
         NOTICE_TITLE,
         NOTICE_DETAILS,
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH,
+        </if>
         CREATE_USER_ID,
         CREATE_DATA
         ) VALUE (
         #{noticeTitle},
         #{noticeDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            #{picturePath},
+        </if>
         #{createUserId},
         NOW()
         )
@@ -47,6 +53,9 @@
         UPDATE t_home_notice SET
         NOTICE_TITLE=#{noticeTitle},
         NOTICE_DETAILS=#{noticeDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH=#{picturePath},
+        </if>
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()
         WHERE ID=#{id}
