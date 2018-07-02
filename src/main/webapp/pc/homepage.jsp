@@ -274,12 +274,139 @@
                         <a href="javascript:;" class="linking">国家教育资源平台</a>
                     </div>
                 </div>
-                <div class="exhibition">
+                <div class="exhibition clearfix">
+
+                    <%--作品展示--%>
                     <div class="ex_child">
-                        <div class="title_news">
-                            <img src="">
-                            <a href="javascript:;">更多<span><img src="../static/images/more.png"></span></a>
+                        <div class="title_ex">
+                            <img src="../static/images/title_01.jpg">
+                            <a href="javascript:;">更多></a>
                         </div>
+                        <div class="content_ex">
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                        </div>
+                    </div>
+
+                    <%--名师风采--%>
+                    <div class="ex_child">
+                        <div class="title_ex">
+                            <img src="../static/images/title_02.jpg">
+                            <a href="javascript:;">更多></a>
+                        </div>
+                        <div class="content_ex">
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                        </div>
+                    </div>
+
+                    <%--学习风采--%>
+                    <div class="ex_child">
+                        <div class="title_ex">
+                            <img src="../static/images/title_03.jpg">
+                            <a href="javascript:;">更多></a>
+                        </div>
+                        <div class="content_ex">
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                        </div>
+                    </div>
+
+                    <%--课题研究--%>
+                    <div class="ex_child">
+                        <div class="title_ex">
+                            <img src="../static/images/title_04.jpg">
+                            <a href="javascript:;">更多></a>
+                        </div>
+                        <div class="content_ex">
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <%--学校风采--%>
+            <div class="infor">
+                <div class="mien">
+                    <img src="../static/images/mien.png">
+                    <div class="title_mien">
+                        <img src="../static/images/school_fc.png">
+                    </div>
+                    <div class="swiper-container mien_pic">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide clearfix">
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                                <div class="mien_pic_child">
+                                    <img src="../static/images/image_01.jpg">
+                                    <img src="../static/images/frame.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pagination02"></div>
                     </div>
                 </div>
             </div>

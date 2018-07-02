@@ -20,6 +20,7 @@ $(function () {
         speed: 1000,
         loop:true,
         pagination: '.pagination',
+        paginationClickable: true,
         autoplayDisableOnInteraction : false,
     });
     $(".arrow-left").on("click", function(e){
@@ -40,6 +41,7 @@ $(function () {
         speed: 1000,
         loop:true,
         pagination: '.pagination01',
+        paginationClickable: true,
         autoplayDisableOnInteraction : false,
     });
 
@@ -52,4 +54,13 @@ $(function () {
         $(".infor .icon .icon_font").css("color","#565656");
     })
 
+    // 学校风采图片切换
+    var mien_pic = new Swiper(".mien_pic",{
+        autoplay : 5000,
+        speed: 1000,
+        loop:true,
+        pagination: '.pagination02',
+        paginationClickable: true,
+        autoplayDisableOnInteraction : false,
+    });
 })
