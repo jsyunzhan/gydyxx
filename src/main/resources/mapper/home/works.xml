@@ -50,18 +50,21 @@
     </insert>
 
     <!--修改-->
-    <update id="noticeEdit">
-        UPDATE t_home_notice SET
-        NOTICE_TITLE=#{noticeTitle},
-        NOTICE_DETAILS=#{noticeDetails},
+    <update id="worksEdit">
+        UPDATE t_home_works SET
+        WORKS_TITLE=#{worksTitle},
+        WORKS_DETAILS=#{worksDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH=#{picturePath},
+        </if>
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()
         WHERE ID=#{id}
     </update>
 
     <!--删除-->
-    <update id="noticeDelete">
-        UPDATE t_home_notice SET
+    <update id="worksDelete">
+        UPDATE t_home_works SET
         DELETE_FLAG='0',
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()

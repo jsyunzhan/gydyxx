@@ -73,4 +73,14 @@ public final class HomeWebURLMapping {
      * 作品管理新增
      */
     public static final String WORKS_MANAGEMENT_ADD = WROKS_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 作品管理修改
+     */
+    public static final String WORKS_MANAGEMENT_EDIT = WROKS_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 作品管理删除
+     */
+    public static final String WORKS_MANAGEMENT_DELETE = WROKS_MANAGEMENT_PAGE + "/delete/{id}";
 }

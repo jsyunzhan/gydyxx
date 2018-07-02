@@ -1,6 +1,7 @@
 package domain.home.dao;
 
 import domain.home.entity.WorksEntity;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -27,4 +28,19 @@ public interface WroksDao {
      * @return Integer
      */
     Integer worksAdd(WorksEntity worksEntity);
+
+    /**
+     * 作品修改
+     * @param worksEntity 修改实体
+     * @return Integer
+     */
+    Integer worksEdit(WorksEntity worksEntity);
+
+    /**
+     * 作品删除
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Integer
+     */
+    Integer worksDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 }

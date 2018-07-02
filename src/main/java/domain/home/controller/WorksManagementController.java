@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -52,6 +53,11 @@ public class WorksManagementController extends AbstractActionController{
         return wroksManagementService.worksListInfo(worksEntity);
     }
 
+    /**
+     * 作品新增
+     * @param worksEntity 新增实体
+     * @return JsonResponseVO
+     */
     @RequestMapping(value = WORKS_MANAGEMENT_ADD)
     @ResponseBody
     public JsonResponseVO worksAdd(@RequestBody WorksEntity worksEntity){
@@ -71,4 +77,55 @@ public class WorksManagementController extends AbstractActionController{
 
         return jsonResponseVO;
     }
+
+    /**
+     * 作品修改
+     * @param worksEntity 修改实体
+     * @return jsonResponseVO
+     */
+    @RequestMapping(value = WORKS_MANAGEMENT_EDIT)
+    @ResponseBody
+     public JsonResponseVO worksEdit(@RequestBody WorksEntity worksEntity){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+         worksEntity.setUpdateUserId(getLoginId());
+
+         try {
+             if (LOGGER.isDebugEnabled()){
+                 LOGGER.debug("作品展示修改,title:{}",worksEntity.getWorksTitle());
+             }
+             Boolean flag =  wroksManagementService.worksEdit(worksEntity);
+
+             jsonResponseVO.setSuccess(flag);
+         }catch (Exception e){
+             LOGGER.error("业务处理异常:",e);
+         }
+
+        return jsonResponseVO;
+
+     }
+
+    /**
+     * 作品删除
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = WORKS_MANAGEMENT_DELETE)
+    @ResponseBody
+     public JsonResponseVO worksDelete(@PathVariable("id") Long id){
+         final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+         try {
+             if (LOGGER.isDebugEnabled()){
+                 LOGGER.debug("作品展示删除,id:{}",id);
+             }
+             final Boolean flag =  wroksManagementService.worksDelete(id,getLoginId());
+
+             jsonResponseVO.setSuccess(flag);
+         }catch (Exception e){
+             LOGGER.error("业务处理异常:",e);
+         }
+
+         return jsonResponseVO;
+     }
+
 }

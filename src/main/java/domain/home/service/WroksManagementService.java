@@ -17,4 +17,19 @@ public interface WroksManagementService {
      * @return Boolean
      */
     Boolean worksAdd(WorksEntity worksEntity);
+
+    /**
+     * 作品管理修改
+     * @param worksEntity 修改实体
+     * @return Boolean
+     */
+    Boolean worksEdit(WorksEntity worksEntity);
+
+    /**
+     * 作品管理删除
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean worksDelete(Long id, Long loginId);
 }
