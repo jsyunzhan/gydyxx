@@ -9,5 +9,10 @@ public final class HomeWebForward {
      */
     public static final String TO_NOTICE_PAGE = "home/noticemanagementpanel";
 
+    /**
+     * 去新闻管理页面
+     */
     public static final String TO_NEWS_PAGE = "home/newsmanagementpanel";
+
+    public static final String TO_WROKS_PAGE = "home/wroksmanagementpanel";
 }

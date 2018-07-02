@@ -57,4 +57,10 @@ public final class HomeWebURLMapping {
      * 新闻管理删除
      */
     public static final String NEWS_MANAGEMENT_DELETE = NEWS_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************作品管理*************************/
+    /**
+     * 去作品管理页面
+     */
+    public static final String WROKS_MANAGEMENT_PAGE = HOME_ROOT + "worksmanpage";
 }
