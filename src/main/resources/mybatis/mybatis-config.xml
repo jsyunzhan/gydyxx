@@ -11,6 +11,7 @@
         <typeAlias alias="ParamEntityInfo" type="domain.shiro.entity.ParamEntity"/>
         <typeAlias alias="NoticeEntityInfo" type="domain.home.entity.NoticeEntity"/>
         <typeAlias alias="NewsEntityInfo" type="domain.home.entity.NewsEntity"/>
+        <typeAlias alias="WorksEntityInfo" type="domain.home.entity.WorksEntity"/>
     </typeAliases>
 
 </configuration>

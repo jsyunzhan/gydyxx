@@ -1,12 +1,18 @@
 package domain.home.service.impl;
 
 import domain.home.dao.WroksDao;
+import domain.home.entity.WorksEntity;
 import domain.home.service.WroksManagementService;
+import domain.shiro.entity.PageQueryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+import static com.google.common.collect.Lists.newArrayList;
 
 
 @Service
@@ -21,4 +27,32 @@ public class WroksManagementServiceImpl implements WroksManagementService{
         this.wroksDao = wroksDao;
     }
 
+    @Override
+    public PageQueryResult worksListInfo(WorksEntity worksEntity) {
+        PageQueryResult pageQueryResult = new PageQueryResult();
+
+        List<WorksEntity> worksEntities = newArrayList();
+
+        final Integer count = wroksDao.worksCount(worksEntity);
+
+        if (count > 0){
+            worksEntities = wroksDao.worksListInfo(worksEntity);
+        }
+
+        pageQueryResult.setTotal(count);
+        pageQueryResult.setRows(worksEntities);
+        return pageQueryResult;
+    }
+
+    @Override
+    public Boolean worksAdd(WorksEntity worksEntity) {
+
+        final Boolean flag = wroksDao.worksAdd(worksEntity) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("作品新增结果:",flag);
+        }
+
+        return flag;
+    }
 }

@@ -17,7 +17,6 @@
     <script type="text/javascript"
             src="<c:url value="/static/js/home/noticemanagementpanel.js"/>"></script>
 </head>
-<body>
 <body class="easyui-layout">
 
 
@@ -103,6 +102,5 @@
     </div>
 </div>
 
-</body>
 </body>
 </html>
