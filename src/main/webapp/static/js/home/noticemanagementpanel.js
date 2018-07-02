@@ -208,8 +208,14 @@ $(function () {
                 contentType: false,
                 processData: false,
                 data : new FormData($pictureNoticeForm[0]),
-                success:function (data) {
-                    console.log(data);
+                success:function (r) {
+                    var addPicture = $('#addPicture');
+                    addPicture.empty();
+
+                    for (var i=0;i<r.length;i++){
+                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                        addPicture.append(picture);
+                    }
                     $pictureNoticeWin.window('close');
                 }
             });

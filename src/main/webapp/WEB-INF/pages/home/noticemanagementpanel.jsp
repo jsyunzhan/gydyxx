@@ -58,6 +58,8 @@
             </a>
 
         </div>
+
+        <div width="200" id="addPicture"></div>
     </form>
 
     <div id="addNoticeWinFooter" style="text-align:center;padding:5px">
