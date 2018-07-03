@@ -105,8 +105,9 @@
                style="margin-right:20px;">
                 图片上传
             </a>
-
         </div>
+
+        <div width="200" id="editPicture"></div>
     </form>
 
     <div id="editNoticeWinFooter" style="text-align:center;padding:5px">
@@ -121,12 +122,13 @@
     </div>
 </div>
 
+<!--图片上传窗口-->
 <div id="pictureNoticeWin">
     <div data-options="region:'north',collapsible:false">
 
         <form id='pictureNoticeForm' enctype="multipart/form-data" class="control-form">
             <div style="padding:20px">
-                <input id="distributionLogoUploadFile" type="file" name='file' multiple accept=".jpg"/>
+                <input type="file" name='file' multiple accept=".jpg"/>
             </div>
         </form>
 

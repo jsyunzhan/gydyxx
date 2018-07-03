@@ -48,6 +48,17 @@
             </tr>
 
         </table>
+
+        <div style="text-align:center;padding:10px 5px">
+            <a id="pictureWorksUploadBtnAdd" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
+               class="easyui-linkbutton"
+               style="margin-right:20px;">
+                图片上传
+            </a>
+
+        </div>
+
+        <div width="200" id="addPicture"></div>
     </form>
 
     <div id="addWorksWinFooter" style="text-align:center;padding:5px">
@@ -87,6 +98,17 @@
             </tr>
 
         </table>
+
+        <div style="text-align:center;padding:10px 5px">
+            <a id="pictureWorksUploadBtnEdit" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
+               class="easyui-linkbutton"
+               style="margin-right:20px;">
+                图片上传
+            </a>
+
+        </div>
+
+        <div width="200" id="editPicture"></div>
     </form>
 
     <div id="editWorksWinFooter" style="text-align:center;padding:5px">
@@ -95,6 +117,29 @@
             确认
         </a>
         <a id="editWorksWinCloseBtn" href="javascript:void(0);" iconCls="icon-cancel" style="margin-left:20px;"
+           class="easyui-linkbutton">
+            取消
+        </a>
+    </div>
+</div>
+
+<!--图片上传窗口-->
+<div id="pictureWorksWin">
+    <div data-options="region:'north',collapsible:false">
+
+        <form id='pictureWorksForm' enctype="multipart/form-data" class="control-form">
+            <div style="padding:20px">
+                <input type="file" name='file' multiple accept=".jpg"/>
+            </div>
+        </form>
+
+    </div>
+    <div id="pictureWorksWinFooter" style="text-align:center;padding:5px">
+        <a id="pictureWorksWinSubmitBtn" href="javascript:void(0);" iconCls="icon-ok" class="easyui-linkbutton"
+           style="margin-right:20px;">
+            确认
+        </a>
+        <a id="pictureWorksWinCloseBtn" href="javascript:void(0);" iconCls="icon-cancel" style="margin-left:20px;"
            class="easyui-linkbutton">
             取消
         </a>

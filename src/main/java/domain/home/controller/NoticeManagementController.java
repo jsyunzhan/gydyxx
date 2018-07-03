@@ -17,6 +17,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Calendar;
 import java.util.List;
 
@@ -146,7 +148,7 @@ public class NoticeManagementController extends AbstractActionController{
      */
     @RequestMapping(value = NOTICE_MANAGEMENT_PICTURE_UPLOAD,produces="text/html; charset=UTF-8")
     @ResponseBody
-    public String pictureComment(@RequestParam("file") MultipartFile[] fileArray) throws IOException {
+    public String pictureComment(@PathVariable("name") String name,@RequestParam("file") MultipartFile[] fileArray) throws IOException {
 
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -166,7 +168,7 @@ public class NoticeManagementController extends AbstractActionController{
             if(!file.isEmpty()) {
 
                 //文件存放路径
-                String dirPath = "D:/image/通知公告/" + userName + "/" + year + "/" + month + "/" +data;
+                String dirPath = "D:/image/"+name+"/" + userName + "/" + year + "/" + month + "/" +data;
                 //创建文件夹
                 File dir = new File(dirPath);
                 if (!dir.exists()){
@@ -199,5 +201,35 @@ public class NoticeManagementController extends AbstractActionController{
         }
 
         return picturePath;
+    }
+
+    /**
+     *
+     * @param noticeEntity
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping(value = NOTICE_MANAGEMENT_PICTURE_SHOW)
+    @ResponseBody
+    public String[] getPictureByte(@RequestBody NoticeEntity noticeEntity) throws IOException {
+
+        //获取图片路径
+        final String path = noticeEntity.getPicturePath();
+        //获取图片路径地址
+        final String[] pathArr=path.split(",");
+        //需要返回的base64数组
+        String[] base64Array = new String[pathArr.length];
+
+        for (int i=0;i<pathArr.length;i++){
+            //图片地址
+            String pahtStr = pathArr[i];
+            //获取数组
+            byte[] imageByte = Files.readAllBytes(Paths.get(pahtStr));
+            //转码
+            String base64String= java.util.Base64.getEncoder().encodeToString(imageByte);
+            //添加到64数组
+            base64Array[i] = base64String;
+        }
+        return base64Array;
     }
 }
