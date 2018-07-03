@@ -423,10 +423,16 @@
 }
 
 .history .link .linking .linking_list p{
+    display: block;
     border: 1px solid #915519;
     margin-top: -1px;
     background: #fff;
     color: #6d6e73;
+}
+
+.history .link .linking .linking_list .linkChoose{
+    color: #f12312;
+
 }
 
 /*展示模块*/
@@ -554,3 +560,11 @@
     text-align: center;
 }
 
+/*飘窗*/
+.floatImage{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    z-index: 20;
+}

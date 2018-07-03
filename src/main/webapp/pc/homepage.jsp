@@ -274,15 +274,15 @@
                     </div>
                     <div class="link">
                         <a href="javascript:;" class="linking">友情链接丨LINK</a>
-                        <a href="javascript:;" class="linking">
+                        <a href="javascript:;" class="linking platform">
                             国家教育资源平台
                             <span><img src="../static/images/down.png"></span>
-                            <div class="linking_list">
-                                <p>江苏基础教育平台</p>
-                                <p>校本教研星级平台</p>
-                                <p>扬州智慧校园平台</p>
-                                <p>教育装备管理平台</p>
-                                <p>超星校园阅读系统</p>
+                            <div class="linking_list none">
+                                <p onclick='window.location.href = "http://www.baidu.com"'>江苏基础教育平台</p>
+                                <p onclick='window.location.href = "http://www.baidu.com"'>校本教研星级平台</p>
+                                <p onclick='window.location.href = "http://www.baidu.com"'>扬州智慧校园平台</p>
+                                <p onclick='window.location.href = "http://www.baidu.com"'>教育装备管理平台</p>
+                                <p onclick='window.location.href = "http://www.baidu.com"'>超星校园阅读系统</p>
                             </div>
                         </a>
                     </div>
@@ -442,7 +442,11 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+<div class="floatImage">
+    <img src="../static/images/icon01.png">
+</div>
+
 </body>
 </html>

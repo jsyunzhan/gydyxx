@@ -20,6 +20,10 @@ img{
     border: 0;
 }
 
+.none{
+    display: none;
+}
+
 /*清浮动，支持IE8+*/
 .clearfix:after{
     content:"";

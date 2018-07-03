@@ -63,4 +63,27 @@ $(function () {
         paginationClickable: true,
         autoplayDisableOnInteraction : false,
     });
+
+    // 平台链接
+    $(".platform").mouseover(function(){
+        $(".linking_list").show();
+        $(".linking_list p").mouseover(function () {
+            $(this).addClass("linkChoose");
+        })
+        $(".linking_list p").mouseout(function () {
+            $(this).removeClass("linkChoose");
+        })
+    })
+    $(".platform").mouseout(function(){
+        $(".linking_list").hide();
+    })
+
+    // 飘窗
+    var floatImage01 = new imgFloat(".floatImage",{
+        "time":10,
+        "speedx":2,
+        "speedy":3
+    })
+    floatImage01.resize();
+    floatImage01.move();
 })

@@ -69,7 +69,6 @@ imgFloat.prototype.resize = function(){
 
 imgFloat.prototype.move = function(){
     var This = this;
-    console.log(This.imgTop,This.imgLeft);
     setInterval(function(){
         if (This.top == true&&This.imgTop >= This.y) {
             This.top = false;
