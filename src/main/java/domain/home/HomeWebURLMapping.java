@@ -98,4 +98,15 @@ public final class HomeWebURLMapping {
      * 作品管理删除
      */
     public static final String WORKS_MANAGEMENT_DELETE = WROKS_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************名师风采管理*************************/
+    /**
+     * 去名师风采管理页面
+     */
+    public static final String TEACHER_MANAGEMENT_PAGE = HOME_ROOT + "teachermanpage";
+
+    /**
+     * 名师风采分页
+     */
+    public static final String TEACHER_MANAGEMENT_LIST = TEACHER_MANAGEMENT_PAGE + "/list";
 }

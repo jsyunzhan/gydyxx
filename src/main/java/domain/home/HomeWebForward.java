@@ -14,5 +14,13 @@ public final class HomeWebForward {
      */
     public static final String TO_NEWS_PAGE = "home/newsmanagementpanel";
 
+    /**
+     * 去新闻管理页面
+     */
     public static final String TO_WROKS_PAGE = "home/wroksmanagementpanel";
+
+    /**
+     * 去名师风采管理页面
+     */
+    public static final String TO_TEACHER_PAGE = "home/teachermanagementpanel";
 }

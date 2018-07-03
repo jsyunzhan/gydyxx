@@ -12,6 +12,7 @@
         <typeAlias alias="NoticeEntityInfo" type="domain.home.entity.NoticeEntity"/>
         <typeAlias alias="NewsEntityInfo" type="domain.home.entity.NewsEntity"/>
         <typeAlias alias="WorksEntityInfo" type="domain.home.entity.WorksEntity"/>
+        <typeAlias alias="TeacherEntityInfo" type="domain.home.entity.TeacherEntity"/>
     </typeAliases>
 
 </configuration>
