@@ -14,11 +14,15 @@ public class NoticeEntity extends AbstractEntity{
     //公告内容
     private String noticeDetails;
 
+    //图片地址
+    private String picturePath;
+
     @Override
     public String toString() {
         return "NoticeEntity{" +
                 "noticeTitle='" + noticeTitle + '\'' +
                 ", noticeDetails='" + noticeDetails + '\'' +
+                ", picturePath='" + picturePath + '\'' +
                 '}';
     }
 }

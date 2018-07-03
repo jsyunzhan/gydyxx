@@ -49,6 +49,17 @@
             </tr>
 
         </table>
+
+        <div style="text-align:center;padding:10px 5px">
+            <a id="pictureNoticeUploadBtnAdd" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
+               class="easyui-linkbutton"
+               style="margin-right:20px;">
+                图片上传
+            </a>
+
+        </div>
+
+        <div width="200" id="addPicture"></div>
     </form>
 
     <div id="addNoticeWinFooter" style="text-align:center;padding:5px">
@@ -86,8 +97,16 @@
                 <td width="200"><input class="easyui-textbox control" style="height: 200px;width: 300px" name="noticeDetails" required="required"
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
             </tr>
-
         </table>
+
+        <div style="text-align:center;padding:10px 5px">
+            <a id="pictureNoticeUploadBtnEdit" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
+               class="easyui-linkbutton"
+               style="margin-right:20px;">
+                图片上传
+            </a>
+
+        </div>
     </form>
 
     <div id="editNoticeWinFooter" style="text-align:center;padding:5px">
@@ -96,6 +115,28 @@
             确认
         </a>
         <a id="editNoticeWinCloseBtn" href="javascript:void(0);" iconCls="icon-cancel" style="margin-left:20px;"
+           class="easyui-linkbutton">
+            取消
+        </a>
+    </div>
+</div>
+
+<div id="pictureNoticeWin">
+    <div data-options="region:'north',collapsible:false">
+
+        <form id='pictureNoticeForm' enctype="multipart/form-data" class="control-form">
+            <div style="padding:20px">
+                <input id="distributionLogoUploadFile" type="file" name='file' multiple accept=".jpg"/>
+            </div>
+        </form>
+
+    </div>
+    <div id="pictureNoticeWinFooter" style="text-align:center;padding:5px">
+        <a id="pictureNoticeWinSubmitBtn" href="javascript:void(0);" iconCls="icon-ok" class="easyui-linkbutton"
+           style="margin-right:20px;">
+            确认
+        </a>
+        <a id="pictureNoticeWinCloseBtn" href="javascript:void(0);" iconCls="icon-cancel" style="margin-left:20px;"
            class="easyui-linkbutton">
             取消
         </a>

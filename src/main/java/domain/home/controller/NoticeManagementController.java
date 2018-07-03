@@ -5,16 +5,22 @@ import domain.home.service.NoticeManagementService;
 import domain.shiro.controller.AbstractActionController;
 import domain.shiro.entity.JsonResponseVO;
 import domain.shiro.entity.PageQueryResult;
+import net.coobird.thumbnailator.Thumbnails;
+import org.apache.shiro.codec.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.List;
+
+import static com.google.common.collect.Lists.newArrayList;
 import static domain.home.HomeWebForward.TO_NOTICE_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -110,5 +116,88 @@ public class NoticeManagementController extends AbstractActionController{
         }
 
         return jsonResponseVO;
+    }
+
+    /**
+     * 通知管理图片显示
+     * @param fileByte 文件
+     * @return List<String>
+     * @throws IOException io异常
+     */
+    @RequestMapping(value = NOTICE_MANAGEMENT_PICTURE_DETAIL)
+    @ResponseBody
+    public List<String> pictureDetail(@RequestParam("file")MultipartFile[] fileByte) throws IOException {
+
+        List<String> strings = newArrayList();
+
+        for (MultipartFile file:
+        fileByte) {
+            final String string64 = Base64.encodeToString(file.getBytes());
+            strings.add(string64);
+        }
+        return strings;
+    }
+
+    /**
+     * 图片上传
+     * @param fileArray 文件数组
+     * @return String 文件存放路径
+     * @throws IOException io异常
+     */
+    @RequestMapping(value = NOTICE_MANAGEMENT_PICTURE_UPLOAD,produces="text/html; charset=UTF-8")
+    @ResponseBody
+    public String pictureComment(@RequestParam("file") MultipartFile[] fileArray) throws IOException {
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH )+1;
+        int data = cal.get(Calendar.DATE);
+        int hour = cal.get(Calendar.HOUR);
+        int minute = cal.get(Calendar.MINUTE);
+        int second = cal.get(Calendar.SECOND);
+        //用户名称名称
+        final String userName = getUserName();
+
+        String picturePath = "";
+
+        for (int i=0;i<fileArray.length;i++){
+            MultipartFile file = fileArray[i];
+
+            if(!file.isEmpty()) {
+
+                //文件存放路径
+                String dirPath = "D:/image/通知公告/" + userName + "/" + year + "/" + month + "/" +data;
+                //创建文件夹
+                File dir = new File(dirPath);
+                if (!dir.exists()){
+                    dir.mkdirs();
+                }
+
+                //获取上传文件的文件名
+                String oFileName=file.getOriginalFilename();
+                //截取文件后缀名
+                String suffix = oFileName.substring(oFileName.indexOf("."),oFileName.length());
+
+                //文件名
+                String newFileName = year + "" + month + "" + data + "" + hour + "" + minute + "" + second + "" + i +suffix;
+
+                //文件的绝对路径
+                String realPath = dirPath+"/"+newFileName;
+                picturePath += realPath;
+                picturePath += ",";
+                //创建文件
+                File tempFile = new File(realPath);
+
+                try {
+                    // 先尝试压缩并保存图片
+                    Thumbnails.of(file.getInputStream()).scale(1f).outputQuality(0.25f).toFile(tempFile);
+                } catch (IOException e) {
+                    //文件转换
+                    file.transferTo(tempFile);
+                }
+            }
+        }
+
+        return picturePath;
     }
 }
