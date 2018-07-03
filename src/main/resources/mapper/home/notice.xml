@@ -16,6 +16,7 @@
         t.ID id,
         t.NOTICE_TITLE noticeTitle,
         t.NOTICE_DETAILS noticeDetails,
+        t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,

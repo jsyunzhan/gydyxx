@@ -33,9 +33,14 @@ public final class HomeWebURLMapping {
     public static final String NOTICE_MANAGEMENT_DELETE = NOTICE_MANAGEMENT_PAGE + "/delete/{id}";
 
     /**
-     * 通知管理图片显示
+     * 文件上传回显
      */
     public static final String NOTICE_MANAGEMENT_PICTURE_DETAIL = NOTICE_MANAGEMENT_PAGE + "/pictureDetail";
+
+    /**
+     * 根据文件路径显示
+     */
+    public static final String NOTICE_MANAGEMENT_PICTURE_SHOW = HOME_ROOT + "picture/show";
 
     /**
      * 通知管理图上传

@@ -105,8 +105,9 @@
                style="margin-right:20px;">
                 图片上传
             </a>
-
         </div>
+
+        <div width="200" id="editPicture"></div>
     </form>
 
     <div id="editNoticeWinFooter" style="text-align:center;padding:5px">

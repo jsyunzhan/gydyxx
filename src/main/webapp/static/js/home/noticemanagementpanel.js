@@ -35,6 +35,24 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editNoticeForm.form('load', selectedNotice);
+
+                        var url = path + "/home/picture/show";
+                        $.ajax({
+                            url:url,type:"POST",contentType: "application/json",data:JSON.stringify(selectedNotice),
+                            success:function (r) {
+
+                                var pictureDiv = $('#editPicture');
+                                pictureDiv.empty();
+
+                                for (var i=0;i<r.length;i++){
+                                    var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                                    pictureDiv.append(picture);
+                                }
+
+                            }
+                        });
+
+
                         $editNoticeWin.window('open');
                     }
 
@@ -72,7 +90,7 @@ $(function () {
         footer: '#addNoticeWinFooter',
         onClose: function () {
             $('#pictureNoticeForm').form('reset');
-            $('#addPicture').empty();
+            $('#addPicture,#editPicture').empty();
             $('#addNoticeForm').form('disableValidation').form('reset');
         }
     });
@@ -97,7 +115,7 @@ $(function () {
                 data : new FormData($('#pictureNoticeForm')[0]),
                 success:function (r) {
                     noticeData.picturePath = r;
-                    console.log(r);
+
                     $.ajax({
                         url:url,type:"POST",contentType: "application/json",data:JSON.stringify(noticeData),
                         success:function (r) {
@@ -132,6 +150,8 @@ $(function () {
         width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
         footer: '#editNoticeWinFooter',
         onClose: function () {
+            $('#pictureNoticeForm').form('reset');
+            $('#addPicture,#editPicture').empty();
             $('#editNoticeForm').form('disableValidation').form('reset');
         }
     });
@@ -145,14 +165,35 @@ $(function () {
             var noticeData = $editNoticeForm.serializeObject(),
                 url = path + "/home/noticemanpage/edit";
             noticeData.id = selectedNotice.id;
+
             $.ajax({
-                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(noticeData),
+                url: path + "/home/noticemanpage/pictureUpload",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureNoticeForm')[0]),
                 success:function (r) {
-                    $noticeGrid.datagrid('reload');
-                    $editNoticeWin.window('close');
-                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                    noticeData.picturePath = r;
+                    console.log(r);
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(noticeData),
+                        success:function (r) {
+                            $noticeGrid.datagrid('reload');
+                            $editNoticeWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
                 }
-            })
+            });
+
+
+
+
+
+
+
 
         }
     });
@@ -227,12 +268,12 @@ $(function () {
                 processData: false,
                 data : new FormData($pictureNoticeForm[0]),
                 success:function (r) {
-                    var addPicture = $('#addPicture');
-                    addPicture.empty();
+                    var pictureDiv = $('#addPicture,#editPicture');
+                    pictureDiv.empty();
 
                     for (var i=0;i<r.length;i++){
                         var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
-                        addPicture.append(picture);
+                        pictureDiv.append(picture);
                     }
                     $pictureNoticeWin.window('close');
                 }
