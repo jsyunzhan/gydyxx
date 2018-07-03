@@ -444,9 +444,18 @@
         </div>
     </div>
 
-<div class="floatImage">
+<a href="javascript:;" class="floatImage floatImage01">
     <img src="../static/images/icon01.png">
-</div>
+    <div class="imgClose">
+        <img src="../static/images/more1.png">
+    </div>
+</a>
+<a href="javascript:;" class="floatImage floatImage02">
+    <img src="../static/images/icon02.png">
+    <div class="imgClose">
+        <img src="../static/images/more1.png">
+    </div>
+</a>
 
 </body>
 </html>

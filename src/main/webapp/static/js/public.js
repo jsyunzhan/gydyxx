@@ -53,6 +53,8 @@ function imgFloat(obj,setting){
     this.imgLeft = parseInt($(obj).css("left"));
     this.top = true;
     this.left = true;
+    this.timer = null;
+    this.fun01 = null;
     extend(this.defaultparam,setting);
 }
 
@@ -69,7 +71,7 @@ imgFloat.prototype.resize = function(){
 
 imgFloat.prototype.move = function(){
     var This = this;
-    setInterval(function(){
+    function fun01(){
         if (This.top == true&&This.imgTop >= This.y) {
             This.top = false;
         }else if(This.top == false&&This.imgTop <= 0){
@@ -94,7 +96,14 @@ imgFloat.prototype.move = function(){
             This.imgLeft -= This.defaultparam.speedx;
         }
         $(This.name).css({"top":This.imgTop,"left":This.imgLeft});
-    },this.defaultparam.time);
+    }
+    this.timer = setInterval(fun01,this.defaultparam.time);
+    $(this.name).mouseover(function(){
+        clearInterval(This.timer);
+    })
+    $(this.name).mouseout(function(){
+        This.timer = setInterval(fun01,This.defaultparam.time);
+    })
 }
 
 // 弹窗

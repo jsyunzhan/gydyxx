@@ -79,11 +79,22 @@ $(function () {
     })
 
     // 飘窗
-    var floatImage01 = new imgFloat(".floatImage",{
-        "time":10,
-        "speedx":2,
-        "speedy":3
+    var floatImage01 = new imgFloat(".floatImage01",{
+        "time":5,
+        "speedx":1,
+        "speedy":1.5
     })
     floatImage01.resize();
     floatImage01.move();
+
+    var floatImage02 = new imgFloat(".floatImage02",{
+        "time":3,
+        "speedx":1,
+        "speedy":1
+    })
+    floatImage02.resize();
+    floatImage02.move();
+    $(".floatImage .imgClose").click(function(){
+        $(this).parent(".floatImage").remove();
+    })
 })

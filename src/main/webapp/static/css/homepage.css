@@ -314,6 +314,7 @@
     width: 100%;
     background: #000;
     opacity: 0.5;
+    filter:alpha(opacity=50);
     height: 30px;
 }
 
@@ -562,9 +563,17 @@
 
 /*飘窗*/
 .floatImage{
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100px;
+    width: 200px;
     z-index: 20;
+}
+
+.floatImage .imgClose{
+    position: absolute;
+    right: -30px;
+    top: 0;
+    width: 30px;
 }
