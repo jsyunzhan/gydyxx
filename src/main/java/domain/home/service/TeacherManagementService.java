@@ -24,4 +24,12 @@ public interface TeacherManagementService {
      * @return Boolean
      */
     Boolean teacherEdit(TeacherEntity teacherEntity);
+
+    /**
+     * 名师风采杀出
+     * @param id id
+     * @param loginId 当前登录
+     * @return Boolean
+     */
+    Boolean teacherDelete(Long id, Long loginId);
 }

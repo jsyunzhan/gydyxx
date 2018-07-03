@@ -199,6 +199,28 @@ $(function () {
         }
     });
 
+    /************删除*************/
+
+    function removeHandle() {
+        if (!selectedTeacher) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+
+
+        var msg = String.format("您确定要删除名师风采：<span style='color: red;'>{0}</span>？", selectedTeacher.teacherTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/teachermanpage/delete/"+selectedTeacher.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $teacherGrid.datagrid('reload');
+                }
+            })
+        })
+    }
 
     /***************************图片上传*********************************************/
     $('#pictureTeacherUploadBtnAdd,#pictureTeacherUploadBtnEdit').linkbutton({

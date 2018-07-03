@@ -119,4 +119,9 @@ public final class HomeWebURLMapping {
      * 名师风采修改
      */
     public static final String TEACHER_MANAGEMENT_EDIT= TEACHER_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 名师风采删除
+     */
+    public static final String TEACHER_MANAGEMENT_DELETE= TEACHER_MANAGEMENT_PAGE + "/delete/{id}";
 }

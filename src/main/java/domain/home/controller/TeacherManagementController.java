@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -93,6 +94,30 @@ public class TeacherManagementController extends AbstractActionController{
                 LOGGER.debug("名师风采修改,title:{}",teacherEntity.getTeacherTitle());
             }
             Boolean flag =  teacherManagementService.teacherEdit(teacherEntity);
+
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
+    }
+
+    /**
+     * 名师风采删除
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = TEACHER_MANAGEMENT_DELETE)
+    @ResponseBody
+    public JsonResponseVO teacherDelete(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("名师风采删除,id:{}",id);
+            }
+            Boolean flag =  teacherManagementService.teacherDelete(id,getLoginId());
 
             jsonResponseVO.setSuccess(flag);
         }catch (Exception e){

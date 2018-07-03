@@ -65,4 +65,13 @@ public class TeacherManagementServiceImpl implements TeacherManagementService{
 
         return flag;
     }
+
+    @Override
+    public Boolean teacherDelete(Long id, Long loginId) {
+        final Boolean flag = teacherDao.teacherDelete(id,loginId) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("名师风采删除结果:",flag);
+        }
+        return flag;
+    }
 }
