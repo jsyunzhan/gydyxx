@@ -27,4 +27,11 @@ public interface TeacherDao {
      * @return Integer
      */
     Integer teacherAdd(TeacherEntity teacherEntity);
+
+    /**
+     * 名师风采修改
+     * @param teacherEntity 修改实体
+     * @return Integer
+     */
+    Integer teacherEdit(TeacherEntity teacherEntity);
 }

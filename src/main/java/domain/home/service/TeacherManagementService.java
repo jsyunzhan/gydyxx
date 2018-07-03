@@ -17,4 +17,11 @@ public interface TeacherManagementService {
      * @return Boolean
      */
     Boolean teacherAdd(TeacherEntity teacherEntity);
+
+    /**
+     * 名师风采修改
+     * @param teacherEntity 修改实体
+     * @return Boolean
+     */
+    Boolean teacherEdit(TeacherEntity teacherEntity);
 }

@@ -54,4 +54,15 @@ public class TeacherManagementServiceImpl implements TeacherManagementService{
 
         return flag;
     }
+
+    @Override
+    public Boolean teacherEdit(TeacherEntity teacherEntity) {
+        final Boolean flag = teacherDao.teacherEdit(teacherEntity) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("名师风采修改结果:",flag);
+        }
+
+        return flag;
+    }
 }

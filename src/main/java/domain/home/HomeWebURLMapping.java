@@ -114,4 +114,9 @@ public final class HomeWebURLMapping {
      * 名师风采新增
      */
     public static final String TEACHER_MANAGEMENT_ADD = TEACHER_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 名师风采修改
+     */
+    public static final String TEACHER_MANAGEMENT_EDIT= TEACHER_MANAGEMENT_PAGE + "/edit";
 }

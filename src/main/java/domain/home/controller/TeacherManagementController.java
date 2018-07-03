@@ -76,4 +76,29 @@ public class TeacherManagementController extends AbstractActionController{
 
         return jsonResponseVO;
     }
+
+    /**
+     * 名师风采修改
+     * @param teacherEntity 修改实体
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = TEACHER_MANAGEMENT_EDIT)
+    @ResponseBody
+    public JsonResponseVO teacherEdit(@RequestBody TeacherEntity teacherEntity){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        teacherEntity.setUpdateUserId(getLoginId());
+
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("名师风采修改,title:{}",teacherEntity.getTeacherTitle());
+            }
+            Boolean flag =  teacherManagementService.teacherEdit(teacherEntity);
+
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
+    }
 }

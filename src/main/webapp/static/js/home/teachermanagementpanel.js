@@ -31,12 +31,12 @@ $(function () {
                 text: "修改", iconCls: 'icon-edit',
                 handler: function () {
 
-                    if (!selectedWorks) {
+                    if (!selectedTeacher) {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
-                        $editWorksForm.form('load', selectedWorks);
+                        $editTeacherForm.form('load', selectedTeacher);
 
-                        var data = {picturePath:selectedWorks.picturePath};
+                        var data = {picturePath:selectedTeacher.picturePath};
 
                         var url = path + "/home/picture/show";
                         $.ajax({
@@ -54,7 +54,7 @@ $(function () {
                             }
                         });
 
-                        $editWorksWin.window('open');
+                        $editTeacherWin.window('open');
                     }
 
                 }
@@ -138,9 +138,70 @@ $(function () {
         }
     });
 
+    /*************修改*******************/
+
+    var $editTeacherForm = $('#editTeacherForm').form({
+        novalidate: true
+    });
+
+    var $editTeacherWin = $('#editTeacherWin').window({
+        title: "修改", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
+        footer: '#editTeacherWinFooter',
+        onClose: function () {
+            $('#pictureTeacherForm').form('reset');
+            $('#addPicture,#editPicture').empty();
+            $('#editTeacherForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#editTeacherWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#editTeacherForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var teacherData = $editTeacherForm.serializeObject(),
+                url = path + "/home/teachermanpage/edit";
+            teacherData.id = selectedTeacher.id;
+
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureUpload/名师风采",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureTeacherForm')[0]),
+                success:function (r) {
+                    teacherData.picturePath = r;
+
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(teacherData),
+                        success:function (r) {
+                            $teacherGrid.datagrid('reload');
+                            $editTeacherWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
+                }
+            });
+
+
+
+        }
+    });
+
+    $('#editTeacherWinCloseBtn').linkbutton({
+        onClick: function () {
+            $editTeacherWin.window('close');
+        }
+    });
+
 
     /***************************图片上传*********************************************/
-    $('#pictureTeacherUploadBtnAdd,#pictureNewsUploadBtnEdit').linkbutton({
+    $('#pictureTeacherUploadBtnAdd,#pictureTeacherUploadBtnEdit').linkbutton({
         onClick: function () {
             $pictureTeacherWin.window('open');
         }
