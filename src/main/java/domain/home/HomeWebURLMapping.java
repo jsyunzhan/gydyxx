@@ -45,7 +45,7 @@ public final class HomeWebURLMapping {
     /**
      * 通知管理图上传
      */
-    public static final String NOTICE_MANAGEMENT_PICTURE_UPLOAD = NOTICE_MANAGEMENT_PAGE + "/pictureUpload";
+    public static final String NOTICE_MANAGEMENT_PICTURE_UPLOAD = NOTICE_MANAGEMENT_PAGE + "/pictureUpload/{name}";
 
     /*******************新闻管理*************************/
     /**

@@ -122,12 +122,13 @@
     </div>
 </div>
 
+<!--图片上传窗口-->
 <div id="pictureNoticeWin">
     <div data-options="region:'north',collapsible:false">
 
         <form id='pictureNoticeForm' enctype="multipart/form-data" class="control-form">
             <div style="padding:20px">
-                <input id="distributionLogoUploadFile" type="file" name='file' multiple accept=".jpg"/>
+                <input type="file" name='file' multiple accept=".jpg"/>
             </div>
         </form>
 

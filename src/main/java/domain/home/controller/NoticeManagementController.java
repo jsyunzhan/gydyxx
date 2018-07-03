@@ -148,7 +148,7 @@ public class NoticeManagementController extends AbstractActionController{
      */
     @RequestMapping(value = NOTICE_MANAGEMENT_PICTURE_UPLOAD,produces="text/html; charset=UTF-8")
     @ResponseBody
-    public String pictureComment(@RequestParam("file") MultipartFile[] fileArray) throws IOException {
+    public String pictureComment(@PathVariable("name") String name,@RequestParam("file") MultipartFile[] fileArray) throws IOException {
 
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -168,7 +168,7 @@ public class NoticeManagementController extends AbstractActionController{
             if(!file.isEmpty()) {
 
                 //文件存放路径
-                String dirPath = "D:/image/通知公告/" + userName + "/" + year + "/" + month + "/" +data;
+                String dirPath = "D:/image/"+name+"/" + userName + "/" + year + "/" + month + "/" +data;
                 //创建文件夹
                 File dir = new File(dirPath);
                 if (!dir.exists()){

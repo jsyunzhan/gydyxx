@@ -35,6 +35,25 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editNewsForm.form('load', selectedNews);
+
+                        var data = {picturePath:selectedNews.picturePath};
+
+                        var url = path + "/home/picture/show";
+                        $.ajax({
+                            url:url,type:"POST",contentType: "application/json",data:JSON.stringify(data),
+                            success:function (r) {
+
+                                var pictureDiv = $('#editPicture');
+                                pictureDiv.empty();
+
+                                for (var i=0;i<r.length;i++){
+                                    var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                                    pictureDiv.append(picture);
+                                }
+
+                            }
+                        });
+
                         $editNewsWin.window('open');
                     }
 
@@ -71,6 +90,8 @@ $(function () {
         width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
         footer: '#addNewsWinFooter',
         onClose: function () {
+            $('#pictureNewsForm').form('reset');
+            $('#addPicture,#editPicture').empty();
             $('#addNewsForm').form('disableValidation').form('reset');
         }
     });
@@ -84,15 +105,29 @@ $(function () {
             var newsData = $addNewsForm.serializeObject(),
                 url = path + "/home/newsmanpage/add";
 
-
             $.ajax({
-                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(newsData),
+                url: path + "/home/noticemanpage/pictureUpload/新闻中心",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureNewsForm')[0]),
                 success:function (r) {
-                    $newsGrid.datagrid('reload');
-                    $addNewsWin.window('close');
-                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                    newsData.picturePath = r;
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(newsData),
+                        success:function (r) {
+                            $newsGrid.datagrid('reload');
+                            $addNewsWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
                 }
-            })
+            });
+
+
+
 
         }
     });
@@ -114,6 +149,8 @@ $(function () {
         width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
         footer: '#editNewsWinFooter',
         onClose: function () {
+            $('#pictureNewsForm').form('reset');
+            $('#addPicture,#editPicture').empty();
             $('#editNewsForm').form('disableValidation').form('reset');
         }
     });
@@ -127,14 +164,31 @@ $(function () {
             var newsData = $editNewsForm.serializeObject(),
                 url = path + "/home/newsmanpage/edit";
             newsData.id = selectedNews.id;
+
+
             $.ajax({
-                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(newsData),
+                url: path + "/home/noticemanpage/pictureUpload/新闻中心",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureNewsForm')[0]),
                 success:function (r) {
-                    $newsGrid.datagrid('reload');
-                    $editNewsWin.window('close');
-                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                    newsData.picturePath = r;
+
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(newsData),
+                        success:function (r) {
+                            $newsGrid.datagrid('reload');
+                            $editNewsWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
                 }
-            })
+            });
+
+
 
         }
     });
@@ -167,5 +221,60 @@ $(function () {
             })
         })
     }
+
+
+    /***************************图片上传*********************************************/
+    $('#pictureNewsUploadBtnAdd,#pictureNewsUploadBtnEdit').linkbutton({
+        onClick: function () {
+            $pictureNewsWin.window('open');
+        }
+    });
+
+    $('#pictureNewsWinCloseBtn').linkbutton({
+        onClick: function () {
+            $pictureNewsWin.window('close');
+        }
+    });
+
+    var $pictureNewsWin = $('#pictureNewsWin').window({
+        title: "图片上传",
+        closed: true,
+        modal: true,
+        height: 155,
+        width: 400,
+        iconCls: 'icon-add',
+        collapsible: false,
+        minimizable: false,
+        footer: '#pictureNewsWinFooter',
+        onClose: function () {
+
+        }
+    });
+
+    $('#pictureNewsWinSubmitBtn').linkbutton({
+        onClick: function () {
+            var $pictureNewsForm = $('#pictureNewsForm');
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureDetail",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data : new FormData($pictureNewsForm[0]),
+                success:function (r) {
+                    var pictureDiv = $('#addPicture,#editPicture');
+                    pictureDiv.empty();
+
+                    for (var i=0;i<r.length;i++){
+                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                        pictureDiv.append(picture);
+                    }
+                    $pictureNewsWin.window('close');
+                }
+            });
+
+        }
+    });
 
 });

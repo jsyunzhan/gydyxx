@@ -55,7 +55,7 @@
         NEWS_TITLE=#{newsTitle},
         NEWS_DETAILS=#{newsDetails},
         <if test="picturePath!=null and picturePath!=''">
-            PICTURE_PATH={picturePath}
+            PICTURE_PATH=#{picturePath},
         </if>
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()

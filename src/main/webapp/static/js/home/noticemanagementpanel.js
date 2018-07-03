@@ -106,7 +106,7 @@ $(function () {
 
 
             $.ajax({
-                url: path + "/home/noticemanpage/pictureUpload",
+                url: path + "/home/noticemanpage/pictureUpload/通知公告",
                 type:'POST',
                 cache: false,
                 contentType: false,
@@ -167,7 +167,7 @@ $(function () {
             noticeData.id = selectedNotice.id;
 
             $.ajax({
-                url: path + "/home/noticemanpage/pictureUpload",
+                url: path + "/home/noticemanpage/pictureUpload/通知公告",
                 type:'POST',
                 cache: false,
                 contentType: false,
@@ -252,7 +252,7 @@ $(function () {
         minimizable: false,
         footer: '#pictureNoticeWinFooter',
         onClose: function () {
-            $('#distributionLogoUploadForm').form('reset');
+
         }
     });
 
