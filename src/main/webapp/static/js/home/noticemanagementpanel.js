@@ -158,7 +158,7 @@ $(function () {
 
     $('#editNoticeWinSubmitBtn').linkbutton({
         onClick: function () {
-            if (!$('#editMessageForm').form('enableValidation').form('validate')) {
+            if (!$('#editNoticeForm').form('enableValidation').form('validate')) {
                 return;
             }
 
