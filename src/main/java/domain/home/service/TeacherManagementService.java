@@ -10,4 +10,11 @@ public interface TeacherManagementService {
      * @return PageQueryResult
      */
     PageQueryResult teacherList(TeacherEntity teacherEntity);
+
+    /**
+     * 名师风采新增
+     * @param teacherEntity 新增实体
+     * @return Boolean
+     */
+    Boolean teacherAdd(TeacherEntity teacherEntity);
 }

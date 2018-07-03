@@ -42,4 +42,16 @@ public class TeacherManagementServiceImpl implements TeacherManagementService{
         pageQueryResult.setRows(teacherEntities);
         return pageQueryResult;
     }
+
+    @Override
+    public Boolean teacherAdd(TeacherEntity teacherEntity) {
+
+        final Boolean flag = teacherDao.teacherAdd(teacherEntity) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("名师风采新增结果:",flag);
+        }
+
+        return flag;
+    }
 }

@@ -20,4 +20,11 @@ public interface TeacherDao {
      * @return List<TeacherEntity>
      */
     List<TeacherEntity> teacherList(TeacherEntity teacherEntity);
+
+    /**
+     * 名师风采新增
+     * @param teacherEntity 新增实体
+     * @return Integer
+     */
+    Integer teacherAdd(TeacherEntity teacherEntity);
 }

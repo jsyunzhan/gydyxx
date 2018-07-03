@@ -24,7 +24,7 @@ $(function () {
             {
                 text: "新增", iconCls: 'icon-add',
                 handler: function () {
-                    $addWorksWin.window('open');
+                    $addTeacherWin.window('open');
                 }
             },
             {
@@ -79,5 +79,117 @@ $(function () {
         }
     });
 
+    /*************新增*******************/
 
+    var $addTeacherForm = $('#addTeacherForm').form({
+        novalidate: true
+    });
+
+    var $addTeacherWin = $('#addTeacherWin').window({
+        title: "新增", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
+        footer: '#addTeacherWinFooter',
+        onClose: function () {
+            $('#pictureTeacherForm').form('reset');
+            $('#addPicture,#editPicture').empty();
+            $('#addTeacherForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#addTeacherWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#addTeacherForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var teacherData = $addTeacherForm.serializeObject(),
+                url = path + "/home/teachermanpage/add";
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureUpload/名师风采",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureTeacherForm')[0]),
+                success:function (r) {
+                    teacherData.picturePath = r;
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(teacherData),
+                        success:function (r) {
+                            $teacherGrid.datagrid('reload');
+                            $addTeacherWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
+                }
+            });
+
+
+
+
+        }
+    });
+
+    $('#addTeacherWinCloseBtn').linkbutton({
+        onClick: function () {
+            $addTeacherWin.window('close');
+        }
+    });
+
+
+    /***************************图片上传*********************************************/
+    $('#pictureTeacherUploadBtnAdd,#pictureNewsUploadBtnEdit').linkbutton({
+        onClick: function () {
+            $pictureTeacherWin.window('open');
+        }
+    });
+
+    $('#pictureTeacherWinCloseBtn').linkbutton({
+        onClick: function () {
+            $pictureTeacherWin.window('close');
+        }
+    });
+
+    var $pictureTeacherWin = $('#pictureTeacherWin').window({
+        title: "图片上传",
+        closed: true,
+        modal: true,
+        height: 155,
+        width: 400,
+        iconCls: 'icon-add',
+        collapsible: false,
+        minimizable: false,
+        footer: '#pictureTeacherWinFooter',
+        onClose: function () {
+
+        }
+    });
+
+    $('#pictureTeacherWinSubmitBtn').linkbutton({
+        onClick: function () {
+            var $pictureTeacherForm = $('#pictureTeacherForm');
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureDetail",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data : new FormData($pictureTeacherForm[0]),
+                success:function (r) {
+                    var pictureDiv = $('#addPicture,#editPicture');
+                    pictureDiv.empty();
+
+                    for (var i=0;i<r.length;i++){
+                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                        pictureDiv.append(picture);
+                    }
+                    $pictureTeacherWin.window('close');
+                }
+            });
+
+        }
+    });
 });
