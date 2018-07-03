@@ -35,6 +35,25 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editWorksForm.form('load', selectedWorks);
+
+                        var data = {picturePath:selectedWorks.picturePath};
+
+                        var url = path + "/home/picture/show";
+                        $.ajax({
+                            url:url,type:"POST",contentType: "application/json",data:JSON.stringify(data),
+                            success:function (r) {
+
+                                var pictureDiv = $('#editPicture');
+                                pictureDiv.empty();
+
+                                for (var i=0;i<r.length;i++){
+                                    var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                                    pictureDiv.append(picture);
+                                }
+
+                            }
+                        });
+
                         $editWorksWin.window('open');
                     }
 
@@ -71,6 +90,8 @@ $(function () {
         width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
         footer: '#addWorksWinFooter',
         onClose: function () {
+            $('#pictureWorksForm').form('reset');
+            $('#addPicture,#editPicture').empty();
             $('#addWorksForm').form('disableValidation').form('reset');
         }
     });
@@ -86,13 +107,28 @@ $(function () {
 
 
             $.ajax({
-                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(worksData),
+                url: path + "/home/noticemanpage/pictureUpload/作品展示",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureWorksForm')[0]),
                 success:function (r) {
-                    $worksGrid.datagrid('reload');
-                    $addWorksWin.window('close');
-                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                    worksData.picturePath = r;
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(worksData),
+                        success:function (r) {
+                            $worksGrid.datagrid('reload');
+                            $addWorksWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
                 }
-            })
+            });
+
+
+
 
         }
     });
@@ -114,6 +150,8 @@ $(function () {
         width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
         footer: '#editWorksWinFooter',
         onClose: function () {
+            $('#pictureWorksForm').form('reset');
+            $('#addPicture,#editPicture').empty();
             $('#editWorksForm').form('disableValidation').form('reset');
         }
     });
@@ -127,14 +165,29 @@ $(function () {
             var worksData = $editWorksForm.serializeObject(),
                 url = path + "/home/worksmanpage/edit";
             worksData.id = selectedWorks.id;
+
             $.ajax({
-                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(worksData),
+                url: path + "/home/noticemanpage/pictureUpload/作品展示",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureWorksForm')[0]),
                 success:function (r) {
-                    $worksGrid.datagrid('reload');
-                    $editWorksWin.window('close');
-                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                    worksData.picturePath = r;
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(worksData),
+                        success:function (r) {
+                            $worksGrid.datagrid('reload');
+                            $editWorksWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
                 }
-            })
+            });
+
+
 
         }
     });
@@ -167,5 +220,59 @@ $(function () {
             })
         })
     }
+
+    /***************************图片上传*********************************************/
+    $('#pictureWorksUploadBtnAdd,#pictureWorksUploadBtnEdit').linkbutton({
+        onClick: function () {
+            $pictureWorksWin.window('open');
+        }
+    });
+
+    $('#pictureWorksWinCloseBtn').linkbutton({
+        onClick: function () {
+            $pictureWorksWin.window('close');
+        }
+    });
+
+    var $pictureWorksWin = $('#pictureWorksWin').window({
+        title: "图片上传",
+        closed: true,
+        modal: true,
+        height: 155,
+        width: 400,
+        iconCls: 'icon-add',
+        collapsible: false,
+        minimizable: false,
+        footer: '#pictureWorksWinFooter',
+        onClose: function () {
+
+        }
+    });
+
+    $('#pictureWorksWinSubmitBtn').linkbutton({
+        onClick: function () {
+            var $pictureWorksForm = $('#pictureWorksForm');
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureDetail",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data : new FormData($pictureWorksForm[0]),
+                success:function (r) {
+                    var pictureDiv = $('#addPicture,#editPicture');
+                    pictureDiv.empty();
+
+                    for (var i=0;i<r.length;i++){
+                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                        pictureDiv.append(picture);
+                    }
+                    $pictureWorksWin.window('close');
+                }
+            });
+
+        }
+    });
 
 });
