@@ -126,7 +126,10 @@
             <%--通知新闻类--%>
             <div class="infor clearfix">
                 <div class="notice">
-                    <div class="title_notice">通知公告</div>
+                    <div class="title_notice">
+                        通知公告
+                        <a href="javascript:;">更多<span><img src="../static/images/more2.png"></span></a>
+                    </div>
                     <div class="content_notice">
                         <div class="notice_scroll">
                             <div class="notification">1.公公告公告公告公告公告公告公告公告公告公告公告公告</div>
@@ -141,7 +144,7 @@
                 <div class="news">
                     <div class="title_news">
                         新闻中心丨News Center
-                        <a href="javascript:;">更多<span><img src="../static/images/more.png"></span></a>
+                        <a href="javascript:;">更多<span><img src="../static/images/more1.png"></span></a>
                     </div>
                     <div class="content_news">
                         <div class="main_title">
@@ -259,7 +262,7 @@
                 <div class="history">
                     <div class="title_news">
                         校史天地丨School History
-                        <a href="javascript:;">更多<span><img src="../static/images/more.png"></span></a>
+                        <a href="javascript:;">更多<span><img src="../static/images/more1.png"></span></a>
                     </div>
                     <div class="history_con">
                         <div class="history_list">关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项</div>
@@ -271,7 +274,17 @@
                     </div>
                     <div class="link">
                         <a href="javascript:;" class="linking">友情链接丨LINK</a>
-                        <a href="javascript:;" class="linking">国家教育资源平台</a>
+                        <a href="javascript:;" class="linking">
+                            国家教育资源平台
+                            <span><img src="../static/images/down.png"></span>
+                            <div class="linking_list">
+                                <p>江苏基础教育平台</p>
+                                <p>校本教研星级平台</p>
+                                <p>扬州智慧校园平台</p>
+                                <p>教育装备管理平台</p>
+                                <p>超星校园阅读系统</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="exhibition clearfix">
@@ -411,6 +424,25 @@
                 </div>
             </div>
         </div>
+
+        <%--footer--%>
+        <div class="footer">
+            <div class="footer_con clearfix">
+                <div class="footer_img">
+                    <img src="../static/images/img_02.png">
+                </div>
+                <div class="footer_font">
+                    <p style="line-height: 80px;">Copyright@2018 http://xxx.org All Rights Reserved</p>
+                    <p style="line-height: 30px;">学校地址：江苏省高邮市xxx路xxx号 邮编：225600</p>
+                    <p style="line-height: 30px;">联系电话：0514-8xxxxxxx 苏ICP备xxxxxxxx号 校长信箱：xxxxx@163.com</p>
+                    <p style="line-height: 80px;">苏公网安备用 7852595156256</p>
+                </div>
+                <div class="footer_img">
+                    <img src="../static/images/img_01.png">
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
