@@ -64,4 +64,15 @@ public class StudentManagementServiceImpl implements StudentManagementService{
 
         return flag;
     }
+
+    @Override
+    public Boolean studentDelete(Long id, Long loginId) {
+        final Boolean flag = studentDao.studentDelete(id,loginId) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("学子风采删除结果:",flag);
+        }
+
+        return flag;
+    }
 }

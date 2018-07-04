@@ -200,6 +200,29 @@ $(function () {
         }
     });
 
+    /************删除*************/
+
+    function removeHandle() {
+        if (!selectedStudent) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+
+
+        var msg = String.format("您确定要删除学子风采：<span style='color: red;'>{0}</span>？", selectedStudent.studentTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/studentmanpage/delete/"+selectedStudent.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $studentGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
     /***************************图片上传*********************************************/
     $('#pictureStudentUploadBtnAdd,#pictureStudentUploadBtnEdit').linkbutton({
         onClick: function () {

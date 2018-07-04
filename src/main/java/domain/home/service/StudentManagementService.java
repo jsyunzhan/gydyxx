@@ -24,4 +24,12 @@ public interface StudentManagementService {
      * @return Boolean
      */
     Boolean studentEdit(StudentEntity studentEntity);
+
+    /**
+     * 学子风采删除
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean studentDelete(Long id, Long loginId);
 }
