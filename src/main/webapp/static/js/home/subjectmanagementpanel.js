@@ -31,12 +31,12 @@ $(function () {
                 text: "修改", iconCls: 'icon-edit',
                 handler: function () {
 
-                    if (!selectedTeacher) {
+                    if (!selectedSubject) {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
-                        $editTeacherForm.form('load', selectedTeacher);
+                        $editSubjectForm.form('load', selectedSubject);
 
-                        var data = {picturePath:selectedTeacher.picturePath};
+                        var data = {picturePath:selectedSubject.picturePath};
 
                         var url = path + "/home/picture/show";
                         $.ajax({
@@ -54,7 +54,7 @@ $(function () {
                             }
                         });
 
-                        $editTeacherWin.window('open');
+                        $editSubjectWin.window('open');
                     }
 
                 }
@@ -135,6 +135,67 @@ $(function () {
     $('#addSubjectWinCloseBtn').linkbutton({
         onClick: function () {
             $addSubjectWin.window('close');
+        }
+    });
+
+    /*************修改*******************/
+
+    var $editSubjectForm = $('#editSubjectForm').form({
+        novalidate: true
+    });
+
+    var $editSubjectWin = $('#editSubjectWin').window({
+        title: "修改", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
+        footer: '#editSubjectWinFooter',
+        onClose: function () {
+            $('#pictureSubjectForm').form('reset');
+            $('#addPicture,#editPicture').empty();
+            $('#editSubjectForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#editSubjectWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#editSubjectForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var subjectData = $editSubjectForm.serializeObject(),
+                url = path + "/home/subjectmanpage/edit";
+            subjectData.id = selectedSubject.id;
+
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureUpload/名师风采",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureSubjectForm')[0]),
+                success:function (r) {
+                    subjectData.picturePath = r;
+
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(subjectData),
+                        success:function (r) {
+                            $subjectGrid.datagrid('reload');
+                            $editSubjectWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
+                }
+            });
+
+
+
+        }
+    });
+
+    $('#editSubjectWinCloseBtn').linkbutton({
+        onClick: function () {
+            $editSubjectWin.window('close');
         }
     });
 

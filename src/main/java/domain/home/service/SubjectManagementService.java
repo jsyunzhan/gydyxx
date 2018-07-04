@@ -17,4 +17,11 @@ public interface SubjectManagementService {
      * @return Boolean
      */
     Boolean subjectAdd(SubjectEntity subjectEntity);
+
+    /**
+     * 课题研究修改
+     * @param subjectEntity 修改实体
+     * @return Boolean
+     */
+    Boolean subjectEdit(SubjectEntity subjectEntity);
 }

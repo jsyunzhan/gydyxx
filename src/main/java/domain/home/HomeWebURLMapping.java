@@ -166,4 +166,9 @@ public final class HomeWebURLMapping {
      * 课题研究新增
      */
     public static final String SUBJECT_MANAGEMENT_ADD = SUBJECT_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 课题研究修改
+     */
+    public static final String SUBJECT_MANAGEMENT_EDIT = SUBJECT_MANAGEMENT_PAGE + "/edit";
 }

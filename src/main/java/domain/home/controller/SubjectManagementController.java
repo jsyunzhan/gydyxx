@@ -71,4 +71,29 @@ public class SubjectManagementController extends AbstractActionController{
 
         return jsonResponseVO;
     }
+
+    /**
+     * 课题研究修改
+     * @param subjectEntity 修改实体
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = SUBJECT_MANAGEMENT_EDIT)
+    @ResponseBody
+    public JsonResponseVO subjectEdit(@RequestBody SubjectEntity subjectEntity){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+        subjectEntity.setUpdateUserId(getLoginId());
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("课题研究修改,title:{}",subjectEntity.getSubjectTitle());
+            }
+            Boolean flag =  subjectManagementService.subjectEdit(subjectEntity);
+
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
+    }
 }

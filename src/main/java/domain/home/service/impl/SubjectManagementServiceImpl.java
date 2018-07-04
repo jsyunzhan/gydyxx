@@ -53,4 +53,15 @@ public class SubjectManagementServiceImpl implements SubjectManagementService{
 
         return flag;
     }
+
+    @Override
+    public Boolean subjectEdit(SubjectEntity subjectEntity) {
+        final Boolean flag = subjectDao.subjectEdit(subjectEntity) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("课题研究修改结果:",flag);
+        }
+
+        return flag;
+    }
 }

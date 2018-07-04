@@ -27,4 +27,11 @@ public interface SubjectDao {
      * @return Integer
      */
     Integer subjectAdd(SubjectEntity subjectEntity);
+
+    /**
+     * 课题研究修改
+     * @param subjectEntity 修改实体
+     * @return Integer
+     */
+    Integer subjectEdit(SubjectEntity subjectEntity);
 }
