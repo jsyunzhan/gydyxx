@@ -74,53 +74,53 @@
     </div>
 </div>
 
-<%--<!--修改窗口-->--%>
-<%--<div id="editNoticeWin">--%>
-    <%--<form id="editNoticeForm" class="control-form">--%>
-        <%--<table class="table_list" style="text-align: right;margin:3px;width:99%">--%>
-            <%--<tr>--%>
-                <%--<th width="120"><label class="control-label required-mark" style="width:100px"--%>
-                                       <%--required="required">公告标题--%>
+<!--修改窗口-->
+<div id="editStudentWin">
+    <form id="editStudentForm" class="control-form">
+        <table class="table_list" style="text-align: right;margin:3px;width:99%">
+            <tr>
+                <th width="120"><label class="control-label required-mark" style="width:100px"
+                                       required="required">学子风采标题
 
-                <%--</label>--%>
-                <%--</th>--%>
-                <%--<td width="200"><input class="easyui-textbox control" style="height:50px;width: 300px" name="noticeTitle" required="required"--%>
-                                       <%--data-options="multiline:true,prompt:'请输入...'"/></td>--%>
-            <%--</tr>--%>
+                </label>
+                </th>
+                <td width="200"><input class="easyui-textbox control" style="height:50px;width: 300px" name="studentTitle" required="required"
+                                       data-options="multiline:true,prompt:'请输入...'"/></td>
+            </tr>
 
-            <%--<tr>--%>
-                <%--<th width="120"><label class="control-label required-mark" style="width:110px"--%>
-                                       <%--required="required">公告内容--%>
+            <tr>
+                <th width="120"><label class="control-label required-mark" style="width:110px"
+                                       required="required">学子风采内容
 
-                <%--</label>--%>
-                <%--</th>--%>
-                <%--<td width="200"><input class="easyui-textbox control" style="height: 200px;width: 300px" name="noticeDetails" required="required"--%>
-                                       <%--data-options="multiline:true,prompt:'请输入...'"/></td>--%>
-            <%--</tr>--%>
-        <%--</table>--%>
+                </label>
+                </th>
+                <td width="200"><input class="easyui-textbox control" style="height: 200px;width: 300px" name="studentDetails" required="required"
+                                       data-options="multiline:true,prompt:'请输入...'"/></td>
+            </tr>
+        </table>
 
-        <%--<div style="text-align:center;padding:10px 5px">--%>
-            <%--<a id="pictureNoticeUploadBtnEdit" href="javascript:void(0);" iconCls="l-btn-icon icon-add"--%>
-               <%--class="easyui-linkbutton"--%>
-               <%--style="margin-right:20px;">--%>
-                <%--图片上传--%>
-            <%--</a>--%>
-        <%--</div>--%>
+        <div style="text-align:center;padding:10px 5px">
+            <a id="pictureStudentUploadBtnEdit" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
+               class="easyui-linkbutton"
+               style="margin-right:20px;">
+                图片上传
+            </a>
+        </div>
 
-        <%--<div width="200" id="editPicture"></div>--%>
-    <%--</form>--%>
+        <div width="200" id="editPicture"></div>
+    </form>
 
-    <%--<div id="editNoticeWinFooter" style="text-align:center;padding:5px">--%>
-        <%--<a id="editNoticeWinSubmitBtn" href="javascript:void(0);" iconCls="icon-ok" class="easyui-linkbutton"--%>
-           <%--style="margin-right:20px;">--%>
-            <%--确认--%>
-        <%--</a>--%>
-        <%--<a id="editNoticeWinCloseBtn" href="javascript:void(0);" iconCls="icon-cancel" style="margin-left:20px;"--%>
-           <%--class="easyui-linkbutton">--%>
-            <%--取消--%>
-        <%--</a>--%>
-    <%--</div>--%>
-<%--</div>--%>
+    <div id="editStudentWinFooter" style="text-align:center;padding:5px">
+        <a id="editStudentWinSubmitBtn" href="javascript:void(0);" iconCls="icon-ok" class="easyui-linkbutton"
+           style="margin-right:20px;">
+            确认
+        </a>
+        <a id="editStudentWinCloseBtn" href="javascript:void(0);" iconCls="icon-cancel" style="margin-left:20px;"
+           class="easyui-linkbutton">
+            取消
+        </a>
+    </div>
+</div>
 
 <!--图片上传窗口-->
 <div id="pictureStudentWin">

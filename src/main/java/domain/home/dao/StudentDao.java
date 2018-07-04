@@ -28,4 +28,11 @@ public interface StudentDao {
      * @return Integer
      */
     Integer studentAdd(StudentEntity studentEntity);
+
+    /**
+     * 学子风采修改
+     * @param studentEntity 修改实体
+     * @return Integer
+     */
+    Integer studentEdit(StudentEntity studentEntity);
 }

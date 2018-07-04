@@ -50,10 +50,10 @@
     </insert>
 
     <!--修改-->
-    <update id="newsEdit">
-        UPDATE t_home_news SET
-        NEWS_TITLE=#{newsTitle},
-        NEWS_DETAILS=#{newsDetails},
+    <update id="studentEdit">
+        UPDATE t_home_student SET
+        STUDENT_TITLE=#{studentTitle},
+        STUDENT_DETAILS=#{studentDetails},
         <if test="picturePath!=null and picturePath!=''">
             PICTURE_PATH=#{picturePath},
         </if>

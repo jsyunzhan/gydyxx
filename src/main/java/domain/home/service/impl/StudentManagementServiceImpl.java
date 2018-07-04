@@ -53,4 +53,15 @@ public class StudentManagementServiceImpl implements StudentManagementService{
 
         return flag;
     }
+
+    @Override
+    public Boolean studentEdit(StudentEntity studentEntity) {
+        final Boolean flag = studentDao.studentEdit(studentEntity) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("学子风采修改结果:",flag);
+        }
+
+        return flag;
+    }
 }

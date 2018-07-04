@@ -17,4 +17,11 @@ public interface StudentManagementService {
      * @return Boolean
      */
     Boolean studentAdd(StudentEntity studentEntity);
+
+    /**
+     * 学子风采修改
+     * @param studentEntity 修改实体
+     * @return Boolean
+     */
+    Boolean studentEdit(StudentEntity studentEntity);
 }

@@ -75,4 +75,28 @@ public class StudentManagementController extends AbstractActionController{
 
         return jsonResponseVO;
     }
+
+    /**
+     * 学子风采修改
+     * @param studentEntity 修改实体
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = STUDENT_MANAGEMENT_EDIT)
+    @ResponseBody
+    public JsonResponseVO studentEdit(@RequestBody StudentEntity studentEntity){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("学子风采修改,title:{}",studentEntity.getStudentTitle());
+            }
+            Boolean flag =  studentManagementService.studentEdit(studentEntity);
+
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
+    }
 }

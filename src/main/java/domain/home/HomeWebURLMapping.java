@@ -140,4 +140,9 @@ public final class HomeWebURLMapping {
      * 学子风采新增
      */
     public static final String STUDENT_MANAGEMENT_ADD = STUDENT_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 学子风采修改
+     */
+    public static final String STUDENT_MANAGEMENT_EDIT = STUDENT_MANAGEMENT_PAGE + "/edit";
 }
