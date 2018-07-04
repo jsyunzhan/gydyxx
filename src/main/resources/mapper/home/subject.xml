@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.SubjectDao">
+
+    <!--查总数-->
+    <select id="subjectCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_subject t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="subjectList" resultType="SubjectEntityInfo">
+        SELECT
+        t.ID id,
+        t.SUBJECT_TITLE subjectTitle,
+        t.SUBJECT_DETAILS subjectDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_subject t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <!--课题研究新增-->
+    <insert id="subjectAdd" >
+        INSERT INTO t_home_subject
+        (
+        SUBJECT_TITLE,
+        SUBJECT_DETAILS,
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH,
+        </if>
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{subjectTitle},
+        #{subjectDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            #{picturePath},
+        </if>
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="studentEdit">
+        UPDATE t_home_student SET
+        STUDENT_TITLE=#{studentTitle},
+        STUDENT_DETAILS=#{studentDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH=#{picturePath},
+        </if>
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="studentDelete">
+        UPDATE t_home_student SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+</mapper>

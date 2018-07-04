@@ -150,4 +150,20 @@ public final class HomeWebURLMapping {
      * 学子风采删除
      */
     public static final String STUDENT_MANAGEMENT_DELETE = STUDENT_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************课题研究管理*************************/
+    /**
+     * 去课题研究管理页面
+     */
+    public static final String SUBJECT_MANAGEMENT_PAGE = HOME_ROOT + "subjectmanpage";
+
+    /**
+     * 课题研究分页
+     */
+    public static final String SUBJECT_MANAGEMENT_LIST = SUBJECT_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 课题研究新增
+     */
+    public static final String SUBJECT_MANAGEMENT_ADD = SUBJECT_MANAGEMENT_PAGE + "/add";
 }
