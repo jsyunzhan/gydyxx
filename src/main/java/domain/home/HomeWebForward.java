@@ -23,4 +23,9 @@ public final class HomeWebForward {
      * 去名师风采管理页面
      */
     public static final String TO_TEACHER_PAGE = "home/teachermanagementpanel";
+
+    /**
+     * 去学子风采管理页面
+     */
+    public static final String TO_STUDENT_PAGE = "home/studentmanagementpanel";
 }

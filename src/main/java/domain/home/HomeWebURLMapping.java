@@ -124,4 +124,15 @@ public final class HomeWebURLMapping {
      * 名师风采删除
      */
     public static final String TEACHER_MANAGEMENT_DELETE= TEACHER_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************学子风采管理*************************/
+    /**
+     * 去学子风采管理页面
+     */
+    public static final String STUDENT_MANAGEMENT_PAGE = HOME_ROOT + "studentmanpage";
+
+    /**
+     * 学子风采分页
+     */
+    public static final String STUDENT_MANAGEMENT_LIST = STUDENT_MANAGEMENT_PAGE + "/list";
 }
