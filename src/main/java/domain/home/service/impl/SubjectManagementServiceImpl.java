@@ -64,4 +64,15 @@ public class SubjectManagementServiceImpl implements SubjectManagementService{
 
         return flag;
     }
+
+    @Override
+    public Boolean subjectDelete(Long id, Long loginId) {
+        final Boolean flag = subjectDao.subjectDelete(id,loginId) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("课题研究删除结果:",flag);
+        }
+
+        return flag;
+    }
 }

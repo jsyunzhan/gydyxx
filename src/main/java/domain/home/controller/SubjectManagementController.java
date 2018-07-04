@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -88,6 +89,30 @@ public class SubjectManagementController extends AbstractActionController{
                 LOGGER.debug("课题研究修改,title:{}",subjectEntity.getSubjectTitle());
             }
             Boolean flag =  subjectManagementService.subjectEdit(subjectEntity);
+
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
+    }
+
+    /**
+     * 课题研究删除
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = SUBJECT_MANAGEMENT_DELETE)
+    @ResponseBody
+    public JsonResponseVO subjectDelete(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("课题研究删除,id:{}",id);
+            }
+            Boolean flag =  subjectManagementService.subjectDelete(id,getLoginId());
 
             jsonResponseVO.setSuccess(flag);
         }catch (Exception e){

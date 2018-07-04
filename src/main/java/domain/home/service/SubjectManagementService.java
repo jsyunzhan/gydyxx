@@ -24,4 +24,12 @@ public interface SubjectManagementService {
      * @return Boolean
      */
     Boolean subjectEdit(SubjectEntity subjectEntity);
+
+    /**
+     * 课题研究删除
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean subjectDelete(Long id, Long loginId);
 }

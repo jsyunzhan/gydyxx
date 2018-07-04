@@ -199,6 +199,29 @@ $(function () {
         }
     });
 
+    /************删除*************/
+
+    function removeHandle() {
+        if (!selectedSubject) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+
+
+        var msg = String.format("您确定要删除课题研究：<span style='color: red;'>{0}</span>？", selectedSubject.subjectTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/subjectmanpage/delete/"+selectedSubject.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $subjectGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
     /***************************图片上传*********************************************/
     $('#pictureSubjectUploadBtnAdd,#pictureSubjectUploadBtnEdit').linkbutton({
         onClick: function () {

@@ -1,6 +1,7 @@
 package domain.home.dao;
 
 import domain.home.entity.SubjectEntity;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,4 +35,12 @@ public interface SubjectDao {
      * @return Integer
      */
     Integer subjectEdit(SubjectEntity subjectEntity);
+
+    /**
+     * 课题研究删除
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Integer
+     */
+    Integer subjectDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 }

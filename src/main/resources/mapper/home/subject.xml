@@ -63,8 +63,8 @@
     </update>
 
     <!--删除-->
-    <update id="studentDelete">
-        UPDATE t_home_student SET
+    <update id="subjectDelete">
+        UPDATE t_home_subject SET
         DELETE_FLAG='0',
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()
