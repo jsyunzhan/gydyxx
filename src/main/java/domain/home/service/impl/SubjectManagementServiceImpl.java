@@ -72,7 +72,6 @@ public class SubjectManagementServiceImpl implements SubjectManagementService{
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("课题研究删除结果:",flag);
         }
-
         return flag;
     }
 }
