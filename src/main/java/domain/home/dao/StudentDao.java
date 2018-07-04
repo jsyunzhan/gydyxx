@@ -21,4 +21,11 @@ public interface StudentDao {
      * @return List<StudentEntity>
      */
     List<StudentEntity> studentList(StudentEntity studentEntity);
+
+    /**
+     * 学子风采新增
+     * @param studentEntity 新增实体
+     * @return Integer
+     */
+    Integer studentAdd(StudentEntity studentEntity);
 }

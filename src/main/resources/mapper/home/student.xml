@@ -27,20 +27,20 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
-    <!--首页公告新增-->
-    <insert id="newsAdd" >
-        INSERT INTO t_home_news
+    <!--学子风采新增-->
+    <insert id="studentAdd" >
+        INSERT INTO t_home_student
         (
-        NEWS_TITLE,
-        NEWS_DETAILS,
+        STUDENT_TITLE,
+        STUDENT_DETAILS,
         <if test="picturePath!=null and picturePath!=''">
             PICTURE_PATH,
         </if>
         CREATE_USER_ID,
         CREATE_DATA
         ) VALUE (
-        #{newsTitle},
-        #{newsDetails},
+        #{studentTitle},
+        #{studentDetails},
         <if test="picturePath!=null and picturePath!=''">
             #{picturePath},
         </if>

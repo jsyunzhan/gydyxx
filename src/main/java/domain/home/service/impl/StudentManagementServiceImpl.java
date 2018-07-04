@@ -42,4 +42,15 @@ public class StudentManagementServiceImpl implements StudentManagementService{
         pageQueryResult.setRows(studentEntities);
         return pageQueryResult;
     }
+
+    @Override
+    public Boolean studentAdd(StudentEntity studentEntity) {
+        final Boolean flag = studentDao.studentAdd(studentEntity) > 0;
+
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("学子风采新增结果:",flag);
+        }
+
+        return flag;
+    }
 }

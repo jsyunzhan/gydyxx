@@ -10,4 +10,11 @@ public interface StudentManagementService {
      * @return PageQueryResult
      */
     PageQueryResult studentList(StudentEntity studentEntity);
+
+    /**
+     * 学子风采新增
+     * @param studentEntity 新增实体
+     * @return Boolean
+     */
+    Boolean studentAdd(StudentEntity studentEntity);
 }

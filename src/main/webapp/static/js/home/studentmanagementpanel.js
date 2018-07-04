@@ -24,7 +24,7 @@ $(function () {
             {
                 text: "新增", iconCls: 'icon-add',
                 handler: function () {
-                    $addNoticeWin.window('open');
+                    $addStudentWin.window('open');
                 }
             },
             {
@@ -75,6 +75,119 @@ $(function () {
         },
         onLoadSuccess: function () {
             selectedStudent = $studentGrid.datagrid('getSelected');
+        }
+    });
+
+    /*************新增*******************/
+
+    var $addStudentForm = $('#addStudentForm').form({
+        novalidate: true
+    });
+
+    var $addStudentWin = $('#addStudentWin').window({
+        title: "新增", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
+        footer: '#addStudentWinFooter',
+        onClose: function () {
+            $('#pictureStudentForm').form('reset');
+            $('#addPicture,#editPicture').empty();
+            $('#addStudentForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#addStudentWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#addStudentForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var studentData = $addStudentForm.serializeObject(),
+                url = path + "/home/studentmanpage/add";
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureUpload/学子风采",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureStudentForm')[0]),
+                success:function (r) {
+                    studentData.picturePath = r;
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(studentData),
+                        success:function (r) {
+                            $studentGrid.datagrid('reload');
+                            $addStudentWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
+                }
+            });
+
+
+
+
+        }
+    });
+
+    $('#addStudentWinCloseBtn').linkbutton({
+        onClick: function () {
+            $addStudentWin.window('close');
+        }
+    });
+
+    /***************************图片上传*********************************************/
+    $('#pictureStudentUploadBtnAdd,#pictureNewsUploadBtnEdit').linkbutton({
+        onClick: function () {
+            $pictureStudentWin.window('open');
+        }
+    });
+
+    $('#pictureStudentWinCloseBtn').linkbutton({
+        onClick: function () {
+            $pictureStudentWin.window('close');
+        }
+    });
+
+    var $pictureStudentWin = $('#pictureStudentWin').window({
+        title: "图片上传",
+        closed: true,
+        modal: true,
+        height: 155,
+        width: 400,
+        iconCls: 'icon-add',
+        collapsible: false,
+        minimizable: false,
+        footer: '#pictureStudentWinFooter',
+        onClose: function () {
+
+        }
+    });
+
+    $('#pictureStudentWinSubmitBtn').linkbutton({
+        onClick: function () {
+            var $pictureStudentForm = $('#pictureStudentForm');
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureDetail",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data : new FormData($pictureStudentForm[0]),
+                success:function (r) {
+                    var pictureDiv = $('#addPicture,#editPicture');
+                    pictureDiv.empty();
+
+                    for (var i=0;i<r.length;i++){
+                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                        pictureDiv.append(picture);
+                    }
+                    $pictureStudentWin.window('close');
+                }
+            });
+
         }
     });
 
