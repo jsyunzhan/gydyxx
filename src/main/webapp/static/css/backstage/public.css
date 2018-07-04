@@ -70,6 +70,7 @@ hr {
 .b_gray{background: #E2E7ED;}
 .b_gray2{background: #2B3541;}
 .b_gray3{background: #F1F2F7;}
+.b_white{background: #fff;}
 
 /*字体*/
 .family1{font-family: "Microsoft YaHei";}
@@ -97,6 +98,7 @@ hr {
 .pf{position: fixed;}
 
 /*宽度*/
+.w30{width: 30%;}
 .w80{width: 80%;}
 .w100{width: 100%;}
 
@@ -104,6 +106,7 @@ hr {
 .gray_1{color: #777E86;}
 .red_1{color: #f12312;}
 .white{color: #fff;}
+.brown{color: #915419;}
 
 /*margin*/
 .mtb20{margin: 20px auto;}
