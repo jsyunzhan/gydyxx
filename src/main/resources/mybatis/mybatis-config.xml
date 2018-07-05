@@ -16,6 +16,7 @@
         <typeAlias alias="StudentEntityInfo" type="domain.home.entity.StudentEntity"/>
         <typeAlias alias="SubjectEntityInfo" type="domain.home.entity.SubjectEntity"/>
         <typeAlias alias="SchoolEntityInfo" type="domain.home.entity.SchoolEntity"/>
+        <typeAlias alias="ProfileEntityInfo" type="domain.home.entity.ProfileEntity"/>
     </typeAliases>
 
 </configuration>

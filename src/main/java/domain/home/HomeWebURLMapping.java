@@ -202,4 +202,30 @@ public final class HomeWebURLMapping {
      * 学校风采删除
      */
     public static final String SCHOOL_MANAGEMENT_DELETE = SCHOOL_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************学校概况管理*************************/
+    /**
+     * 去学校概况管理页面
+     */
+    public static final String PROFILE_MANAGEMENT_PAGE = HOME_ROOT + "profilemanpage";
+
+    /**
+     * 学校概况分页
+     */
+    public static final String PROFILE_MANAGEMENT_LIST = PROFILE_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 学校概况新增
+     */
+    public static final String PROFILE_MANAGEMENT_ADD = PROFILE_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 学校概况修改
+     */
+    public static final String PROFILE_MANAGEMENT_EDIT = PROFILE_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 学校概况删除
+     */
+    public static final String PROFILE_MANAGEMENT_DELETE = PROFILE_MANAGEMENT_PAGE + "/delete/{id}";
 }
