@@ -40,13 +40,13 @@
                 </div>
                 <div class="login_font tc brown">后台登陆</div>
                 <form id="loginForm">
-                    <div class="mtb20 pr">
+                    <div class="mtb20 pr b_white">
                         <div class="icon pa">
                             <img src="${APP_PATH}/static/images/backstage/ic_username.png">
                         </div>
                         <input type="text" placeholder="请输入用户名" name="loginName" class="btn w100 bor_gray b_white username tl">
                     </div>
-                    <div class="mtb20 pr">
+                    <div class="mtb20 pr b_white">
                         <div class="icon pa">
                             <img src="${APP_PATH}/static/images/backstage/ic_password.png">
                         </div>

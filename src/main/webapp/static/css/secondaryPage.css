@@ -1,0 +1,50 @@
+.news .title_news,.news .title_news a{
+    color: #555;
+}
+
+.main_title01{
+    text-align: center;
+    font-size: 28px;
+    line-height: 30px;
+    margin: 24px 0;
+    color: #460D0D;
+}
+
+.newsCon{
+    padding: 0 30px;
+}
+
+.newsCon p{
+    line-height: 30px;
+    font-size: 18px;
+    color: #666;
+    text-indent: 2em;
+    margin: 15px 0;
+}
+
+/*左边侧边栏*/
+.leftClass_title{
+    font-size: 28px;
+    line-height: 65px;
+    text-align: center;
+    background: #915419;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.leftClass_con{
+    background: #fff;
+}
+
+.leftClass{
+    margin-bottom: 10px;
+}
+
+.leftClass_con .leftChild{
+    line-height: 60px;
+    font-size: 28px;
+    color: #6D6969;
+    font-family: 'SimSun';
+    padding: 0 24px;
+}
+

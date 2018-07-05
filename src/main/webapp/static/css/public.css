@@ -4,6 +4,10 @@
     zoom: 1;
 }
 
+body{
+    font-family: 'MicrosoftYaHei';
+}
+
 a{
     color: #000;
     text-decoration: none;

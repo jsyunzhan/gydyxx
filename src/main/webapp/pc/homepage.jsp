@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <link rel="stylesheet" type="text/css" href="../static/swiper/idangerous.swiper.css">
     <link rel="stylesheet" type="text/css" href="../static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/publicPart.css">
     <link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
     <script type="text/javascript" src="../static/jq/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="../static/swiper/idangerous.swiper.min.js"></script>
@@ -433,7 +434,7 @@
                 </div>
                 <div class="footer_font">
                     <p style="line-height: 80px;">Copyright@2018 http://xxx.org All Rights Reserved</p>
-                    <p style="line-height: 30px;">学校地址：江苏省高邮市xxx路xxx号 邮编：225600</p>
+                    <p style="line-height: 30px;">学校地址：江苏省高邮市xxx路xxx号 邮编：225600 <a href="javascript:;">用户登录</a></p>
                     <p style="line-height: 30px;">联系电话：0514-8xxxxxxx 苏ICP备xxxxxxxx号 校长信箱：xxxxx@163.com</p>
                     <p style="line-height: 80px;">苏公网安备用 7852595156256</p>
                 </div>

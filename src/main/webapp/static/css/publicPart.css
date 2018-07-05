@@ -1,0 +1,259 @@
+/*-----------------网站共用部分-------------------*/
+/*整体背景图*/
+.wrapper .bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+/*学校logo*/
+.wrapper .school_logo{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*主题内容*/
+.content{
+    width: 1200px;
+    margin: 0 auto;
+    background: #f4f4f4;
+}
+
+.wrapper .logo{
+    float: left;
+    width: 600px;
+    margin: 25px 20px;
+}
+/*搜索*/
+.wrapper .search{
+    float: left;
+    width: 500px;
+}
+
+.wrapper .search .search_input{
+    position: relative;
+    margin-left: 280px;
+    margin-top: 80px;
+}
+
+.wrapper .search input{
+    width: 225px;
+    height: 30px;
+    line-height: 30px;
+    border: 3px solid #e3e3e3;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 50px;
+    padding-right: 50px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+}
+
+.wrapper .search span{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/*导航栏*/
+.navigation{
+    background: #915519;
+    height: 57px;
+    line-height: 57px;
+    color: #fff;
+    font-family: 'SimSun';
+    font-size: 16px;
+}
+
+.title_tab{
+    float: left;
+    position: relative;
+    width: 150px;
+    text-align: center;
+}
+
+.title_tab:hover{
+    background: #ce6e0a;
+}
+
+.title_tab .first_title{
+    cursor: pointer;
+}
+
+.title_tab .second_title{
+    display: none;
+    position: absolute;
+    top: 57px;
+    left: 0;
+    z-index: 13;
+    width: 100%;
+    line-height: 40px;
+}
+
+.title_tab .second_title a{
+    display: block;
+    color: #775640;
+    margin-top: -1px;
+    background: url("../../static/images/second_title.png") no-repeat;
+}
+
+.title_tab .second_title .title_over{
+    color: #fff;
+}
+
+/*校史天地*/
+.infor{
+    padding: 10px;
+}
+
+.news{
+    float: left;
+    width: 780px;
+    background: #fff;
+    padding-bottom: 8px;
+}
+
+.news .title_news,.history .title_news{
+    position: relative;
+    font-size: 16px;
+    color: #490d0d;
+    line-height: 44px;
+    border-top: 5px solid #90531a;
+    padding-left: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.news .title_news a,.history .title_news a,.title_ex a{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    display: block;
+    font-size: 9px;
+    line-height: 44px;
+    color: #490d0d;
+}
+
+.news .title_news a span,.history .title_news a span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    vertical-align: top;
+    margin-top: 16px;
+    margin-left: 5px;
+}
+
+.leftSide{
+    float: left;
+    width: 301px;
+    margin-right: 15px;
+}
+
+.infor .history{
+    position: relative;
+    width: 301px;
+    border-left: 2px solid #e3e3e3;
+    border-right: 2px solid #e3e3e3;
+    border-bottom: 2px solid #e3e3e3;
+    padding-bottom: 0px;
+    padding-bottom: 22px;
+    margin-bottom: 136px;
+    margin-right: 10px;
+}
+
+.infor .history .history_list{
+    margin: 0 20px;
+    border-bottom: 1px dashed #e3e3e3;
+    height: 50px;
+    line-height: 70px;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.history .link{
+    position: absolute;
+    top: 380px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.history .link .linking{
+    position: relative;
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    line-height: 46px;
+    font-size: 16px;
+    background: #915519;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.history .link .linking span{
+    position: absolute;
+    width: 24px;
+    top: 13px;
+    right: 30px;
+}
+
+.history .link .linking .linking_list{
+    position: absolute;
+    top: 46px;
+    width: 100%;
+    text-align: center;
+    z-index: 11;
+}
+
+.history .link .linking .linking_list p{
+    display: block;
+    border: 1px solid #915519;
+    margin-top: -1px;
+    background: #fff;
+    color: #6d6e73;
+}
+
+.history .link .linking .linking_list .linkChoose{
+    color: #f12312;
+
+}
+
+/*footer*/
+.footer{
+    background: #915519;
+}
+
+.footer_con{
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.footer_img{
+    float: left;
+    margin-top: 60px;
+}
+
+.footer_font{
+    float: left;
+    width: 928px;
+    color: #fff;
+    text-align: center;
+}
+
+.footer_font p a{
+    display: inline-block;
+    background: #DDC7AC;
+    color: #fff;
+    width: 67px;
+    font-size: 9px;
+    line-height: 21px;
+    border-radius: 11px;
+}
