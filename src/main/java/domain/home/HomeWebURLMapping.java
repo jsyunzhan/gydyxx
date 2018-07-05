@@ -228,4 +228,30 @@ public final class HomeWebURLMapping {
      * 学校概况删除
      */
     public static final String PROFILE_MANAGEMENT_DELETE = PROFILE_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************党建工会管理*************************/
+    /**
+     * 去党建工会管理页面
+     */
+    public static final String PARTY_MANAGEMENT_PAGE = HOME_ROOT + "partymanpage";
+
+    /**
+     * 党建工会分页
+     */
+    public static final String PARTY_MANAGEMENT_LIST = PARTY_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 党建工会新增
+     */
+    public static final String PARTY_MANAGEMENT_ADD = PARTY_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 党建工会修改
+     */
+    public static final String PARTY_MANAGEMENT_EDIT = PARTY_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 党建工会删除
+     */
+    public static final String PARTY_MANAGEMENT_DELETE = PARTY_MANAGEMENT_PAGE + "/delete/{id}";
 }

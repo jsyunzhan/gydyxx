@@ -43,4 +43,9 @@ public final class HomeWebForward {
      * 去学校概况管理页面
      */
     public static final String TO_PROFILE_PAGE = "home/profilemanagementpanel";
+
+    /**
+     * 去党建工会管理页面
+     */
+    public static final String TO_PARTY_PAGE = "home/partymanagementpanel";
 }
