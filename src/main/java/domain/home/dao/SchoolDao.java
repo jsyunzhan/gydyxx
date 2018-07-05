@@ -27,4 +27,11 @@ public interface SchoolDao {
      * @return Integer
      */
     Integer schoolAdd(SchoolEntity schoolEntity);
+
+    /**
+     * 学校风采修改
+     * @param schoolEntity 修改实体
+     * @return Integer
+     */
+    Integer schoolEdit(SchoolEntity schoolEntity);
 }

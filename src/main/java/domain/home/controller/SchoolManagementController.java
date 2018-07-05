@@ -48,6 +48,11 @@ public class SchoolManagementController extends AbstractActionController{
         return schoolManagementService.schoolList(schoolEntity);
     }
 
+    /**
+     * 学校风采新增
+     * @param schoolEntity 新增实体
+     * @return JsonResponseVO
+     */
     @RequestMapping(value = SCHOOL_MANAGEMENT_ADD)
     @ResponseBody
     public JsonResponseVO schoolAdd(@RequestBody SchoolEntity schoolEntity){
@@ -58,6 +63,25 @@ public class SchoolManagementController extends AbstractActionController{
                 LOGGER.debug("学校风采新增,title:{}",schoolEntity.getSchoolTitle());
             }
             Boolean flag =  schoolManagementService.schoolAdd(schoolEntity);
+
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
+    }
+
+    @RequestMapping(value = SCHOOL_MANAGEMENT_EDIT)
+    @ResponseBody
+    public JsonResponseVO schoolEdit(@RequestBody SchoolEntity schoolEntity){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("学校风采修改,title:{}",schoolEntity.getSchoolTitle());
+            }
+            Boolean flag =  schoolManagementService.schoolEdit(schoolEntity);
 
             jsonResponseVO.setSuccess(flag);
         }catch (Exception e){

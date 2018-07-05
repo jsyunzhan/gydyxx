@@ -17,4 +17,11 @@ public interface SchoolManagementService {
      * @return Boolean
      */
     Boolean schoolAdd(SchoolEntity schoolEntity);
+
+    /**
+     * 学校风采修改
+     * @param schoolEntity 修改实体
+     * @return Boolean
+     */
+    Boolean schoolEdit(SchoolEntity schoolEntity);
 }

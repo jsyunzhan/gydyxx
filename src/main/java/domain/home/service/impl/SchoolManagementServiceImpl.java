@@ -51,4 +51,13 @@ public class SchoolManagementServiceImpl implements SchoolManagementService{
         }
         return flag;
     }
+
+    @Override
+    public Boolean schoolEdit(SchoolEntity schoolEntity) {
+        final Boolean flag = schoolDao.schoolEdit(schoolEntity) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("学校风采修改结果:",flag);
+        }
+        return flag;
+    }
 }
