@@ -33,4 +33,9 @@ public final class HomeWebForward {
      * 去课题研究管理页面
      */
     public static final String TO_SUBJECT_PAGE = "home/subjectmanagementpanel";
+
+    /**
+     * 去学校风采管理页面
+     */
+    public static final String TO_SCHOOL_PAGE = "home/schoolmanagementpanel";
 }

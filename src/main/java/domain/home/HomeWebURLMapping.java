@@ -176,4 +176,15 @@ public final class HomeWebURLMapping {
      * 课题研究删除
      */
     public static final String SUBJECT_MANAGEMENT_DELETE = SUBJECT_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************学校风采管理*************************/
+    /**
+     * 去学校风采管理页面
+     */
+    public static final String SCHOOL_MANAGEMENT_PAGE = HOME_ROOT + "schoolmanpage";
+
+    /**
+     * 学校风采分页
+     */
+    public static final String SCHOOL_MANAGEMENT_LIST = SCHOOL_MANAGEMENT_PAGE + "/list";
 }

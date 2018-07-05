@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.SchoolDao">
+
+    <!--查总数-->
+    <select id="schoolCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_school t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="schoolList" resultType="SchoolEntityInfo">
+        SELECT
+        t.ID id,
+        t.SCHOOL_TITLE schoolTitle,
+        t.SCHOOL_DETAILS schoolDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_school t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <!--名师风采新增-->
+    <insert id="teacherAdd" >
+        INSERT INTO t_home_teacher
+        (
+        TEACHER_TITLE,
+        TEACHER_DETAIL,
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH,
+        </if>
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{teacherTitle},
+        #{teacherDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            #{picturePath},
+        </if>
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="teacherEdit">
+        UPDATE t_home_teacher SET
+        TEACHER_TITLE=#{teacherTitle},
+        TEACHER_DETAIL=#{teacherDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH=#{picturePath},
+        </if>
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="teacherDelete">
+        UPDATE t_home_teacher SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+</mapper>
