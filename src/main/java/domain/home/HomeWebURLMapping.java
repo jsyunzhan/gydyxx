@@ -197,4 +197,9 @@ public final class HomeWebURLMapping {
      * 学校风采修改
      */
     public static final String SCHOOL_MANAGEMENT_EDIT = SCHOOL_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 学校风采删除
+     */
+    public static final String SCHOOL_MANAGEMENT_DELETE = SCHOOL_MANAGEMENT_PAGE + "/delete/{id}";
 }

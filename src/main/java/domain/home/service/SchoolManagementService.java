@@ -24,4 +24,12 @@ public interface SchoolManagementService {
      * @return Boolean
      */
     Boolean schoolEdit(SchoolEntity schoolEntity);
+
+    /**
+     * 学校风采删除
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean schoolDelete(Long id, Long loginId);
 }

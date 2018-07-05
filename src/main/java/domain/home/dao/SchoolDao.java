@@ -1,6 +1,7 @@
 package domain.home.dao;
 
 import domain.home.entity.SchoolEntity;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,4 +35,12 @@ public interface SchoolDao {
      * @return Integer
      */
     Integer schoolEdit(SchoolEntity schoolEntity);
+
+    /**
+     * 学校风采删除
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Integer
+     */
+    Integer schoolDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 }

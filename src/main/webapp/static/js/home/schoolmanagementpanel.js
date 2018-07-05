@@ -199,6 +199,29 @@ $(function () {
         }
     });
 
+    /************删除*************/
+
+    function removeHandle() {
+        if (!selectedSchool) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+
+
+        var msg = String.format("您确定要删除学校风采：<span style='color: red;'>{0}</span>？", selectedSchool.schoolTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/schoolmanpage/delete/"+selectedSchool.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $schoolGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
     /***************************图片上传*********************************************/
     $('#pictureSchoolUploadBtnAdd,#pictureSchoolUploadBtnEdit').linkbutton({
         onClick: function () {
