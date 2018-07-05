@@ -3,18 +3,19 @@ package domain.home.controller;
 import domain.home.entity.SchoolEntity;
 import domain.home.service.SchoolManagementService;
 import domain.shiro.controller.AbstractActionController;
+import domain.shiro.entity.JsonResponseVO;
 import domain.shiro.entity.PageQueryResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import static domain.home.HomeWebForward.TO_SCHOOL_PAGE;
-import static domain.home.HomeWebURLMapping.SCHOOL_MANAGEMENT_LIST;
-import static domain.home.HomeWebURLMapping.SCHOOL_MANAGEMENT_PAGE;
+import static domain.home.HomeWebURLMapping.*;
 
 @Controller
 public class SchoolManagementController extends AbstractActionController{
@@ -45,5 +46,24 @@ public class SchoolManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult schoolList(SchoolEntity schoolEntity){
         return schoolManagementService.schoolList(schoolEntity);
+    }
+
+    @RequestMapping(value = SCHOOL_MANAGEMENT_ADD)
+    @ResponseBody
+    public JsonResponseVO schoolAdd(@RequestBody SchoolEntity schoolEntity){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("学校风采新增,title:{}",schoolEntity.getSchoolTitle());
+            }
+            Boolean flag =  schoolManagementService.schoolAdd(schoolEntity);
+
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
     }
 }

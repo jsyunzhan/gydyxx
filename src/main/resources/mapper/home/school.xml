@@ -28,19 +28,19 @@
     </select>
 
     <!--名师风采新增-->
-    <insert id="teacherAdd" >
-        INSERT INTO t_home_teacher
+    <insert id="schoolAdd" >
+        INSERT INTO t_home_school
         (
-        TEACHER_TITLE,
-        TEACHER_DETAIL,
+        SCHOOL_TITLE,
+        SCHOOL_DETAILS,
         <if test="picturePath!=null and picturePath!=''">
             PICTURE_PATH,
         </if>
         CREATE_USER_ID,
         CREATE_DATA
         ) VALUE (
-        #{teacherTitle},
-        #{teacherDetails},
+        #{schoolTitle},
+        #{schoolDetails},
         <if test="picturePath!=null and picturePath!=''">
             #{picturePath},
         </if>

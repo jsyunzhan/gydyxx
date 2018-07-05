@@ -20,4 +20,11 @@ public interface SchoolDao {
      * @return List<SchoolEntity>
      */
     List<SchoolEntity> schoolList(SchoolEntity schoolEntity);
+
+    /**
+     * 学校风采新增
+     * @param schoolEntity 新增实体
+     * @return Integer
+     */
+    Integer schoolAdd(SchoolEntity schoolEntity);
 }

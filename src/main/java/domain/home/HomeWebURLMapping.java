@@ -187,4 +187,9 @@ public final class HomeWebURLMapping {
      * 学校风采分页
      */
     public static final String SCHOOL_MANAGEMENT_LIST = SCHOOL_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 学校风采新增
+     */
+    public static final String SCHOOL_MANAGEMENT_ADD = SCHOOL_MANAGEMENT_PAGE + "/add";
 }

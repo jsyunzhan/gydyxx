@@ -24,7 +24,7 @@ $(function () {
             {
                 text: "新增", iconCls: 'icon-add',
                 handler: function () {
-                    $addTeacherWin.window('open');
+                    $addSchoolWin.window('open');
                 }
             },
             {
@@ -76,6 +76,119 @@ $(function () {
         },
         onLoadSuccess: function () {
             selectedSchool = $schoolGrid.datagrid('getSelected');
+        }
+    });
+
+    /*************新增*******************/
+
+    var $addSchoolForm = $('#addSchoolForm').form({
+        novalidate: true
+    });
+
+    var $addSchoolWin = $('#addSchoolWin').window({
+        title: "新增", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
+        footer: '#addSchoolWinFooter',
+        onClose: function () {
+            $('#pictureSchoolForm').form('reset');
+            $('#addPicture,#editPicture').empty();
+            $('#addSchoolForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#addSchoolWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#addSchoolForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var schoolData = $addSchoolForm.serializeObject(),
+                url = path + "/home/schoolmanpage/add";
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureUpload/学校风采",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureSchoolForm')[0]),
+                success:function (r) {
+                    schoolData.picturePath = r;
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(schoolData),
+                        success:function (r) {
+                            $schoolGrid.datagrid('reload');
+                            $addSchoolWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
+                }
+            });
+
+
+
+
+        }
+    });
+
+    $('#addSchoolWinCloseBtn').linkbutton({
+        onClick: function () {
+            $addSchoolWin.window('close');
+        }
+    });
+
+    /***************************图片上传*********************************************/
+    $('#pictureSchoolUploadBtnAdd,#pictureTeacherUploadBtnEdit').linkbutton({
+        onClick: function () {
+            $pictureSchoolWin.window('open');
+        }
+    });
+
+    $('#pictureSchoolWinCloseBtn').linkbutton({
+        onClick: function () {
+            $pictureSchoolWin.window('close');
+        }
+    });
+
+    var $pictureSchoolWin = $('#pictureSchoolWin').window({
+        title: "图片上传",
+        closed: true,
+        modal: true,
+        height: 155,
+        width: 400,
+        iconCls: 'icon-add',
+        collapsible: false,
+        minimizable: false,
+        footer: '#pictureSchoolWinFooter',
+        onClose: function () {
+
+        }
+    });
+
+    $('#pictureSchoolWinSubmitBtn').linkbutton({
+        onClick: function () {
+            var $pictureSchoolForm = $('#pictureSchoolForm');
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureDetail",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data : new FormData($pictureSchoolForm[0]),
+                success:function (r) {
+                    var pictureDiv = $('#addPicture,#editPicture');
+                    pictureDiv.empty();
+
+                    for (var i=0;i<r.length;i++){
+                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                        pictureDiv.append(picture);
+                    }
+                    $pictureSchoolWin.window('close');
+                }
+            });
+
         }
     });
 

@@ -42,4 +42,13 @@ public class SchoolManagementServiceImpl implements SchoolManagementService{
         pageQueryResult.setRows(schoolEntities);
         return pageQueryResult;
     }
+
+    @Override
+    public Boolean schoolAdd(SchoolEntity schoolEntity) {
+        final Boolean flag = schoolDao.schoolAdd(schoolEntity) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("学校风采新增结果:",flag);
+        }
+        return flag;
+    }
 }
