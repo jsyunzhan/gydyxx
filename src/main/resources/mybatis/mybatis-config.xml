@@ -19,6 +19,7 @@
         <typeAlias alias="ProfileEntityInfo" type="domain.home.entity.ProfileEntity"/>
         <typeAlias alias="PartyEntityInfo" type="domain.home.entity.PartyEntity"/>
         <typeAlias alias="RulesEntityInfo" type="domain.home.entity.RulesEntity"/>
+        <typeAlias alias="ResponsibilityEntityInfo" type="domain.home.entity.ResponsibilityEntity"/>
     </typeAliases>
 
 </configuration>

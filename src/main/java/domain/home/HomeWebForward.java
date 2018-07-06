@@ -53,4 +53,9 @@ public final class HomeWebForward {
      * 去规章制度管理页面
      */
     public static final String TO_RULES_PAGE = "home/rulesmanagementpanel";
+
+    /**
+     * 去责任督学管理页面
+     */
+    public static final String TO_RESPONSIBILITY_PAGE = "home/responsibilitymanagementpanel";
 }

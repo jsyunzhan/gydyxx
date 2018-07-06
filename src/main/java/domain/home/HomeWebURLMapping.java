@@ -280,4 +280,30 @@ public final class HomeWebURLMapping {
      * 规章制度删除
      */
     public static final String RULES_MANAGEMENT_DELETE = RULES_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************责任督学管理*************************/
+    /**
+     * 去责任督学管理页面
+     */
+    public static final String RESPONSIBILITY_MANAGEMENT_PAGE = HOME_ROOT + "responsibilitymanpage";
+
+    /**
+     * 责任督学分页
+     */
+    public static final String RESPONSIBILITY_MANAGEMENT_LIST = RESPONSIBILITY_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 责任督学新增
+     */
+    public static final String RESPONSIBILITY_MANAGEMENT_ADD = RESPONSIBILITY_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 责任督学修改
+     */
+    public static final String RESPONSIBILITY_MANAGEMENT_EDIT = RESPONSIBILITY_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 责任督学删除
+     */
+    public static final String RESPONSIBILITY_MANAGEMENT_DELETE = RESPONSIBILITY_MANAGEMENT_PAGE + "/delete/{id}";
 }
