@@ -254,4 +254,25 @@ public final class HomeWebURLMapping {
      * 党建工会删除
      */
     public static final String PARTY_MANAGEMENT_DELETE = PARTY_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************规章制度管理*************************/
+    /**
+     * 去规章制度管理页面
+     */
+    public static final String RULES_MANAGEMENT_PAGE = HOME_ROOT + "rulesmanpage";
+
+    /**
+     * 规章制度分页
+     */
+    public static final String RULES_MANAGEMENT_LIST = RULES_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 规章制度新增
+     */
+    public static final String RULES_MANAGEMENT_ADD = RULES_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 规章制度修改
+     */
+    public static final String RULES_MANAGEMENT_EDIT = RULES_MANAGEMENT_PAGE + "/edit";
 }

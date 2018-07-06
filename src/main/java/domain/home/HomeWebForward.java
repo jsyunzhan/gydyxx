@@ -48,4 +48,9 @@ public final class HomeWebForward {
      * 去党建工会管理页面
      */
     public static final String TO_PARTY_PAGE = "home/partymanagementpanel";
+
+    /**
+     * 去规章制度管理页面
+     */
+    public static final String TO_RULES_PAGE = "home/rulesmanagementpanel";
 }
