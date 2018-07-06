@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -92,6 +93,28 @@ public class RulesManagementController extends AbstractActionController{
             LOGGER.error("业务处理异常:",e);
         }
 
+        return jsonResponseVO;
+    }
+
+    /**
+     * 规章制度删除
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = RULES_MANAGEMENT_DELETE)
+    @ResponseBody
+    public JsonResponseVO rulesDelete(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("规章制度删除,id:{}",id);
+            }
+            Boolean flag =  rulesManagementService.rulesDelete(id,getLoginId());
+
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
         return jsonResponseVO;
     }
 }

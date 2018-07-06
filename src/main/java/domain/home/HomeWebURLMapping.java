@@ -275,4 +275,9 @@ public final class HomeWebURLMapping {
      * 规章制度修改
      */
     public static final String RULES_MANAGEMENT_EDIT = RULES_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 规章制度删除
+     */
+    public static final String RULES_MANAGEMENT_DELETE = RULES_MANAGEMENT_PAGE + "/delete/{id}";
 }

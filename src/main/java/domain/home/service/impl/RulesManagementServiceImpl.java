@@ -58,7 +58,15 @@ public class RulesManagementServiceImpl implements RulesManagementService{
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("规章制度修改结果:",flag);
         }
+        return flag;
+    }
 
+    @Override
+    public Boolean rulesDelete(Long id, Long loginId) {
+        final Boolean flag = rulesDao.rulesDelete(id,loginId) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("规章制度删除结果:",flag);
+        }
         return flag;
     }
 }

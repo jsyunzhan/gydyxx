@@ -146,4 +146,27 @@ $(function () {
         }
     });
 
+    /************删除*************/
+
+    function removeHandle() {
+        if (!selectedRules) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+
+
+        var msg = String.format("您确定要删除规章制度：<span style='color: red;'>{0}</span>？", selectedRules.rulesTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/rulesmanpage/delete/"+selectedRules.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $rulesGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
 });

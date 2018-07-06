@@ -24,4 +24,12 @@ public interface RulesManagementService {
      * @return Boolean
      */
     Boolean rulesEdit(RulesEntity rulesEntity);
+
+    /**
+     * 规章制度删除
+     * @param id id
+     * @param loginId 当前等id
+     * @return Boolean
+     */
+    Boolean rulesDelete(Long id, Long loginId);
 }
