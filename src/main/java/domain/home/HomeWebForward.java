@@ -58,4 +58,9 @@ public final class HomeWebForward {
      * 去责任督学管理页面
      */
     public static final String TO_RESPONSIBILITY_PAGE = "home/responsibilitymanagementpanel";
+
+    /**
+     * 去责任督学管理页面
+     */
+    public static final String TO_CIVILIZATION_PAGE = "home/civilizationmanagementpanel";
 }

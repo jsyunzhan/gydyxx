@@ -306,4 +306,20 @@ public final class HomeWebURLMapping {
      * 责任督学删除
      */
     public static final String RESPONSIBILITY_MANAGEMENT_DELETE = RESPONSIBILITY_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************文明创建管理*************************/
+    /**
+     * 去文明创建管理页面
+     */
+    public static final String CIVILIZATION_MANAGEMENT_PAGE = HOME_ROOT + "civilizationmanpage";
+
+    /**
+     * 文明创建分页
+     */
+    public static final String CIVILIZATION_MANAGEMENT_LIST = CIVILIZATION_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 文明创建新增
+     */
+    public static final String CIVILIZATION_MANAGEMENT_ADD = CIVILIZATION_MANAGEMENT_PAGE + "/add";
 }
