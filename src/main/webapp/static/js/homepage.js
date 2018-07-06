@@ -18,9 +18,6 @@ $(function () {
         banner.swipeNext();
     })
 
-    // 滚动通知
-    rollDisplay(".content_notice",2000,2000)
-
     // 新闻轮播图
     var news_banner = new Swiper(".news_banner",{
         autoplay : 3000,

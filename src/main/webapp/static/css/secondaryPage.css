@@ -1,28 +1,10 @@
-.news .title_news,.news .title_news a{
-    color: #555;
-}
-
-.main_title01{
-    text-align: center;
-    font-size: 28px;
-    line-height: 30px;
-    margin: 24px 0;
-    color: #460D0D;
-}
-
-.newsCon{
-    padding: 0 30px;
-}
-
-.newsCon p{
-    line-height: 30px;
-    font-size: 18px;
-    color: #666;
-    text-indent: 2em;
-    margin: 15px 0;
-}
-
 /*左边侧边栏*/
+.leftSide{
+    float: left;
+    width: 301px;
+    margin-right: 15px;
+}
+
 .leftClass_title{
     font-size: 28px;
     line-height: 65px;
@@ -46,5 +28,57 @@
     color: #6D6969;
     font-family: 'SimSun';
     padding: 0 24px;
+    cursor: pointer;
+    background: url("../../static/images/grayright.png") 245px 18px no-repeat;
 }
 
+.leftClass_con .choosen,.leftClass_con .leftChild:hover{
+    background: #CD6E09 url("../../static/images/doublerigfht.png") 245px 18px no-repeat;
+    color: #fff;
+}
+
+/*二级页正文内容*/
+.content_news01{
+    padding: 10px 0;
+}
+
+.news .title_news,.news .title_news a{
+    color: #555;
+}
+
+.main_title01{
+    text-align: center;
+    font-size: 28px;
+    line-height: 30px;
+    padding: 24px 0;
+    color: #460D0D;
+}
+
+.newsCon{
+    padding: 0 30px;
+}
+
+.newsCon p{
+    line-height: 30px;
+    font-size: 18px;
+    color: #666;
+    text-indent: 2em;
+    margin-bottom: 15px;
+}
+
+.newsCon span{
+    display: block;
+    float: left;
+    width: 684px;
+    line-height: 40px;
+}
+
+.newsCon span:nth-child(2){
+    width: 120px;
+}
+
+.newsCon .every_search{
+    margin-bottom: 0;
+    color: #666;
+    cursor: pointer;
+}

@@ -47,58 +47,26 @@
     float: left;
     width: 386px;
     border: 2px solid #e3e3e3;
-    background: url(../../static/images/notice_bg.jpg) no-repeat bottom;
-    padding-bottom: 50px;
     margin-right: 10px;
 }
 
+.notice_scroll{
+    padding-bottom: 34px;
+    background: url(../../static/images/notice_bg.jpg) no-repeat bottom;
+}
+
+.notice .content_notice .notification {
+    width: 250px;
+    font-size: 16px;
+    line-height: 39px;
+}
+
 .notice .title_notice{
-    position: relative;
-    background: #90531a;
     font-size: 20px;
-    line-height: 48px;
-    padding-left: 20px;
-    color: #fff;
 }
 
 .notice .title_notice a{
-    position: absolute;
-    right: 20px;
-    top: 0;
-    display: block;
-    font-size: 14px;
-    line-height: 48px;
-    color: #fff;
-}
-
-.notice .title_notice a span{
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    vertical-align: top;
-    margin-top: 18px;
-    margin-left: 5px;
-}
-
-.notice .content_notice{
-    height: 300px;
-    overflow: hidden;
-}
-
-.notice .content_notice .notification{
-    width: 250px;
-    line-height: 37px;
-    height: 74px;
-    padding: 0 10px;
-    color: #716363;
-    background: url(../../static/images/solid.png) repeat;
-    word-break: break-all;
-    overflow: hidden;
-}
-
-.notice .content_notice .notification:hover{
-    text-decoration: underline;
-    cursor: pointer;
+    font-size: 9px;
 }
 
 /*新闻中心*/
@@ -238,6 +206,11 @@
     margin-right: 5px;
 }
 
+/*校史天地*/
+.infor .history .history_list{
+    font-size: 16px;
+}
+
 /*功能模块快捷方式*/
 .infor .icon{
     float: left;
@@ -356,8 +329,9 @@
 }
 
 /*校史*/
-.infor .history,.leftSide{
+.infor .history{
     width: 386px;
+    margin-bottom: 136px;
 }
 
 .news .title_news,.history .title_news{

@@ -13,7 +13,7 @@
     <script type="text/javascript" src="../static/js/public.js"></script>
     <script type="text/javascript" src="../static/js/publicPart.js"></script>
     <script type="text/javascript" src="../static/js/secondaryPage.js"></script>
-    <title>致用校园</title>
+    <title>搜索结果</title>
 </head>
 <body>
 <div class="wrapper">
@@ -105,21 +105,22 @@
         <div class="infor clearfix">
 
             <div class="leftSide">
-                <div class="leftClass">
-                    <div class="leftClass_title">
-                        致用校园
+                <div class="notice">
+                    <div class="title_notice">
+                        通知公告
+                        <a href="javascript:;">更多<span><img src="../static/images/more2.png"></span></a>
                     </div>
-                    <div class="leftClass_con">
-                        <p class="leftChild choosen">学校概况<span></span></p>
-                        <p class="leftChild">领导简介<span></span></p>
-                        <p class="leftChild">通知公告<span></span></p>
-                        <p class="leftChild">校园新闻<span></span></p>
-                        <p class="leftChild">党建工会<span></span></p>
-                        <p class="leftChild">规章制度<span></span></p>
-                        <p class="leftChild">责任督学<span></span></p>
-                        <p class="leftChild">文明建设<span></span></p>
-                        <p class="leftChild">法制校园<span></span></p>
-                        <p class="leftChild">校园风光<span></span></p>
+                    <div class="content_notice">
+                        <div class="notice_scroll">
+                            <div class="notification">1.公公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                            <div class="notification">2.公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                            <div class="notification">3.公告公告公告公告公告公公告公告公告公告公告公告告公告公告告公告公告告公告</div>
+                            <div class="notification">4.公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                            <div class="notification">5.公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                            <div class="notification">6.公告公告公告公告公告公告公告公告公告公告公告告公告公告告公告公告公告</div>
+                            <div class="notification">7.公告公告公告公告公告公告公告公告公告公告公告公告公告告公告</div>
+                            <div class="notification">8.公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                        </div>
                     </div>
                 </div>
                 <div class="history">
@@ -140,15 +141,15 @@
 
             <div class="news">
                 <div class="title_news">
-                    学校概况
-                    <a href="javascript:;">您当前的位置：<b>首页-致用校园-学校概况</b></a>
+                    搜索详情
+                    <a href="javascript:;">您当前的位置：<b>首页-搜索结果-搜索详情</b></a>
                 </div>
                 <div class="content_news01">
                     <div class="main_title01">学校概况</div>
                     <div class="newsCon">
-                        <p>学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校校概况学校概况学校概况学校概况学校概况学校概况学校概况</p>
-                        <p>学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况</p>
-                        <p>学校概况学校概况学校概况学校概况学校概况学校概校概况学校概况学校概况学校概况学校概况学校概况</p>
+                        <p>搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情</p>
+                        <p>搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索情搜索详情搜情搜索详情搜情搜索详情搜情搜索详情搜情搜索详情搜情搜索详情搜详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情</p>
+                        <p>搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜情搜索详情搜情搜索详情搜情搜索详情搜情搜索详情搜情搜索详情搜情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情搜索详情</p>
                     </div>
                 </div>
             </div>

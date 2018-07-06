@@ -1,7 +1,7 @@
 /*-----------------网站共用部分-------------------*/
 /*整体背景图*/
 .wrapper .bg{
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -107,6 +107,64 @@
     color: #fff;
 }
 
+/*通知公告*/
+.notice{
+    width: 100%;
+    border: 2px solid #e3e3e3;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.notice_scroll{
+    padding-bottom: 24px;
+    background: url(../../static/images/notice_bg01.jpg) no-repeat bottom center;
+}
+
+.notice .title_notice{
+    position: relative;
+    background: #90531a;
+    font-size: 17px;
+    line-height: 48px;
+    padding-left: 20px;
+    color: #fff;
+}
+
+.notice .title_notice a{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    display: block;
+    font-size: 9px;
+    line-height: 48px;
+    color: #fff;
+}
+
+.notice .title_notice a span{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    vertical-align: top;
+    margin-top: 18px;
+    margin-left: 5px;
+}
+
+.notice .content_notice .notification{
+    width: 200px;
+    line-height: 30px;
+    padding: 0 15px;
+    color: #716363;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+}
+
+.notice .content_notice .notification:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 /*校史天地*/
 .infor{
     padding: 10px;
@@ -114,7 +172,7 @@
 
 .news{
     float: left;
-    width: 780px;
+    width: 864px;
     background: #fff;
     padding-bottom: 8px;
 }
@@ -139,6 +197,14 @@
     color: #490d0d;
 }
 
+.news .title_news{
+    font-size: 24px;
+}
+
+.news .title_news a{
+    font-size: 16px;
+}
+
 .news .title_news a span,.history .title_news a span{
     display: inline-block;
     width: 12px;
@@ -146,12 +212,6 @@
     vertical-align: top;
     margin-top: 16px;
     margin-left: 5px;
-}
-
-.leftSide{
-    float: left;
-    width: 301px;
-    margin-right: 15px;
 }
 
 .infor .history{
@@ -162,8 +222,8 @@
     border-bottom: 2px solid #e3e3e3;
     padding-bottom: 0px;
     padding-bottom: 22px;
-    margin-bottom: 136px;
     margin-right: 10px;
+    background: #fff;
 }
 
 .infor .history .history_list{
@@ -171,11 +231,11 @@
     border-bottom: 1px dashed #e3e3e3;
     height: 50px;
     line-height: 70px;
-    font-size: 16px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     cursor: pointer;
+    font-size: 13px;
 }
 
 .history .link{
@@ -223,7 +283,6 @@
 
 .history .link .linking .linking_list .linkChoose{
     color: #f12312;
-
 }
 
 /*footer*/

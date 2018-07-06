@@ -13,6 +13,7 @@
     <script type="text/javascript" src="../static/jq/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="../static/swiper/idangerous.swiper.min.js"></script>
     <script type="text/javascript" src="../static/js/public.js"></script>
+    <script type="text/javascript" src="../static/js/publicPart.js"></script>
     <script type="text/javascript" src="../static/js/homepage.js"></script>
     <title>高邮市第一实验小学</title>
 </head>
@@ -135,10 +136,12 @@
                         <div class="notice_scroll">
                             <div class="notification">1.公公告公告公告公告公告公告公告公告公告公告公告公告</div>
                             <div class="notification">2.公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                            <div class="notification">3.公告公告公告公告公告公公告公告公告公告公告</div>
+                            <div class="notification">3.公告公告公告公告公告公公告公告公告公告公告公告告公告公告告公告公告告公告</div>
                             <div class="notification">4.公告公告公告公告公告公告公告公告公告公告公告公告</div>
                             <div class="notification">5.公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                            <div class="notification">6.公告公告公告公告公告公告公告公告公告公告公告公告公告公告</div>
+                            <div class="notification">6.公告公告公告公告公告公告公告公告公告公告公告告公告公告告公告公告公告</div>
+                            <div class="notification">7.公告公告公告公告公告公告公告公告公告公告公告公告公告告公告</div>
+                            <div class="notification">8.公告公告公告公告公告公告公告公告公告公告公告公告</div>
                         </div>
                     </div>
                 </div>
@@ -193,67 +196,67 @@
             <%--功能模块快捷方式--%>
             <div class="infor clearfix">
                 <div class="icon">
-                    <img src="../static/images/icon01.png">
+                    <img src="../static/images/icon_01.png">
                     <div class="icon_font">学校概况</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon02.png">
+                    <img src="../static/images/icon_02.png">
                     <div class="icon_font">通知公告</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon03.png">
+                    <img src="../static/images/icon_03.png">
                     <div class="icon_font">校园新闻</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon04.png">
+                    <img src="../static/images/icon_04.png">
                     <div class="icon_font">责任督学</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon05.png">
+                    <img src="../static/images/icon_05.png">
                     <div class="icon_font">文明创建</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon06.png">
+                    <img src="../static/images/icon_06.png">
                     <div class="icon_font">党建工会</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon07.png">
+                    <img src="../static/images/icon_07.png">
                     <div class="icon_font">校长信箱</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon08.png">
+                    <img src="../static/images/icon_08.png">
                     <div class="icon_font">班本课程</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon09.png">
+                    <img src="../static/images/icon_09.png">
                     <div class="icon_font">教育科研</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon10.png">
+                    <img src="../static/images/icon_10.png">
                     <div class="icon_font">校园节庆</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon11.png">
+                    <img src="../static/images/icon_11.png">
                     <div class="icon_font">精品社区</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon12.png">
+                    <img src="../static/images/icon_12.png">
                     <div class="icon_font">家校心桥</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon13.png">
+                    <img src="../static/images/icon_13.png">
                     <div class="icon_font">教学资源</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon14.png">
+                    <img src="../static/images/icon_14.png">
                     <div class="icon_font">校本培训</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon15.png">
+                    <img src="../static/images/icon_15.png">
                     <div class="icon_font">健康教育</div>
                 </div>
                 <div class="icon">
-                    <img src="../static/images/icon16.png">
+                    <img src="../static/images/icon_16.png">
                     <div class="icon_font">法制校园</div>
                 </div>
             </div>
@@ -446,13 +449,13 @@
     </div>
 
 <a href="javascript:;" class="floatImage floatImage01">
-    <img src="../static/images/icon01.png">
+    <img src="../static/images/icon_01.png">
     <div class="imgClose">
         <img src="../static/images/more1.png">
     </div>
 </a>
 <a href="javascript:;" class="floatImage floatImage02">
-    <img src="../static/images/icon02.png">
+    <img src="../static/images/icon_02.png">
     <div class="imgClose">
         <img src="../static/images/more1.png">
     </div>
