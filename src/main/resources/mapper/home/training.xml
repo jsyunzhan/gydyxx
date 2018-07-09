@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.TrainingDao">
+
+    <!--查总数-->
+    <select id="trainingCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_training t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="trainingList" resultType="TrainingEntityInfo">
+        SELECT
+        t.ID id,
+        t.TRAINING_TITLE trainingTitle,
+        t.TRAINING_DETAILS trainingDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_training t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <!--新增-->
+    <insert id="trainingAdd" >
+        INSERT INTO t_home_training
+        (
+        TRAINING_TITLE,
+        TRAINING_DETAILS,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{trainingTitle},
+        #{trainingDetails},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="trainingEdit">
+        UPDATE t_home_training SET
+        TRAINING_TITLE=#{trainingTitle},
+        TRAINING_DETAILS=#{trainingDetails},
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="trainingDelete">
+        UPDATE t_home_training SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+</mapper>

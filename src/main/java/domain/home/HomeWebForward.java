@@ -68,4 +68,9 @@ public final class HomeWebForward {
      * 去法制校园管理页面
      */
     public static final String TO_LAW_PAGE = "home/lawmanagementpanel";
+
+    /**
+     * 去校本培训管理页面
+     */
+    public static final String TO_TRAINING_PAGE = "home/trainingmanagementpanel";
 }

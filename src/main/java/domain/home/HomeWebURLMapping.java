@@ -358,4 +358,30 @@ public final class HomeWebURLMapping {
      * 法制校园删除
      */
     public static final String LAW_MANAGEMENT_DELETE = LAW_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************校本培训管理*************************/
+    /**
+     * 去校本培训管理页面
+     */
+    public static final String TRAINING_MANAGEMENT_PAGE = HOME_ROOT + "trainingmanpage";
+
+    /**
+     * 校本培训分页
+     */
+    public static final String TRAINING_MANAGEMENT_LIST = TRAINING_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 校本培训新增
+     */
+    public static final String TRAINING_MANAGEMENT_ADD = TRAINING_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 校本培训修改
+     */
+    public static final String TRAINING_MANAGEMENT_EDIT = TRAINING_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 校本培训删除
+     */
+    public static final String TRAINING_MANAGEMENT_DELETE = TRAINING_MANAGEMENT_PAGE + "/delete/{id}";
 }
