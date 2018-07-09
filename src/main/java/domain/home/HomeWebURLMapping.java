@@ -343,4 +343,19 @@ public final class HomeWebURLMapping {
      * 法制校园分页
      */
     public static final String LAW_MANAGEMENT_LIST = LAW_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 法制校园新增
+     */
+    public static final String LAW_MANAGEMENT_ADD = LAW_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 法制校园修改
+     */
+    public static final String LAW_MANAGEMENT_EDIT = LAW_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 法制校园删除
+     */
+    public static final String LAW_MANAGEMENT_DELETE = LAW_MANAGEMENT_PAGE + "/delete/{id}";
 }

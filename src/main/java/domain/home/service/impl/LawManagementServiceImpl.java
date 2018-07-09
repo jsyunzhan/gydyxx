@@ -42,4 +42,31 @@ public class LawManagementServiceImpl implements LawManagementService{
         pageQueryResult.setRows(lawEntities);
         return pageQueryResult;
     }
+
+    @Override
+    public Boolean lawAdd(LawEntity lawEntity) {
+        final Boolean flag = lawDao.lawAdd(lawEntity) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("法制校园新增结果:",flag);
+        }
+        return flag;
+    }
+
+    @Override
+    public Boolean lawEdit(LawEntity lawEntity) {
+        final Boolean flag = lawDao.lawEdit(lawEntity) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("法制校园修改结果:",flag);
+        }
+        return flag;
+    }
+
+    @Override
+    public Boolean lawDelete(Long id, Long loginId) {
+        final Boolean flag = lawDao.lawDelete(id,loginId) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("法制校园删除结果:",flag);
+        }
+        return flag;
+    }
 }

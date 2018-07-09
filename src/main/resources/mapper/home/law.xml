@@ -26,35 +26,35 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
-    <!--首页公告新增-->
-    <insert id="rulesAdd" >
-        INSERT INTO t_home_rules
+    <!--新增-->
+    <insert id="lawAdd" >
+        INSERT INTO t_home_law
         (
-        RULES_TITLE,
-        RULES_DETAILS,
+        LAW_TITLE,
+        LAW_DETAILS,
         CREATE_USER_ID,
         CREATE_DATA
         ) VALUE (
-        #{rulesTitle},
-        #{rulesDetails},
+        #{lawTitle},
+        #{lawDetails},
         #{createUserId},
         NOW()
         )
     </insert>
 
     <!--修改-->
-    <update id="rulesEdit">
-        UPDATE t_home_rules SET
-        RULES_TITLE=#{rulesTitle},
-        RULES_DETAILS=#{rulesDetails},
+    <update id="lawEdit">
+        UPDATE t_home_law SET
+        LAW_TITLE=#{lawTitle},
+        LAW_DETAILS=#{lawDetails},
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()
         WHERE ID=#{id}
     </update>
 
     <!--删除-->
-    <update id="rulesDelete">
-        UPDATE t_home_rules SET
+    <update id="lawDelete">
+        UPDATE t_home_law SET
         DELETE_FLAG='0',
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()

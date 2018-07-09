@@ -24,37 +24,19 @@ $(function () {
             {
                 text: "新增", iconCls: 'icon-add',
                 handler: function () {
-                    $addNewsWin.window('open');
+                    $addLawWin.window('open');
                 }
             },
             {
                 text: "修改", iconCls: 'icon-edit',
                 handler: function () {
 
-                    if (!selectedNews) {
+                    if (!selectedLaw) {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
-                        $editNewsForm.form('load', selectedNews);
+                        $editLawForm.form('load', selectedLaw);
 
-                        var data = {picturePath:selectedNews.picturePath};
-
-                        var url = path + "/home/picture/show";
-                        $.ajax({
-                            url:url,type:"POST",contentType: "application/json",data:JSON.stringify(data),
-                            success:function (r) {
-
-                                var pictureDiv = $('#editPicture');
-                                pictureDiv.empty();
-
-                                for (var i=0;i<r.length;i++){
-                                    var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
-                                    pictureDiv.append(picture);
-                                }
-
-                            }
-                        });
-
-                        $editNewsWin.window('open');
+                        $editLawWin.window('open');
                     }
 
                 }
@@ -77,5 +59,114 @@ $(function () {
             selectedLaw = $LawGrid.datagrid('getSelected');
         }
     });
+
+    /*************新增*******************/
+
+    var $addLawForm = $('#addLawForm').form({
+        novalidate: true
+    });
+
+    var $addLawWin = $('#addLawWin').window({
+        title: "新增", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
+        footer: '#addLawWinFooter',
+        onClose: function () {
+            $('#addLawForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#addLawWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#addLawForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var lawData = $addLawForm.serializeObject(),
+                url = path + "/home/lawmanpage/add";
+
+            $.ajax({
+                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(lawData),
+                success:function (r) {
+                    $LawGrid.datagrid('reload');
+                    $addLawWin.window('close');
+                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                }
+            })
+
+        }
+    });
+
+    $('#addLawWinCloseBtn').linkbutton({
+        onClick: function () {
+            $addLawWin.window('close');
+        }
+    });
+
+    /*************修改*******************/
+
+    var $editLawForm = $('#editLawForm').form({
+        novalidate: true
+    });
+
+    var $editLawWin = $('#editLawWin').window({
+        title: "修改", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
+        footer: '#editLawWinFooter',
+        onClose: function () {
+
+            $('#editLawForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#editLawWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#editLawForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var lawData = $editLawForm.serializeObject(),
+                url = path + "/home/lawmanpage/edit";
+            lawData.id = selectedLaw.id;
+
+            $.ajax({
+                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(lawData),
+                success:function (r) {
+                    $LawGrid.datagrid('reload');
+                    $editLawWin.window('close');
+                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                }
+            })
+
+        }
+    });
+
+    $('#editLawWinCloseBtn').linkbutton({
+        onClick: function () {
+            $editLawWin.window('close');
+        }
+    });
+
+    /************删除*************/
+
+    function removeHandle() {
+        if (!selectedLaw) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+
+
+        var msg = String.format("您确定要删除法制校园：<span style='color: red;'>{0}</span>？", selectedLaw.lawTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/lawmanpage/delete/"+selectedLaw.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $LawGrid.datagrid('reload');
+                }
+            })
+        })
+    }
 
 });
