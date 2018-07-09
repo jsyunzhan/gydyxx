@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.EducationDao">
+
+    <!--查总数-->
+    <select id="educationCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_education t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="educationList" resultType="EducationEntityInfo">
+        SELECT
+        t.ID id,
+        t.EDUCATION_TITLE educationTitle,
+        t.EDUCATION_DETAILS educationDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_education t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <!--新增-->
+    <insert id="educationAdd" >
+        INSERT INTO t_home_education
+        (
+        EDUCATION_TITLE,
+        EDUCATION_DETAILS,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{educationTitle},
+        #{educationDetails},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="educationEdit">
+        UPDATE t_home_education SET
+        EDUCATION_TITLE=#{educationTitle},
+        EDUCATION_DETAILS=#{educationDetails},
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="educationDelete">
+        UPDATE t_home_education SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+</mapper>

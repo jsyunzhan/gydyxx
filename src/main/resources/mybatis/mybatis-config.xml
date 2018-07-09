@@ -23,6 +23,7 @@
         <typeAlias alias="CivilizationEntityInfo" type="domain.home.entity.CivilizationEntity"/>
         <typeAlias alias="LawEntityInfo" type="domain.home.entity.LawEntity"/>
         <typeAlias alias="TrainingEntityInfo" type="domain.home.entity.TrainingEntity"/>
+        <typeAlias alias="EducationEntityInfo" type="domain.home.entity.EducationEntity"/>
     </typeAliases>
 
 </configuration>

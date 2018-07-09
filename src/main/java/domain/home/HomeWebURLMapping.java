@@ -384,4 +384,30 @@ public final class HomeWebURLMapping {
      * 校本培训删除
      */
     public static final String TRAINING_MANAGEMENT_DELETE = TRAINING_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************教育科研管理*************************/
+    /**
+     * 去教育科研管理页面
+     */
+    public static final String EDUCATION_MANAGEMENT_PAGE = HOME_ROOT + "educationmanpage";
+
+    /**
+     * 去教育科研管理分页
+     */
+    public static final String EDUCATION_MANAGEMENT_LIST = EDUCATION_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 去教育科研管理新增
+     */
+    public static final String EDUCATION_MANAGEMENT_ADD = EDUCATION_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 去教育科研管理修改
+     */
+    public static final String EDUCATION_MANAGEMENT_EDIT = EDUCATION_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 去教育科研管理删除
+     */
+    public static final String EDUCATION_MANAGEMENT_DELETE = EDUCATION_MANAGEMENT_PAGE + "/delete/{id}";
 }
