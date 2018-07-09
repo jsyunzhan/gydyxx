@@ -332,4 +332,15 @@ public final class HomeWebURLMapping {
      * 文明创建删除
      */
     public static final String CIVILIZATION_MANAGEMENT_DELETE = CIVILIZATION_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************法制校园管理*************************/
+    /**
+     * 去法制校园管理页面
+     */
+    public static final String LAW_MANAGEMENT_PAGE = HOME_ROOT + "lawmanpage";
+
+    /**
+     * 法制校园分页
+     */
+    public static final String LAW_MANAGEMENT_LIST = LAW_MANAGEMENT_PAGE + "/list";
 }
