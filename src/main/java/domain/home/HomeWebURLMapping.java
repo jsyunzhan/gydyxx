@@ -322,4 +322,14 @@ public final class HomeWebURLMapping {
      * 文明创建新增
      */
     public static final String CIVILIZATION_MANAGEMENT_ADD = CIVILIZATION_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 文明创建修改
+     */
+    public static final String CIVILIZATION_MANAGEMENT_EDIT = CIVILIZATION_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 文明创建删除
+     */
+    public static final String CIVILIZATION_MANAGEMENT_DELETE = CIVILIZATION_MANAGEMENT_PAGE + "/delete/{id}";
 }

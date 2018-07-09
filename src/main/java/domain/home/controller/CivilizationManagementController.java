@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -69,6 +70,52 @@ public class CivilizationManagementController extends AbstractActionController{
             LOGGER.error("业务处理异常:",e);
         }
 
+        return jsonResponseVO;
+    }
+
+    /**
+     * 文明创建新增
+     * @param civilizationEntity 新增实体
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = CIVILIZATION_MANAGEMENT_EDIT)
+    @ResponseBody
+    public JsonResponseVO civilizationEdit(@RequestBody CivilizationEntity civilizationEntity){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("文明创建修改,newsTitle:{}",civilizationEntity.getCivilizationTitle());
+            }
+            civilizationEntity.setUpdateUserId(getLoginId());
+            final Boolean flag = civilizationManagementService.civilizationEdit(civilizationEntity);
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
+    }
+
+    /**
+     * 文明创建删除
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = CIVILIZATION_MANAGEMENT_DELETE)
+    @ResponseBody
+    public JsonResponseVO civilizationDelete(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("文明创建,删除id:{}",id);
+            }
+
+            final Boolean flag = civilizationManagementService.civilizationDelete(id,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
         return jsonResponseVO;
     }
 }

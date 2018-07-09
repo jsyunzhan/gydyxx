@@ -11,5 +11,25 @@ public interface CivilizationManagementService {
      */
     PageQueryResult civilizationList(CivilizationEntity civilizationEntity);
 
+    /**
+     * 文明创建新增
+     * @param civilizationEntity 新增实体
+     * @return Boolean
+     */
     Boolean civilizationAdd(CivilizationEntity civilizationEntity);
+
+    /**
+     * 文明创建修改
+     * @param civilizationEntity 修改实体
+     * @return Boolean
+     */
+    Boolean civilizationEdit(CivilizationEntity civilizationEntity);
+
+    /**
+     * 文明创建删除
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean civilizationDelete(Long id, Long loginId);
 }

@@ -51,4 +51,22 @@ public class CivilizationManagementServiceImpl implements CivilizationManagement
         }
         return flag;
     }
+
+    @Override
+    public Boolean civilizationEdit(CivilizationEntity civilizationEntity) {
+        final Boolean flag = civilizationDao.civilizationEdit(civilizationEntity) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("文明创建修改结果:",flag);
+        }
+        return flag;
+    }
+
+    @Override
+    public Boolean civilizationDelete(Long id, Long loginId) {
+        final Boolean flag = civilizationDao.civilizationDelete(id,loginId) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("文明创建删除结果:",flag);
+        }
+        return flag;
+    }
 }

@@ -31,12 +31,12 @@ $(function () {
                 text: "修改", iconCls: 'icon-edit',
                 handler: function () {
 
-                    if (!selectedNews) {
+                    if (!selectedCivilization) {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
-                        $editNewsForm.form('load', selectedNews);
+                        $editCivilizationForm.form('load', selectedCivilization);
 
-                        var data = {picturePath:selectedNews.picturePath};
+                        var data = {picturePath:selectedCivilization.picturePath};
 
                         var url = path + "/home/picture/show";
                         $.ajax({
@@ -54,7 +54,7 @@ $(function () {
                             }
                         });
 
-                        $editNewsWin.window('open');
+                        $editCivilizationWin.window('open');
                     }
 
                 }
@@ -136,8 +136,90 @@ $(function () {
         }
     });
 
+    /*************修改*******************/
+
+    var $editCivilizationForm = $('#editCivilizationForm').form({
+        novalidate: true
+    });
+
+    var $editCivilizationWin = $('#editCivilizationWin').window({
+        title: "修改", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
+        footer: '#editCivilizationWinFooter',
+        onClose: function () {
+            $('#pictureCiviliztionForm').form('reset');
+            $('#addPicture,#editPicture').empty();
+            $('#editCivilizationForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#editCivilizationWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#editCivilizationForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var editCivilizationData = $editCivilizationForm.serializeObject(),
+                url = path + "/home/civilizationmanpage/edit";
+            editCivilizationData.id = selectedCivilization.id;
+
+
+            $.ajax({
+                url: path + "/home/noticemanpage/pictureUpload/文明创建",
+                type:'POST',
+                cache: false,
+                contentType: false,
+                processData: false,
+                async: true,
+                data : new FormData($('#pictureCiviliztionForm')[0]),
+                success:function (r) {
+                    editCivilizationData.picturePath = r;
+
+                    $.ajax({
+                        url:url,type:"POST",contentType: "application/json",data:JSON.stringify(editCivilizationData),
+                        success:function (r) {
+                            $civilizationGrid.datagrid('reload');
+                            $editCivilizationWin.window('close');
+                            showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                        }
+                    })
+                }
+            });
+
+
+
+        }
+    });
+
+    $('#editCivilizationWinCloseBtn').linkbutton({
+        onClick: function () {
+            $editCivilizationWin.window('close');
+        }
+    });
+
+    function removeHandle() {
+        if (!selectedCivilization) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+
+
+        var msg = String.format("您确定要删除文明创建概况：<span style='color: red;'>{0}</span>？", selectedCivilization.civilizationTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/civilizationmanpage/delete/"+selectedCivilization.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $civilizationGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
     /***************************图片上传*********************************************/
-    $('#pictureCiviliztionUploadBtnAdd,#pictureNewsUploadBtnEdit').linkbutton({
+    $('#pictureCiviliztionUploadBtnAdd,#pictureCivilizationUploadBtnEdit').linkbutton({
         onClick: function () {
             $pictureCiviliztionWin.window('open');
         }

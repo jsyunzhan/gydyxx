@@ -50,10 +50,10 @@
     </insert>
 
     <!--修改-->
-    <update id="newsEdit">
-        UPDATE t_home_news SET
-        NEWS_TITLE=#{newsTitle},
-        NEWS_DETAILS=#{newsDetails},
+    <update id="civilizationEdit">
+        UPDATE t_home_civilization SET
+        CIVILIZATION_TITLE=#{civilizationTitle},
+        CIVILIZATION_DETAILS=#{civilizationDetails},
         <if test="picturePath!=null and picturePath!=''">
             PICTURE_PATH=#{picturePath},
         </if>
@@ -63,8 +63,8 @@
     </update>
 
     <!--删除-->
-    <update id="newsDelete">
-        UPDATE t_home_news SET
+    <update id="civilizationDelete">
+        UPDATE t_home_civilization SET
         DELETE_FLAG='0',
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()
