@@ -462,4 +462,30 @@ public final class HomeWebURLMapping {
      * 致用工作室删除
      */
     public static final String FAR_MANAGEMENT_DELETE = FAR_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************教学资源管理*************************/
+    /**
+     * 去教学资源管理页面
+     */
+    public static final String TEACHING_MANAGEMENT_PAGE = HOME_ROOT + "teachingmanpage";
+
+    /**
+     * 教学资源分页
+     */
+    public static final String TEACHING_MANAGEMENT_LIST = TEACHING_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 教学资源新增
+     */
+    public static final String TEACHING_MANAGEMENT_ADD = TEACHING_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 教学资源修改
+     */
+    public static final String TEACHING_MANAGEMENT_EDIT = TEACHING_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 教学资源删除
+     */
+    public static final String TEACHING_MANAGEMENT_DELETE = TEACHING_MANAGEMENT_PAGE + "/delete/{id}";
 }
