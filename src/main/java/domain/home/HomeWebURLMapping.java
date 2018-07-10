@@ -410,4 +410,30 @@ public final class HomeWebURLMapping {
      * 去教育科研管理删除
      */
     public static final String EDUCATION_MANAGEMENT_DELETE = EDUCATION_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************致用课堂管理*************************/
+    /**
+     * 去致用课堂管理页面
+     */
+    public static final String CLASSROOM_MANAGEMENT_PAGE = HOME_ROOT + "classroommanpage";
+
+    /**
+     * 致用校园管理分页
+     */
+    public static final String CLASSROOM_MANAGEMENT_LIST = CLASSROOM_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 致用校园管理新增
+     */
+    public static final String CLASSROOM_MANAGEMENT_ADD = CLASSROOM_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 致用校园管理修改
+     */
+    public static final String CLASSROOM_MANAGEMENT_EDIT = CLASSROOM_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 致用校园管理删除
+     */
+    public static final String CLASSROOM_MANAGEMENT_DELETE = CLASSROOM_MANAGEMENT_PAGE + "/delete/{id}";
 }

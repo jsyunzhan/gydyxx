@@ -78,4 +78,9 @@ public final class HomeWebForward {
      * 去教育科研管理页面
      */
     public static final String TO_EDUCATION_PAGE = "home/educationmanagementpanel";
+
+    /**
+     * 去致用课堂管理页面
+     */
+    public static final String TO_CLASSROOM_PAGE = "home/classroommanagementpanel";
 }
