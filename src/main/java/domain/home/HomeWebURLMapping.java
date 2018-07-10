@@ -436,4 +436,30 @@ public final class HomeWebURLMapping {
      * 致用校园管理删除
      */
     public static final String CLASSROOM_MANAGEMENT_DELETE = CLASSROOM_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************致远工作室管理*************************/
+    /**
+     * 去致远工作室管理页面
+     */
+    public static final String FAR_MANAGEMENT_PAGE = HOME_ROOT + "farmanpage";
+
+    /**
+     * 致用工作室分页
+     */
+    public static final String FAR_MANAGEMENT_LIST = FAR_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 致用工作室新增
+     */
+    public static final String FAR_MANAGEMENT_ADD = FAR_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 致用工作室修改
+     */
+    public static final String FAR_MANAGEMENT_EDIT = FAR_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 致用工作室删除
+     */
+    public static final String FAR_MANAGEMENT_DELETE = FAR_MANAGEMENT_PAGE + "/delete/{id}";
 }

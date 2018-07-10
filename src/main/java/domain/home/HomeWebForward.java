@@ -83,4 +83,9 @@ public final class HomeWebForward {
      * 去致用课堂管理页面
      */
     public static final String TO_CLASSROOM_PAGE = "home/classroommanagementpanel";
+
+    /**
+     * 去致远工作室管理页面
+     */
+    public static final String TO_FAR_PAGE = "home/farmanagementpanel";
 }

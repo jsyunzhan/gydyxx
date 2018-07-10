@@ -25,6 +25,7 @@
         <typeAlias alias="TrainingEntityInfo" type="domain.home.entity.TrainingEntity"/>
         <typeAlias alias="EducationEntityInfo" type="domain.home.entity.EducationEntity"/>
         <typeAlias alias="ClassroomEntityInfo" type="domain.home.entity.ClassroomEntity"/>
+        <typeAlias alias="FarEntityInfo" type="domain.home.entity.FarEntity"/>
     </typeAliases>
 
 </configuration>
