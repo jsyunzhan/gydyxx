@@ -488,4 +488,30 @@ public final class HomeWebURLMapping {
      * 教学资源删除
      */
     public static final String TEACHING_MANAGEMENT_DELETE = TEACHING_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************致用邑管理*************************/
+    /**
+     * 去致用邑管理页面
+     */
+    public static final String YI_MANAGEMENT_PAGE = HOME_ROOT + "yimanpage";
+
+    /**
+     * 致用邑分页
+     */
+    public static final String YI_MANAGEMENT_LIST = YI_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 致用邑新增
+     */
+    public static final String YI_MANAGEMENT_ADD = YI_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 致用邑修改
+     */
+    public static final String YI_MANAGEMENT_EDIT = YI_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 致用邑删除
+     */
+    public static final String YI_MANAGEMENT_DELETE = YI_MANAGEMENT_PAGE + "/delete/{id}";
 }

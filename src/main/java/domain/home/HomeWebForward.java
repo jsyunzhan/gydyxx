@@ -93,4 +93,9 @@ public final class HomeWebForward {
      * 去教学资源管理页面
      */
     public static final String TO_TEACHING_PAGE = "home/teachingmanagementpanel";
+
+    /**
+     * 去致用邑管理页面
+     */
+    public static final String TO_YI_PAGE = "home/yimanagementpanel";
 }
