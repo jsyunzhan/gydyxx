@@ -66,6 +66,11 @@
     margin-bottom: 15px;
 }
 
+/*缩进*/
+.newsCon .tindex0{
+    text-indent: 0;
+}
+
 .newsCon span{
     display: block;
     float: left;

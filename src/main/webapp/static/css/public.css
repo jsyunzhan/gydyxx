@@ -28,6 +28,11 @@ img{
     display: none;
 }
 
+/*文字居中*/
+.tc{
+    text-align: center;
+}
+
 /*清浮动，支持IE8+*/
 .clearfix:after{
     content:"";
