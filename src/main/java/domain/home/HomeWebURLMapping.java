@@ -592,4 +592,30 @@ public final class HomeWebURLMapping {
      * 精品社团删除
      */
     public static final String COMMUNITY_MANAGEMENT_DELETE = COMMUNITY_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************班本课程管理*************************/
+    /**
+     * 去班本课程管理页面
+     */
+    public static final String COURSE_MANAGEMENT_PAGE = HOME_ROOT + "coursemanpage";
+
+    /**
+     * 班本课程分页
+     */
+    public static final String COURSE_MANAGEMENT_LIST = COURSE_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 班本课程新增
+     */
+    public static final String COURSE_MANAGEMENT_ADD = COURSE_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 班本课程修改
+     */
+    public static final String COURSE_MANAGEMENT_EDIT = COURSE_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 班本课程删除
+     */
+    public static final String COURSE_MANAGEMENT_DELETE = COURSE_MANAGEMENT_PAGE + "/delete/{id}";
 }

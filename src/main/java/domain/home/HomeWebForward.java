@@ -113,4 +113,9 @@ public final class HomeWebForward {
      * 去精品社团管理页面
      */
     public static final String TO_COMMUNITY_PAGE = "home/communitymanagementpanel";
+
+    /**
+     * 去班本课程管理页面
+     */
+    public static final String TO_COURSE_PAGE = "home/coursemanagementpanel";
 }
