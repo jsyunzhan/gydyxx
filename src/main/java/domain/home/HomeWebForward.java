@@ -108,4 +108,9 @@ public final class HomeWebForward {
      * 去校园节庆管理页面
      */
     public static final String TO_CELEBRATE_PAGE = "home/celebratemanagementpanel";
+
+    /**
+     * 去精品社团管理页面
+     */
+    public static final String TO_COMMUNITY_PAGE = "home/communitymanagementpanel";
 }

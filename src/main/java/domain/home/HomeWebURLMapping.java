@@ -566,4 +566,30 @@ public final class HomeWebURLMapping {
      * 校园节庆删除
      */
     public static final String CELEBRATE_MANAGEMENT_DELETE = CELEBRATE_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************精品社团管理*************************/
+    /**
+     * 去精品社团管理页面
+     */
+    public static final String COMMUNITY_MANAGEMENT_PAGE = HOME_ROOT + "communitymanpage";
+
+    /**
+     * 精品社团分页
+     */
+    public static final String COMMUNITY_MANAGEMENT_LIST = COMMUNITY_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 精品社团新增
+     */
+    public static final String COMMUNITY_MANAGEMENT_ADD = COMMUNITY_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 精品社团修改
+     */
+    public static final String COMMUNITY_MANAGEMENT_EDIT = COMMUNITY_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 精品社团删除
+     */
+    public static final String COMMUNITY_MANAGEMENT_DELETE = COMMUNITY_MANAGEMENT_PAGE + "/delete/{id}";
 }
