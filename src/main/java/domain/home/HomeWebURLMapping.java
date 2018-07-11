@@ -540,4 +540,30 @@ public final class HomeWebURLMapping {
      * 国旗下讲话删除
      */
     public static final String SPEECH_MANAGEMENT_DELETE = SPEECH_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************校园节庆管理*************************/
+    /**
+     * 去校园节庆管理页面
+     */
+    public static final String CELEBRATE_MANAGEMENT_PAGE = HOME_ROOT + "celebratemanpage";
+
+    /**
+     * 校园节庆分页
+     */
+    public static final String CELEBRATE_MANAGEMENT_LIST = CELEBRATE_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 校园节庆新增
+     */
+    public static final String CELEBRATE_MANAGEMENT_ADD = CELEBRATE_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 校园节庆修改
+     */
+    public static final String CELEBRATE_MANAGEMENT_EDIT = CELEBRATE_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 校园节庆删除
+     */
+    public static final String CELEBRATE_MANAGEMENT_DELETE = CELEBRATE_MANAGEMENT_PAGE + "/delete/{id}";
 }
