@@ -514,4 +514,30 @@ public final class HomeWebURLMapping {
      * 致用邑删除
      */
     public static final String YI_MANAGEMENT_DELETE = YI_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************国旗下讲话管理*************************/
+    /**
+     * 去国旗下讲话管理页面
+     */
+    public static final String SPEECH_MANAGEMENT_PAGE = HOME_ROOT + "speechmanpage";
+
+    /**
+     * 国旗下讲话管理分页
+     */
+    public static final String SPEECH_MANAGEMENT_LIST = SPEECH_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 国旗下讲话新增
+     */
+    public static final String SPEECH_MANAGEMENT_ADD = SPEECH_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 国旗下讲话修改
+     */
+    public static final String SPEECH_MANAGEMENT_EDIT = SPEECH_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 国旗下讲话删除
+     */
+    public static final String SPEECH_MANAGEMENT_DELETE = SPEECH_MANAGEMENT_PAGE + "/delete/{id}";
 }

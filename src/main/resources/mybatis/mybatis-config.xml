@@ -28,6 +28,7 @@
         <typeAlias alias="FarEntityInfo" type="domain.home.entity.FarEntity"/>
         <typeAlias alias="TeachingEntityInfo" type="domain.home.entity.TeachingEntity"/>
         <typeAlias alias="YiEntityInfo" type="domain.home.entity.YiEntity"/>
+        <typeAlias alias="SpeechEntityInfo" type="domain.home.entity.SpeechEntity"/>
     </typeAliases>
 
 </configuration>

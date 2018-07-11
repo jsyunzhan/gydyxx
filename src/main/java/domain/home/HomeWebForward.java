@@ -98,4 +98,9 @@ public final class HomeWebForward {
      * 去致用邑管理页面
      */
     public static final String TO_YI_PAGE = "home/yimanagementpanel";
+
+    /**
+     * 去国旗下讲话管理页面
+     */
+    public static final String TO_SPEECH_PAGE = "home/speechmanagementpanel";
 }
