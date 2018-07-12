@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.HomeschoolDao">
+
+    <!--查总数-->
+    <select id="homeschoolCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_homeschool t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="homeschoolList" resultType="HomeschoolEntityInfo">
+        SELECT
+        t.ID id,
+        t.HOMESCHOOL_TITLE homeschoolTitle,
+        t.HOMESCHOOL_DETAILS homeschoolDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_homeschool t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <!--新增-->
+    <insert id="homeschoolAdd" >
+        INSERT INTO t_home_homeschool
+        (
+        HOMESCHOOL_TITLE,
+        HOMESCHOOL_DETAILS,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{homeschoolTitle},
+        #{homeschoolDetails},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="homeschoolEdit">
+        UPDATE t_home_homeschool SET
+        HOMESCHOOL_TITLE=#{homeschoolTitle},
+        HOMESCHOOL_DETAILS=#{homeschoolDetails},
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="homeschoolDelete">
+        UPDATE t_home_homeschool SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+</mapper>

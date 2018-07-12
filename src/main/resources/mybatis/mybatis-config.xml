@@ -32,6 +32,7 @@
         <typeAlias alias="CelebrateEntityInfo" type="domain.home.entity.CelebrateEntity"/>
         <typeAlias alias="CommunityEntityInfo" type="domain.home.entity.CommunityEntity"/>
         <typeAlias alias="CourseEntityInfo" type="domain.home.entity.CourseEntity"/>
+        <typeAlias alias="HomeschoolEntityInfo" type="domain.home.entity.HomeschoolEntity"/>
     </typeAliases>
 
 </configuration>

@@ -618,4 +618,30 @@ public final class HomeWebURLMapping {
      * 班本课程删除
      */
     public static final String COURSE_MANAGEMENT_DELETE = COURSE_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************家校心桥管理*************************/
+    /**
+     * 去家校心桥管理页面
+     */
+    public static final String HOMESCHOOL_MANAGEMENT_PAGE = HOME_ROOT + "homeschoolmanpage";
+
+    /**
+     * 家校心桥分页
+     */
+    public static final String HOMESCHOOL_MANAGEMENT_LIST = HOMESCHOOL_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 家校心桥新增
+     */
+    public static final String HOMESCHOOL_MANAGEMENT_ADD = HOMESCHOOL_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 家校心桥修改
+     */
+    public static final String HOMESCHOOL_MANAGEMENT_EDIT = HOMESCHOOL_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 家校心桥删除
+     */
+    public static final String HOMESCHOOL_MANAGEMENT_DELETE = HOMESCHOOL_MANAGEMENT_PAGE + "/delete/{id}";
 }

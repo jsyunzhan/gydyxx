@@ -118,4 +118,9 @@ public final class HomeWebForward {
      * 去班本课程管理页面
      */
     public static final String TO_COURSE_PAGE = "home/coursemanagementpanel";
+
+    /**
+     * 去家校心桥管理页面
+     */
+    public static final String TO_HOMESCHOOL_PAGE = "home/homeschoolmanagementpanel";
 }
