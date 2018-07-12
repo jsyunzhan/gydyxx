@@ -128,4 +128,9 @@ public final class HomeWebForward {
      * 去健康教育管理页面
      */
     public static final String TO_HEALTH_PAGE = "home/healthmanagementpanel";
+
+    /**
+     * 去家校资源管理页面
+     */
+    public static final String TO_RESOURCES_PAGE = "home/resourcesmanagementpanel";
 }

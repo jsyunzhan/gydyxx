@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.ResourcesDao">
+
+    <!--查总数-->
+    <select id="resourcesCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_resources t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="resourcesList" resultType="ResourcesEntityInfo">
+        SELECT
+        t.ID id,
+        t.RESOURCES_TITLE resourcesTitle,
+        t.RESOURCES_DETAILS resourcesDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_resources t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <!--新增-->
+    <insert id="resourcesAdd" >
+        INSERT INTO t_home_resources
+        (
+        RESOURCES_TITLE,
+        RESOURCES_DETAILS,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{resourcesTitle},
+        #{resourcesDetails},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="resourcesEdit">
+        UPDATE t_home_resources SET
+        RESOURCES_TITLE=#{resourcesTitle},
+        RESOURCES_DETAILS=#{resourcesDetails},
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="resourcesDelete">
+        UPDATE t_home_resources SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+</mapper>

@@ -670,4 +670,30 @@ public final class HomeWebURLMapping {
      * 健康教育删除
      */
     public static final String HEALTH_MANAGEMENT_DELETE = HEALTH_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************家校资源管理*************************/
+    /**
+     * 去家校资源管理页面
+     */
+    public static final String RESOURCES_MANAGEMENT_PAGE = HOME_ROOT + "resourcesmanpage";
+
+    /**
+     * 家校资源分页
+     */
+    public static final String RESOURCES_MANAGEMENT_LIST = RESOURCES_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 家校资源新增
+     */
+    public static final String RESOURCES_MANAGEMENT_ADD = RESOURCES_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 家校资源修改
+     */
+    public static final String RESOURCES_MANAGEMENT_EDIT = RESOURCES_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 家校资源删除
+     */
+    public static final String RESOURCES_MANAGEMENT_DELETE = RESOURCES_MANAGEMENT_PAGE + "/delete/{id}";
 }
