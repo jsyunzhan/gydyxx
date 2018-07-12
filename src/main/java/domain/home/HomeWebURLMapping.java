@@ -644,4 +644,30 @@ public final class HomeWebURLMapping {
      * 家校心桥删除
      */
     public static final String HOMESCHOOL_MANAGEMENT_DELETE = HOMESCHOOL_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************健康教育管理*************************/
+    /**
+     * 去健康教育管理页面
+     */
+    public static final String HEALTH_MANAGEMENT_PAGE = HOME_ROOT + "healthmanpage";
+
+    /**
+     * 健康教育分页
+     */
+    public static final String HEALTH_MANAGEMENT_LIST = HEALTH_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 健康教育新增
+     */
+    public static final String HEALTH_MANAGEMENT_ADD = HEALTH_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 健康教育修改
+     */
+    public static final String HEALTH_MANAGEMENT_EDIT = HEALTH_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 健康教育删除
+     */
+    public static final String HEALTH_MANAGEMENT_DELETE = HEALTH_MANAGEMENT_PAGE + "/delete/{id}";
 }

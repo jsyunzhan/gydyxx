@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.HealthDao">
+
+    <!--查总数-->
+    <select id="healthCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_healty t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="healthList" resultType="HealthEntityInfo">
+        SELECT
+        t.ID id,
+        t.HEALTH_TITLE healthTitle,
+        t.HEALTH_DETAILS healthDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_healty t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <!--新增-->
+    <insert id="healthAdd" >
+        INSERT INTO t_home_healty
+        (
+        HEALTH_TITLE,
+        HEALTH_DETAILS,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{healthTitle},
+        #{healthDetails},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="healthEdit">
+        UPDATE t_home_healty SET
+        HEALTH_TITLE=#{healthTitle},
+        HEALTH_DETAILS=#{healthTitle},
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="healthDelete">
+        UPDATE t_home_healty SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+</mapper>

@@ -123,4 +123,9 @@ public final class HomeWebForward {
      * 去家校心桥管理页面
      */
     public static final String TO_HOMESCHOOL_PAGE = "home/homeschoolmanagementpanel";
+
+    /**
+     * 去健康教育管理页面
+     */
+    public static final String TO_HEALTH_PAGE = "home/healthmanagementpanel";
 }
