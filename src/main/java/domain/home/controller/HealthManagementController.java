@@ -105,6 +105,7 @@ public class HealthManagementController extends AbstractActionController{
     @ResponseBody
     public JsonResponseVO healthDelete(@PathVariable("id") Long id){
         final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
         try {
             if (LOGGER.isDebugEnabled()){
                 LOGGER.debug("健康教育删除,id:{}",id);
