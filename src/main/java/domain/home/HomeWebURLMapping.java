@@ -707,4 +707,30 @@ public final class HomeWebURLMapping {
      * 校长信箱分页
      */
     public static final String EMAIL_MANAGEMENT_LIST = EMAIL_MANAGEMENT_PAGE + "/list";
+
+    /*******************领导简介管理*************************/
+    /**
+     * 去领导简介页面
+     */
+    public static final String LEADER_MANAGEMENT_PAGE = HOME_ROOT + "leadermanpage";
+
+    /**
+     * 领导简介分页
+     */
+    public static final String LEADER_MANAGEMENT_LIST = LEADER_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 领导简介新增
+     */
+    public static final String LEADER_MANAGEMENT_ADD = LEADER_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 领导简介修改
+     */
+    public static final String LEADER_MANAGEMENT_EDIT = LEADER_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 领导简介删除
+     */
+    public static final String LEADER_MANAGEMENT_DELETE = LEADER_MANAGEMENT_PAGE + "/delete/{id}";
 }

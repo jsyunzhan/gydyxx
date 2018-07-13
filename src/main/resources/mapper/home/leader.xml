@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.LeaderDao">
+
+    <!--查总数-->
+    <select id="newsCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_leader t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="leaderList" resultType="LeaderEntityInfo">
+        SELECT
+        t.ID id,
+        t.LEADER_TITLE leaderTitle,
+        t.LEADER_DETAILS leaderDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_leader t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <!--首页公告新增-->
+    <insert id="leaderAdd" >
+        INSERT INTO t_home_leader
+        (
+        LEADER_TITLE,
+        LEADER_DETAILS,
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH,
+        </if>
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{leaderTitle},
+        #{leaderDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            #{picturePath},
+        </if>
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="leaderEdit">
+        UPDATE t_home_leader SET
+        LEADER_TITLE=#{leaderTitle},
+        LEADER_DETAILS=#{leaderDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH=#{picturePath},
+        </if>
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="leaderDelete">
+        UPDATE t_home_leader SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+</mapper>

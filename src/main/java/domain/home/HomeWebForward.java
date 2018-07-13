@@ -138,4 +138,9 @@ public final class HomeWebForward {
      * 去校长信箱管理页面
      */
     public static final String TO_EMAIL_PAGE = "home/emailmanagementpanel";
+
+    /**
+     * 去领导简介页面
+     */
+    public static final String TO_LEADER_PAGE = "home/leadermanagementpanel";
 }
