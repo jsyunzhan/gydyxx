@@ -1,0 +1,151 @@
+body{
+    font-family: 'FangSong';
+}
+
+.banner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.banner img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.mailbox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -257.5px;
+    margin-left: -585px;
+    width: 1170px;
+    height: 575px;
+    background: #fff;
+    z-index: 2;
+    box-shadow: 1px 1px 15px #ccc,-1px -1px 15px #ccc;
+}
+
+.mailbox .title{
+    font-size: 36px;
+    line-height: 40px;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 5px solid #915519;
+}
+
+.invite{
+    position: relative;
+    font-size: 30px;
+    line-height: 54px;
+    margin-top: 29px;
+    margin-left: 49px;
+}
+
+.invite_bor{
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 5px;
+    background: #915519;
+    z-index: 3;
+}
+
+form{
+    padding: 0 49px;
+    margin-top: 57px;
+}
+
+.message{
+    border: 1px solid #E1E1E1;
+    width: 338px;
+    margin-right: 26px;
+    float: left;
+}
+
+.message:nth-child(3){
+    margin-right: 0;
+}
+
+.message input{
+    float: left;
+    line-height: 50px;
+    border: 0;
+    outline: 0;
+    width: 278px;
+    font-size: 20px;
+}
+
+.message div{
+    float: left;
+    font-size: 14px;
+    width: 60px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.message div span,.message_area div span{
+    color: #FF0000;
+}
+
+.message_area{
+    float: left;
+    position: relative;
+    margin-top: 30px;
+    border: 1px solid #E1E1E1;
+}
+
+.message_area textarea{
+    width: 1070px;
+    height: 160px;
+    border: 0px;
+    outline: 0;
+    padding: 10px;
+    padding-left: 100px;
+    line-height: 50px;
+    font-size: 20px;
+    resize:none;
+    overflow-y: scroll;
+}
+
+.message_area div{
+    position: absolute;
+    width: 80px;
+    top: 10px;
+    left: 10px;
+    line-height: 50px;
+    font-size: 14px;
+}
+
+.send{
+    margin-top: 30px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Adobe Heiti Std R';
+    margin-left: 49px;
+}
+
+.send div{
+    float: left;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+.submit{
+    line-height: 50px;
+    width: 170px;
+    background: #915519;
+}
+
+.reset{
+    color: #915519;
+    line-height: 44px;
+    border: 3px solid #915519;
+    width: 164px;
+}

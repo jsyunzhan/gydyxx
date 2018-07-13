@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="${APP_PATH}/static/css/backstage/login.css">
     <script src="${APP_PATH}/static/jq/jquery-1.7.2.min.js"></script>
     <script src="${APP_PATH}/static/js/public.js"></script>
-    <title>Title</title>
+    <title>后台登录</title>
     <jsp:include flush="true" page="/WEB-INF/pages/commons/servercommonjs.jsp"/>
     <script type="text/javascript" src="<c:url value="/static/js/backstage/login.js"/>"></script>
 
