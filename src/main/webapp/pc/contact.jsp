@@ -15,6 +15,7 @@
     <script type="text/javascript" src="../static/js/secondaryPage.js"></script>
     <title>搜索结果</title>
 </head>
+
 <body>
 <div class="wrapper">
     <div class="bg">
