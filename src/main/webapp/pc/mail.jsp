@@ -21,6 +21,7 @@
     <title>校长信箱</title>
 </head>
 <body>
+
     <div class="wrapper">
         <div class="banner">
             <img src="${APP_PATH}/static/images/mailbg.jpg">
