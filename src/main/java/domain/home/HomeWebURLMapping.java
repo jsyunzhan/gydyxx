@@ -696,4 +696,15 @@ public final class HomeWebURLMapping {
      * 家校资源删除
      */
     public static final String RESOURCES_MANAGEMENT_DELETE = RESOURCES_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /*******************校长信箱管理*************************/
+    /**
+     * 去校长信箱页面
+     */
+    public static final String EMAIL_MANAGEMENT_PAGE = HOME_ROOT + "emailmanpage";
+
+    /**
+     * 校长信箱分页
+     */
+    public static final String EMAIL_MANAGEMENT_LIST = EMAIL_MANAGEMENT_PAGE + "/list";
 }

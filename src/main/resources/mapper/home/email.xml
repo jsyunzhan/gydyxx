@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.EmailDao">
+
+    <!--查总数-->
+    <select id="emailCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_email t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="emailList" resultType="EmailEntityInfo">
+        SELECT
+        t.ID id,
+        t.SEND_NAME sendName,
+        t.SEND_EMAIL sendEmail,
+        t.SEND_NUMBER sendNumber,
+        t.SEND_DETAILS sendDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_email t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+
+
+</mapper>

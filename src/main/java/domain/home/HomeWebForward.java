@@ -133,4 +133,9 @@ public final class HomeWebForward {
      * 去家校资源管理页面
      */
     public static final String TO_RESOURCES_PAGE = "home/resourcesmanagementpanel";
+
+    /**
+     * 去校长信箱管理页面
+     */
+    public static final String TO_EMAIL_PAGE = "home/emailmanagementpanel";
 }

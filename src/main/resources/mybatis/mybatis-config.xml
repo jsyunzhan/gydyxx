@@ -35,6 +35,7 @@
         <typeAlias alias="HomeschoolEntityInfo" type="domain.home.entity.HomeschoolEntity"/>
         <typeAlias alias="HealthEntityInfo" type="domain.home.entity.HealthEntity"/>
         <typeAlias alias="ResourcesEntityInfo" type="domain.home.entity.ResourcesEntity"/>
+        <typeAlias alias="EmailEntityInfo" type="domain.home.entity.EmailEntity"/>
     </typeAliases>
 
 </configuration>
