@@ -1,4 +1,11 @@
 $(function () {
+    $.ajax({
+        url:path + "/homepage/notice/list",
+        type:"GET",dataType:"json",
+        success:function (event) {
+            console.log(event);
+        }
+    })
 
     // banner轮播图
     var banner = new Swiper(".banner",{

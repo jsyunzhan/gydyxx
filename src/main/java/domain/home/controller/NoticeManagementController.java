@@ -62,7 +62,7 @@ public class NoticeManagementController extends AbstractActionController{
      * @param noticeEntity 主页展示
      * @return List<NoticeEntity>
      */
-    @RequestMapping(value = NOTICE_MANAGEMENT_ALL_LIST)
+    @RequestMapping(value = "/homepage/notice/list")
     @ResponseBody
     public List<NoticeEntity> noticeAllList(NoticeEntity noticeEntity){
         return noticeManagementService.noticeAllList(noticeEntity);

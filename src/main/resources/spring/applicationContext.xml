@@ -95,6 +95,7 @@
                 /security/login = anon
                 /static/** = anon
                 /pc/** = anon
+                /homepage/** = anon
                 /shiro/logout = logout
                 /** = authc
 

@@ -18,11 +18,6 @@ public final class HomeWebURLMapping {
     public static final String NOTICE_MANAGEMENT_LIST = NOTICE_MANAGEMENT_PAGE + "/list";
 
     /**
-     * 通知管理主页
-     */
-    public static final String NOTICE_MANAGEMENT_ALL_LIST = NOTICE_MANAGEMENT_PAGE + "/alllist";
-
-    /**
      * 通知管理新增
      */
     public static final String NOTICE_MANAGEMENT_ADD = NOTICE_MANAGEMENT_PAGE + "/add";
@@ -738,4 +733,5 @@ public final class HomeWebURLMapping {
      * 领导简介删除
      */
     public static final String LEADER_MANAGEMENT_DELETE = LEADER_MANAGEMENT_PAGE + "/delete/{id}";
+
 }
