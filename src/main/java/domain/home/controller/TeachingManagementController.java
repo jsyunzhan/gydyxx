@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_TEACHING_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -50,6 +52,12 @@ public class TeachingManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult teachingList(TeachingEntity teachingEntity){
         return teachingManagementService.teachingList(teachingEntity);
+    }
+
+    @RequestMapping(value = "/homepage/teaching/list")
+    @ResponseBody
+    public List<TeachingEntity> teachingAllList(TeachingEntity teachingEntity){
+        return teachingManagementService.teachingAllList(teachingEntity);
     }
 
     /**

@@ -26,6 +26,20 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="teachingAllList" resultType="TeachingEntityInfo">
+        SELECT
+        t.ID id,
+        t.TEACHING_TITLE teachingTitle,
+        t.TEACHING_DETAILS teachingDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_teaching t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--新增-->
     <insert id="teachingAdd" >
         INSERT INTO t_home_teaching

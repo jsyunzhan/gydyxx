@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.TeachingEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface TeachingManagementService {
     /**
      * 教学资源分页
@@ -32,4 +34,6 @@ public interface TeachingManagementService {
      * @return Boolean
      */
     Boolean teachingDelete(Long id, Long loginId);
+
+    List<TeachingEntity> teachingAllList(TeachingEntity teachingEntity);
 }

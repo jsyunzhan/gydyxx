@@ -69,4 +69,9 @@ public class TeachingManagementServiceImpl implements TeachingManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<TeachingEntity> teachingAllList(TeachingEntity teachingEntity) {
+        return teachingDao.teachingAllList(teachingEntity);
+    }
 }
