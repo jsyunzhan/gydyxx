@@ -27,6 +27,21 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="schoolAllList" resultType="SchoolEntityInfo">
+        SELECT
+        t.ID id,
+        t.SCHOOL_TITLE schoolTitle,
+        t.SCHOOL_DETAILS schoolDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_school t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--名师风采新增-->
     <insert id="schoolAdd" >
         INSERT INTO t_home_school

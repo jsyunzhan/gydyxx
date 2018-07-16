@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_SCHOOL_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -47,6 +49,17 @@ public class SchoolManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult schoolList(SchoolEntity schoolEntity){
         return schoolManagementService.schoolList(schoolEntity);
+    }
+
+    /**
+     * 学校风采接口
+     * @param schoolEntity 查询实体
+     * @return List<SchoolEntity>
+     */
+    @RequestMapping(value = "/homepage/school/list")
+    @ResponseBody
+    public List<SchoolEntity> schoolAllList(SchoolEntity schoolEntity){
+        return schoolManagementService.schoolAllList(schoolEntity);
     }
 
     /**

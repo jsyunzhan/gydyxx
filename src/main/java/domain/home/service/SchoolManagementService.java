@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.SchoolEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface SchoolManagementService {
     /**
      * 学校风采分页
@@ -32,4 +34,11 @@ public interface SchoolManagementService {
      * @return Boolean
      */
     Boolean schoolDelete(Long id, Long loginId);
+
+    /**
+     * 学校风采接口
+     * @param schoolEntity 查询实体
+     * @return List<SchoolEntity>
+     */
+    List<SchoolEntity> schoolAllList(SchoolEntity schoolEntity);
 }

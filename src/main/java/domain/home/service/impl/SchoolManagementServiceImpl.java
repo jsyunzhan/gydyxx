@@ -69,4 +69,9 @@ public class SchoolManagementServiceImpl implements SchoolManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<SchoolEntity> schoolAllList(SchoolEntity schoolEntity) {
+        return schoolDao.schoolAllList(schoolEntity);
+    }
 }
