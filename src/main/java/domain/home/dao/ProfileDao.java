@@ -17,4 +17,6 @@ public interface ProfileDao {
     Integer profileEdit(ProfileEntity profileEntity);
 
     Integer profileDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<ProfileEntity> profileAllList(ProfileEntity profileEntity);
 }

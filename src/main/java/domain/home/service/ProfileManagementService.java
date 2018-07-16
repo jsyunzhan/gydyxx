@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.ProfileEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface ProfileManagementService {
     /**
      * 学校概况分页
@@ -32,4 +34,11 @@ public interface ProfileManagementService {
      * @return Boolean
      */
     Boolean profileDelete(Long id, Long loginId);
+
+    /**
+     * 学校概况接口
+     * @param profileEntity 查询实体
+     * @return List<ProfileEntity>
+     */
+    List<ProfileEntity> profileAllList(ProfileEntity profileEntity);
 }

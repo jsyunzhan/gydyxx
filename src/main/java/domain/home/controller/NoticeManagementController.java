@@ -215,7 +215,7 @@ public class NoticeManagementController extends AbstractActionController{
     }
 
     /**
-     *
+     * 根据图片地址查询图片
      * @param noticeEntity
      * @return
      * @throws IOException

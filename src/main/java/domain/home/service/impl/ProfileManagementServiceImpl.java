@@ -73,4 +73,9 @@ public class ProfileManagementServiceImpl implements ProfileManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<ProfileEntity> profileAllList(ProfileEntity profileEntity) {
+        return profileDao.profileAllList(profileEntity);
+    }
 }

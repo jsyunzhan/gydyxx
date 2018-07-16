@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_PROFILE_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -47,6 +49,17 @@ public class ProfileManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult profileList(ProfileEntity profileEntity){
         return profileManagementService.profileList(profileEntity);
+    }
+
+    /**
+     * 学校概况接口
+     * @param profileEntity 查询实体
+     * @return List<ProfileEntity>
+     */
+    @RequestMapping(value = "/homepage/profile/list")
+    @ResponseBody
+    public List<ProfileEntity> profileAllList(ProfileEntity profileEntity){
+        return profileManagementService.profileAllList(profileEntity);
     }
 
     /**
