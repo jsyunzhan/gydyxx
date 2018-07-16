@@ -18,4 +18,6 @@ public interface YiDao {
     Integer yiEdit(YiEntity yiEntity);
 
     Integer yiDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<YiEntity> yiAllList(YiEntity yiEntity);
 }

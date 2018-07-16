@@ -69,4 +69,9 @@ public class YiManagementServiceImpl implements YiManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<YiEntity> yiAllList(YiEntity yiEntity) {
+        return yiDao.yiAllList(yiEntity);
+    }
 }

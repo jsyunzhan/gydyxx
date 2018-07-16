@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.YiEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface YiManagementService {
     /**
      * 致用邑分页
@@ -32,4 +34,6 @@ public interface YiManagementService {
      * @return Boolean
      */
     Boolean yiDelete(Long id, Long loginId);
+
+    List<YiEntity> yiAllList(YiEntity yiEntity);
 }
