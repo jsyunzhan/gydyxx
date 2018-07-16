@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.ClassroomEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface ClassroomManagementService {
     /**
      * 致用校园分页
@@ -32,4 +34,6 @@ public interface ClassroomManagementService {
      * @return Boolean
      */
     Boolean classroomDelete(Long id, Long loginId);
+
+    List<ClassroomEntity> classroomAllList(ClassroomEntity classroomEntity);
 }
