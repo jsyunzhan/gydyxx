@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.NoticeEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface NoticeManagementService {
     /**
      * 首页公告分页
@@ -32,4 +34,11 @@ public interface NoticeManagementService {
      * @return Boolean
      */
     Boolean noticeDelete(Long id, Long loginId);
+
+    /**
+     * 通知公告主页
+     * @param noticeEntity 查询实体
+     * @return List<NoticeEntity>
+     */
+    List<NoticeEntity> noticeAllList(NoticeEntity noticeEntity);
 }

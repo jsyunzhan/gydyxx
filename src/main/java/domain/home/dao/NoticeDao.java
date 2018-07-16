@@ -43,4 +43,11 @@ public interface NoticeDao {
      * @return Integer
      */
     Integer noticeDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    /**
+     * 查询
+     * @param noticeEntity 查询
+     * @return List<NoticeEntity>
+     */
+    List<NoticeEntity> noticeAllList(NoticeEntity noticeEntity);
 }

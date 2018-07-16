@@ -27,6 +27,22 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <!--查询集合-->
+    <select id="noticeAllList" resultType="NoticeEntityInfo">
+        SELECT
+        t.ID id,
+        t.NOTICE_TITLE noticeTitle,
+        t.NOTICE_DETAILS noticeDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_notice t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--首页公告新增-->
     <insert id="noticeAdd" >
         INSERT INTO t_home_notice

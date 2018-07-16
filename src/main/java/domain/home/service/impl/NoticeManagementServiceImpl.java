@@ -77,4 +77,9 @@ public class NoticeManagementServiceImpl implements NoticeManagementService{
 
         return flag;
     }
+
+    @Override
+    public List<NoticeEntity> noticeAllList(NoticeEntity noticeEntity) {
+        return noticeDao.noticeAllList(noticeEntity);
+    }
 }

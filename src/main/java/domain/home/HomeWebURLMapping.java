@@ -18,6 +18,11 @@ public final class HomeWebURLMapping {
     public static final String NOTICE_MANAGEMENT_LIST = NOTICE_MANAGEMENT_PAGE + "/list";
 
     /**
+     * 通知管理主页
+     */
+    public static final String NOTICE_MANAGEMENT_ALL_LIST = NOTICE_MANAGEMENT_PAGE + "/alllist";
+
+    /**
      * 通知管理新增
      */
     public static final String NOTICE_MANAGEMENT_ADD = NOTICE_MANAGEMENT_PAGE + "/add";
