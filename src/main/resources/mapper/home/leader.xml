@@ -27,6 +27,21 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="leaderAllList" resultType="LeaderEntityInfo">
+        SELECT
+        t.ID id,
+        t.LEADER_TITLE leaderTitle,
+        t.LEADER_DETAILS leaderDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_leader t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--首页公告新增-->
     <insert id="leaderAdd" >
         INSERT INTO t_home_leader

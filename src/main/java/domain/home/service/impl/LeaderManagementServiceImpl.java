@@ -69,4 +69,9 @@ public class LeaderManagementServiceImpl implements LeaderManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<LeaderEntity> leaderAllList(LeaderEntity leaderEntity) {
+        return leaderDao.leaderAllList(leaderEntity);
+    }
 }

@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.LeaderEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface LeaderManagementService {
     /**
      * 领导介绍分页
@@ -32,4 +34,11 @@ public interface LeaderManagementService {
      * @return Boolean
      */
     Boolean leaderDelete(Long id, Long loginId);
+
+    /**
+     * 领导简介接口
+     * @param leaderEntity 查询实体
+     * @return List<LeaderEntity>
+     */
+    List<LeaderEntity> leaderAllList(LeaderEntity leaderEntity);
 }

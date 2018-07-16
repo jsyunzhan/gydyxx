@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_LEADER_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -47,6 +49,17 @@ public class LeaderManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult leaderList(LeaderEntity leaderEntity){
         return leaderManagementService.leaderList(leaderEntity);
+    }
+
+    /**
+     * 领导介绍接口
+     * @param leaderEntity 查询实体
+     * @return List<LeaderEntity>
+     */
+    @RequestMapping(value = "/homepage/leader/list")
+    @ResponseBody
+    public List<LeaderEntity> leaderAllList(LeaderEntity leaderEntity){
+        return leaderManagementService.leaderAllList(leaderEntity);
     }
 
     /**
