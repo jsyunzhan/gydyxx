@@ -69,4 +69,9 @@ public class CivilizationManagementServiceImpl implements CivilizationManagement
         }
         return flag;
     }
+
+    @Override
+    public List<CivilizationEntity> civilizationAllList(CivilizationEntity civilizationEntity) {
+        return civilizationDao.civilizationAllList(civilizationEntity);
+    }
 }

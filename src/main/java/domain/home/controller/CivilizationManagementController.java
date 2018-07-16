@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_CIVILIZATION_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -47,6 +49,17 @@ public class CivilizationManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult civilizationList(CivilizationEntity civilizationEntity){
         return civilizationManagementService.civilizationList(civilizationEntity);
+    }
+
+    /**
+     * 文明创建接口
+     * @param civilizationEntity 查询实体
+     * @return PageQueryResult
+     */
+    @RequestMapping(value = "/homepage/civilization/list")
+    @ResponseBody
+    public List<CivilizationEntity> civilizationAllList(CivilizationEntity civilizationEntity){
+        return civilizationManagementService.civilizationAllList(civilizationEntity);
     }
 
     /**

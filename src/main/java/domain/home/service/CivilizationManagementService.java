@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.CivilizationEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface CivilizationManagementService {
     /**
      * 文明创建分页
@@ -32,4 +34,11 @@ public interface CivilizationManagementService {
      * @return Boolean
      */
     Boolean civilizationDelete(Long id, Long loginId);
+
+    /**
+     * 文明创建接口
+     * @param civilizationEntity 查询实体
+     * @return List<CivilizationEntity>
+     */
+    List<CivilizationEntity> civilizationAllList(CivilizationEntity civilizationEntity);
 }
