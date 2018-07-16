@@ -44,4 +44,6 @@ public interface StudentDao {
      * @return Integer
      */
     Integer studentDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<StudentEntity> studentAllList(StudentEntity studentEntity);
 }

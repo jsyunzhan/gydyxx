@@ -75,4 +75,9 @@ public class StudentManagementServiceImpl implements StudentManagementService{
 
         return flag;
     }
+
+    @Override
+    public List<StudentEntity> studentAllList(StudentEntity studentEntity) {
+        return studentDao.studentAllList(studentEntity);
+    }
 }

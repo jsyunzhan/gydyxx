@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_STUDENT_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -50,6 +52,17 @@ public class StudentManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult studentList(StudentEntity studentEntity){
         return studentManagementService.studentList(studentEntity);
+    }
+
+    /**
+     * 学子风采接口
+     * @param studentEntity 查询实体
+     * @return List<StudentEntity>
+     */
+    @RequestMapping(value = "/homepage/student/list")
+    @ResponseBody
+    public List<StudentEntity> studentAllList(StudentEntity studentEntity){
+        return studentManagementService.studentAllList(studentEntity);
     }
 
     /**
