@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.WorksEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface WroksManagementService {
     /**
      * 作品管理分页
@@ -32,4 +34,11 @@ public interface WroksManagementService {
      * @return Boolean
      */
     Boolean worksDelete(Long id, Long loginId);
+
+    /**
+     * 作品管理接口
+     * @param worksEntity 查询实体
+     * @return List<WorksEntity>
+     */
+    List<WorksEntity> worksAllList(WorksEntity worksEntity);
 }

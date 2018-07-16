@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_WROKS_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -51,6 +53,12 @@ public class WorksManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult worksListInfo(WorksEntity worksEntity){
         return wroksManagementService.worksListInfo(worksEntity);
+    }
+
+    @RequestMapping(value = "/homepage/works/list")
+    @ResponseBody
+    public List<WorksEntity> worksAllList(WorksEntity worksEntity){
+        return wroksManagementService.worksAllList(worksEntity);
     }
 
     /**
