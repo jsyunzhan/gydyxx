@@ -51,6 +51,7 @@
 }
 
 .notice_scroll{
+    height: 312px;
     padding-bottom: 34px;
     background: url(../../static/images/notice_bg.jpg) no-repeat bottom;
 }
@@ -247,6 +248,7 @@
 }
 
 .exhibition .content_ex{
+    height: 186px;
     padding: 7px 10px;
     background: #fff;
 }

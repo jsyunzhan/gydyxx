@@ -6,21 +6,24 @@
     <meta name="renderer" content="webkit">
     <meta name="google" value="notranslate"><!-- 禁止Chrome 浏览器中自动提示翻译 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <link rel="stylesheet" type="text/css" href="../static/swiper/idangerous.swiper.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/public.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/publicPart.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/homepage.css">
-    <script type="text/javascript" src="../static/jq/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="../static/swiper/idangerous.swiper.min.js"></script>
-    <script type="text/javascript" src="../static/js/public.js"></script>
-    <script type="text/javascript" src="../static/js/publicPart.js"></script>
-    <script type="text/javascript" src="../static/js/homepage.js"></script>
+    <%
+        pageContext.setAttribute("APP_PATH", request.getContextPath());
+    %>
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/swiper/idangerous.swiper.css">
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/publicPart.css">
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/homepage.css">
+    <script type="text/javascript" src="${APP_PATH}/static/jq/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/swiper/idangerous.swiper.min.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/public.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/homepage.js"></script>
     <title>高邮市第一实验小学</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="bg">
-            <img src="../static/images/bg.png">
+            <img src="${APP_PATH}/static/images/bg.png">
         </div>
         <%--学校logo--%>
         <div class="school_logo clearfix">
@@ -111,7 +114,7 @@
                 <a class="arrow-right" href="#">
                     <img src="../static/images/arrow_right.png">
                 </a>
-                <div class="swiper-wrapper clearfix">
+                <div class="swiper-wrapper banner_wrapper clearfix">
                     <div class="swiper-slide">
                         <img src="../static/images/banner.jpg">
                     </div>
@@ -134,14 +137,6 @@
                     </div>
                     <div class="content_notice">
                         <div class="notice_scroll">
-                            <div class="notification">1.公公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                            <div class="notification">2.公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                            <div class="notification">3.公告公告公告公告公告公公告公告公告公告公告公告告公告公告告公告公告告公告</div>
-                            <div class="notification">4.公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                            <div class="notification">5.公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                            <div class="notification">6.公告公告公告公告公告公告公告公告公告公告公告告公告公告告公告公告公告</div>
-                            <div class="notification">7.公告公告公告公告公告公告公告公告公告公告公告公告公告告公告</div>
-                            <div class="notification">8.公告公告公告公告公告公告公告公告公告公告公告公告</div>
                         </div>
                     </div>
                 </div>
@@ -180,14 +175,6 @@
                             </div>
                         </div>
                         <div class="main_content_right">
-                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
-                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
-                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
-                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
-                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
-                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
-                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
-                            <div class="news_list"><span><img src="../static/images/icon_round.png"></span>世界献血日献血，高邮市实验小学！世界献血日献血，高邮市实验小学！</div>
                         </div>
                     </div>
                 </div>
@@ -299,14 +286,7 @@
                             <img src="../static/images/title_01.jpg">
                             <a href="javascript:;">更多></a>
                         </div>
-                        <div class="content_ex">
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                        </div>
+                        <div class="content_ex"></div>
                     </div>
 
                     <%--名师风采--%>
@@ -315,14 +295,7 @@
                             <img src="../static/images/title_02.jpg">
                             <a href="javascript:;">更多></a>
                         </div>
-                        <div class="content_ex">
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                        </div>
+                        <div class="content_ex"></div>
                     </div>
 
                     <%--学习风采--%>
@@ -331,14 +304,7 @@
                             <img src="../static/images/title_03.jpg">
                             <a href="javascript:;">更多></a>
                         </div>
-                        <div class="content_ex">
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                        </div>
+                        <div class="content_ex"></div>
                     </div>
 
                     <%--课题研究--%>
@@ -347,14 +313,7 @@
                             <img src="../static/images/title_04.jpg">
                             <a href="javascript:;">更多></a>
                         </div>
-                        <div class="content_ex">
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                            <div class="ex_list clearfix"><p>学校管理学生规范学校管理学生规范学校管理学生规范</p><span>06-25</span></div>
-                        </div>
+                        <div class="content_ex"></div>
                     </div>
                 </div>
             </div>
@@ -368,60 +327,6 @@
                     </div>
                     <div class="swiper-container mien_pic">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide clearfix">
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                                <div class="mien_pic_child">
-                                    <img src="../static/images/image_01.jpg">
-                                    <img src="../static/images/frame.png">
-                                </div>
-                            </div>
                         </div>
                         <div class="pagination02"></div>
                     </div>
@@ -464,6 +369,5 @@
 </body>
 <script>
     var path  = '<%=request.getContextPath()%>';
-
 </script>
 </html>
