@@ -26,6 +26,20 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="trainingAllList" resultType="TrainingEntityInfo">
+        SELECT
+        t.ID id,
+        t.TRAINING_TITLE trainingTitle,
+        t.TRAINING_DETAILS trainingDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_training t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--新增-->
     <insert id="trainingAdd" >
         INSERT INTO t_home_training

@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_TRAINING_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
 /**
- * 校本研究
+ * 校本培训
  */
 @Controller
 public class TrainingManagementController extends AbstractActionController{
@@ -50,6 +52,12 @@ public class TrainingManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult trainingList(TrainingEntity trainingEntity){
         return trainingManagementService.trainingList(trainingEntity);
+    }
+
+    @RequestMapping(value = "/homepage/training/list")
+    @ResponseBody
+    public List<TrainingEntity> trainingAllList(TrainingEntity trainingEntity){
+        return trainingManagementService.trainingAllList(trainingEntity);
     }
 
     /**

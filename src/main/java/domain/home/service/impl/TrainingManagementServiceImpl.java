@@ -69,4 +69,9 @@ public class TrainingManagementServiceImpl implements TrainingManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<TrainingEntity> trainingAllList(TrainingEntity trainingEntity) {
+        return trainingDao.trainingAllList(trainingEntity);
+    }
 }

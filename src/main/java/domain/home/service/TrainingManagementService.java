@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.TrainingEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface TrainingManagementService {
     /**
      * 校本培训分页
@@ -32,4 +34,6 @@ public interface TrainingManagementService {
      * @return Boolean
      */
     Boolean trainingDelete(Long id, Long loginId);
+
+    List<TrainingEntity> trainingAllList(TrainingEntity trainingEntity);
 }
