@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_TEACHER_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -42,6 +44,8 @@ public class TeacherManagementController extends AbstractActionController{
     }
 
 
+
+
     /**
      * 名师风采分页
      * @param teacherEntity 分页实体
@@ -52,6 +56,18 @@ public class TeacherManagementController extends AbstractActionController{
     public PageQueryResult teacherList(TeacherEntity teacherEntity){
         return teacherManagementService.teacherList(teacherEntity);
     }
+
+    /**
+     * 作品展示接口
+     * @param teacherEntity 查询实体
+     * @return List<TeacherEntity>
+     */
+    @RequestMapping(value = "/homepage/teacher/list")
+    @ResponseBody
+    public List<TeacherEntity> teacherAllList(TeacherEntity teacherEntity){
+        return teacherManagementService.teacherAllList(teacherEntity);
+    }
+
 
     /**
      * 名师风采新增

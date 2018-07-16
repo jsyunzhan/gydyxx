@@ -74,4 +74,9 @@ public class TeacherManagementServiceImpl implements TeacherManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<TeacherEntity> teacherAllList(TeacherEntity teacherEntity) {
+        return teacherDao.teacherAllList(teacherEntity);
+    }
 }
