@@ -77,4 +77,9 @@ public class NewsManagementServiceImpl implements NewsManagementService{
 
         return flag;
     }
+
+    @Override
+    public List<NewsEntity> newsAllList(NewsEntity newsEntity) {
+        return newsDao.newsAllList(newsEntity);
+    }
 }

@@ -43,4 +43,6 @@ public interface NewsDao {
      * @return Integer
      */
     Integer newsDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<NewsEntity> newsAllList(NewsEntity newsEntity);
 }

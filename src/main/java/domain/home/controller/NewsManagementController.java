@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_NEWS_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -48,6 +50,17 @@ public class NewsManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult newsListInfo(NewsEntity newsEntity){
         return newsManagementService.newsListInfo(newsEntity);
+    }
+
+    /**
+     * 新闻中心接口
+     * @param newsEntity 查询实体
+     * @return List<NewsEntity>
+     */
+    @RequestMapping(value = "/homepage/news/list")
+    @ResponseBody
+    public List<NewsEntity> newsAllList(NewsEntity newsEntity){
+        return newsManagementService.newsAllList(newsEntity);
     }
 
     /**
