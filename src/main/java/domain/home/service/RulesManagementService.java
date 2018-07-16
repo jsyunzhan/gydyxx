@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.RulesEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface RulesManagementService {
     /**
      * 规章制度分页
@@ -32,4 +34,11 @@ public interface RulesManagementService {
      * @return Boolean
      */
     Boolean rulesDelete(Long id, Long loginId);
+
+    /**
+     * 规章制度接口
+     * @param rulesEntity 查询实体
+     * @return List<RulesEntity>
+     */
+    List<RulesEntity> rulesAllList(RulesEntity rulesEntity);
 }

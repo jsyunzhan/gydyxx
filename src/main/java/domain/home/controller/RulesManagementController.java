@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_RULES_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -48,6 +50,17 @@ public class RulesManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult rulesList(RulesEntity rulesEntity){
         return rulesManagementService.rulesList(rulesEntity);
+    }
+
+    /**
+     * 规章制度接口
+     * @param rulesEntity 查询实体
+     * @return List<RulesEntity>
+     */
+    @RequestMapping(value = "/homepage/rules/list")
+    @ResponseBody
+    public List<RulesEntity> rulesAllList(RulesEntity rulesEntity){
+        return rulesManagementService.rulesAllList(rulesEntity);
     }
 
     /**

@@ -17,4 +17,6 @@ public interface RulesDao {
     Integer rulesEdit(RulesEntity rulesEntity);
 
     Integer rulesDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<RulesEntity> rulesAllList(RulesEntity rulesEntity);
 }
