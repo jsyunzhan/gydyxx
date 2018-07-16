@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.LawEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface LawManagementService {
     /**
      * 法制校园分页
@@ -32,4 +34,11 @@ public interface LawManagementService {
      * @return Boolean
      */
     Boolean lawDelete(Long id, Long loginId);
+
+    /**
+     * 法制校园接口
+     * @param lawEntity 查询实体
+     * @return List<LawEntity>
+     */
+    List<LawEntity> lawAllList(LawEntity lawEntity);
 }

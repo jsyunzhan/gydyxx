@@ -26,6 +26,20 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="lawAllList" resultType="LawEntityInfo">
+        SELECT
+        t.ID id,
+        t.LAW_TITLE lawTitle,
+        t.LAW_DETAILS lawDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_law t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--新增-->
     <insert id="lawAdd" >
         INSERT INTO t_home_law

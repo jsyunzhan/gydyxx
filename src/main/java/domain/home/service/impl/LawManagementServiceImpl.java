@@ -69,4 +69,9 @@ public class LawManagementServiceImpl implements LawManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<LawEntity> lawAllList(LawEntity lawEntity) {
+        return lawDao.lawAllList(lawEntity);
+    }
 }

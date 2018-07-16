@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_LAW_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -50,6 +52,17 @@ public class LawManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult lawList(LawEntity lawEntity){
         return lawManagementService.lawList(lawEntity);
+    }
+
+    /**
+     * 法制校园查询
+     * @param lawEntity 查询实体
+     * @return List<LawEntity>
+     */
+    @RequestMapping(value = "/homepage/law/list")
+    @ResponseBody
+    public List<LawEntity> lawAllList(LawEntity lawEntity){
+        return lawManagementService.lawAllList(lawEntity);
     }
 
     /**
