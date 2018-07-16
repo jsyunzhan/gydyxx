@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_RESPONSIBILITY_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -47,6 +49,17 @@ public class ResponsibilityManagementController extends AbstractActionController
     @ResponseBody
     public PageQueryResult responsibilityList(ResponsibilityEntity responsibilityEntity){
         return responsibilityManagementService.responsibilityList(responsibilityEntity);
+    }
+
+    /**
+     * 责任督学分页
+     * @param responsibilityEntity 查询实体
+     * @return List<ResponsibilityEntity>
+     */
+    @RequestMapping(value = "/homepage/responsibility/list")
+    @ResponseBody
+    public List<ResponsibilityEntity> responsibilityAllList(ResponsibilityEntity responsibilityEntity){
+        return responsibilityManagementService.responsibilityAllList(responsibilityEntity);
     }
 
     /**

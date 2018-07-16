@@ -69,4 +69,9 @@ public class ResponsibilityManagementServiceImpl implements ResponsibilityManage
         }
         return flag;
     }
+
+    @Override
+    public List<ResponsibilityEntity> responsibilityAllList(ResponsibilityEntity responsibilityEntity) {
+        return responsibilityDao.responsibilityAllList(responsibilityEntity);
+    }
 }

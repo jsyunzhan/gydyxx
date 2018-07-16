@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.ResponsibilityEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface ResponsibilityManagementService {
     /**
      * 责任督学份分页
@@ -32,4 +34,11 @@ public interface ResponsibilityManagementService {
      * @return Boolean
      */
     Boolean responsibilityDelete(Long id, Long loginId);
+
+    /**
+     * 责任督学查询
+     * @param responsibilityEntity 查询实体
+     * @return List<ResponsibilityEntity>
+     */
+    List<ResponsibilityEntity> responsibilityAllList(ResponsibilityEntity responsibilityEntity);
 }
