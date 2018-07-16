@@ -70,4 +70,9 @@ public class EducationManagementServiceImpl implements EducationManagementServic
         }
         return flag;
     }
+
+    @Override
+    public List<EducationEntity> educationAllList(EducationEntity educationEntity) {
+        return educationDao.educationAllList(educationEntity);
+    }
 }

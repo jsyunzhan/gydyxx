@@ -17,4 +17,6 @@ public interface EducationDao {
     Integer educationEdit(EducationEntity educationEntity);
 
     Integer educationDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<EducationEntity> educationAllList(EducationEntity educationEntity);
 }
