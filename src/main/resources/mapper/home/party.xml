@@ -26,6 +26,20 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="partyAllList" resultType="PartyEntityInfo">
+        SELECT
+        t.ID id,
+        t.PARTY_TITLE partyTitle,
+        t.PARTY_DETAILS partyDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_party t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--新增-->
     <insert id="partyAdd" >
         INSERT INTO t_home_party

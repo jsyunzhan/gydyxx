@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.PartyEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface PartyManagementService {
     /**
      * 党建工会分页
@@ -32,4 +34,6 @@ public interface PartyManagementService {
      * @return Boolean
      */
     Boolean partyDelete(Long id, Long loginId);
+
+    List<PartyEntity> partyAllList(PartyEntity partyEntity);
 }

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_PARTY_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -47,6 +49,17 @@ public class PartyManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult partyList(PartyEntity partyEntity){
         return partyManagementService.partyList(partyEntity);
+    }
+
+    /**
+     * 党建工会接口
+     * @param partyEntity 分页实体
+     * @return List<PartyEntity>
+     */
+    @RequestMapping(value = "/homepage/party/list")
+    @ResponseBody
+    public List<PartyEntity> partyAllList(PartyEntity partyEntity){
+        return partyManagementService.partyAllList(partyEntity);
     }
 
     /**
