@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.SubjectEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface SubjectManagementService {
     /**
      * 课题研究分页
@@ -32,4 +34,6 @@ public interface SubjectManagementService {
      * @return Boolean
      */
     Boolean subjectDelete(Long id, Long loginId);
+
+    List<SubjectEntity> subjectAllList(SubjectEntity subjectEntity);
 }

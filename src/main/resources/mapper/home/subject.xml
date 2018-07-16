@@ -27,6 +27,21 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="subjectAllList" resultType="SubjectEntityInfo">
+        SELECT
+        t.ID id,
+        t.SUBJECT_TITLE subjectTitle,
+        t.SUBJECT_DETAILS subjectDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_subject t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--课题研究新增-->
     <insert id="subjectAdd" >
         INSERT INTO t_home_subject

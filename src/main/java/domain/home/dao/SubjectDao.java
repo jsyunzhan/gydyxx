@@ -43,4 +43,6 @@ public interface SubjectDao {
      * @return Integer
      */
     Integer subjectDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<SubjectEntity> subjectAllList(SubjectEntity subjectEntity);
 }
