@@ -17,4 +17,6 @@ public interface FarDao {
     Integer farEdit(FarEntity farEntity);
 
     Integer farDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<FarEntity> farAllList(FarEntity farEntity);
 }

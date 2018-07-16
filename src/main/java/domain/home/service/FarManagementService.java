@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.FarEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface FarManagementService {
     /**
      * 致远工作室分页
@@ -32,4 +34,6 @@ public interface FarManagementService {
      * @return Boolean
      */
     Boolean farDelete(Long id, Long loginId);
+
+    List<FarEntity> farAllList(FarEntity farEntity);
 }

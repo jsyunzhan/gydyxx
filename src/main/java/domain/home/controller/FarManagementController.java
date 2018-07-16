@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_FAR_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -41,6 +43,7 @@ public class FarManagementController extends AbstractActionController{
         return new ModelAndView(TO_FAR_PAGE);
     }
 
+
     /**
      * 致远工作实体分页
      * @param farEntity 分页实体
@@ -50,6 +53,12 @@ public class FarManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult farList(FarEntity farEntity){
         return farManagementService.farList(farEntity);
+    }
+
+    @RequestMapping(value = "/homepage/far/list")
+    @ResponseBody
+    public List<FarEntity> farAllList(FarEntity farEntity){
+        return farManagementService.farAllList(farEntity);
     }
 
     /**

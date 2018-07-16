@@ -69,4 +69,9 @@ public class FarManagementServiceImpl implements FarManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<FarEntity> farAllList(FarEntity farEntity) {
+        return farDao.farAllList(farEntity);
+    }
 }
