@@ -71,14 +71,17 @@
     text-indent: 0;
 }
 
-.newsCon span{
+.newsCon .listChild01{
     display: block;
     float: left;
     width: 684px;
     line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.newsCon span:nth-child(2){
+.newsCon .listChild02{
     width: 120px;
 }
 

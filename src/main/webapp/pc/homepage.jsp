@@ -48,7 +48,7 @@
                 <div class="second_title">
                     <a href="javascript:;">学校概况</a>
                     <a href="javascript:;">领导简介</a>
-                    <a href="javascript:;">通知公告</a>
+                    <a href="${APP_PATH}/pc/tzgg.jsp">通知公告</a>
                     <a href="javascript:;">校园新闻</a>
                     <a href="javascript:;">党建工会</a>
                     <a href="javascript:;">规章制度</a>

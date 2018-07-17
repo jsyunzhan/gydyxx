@@ -13,6 +13,7 @@
     <script type="text/javascript" src="../static/js/public.js"></script>
     <script type="text/javascript" src="../static/js/publicPart.js"></script>
     <script type="text/javascript" src="../static/js/secondaryPage.js"></script>
+    <script type="text/javascript" src="../static/js/data/tzgg.js"></script>
     <title>致用校园</title>
 </head>
 <body>
@@ -112,8 +113,8 @@
                     <div class="leftClass_con">
                         <p class="leftChild">学校概况<span></span></p>
                         <p class="leftChild">领导简介<span></span></p>
-                        <p class="leftChild">通知公告<span></span></p>
-                        <p class="leftChild choosen">校园新闻<span></span></p>
+                        <p class="leftChild  choosen">通知公告<span></span></p>
+                        <p class="leftChild">校园新闻<span></span></p>
                         <p class="leftChild">党建工会<span></span></p>
                         <p class="leftChild">规章制度<span></span></p>
                         <p class="leftChild">责任督学<span></span></p>
@@ -140,14 +141,48 @@
 
             <div class="news">
                 <div class="title_news">
-                    校园新闻
-                    <a href="javascript:;">您当前的位置：<b>首页-致用校园-校园新闻</b></a>
+                    通知公告
+                    <a href="javascript:;">您当前的位置：<b>首页-致用校园-通知公告</b></a>
                 </div>
                 <div class="content_news01">
                     <div class="newsCon">
-                        <div class="every_search clearfix"><span>搜索结果标题</span><span>2018-06-23</span></div>
-                        <div class="every_search clearfix"><span>搜索结果标题</span><span>2018-06-23</span></div>
-                        <div class="every_search clearfix"><span>搜索结果标题</span><span>2018-06-23</span></div>
+                    </div>
+                    <script type="text/javascript" src="../static/js/paging.js"></script>
+
+                    <%--分页器--%>
+                    <style>
+                        .paging{
+                            font-size: 0;
+                            text-align: center;
+                            margin-top: 50px;
+                        }
+                        .paging div,.paging button,.paging input{
+                            display: inline-block;
+                            font-size: 16px;
+                            width: 60px;
+                            height: 36px;
+                            line-height: 36px;
+                            text-align: center;
+                            border: 1px solid #ccc;
+                            margin: 5px;
+                            cursor: pointer;
+                            outline: 0;
+                            border-radius: 3px;
+                        }
+                        input::-webkit-outer-spin-button,
+                        input::-webkit-inner-spin-button {
+                            -webkit-appearance: none !important;
+                            margin: 0;
+                        }
+                    </style>
+                    <div class="paging clearfix">
+                        <button class="firstPage">首页</button>
+                        <button class="paging_prev">上一页</button>
+                        <div class="page_num"><span>1</span>/<span>2</span></div>
+                        <button class="paging_next">下一页</button>
+                        <button class="lastPage">尾页</button>
+                        <input type="number">
+                        <button class="linTo">跳转</button>
                     </div>
                 </div>
             </div>
@@ -173,4 +208,7 @@
     </div>
 </div>
 </body>
+<script>
+    var path  = '<%=request.getContextPath()%>';
+</script>
 </html>
