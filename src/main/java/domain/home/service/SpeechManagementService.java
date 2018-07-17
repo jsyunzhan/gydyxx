@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.SpeechEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface SpeechManagementService {
     /**
      * 国旗下讲话分页
@@ -32,4 +34,6 @@ public interface SpeechManagementService {
      * @return Boolean
      */
     Boolean speechDelete(Long id, Long loginId);
+
+    List<SpeechEntity> speechAllList(SpeechEntity speechEntity);
 }

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_SPEECH_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -51,6 +53,12 @@ public class SpeechManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult speechList(SpeechEntity speechEntity){
         return speechManagementService.speechList(speechEntity);
+    }
+
+    @RequestMapping(value = "/homepage/speech/list")
+    @ResponseBody
+    public List<SpeechEntity> speechAllList(SpeechEntity speechEntity){
+        return speechManagementService.speechAllList(speechEntity);
     }
 
     /**

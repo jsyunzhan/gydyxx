@@ -18,4 +18,6 @@ public interface SpeechDao {
     Integer speechEdit(SpeechEntity speechEntity);
 
     Integer speechDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<SpeechEntity> speechAllList(SpeechEntity speechEntity);
 }
