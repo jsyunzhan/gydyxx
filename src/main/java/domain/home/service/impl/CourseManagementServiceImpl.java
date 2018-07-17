@@ -70,4 +70,9 @@ public class CourseManagementServiceImpl implements CourseManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<CourseEntity> courseAllList(CourseEntity courseEntity) {
+        return courseDao.courseAllList(courseEntity);
+    }
 }

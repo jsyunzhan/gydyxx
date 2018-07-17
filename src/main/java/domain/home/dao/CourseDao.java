@@ -18,4 +18,6 @@ public interface CourseDao {
     Integer courseEdit(CourseEntity courseEntity);
 
     Integer courseDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<CourseEntity> courseAllList(CourseEntity courseEntity);
 }

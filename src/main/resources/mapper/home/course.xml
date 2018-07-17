@@ -27,6 +27,21 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="courseAllList" resultType="CourseEntityInfo">
+        SELECT
+        t.ID id,
+        t.COURSE_TITLE courseTitle,
+        t.COURSE_DETAILS courseDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_course t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--新增-->
     <insert id="courseAdd" >
         INSERT INTO t_home_course
