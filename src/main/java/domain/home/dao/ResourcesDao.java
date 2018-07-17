@@ -17,4 +17,6 @@ public interface ResourcesDao {
     Integer resourcesEdit(ResourcesEntity resourcesEntity);
 
     Integer resourcesDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<ResourcesEntity> resourcesAllList(ResourcesEntity resourcesEntity);
 }

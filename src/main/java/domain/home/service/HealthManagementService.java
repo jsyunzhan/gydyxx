@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.HealthEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface HealthManagementService {
     /**
      * 健康管理分页
@@ -32,4 +34,6 @@ public interface HealthManagementService {
      * @return Boolean
      */
     Boolean healthDelete(Long id, Long loginId);
+
+    List<HealthEntity> healthAllList(HealthEntity healthEntity);
 }

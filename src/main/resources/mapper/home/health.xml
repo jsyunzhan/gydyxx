@@ -26,6 +26,20 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="healthAllList" resultType="HealthEntityInfo">
+        SELECT
+        t.ID id,
+        t.HEALTH_TITLE healthTitle,
+        t.HEALTH_DETAILS healthDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_healty t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--新增-->
     <insert id="healthAdd" >
         INSERT INTO t_home_healty

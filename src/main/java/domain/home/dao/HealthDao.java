@@ -17,4 +17,6 @@ public interface HealthDao {
     Integer healthEdit(HealthEntity healthEntity);
 
     Integer healthDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<HealthEntity> healthAllList(HealthEntity healthEntity);
 }

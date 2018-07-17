@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_RESOURCES_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -50,6 +52,12 @@ public class ResourcesManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult resourcesList(ResourcesEntity resourcesEntity){
         return resourcesManagementService.resourcesList(resourcesEntity);
+    }
+
+    @RequestMapping(value = "/homepage/resources/list")
+    @ResponseBody
+    public List<ResourcesEntity> resourcesAllList(ResourcesEntity resourcesEntity){
+        return resourcesManagementService.resourcesAllList(resourcesEntity);
     }
 
     /**

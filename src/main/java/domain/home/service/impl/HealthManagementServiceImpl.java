@@ -69,4 +69,9 @@ public class HealthManagementServiceImpl implements HealthManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<HealthEntity> healthAllList(HealthEntity healthEntity) {
+        return healthDao.healthAllList(healthEntity);
+    }
 }

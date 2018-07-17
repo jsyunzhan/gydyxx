@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.ResourcesEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface ResourcesManagementService {
     /**
      * 家校资源分页
@@ -32,4 +34,6 @@ public interface ResourcesManagementService {
      * @return Boolean
      */
     Boolean resourcesDelete(Long id, Long loginId);
+
+    List<ResourcesEntity> resourcesAllList(ResourcesEntity resourcesEntity);
 }

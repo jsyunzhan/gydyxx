@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_HEALTH_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -50,6 +52,12 @@ public class HealthManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult healthList(HealthEntity healthEntity){
         return healthManagementService.healthList(healthEntity);
+    }
+
+    @RequestMapping(value = "/homepage/health/list")
+    @ResponseBody
+    public List<HealthEntity> healthAllList(HealthEntity healthEntity){
+        return healthManagementService.healthAllList(healthEntity);
     }
 
     /**
