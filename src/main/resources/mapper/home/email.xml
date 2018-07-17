@@ -28,6 +28,22 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="emailAllList" resultType="EmailEntityInfo">
+        SELECT
+        t.ID id,
+        t.SEND_NAME sendName,
+        t.SEND_EMAIL sendEmail,
+        t.SEND_NUMBER sendNumber,
+        t.SEND_DETAILS sendDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_email t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
 
 
 </mapper>

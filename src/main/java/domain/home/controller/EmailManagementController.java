@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_EMAIL_PAGE;
 import static domain.home.HomeWebURLMapping.EMAIL_MANAGEMENT_LIST;
 import static domain.home.HomeWebURLMapping.EMAIL_MANAGEMENT_PAGE;
@@ -45,5 +47,11 @@ public class EmailManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult emailList(EmailEntity emailEntity){
         return emailManagementService.emailList(emailEntity);
+    }
+
+    @RequestMapping(value = "/homepage/email/list")
+    @ResponseBody
+    public List<EmailEntity> emailAllList(EmailEntity emailEntity){
+        return emailManagementService.emailAllList(emailEntity);
     }
 }

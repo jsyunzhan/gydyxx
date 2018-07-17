@@ -10,4 +10,6 @@ public interface EmailDao {
     Integer emailCount(EmailEntity emailEntity);
 
     List<EmailEntity> emailList(EmailEntity emailEntity);
+
+    List<EmailEntity> emailAllList(EmailEntity emailEntity);
 }

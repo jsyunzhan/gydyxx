@@ -39,4 +39,9 @@ public class EmailManagementServiceImpl implements EmailManagementService{
         pageQueryResult.setRows(emailEntities);
         return pageQueryResult;
     }
+
+    @Override
+    public List<EmailEntity> emailAllList(EmailEntity emailEntity) {
+        return emailDao.emailAllList(emailEntity);
+    }
 }
