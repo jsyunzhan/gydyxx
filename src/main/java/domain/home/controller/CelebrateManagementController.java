@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_CELEBRATE_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -50,6 +52,12 @@ public class CelebrateManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult celebrateList(CelebrateEntity celebrateEntity){
         return celebrateManagementService.celebrateList(celebrateEntity);
+    }
+
+    @RequestMapping(value = "/homepage/celebrate/list")
+    @ResponseBody
+    public List<CelebrateEntity> celebrateAllList(CelebrateEntity celebrateEntity){
+        return celebrateManagementService.celebrateAllList(celebrateEntity);
     }
 
     /**

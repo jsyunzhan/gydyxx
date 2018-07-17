@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.CelebrateEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface CelebrateManagementService {
     /**
      * 校园节庆分页
@@ -32,4 +34,6 @@ public interface CelebrateManagementService {
      * @return
      */
     Boolean celebrateDelete(Long id, Long loginId);
+
+    List<CelebrateEntity> celebrateAllList(CelebrateEntity celebrateEntity);
 }

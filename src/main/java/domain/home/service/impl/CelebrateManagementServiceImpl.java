@@ -69,4 +69,9 @@ public class CelebrateManagementServiceImpl implements CelebrateManagementServic
         }
         return flag;
     }
+
+    @Override
+    public List<CelebrateEntity> celebrateAllList(CelebrateEntity celebrateEntity) {
+        return celebrateDao.celebrateAllList(celebrateEntity);
+    }
 }
