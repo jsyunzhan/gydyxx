@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.CommunityEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface CommunityManagementService {
     /**
      * 精品社团分页
@@ -32,4 +34,6 @@ public interface CommunityManagementService {
      * @return Boolean
      */
     Boolean communityDelete(Long id, Long loginId);
+
+    List<CommunityEntity> communityAllList(CommunityEntity communityEntity);
 }

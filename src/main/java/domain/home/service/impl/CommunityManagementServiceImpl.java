@@ -69,4 +69,9 @@ public class CommunityManagementServiceImpl implements CommunityManagementServic
         }
         return flag;
     }
+
+    @Override
+    public List<CommunityEntity> communityAllList(CommunityEntity communityEntity) {
+        return communityDao.communityAllList(communityEntity);
+    }
 }

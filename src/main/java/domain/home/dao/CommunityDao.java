@@ -17,4 +17,6 @@ public interface CommunityDao {
     Integer communityEdit(CommunityEntity communityEntity);
 
     Integer communityDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    List<CommunityEntity> communityAllList(CommunityEntity communityEntity);
 }

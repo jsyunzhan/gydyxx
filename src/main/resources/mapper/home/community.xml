@@ -27,6 +27,21 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="communityAllList" resultType="CommunityEntityInfo">
+        SELECT
+        t.ID id,
+        t.COMMUNITY_TITLE communityTitle,
+        t.COMMUNITY_DETAILS communityDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_community t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--新增-->
     <insert id="communityAdd" >
         INSERT INTO t_home_community

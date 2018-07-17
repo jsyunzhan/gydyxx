@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_COMMUNITY_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -50,6 +52,12 @@ public class CommunityManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult communityList(CommunityEntity communityEntity){
         return communityManagementService.communityList(communityEntity);
+    }
+
+    @RequestMapping(value = "/homepage/community/list")
+    @ResponseBody
+    public List<CommunityEntity> communityAllList(CommunityEntity communityEntity){
+        return communityManagementService.communityAllList(communityEntity);
     }
 
     /**
