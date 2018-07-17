@@ -16,8 +16,8 @@
     <script type="text/javascript" src="../static/js/public.js"></script>
     <script type="text/javascript" src="../static/js/publicPart.js"></script>
     <script type="text/javascript" src="../static/js/secondaryPage.js"></script>
-    <script type="text/javascript" src="../static/js/data/tzgg.js"></script>
-    <title>通知公告</title>
+    <script type="text/javascript" src="../static/js/data/ldjj.js"></script>
+    <title>领导简介</title>
 </head>
 <body>
 <div class="wrapper">
@@ -115,8 +115,8 @@
                     </div>
                     <div class="leftClass_con">
                         <p class="leftChild">学校概况<span></span></p>
-                        <p class="leftChild">领导简介<span></span></p>
-                        <p class="leftChild  choosen">通知公告<span></span></p>
+                        <p class="leftChild  choosen">领导简介<span></span></p>
+                        <p class="leftChild">通知公告<span></span></p>
                         <p class="leftChild">校园新闻<span></span></p>
                         <p class="leftChild">党建工会<span></span></p>
                         <p class="leftChild">规章制度<span></span></p>
@@ -144,8 +144,8 @@
 
             <div class="news">
                 <div class="title_news">
-                    通知公告
-                    <a href="javascript:;">您当前的位置：<b>首页-致用校园-通知公告</b></a>
+                    领导简介
+                    <a href="javascript:;">您当前的位置：<b>首页-致用校园-领导简介</b></a>
                 </div>
                 <div class="content_news01">
                     <div class="newsCon">

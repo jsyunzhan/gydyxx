@@ -1,3 +1,12 @@
+/*分页器*/
+document.write('<style>');
+document.write('.paging{font-size: 0;text-align: center;margin-top: 50px;}');
+document.write('.paging div,.paging button,.paging input{ display: inline-block; font-size: 16px; width: 60px; height: 36px; line-height: 36px;');
+document.write('text-align: center; border: 1px solid #ccc; margin: 5px; cursor: pointer; outline: 0;border-radius: 3px;}');
+document.write('input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{ -webkit-appearance: none !important; margin: 0;}');
+document.write('</style>');
+document.write('<div class="paging clearfix"><button class="firstPage">首页</button><button class="paging_prev">上一页</button><div class="page_num"><span>1</span>/<span>2</span></div>');
+document.write('<button class="paging_next">下一页</button><button class="lastPage">尾页</button><input type="number"><button class="linTo">跳转</button></div>');
 
 function paging(dataNum){
     pageList = Math.ceil(data_number/dataNum);
