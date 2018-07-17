@@ -69,4 +69,9 @@ public class HomeschoolManagementServiceImpl implements HomeschoolManagementServ
         }
         return flag;
     }
+
+    @Override
+    public List<HomeschoolEntity> homeschoolAllList(HomeschoolEntity homeschoolEntity) {
+        return homeschoolDao.homeschoolAllList(homeschoolEntity);
+    }
 }

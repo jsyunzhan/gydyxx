@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_HOMESCHOOL_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -50,6 +52,12 @@ public class HomeschoolManagementController extends AbstractActionController{
     @ResponseBody
     public PageQueryResult homeschoolList(HomeschoolEntity homeschoolEntity){
         return homeschoolManagementService.homeschoolList(homeschoolEntity);
+    }
+
+    @RequestMapping(value = "/homepage/homepage/list")
+    @ResponseBody
+    public List<HomeschoolEntity> homeschoolAllList(HomeschoolEntity homeschoolEntity){
+        return homeschoolManagementService.homeschoolAllList(homeschoolEntity);
     }
 
     /**

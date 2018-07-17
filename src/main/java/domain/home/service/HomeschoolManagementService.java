@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.HomeschoolEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface HomeschoolManagementService {
     /**
      * 家校心桥分页
@@ -32,4 +34,6 @@ public interface HomeschoolManagementService {
      * @return Boolean
      */
     Boolean homeschoolDelete(Long id, Long loginId);
+
+    List<HomeschoolEntity> homeschoolAllList(HomeschoolEntity homeschoolEntity);
 }
