@@ -16,8 +16,8 @@
     <script type="text/javascript" src="../static/js/public.js"></script>
     <script type="text/javascript" src="../static/js/publicPart.js"></script>
     <script type="text/javascript" src="../static/js/secondaryPage.js"></script>
-    <script type="text/javascript" src="../static/js/data/wmjs.js"></script>
-    <title>文明建设</title>
+    <script type="text/javascript" src="../static/js/data/zrdx.js"></script>
+    <title>校园风光</title>
 </head>
 <body>
 <div class="wrapper">
@@ -121,9 +121,9 @@
                         <a href="${APP_PATH}/pc/djgh.jsp"><p class="leftChild">党建工会<span></span></p></a>
                         <a href="${APP_PATH}/pc/gzzd.jsp"><p class="leftChild">规章制度<span></span></p></a>
                         <a href="${APP_PATH}/pc/zrdx.jsp"><p class="leftChild">责任督学<span></span></p></a>
-                        <a href="${APP_PATH}/pc/wmcj.jsp"><p class="leftChild choosen">文明创建<span></span></p></a>
+                        <a href="${APP_PATH}/pc/wmcj.jsp"><p class="leftChild">文明创建<span></span></p></a>
                         <a href="${APP_PATH}/pc/fzxy.jsp"><p class="leftChild">法治校园<span></span></p></a>
-                        <a href="${APP_PATH}/pc/xyfg.jsp"><p class="leftChild">校园风光<span></span></p></a>
+                        <a href="${APP_PATH}/pc/xyfg.jsp"><p class="leftChild choosen">校园风光<span></span></p></a>
                     </div>
                 </div>
                 <div class="history">
@@ -144,8 +144,8 @@
 
             <div class="news">
                 <div class="title_news">
-                    文明建设
-                    <a href="javascript:;">您当前的位置：<b>首页-致用校园-文明建设</b></a>
+                    校园风光
+                    <a href="javascript:;">您当前的位置：<b>首页-致用校园-校园风光</b></a>
                 </div>
                 <div class="content_news01">
                     <div class="newsCon">

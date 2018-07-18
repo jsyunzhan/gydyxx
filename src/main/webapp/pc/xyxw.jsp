@@ -114,16 +114,16 @@
                         致用校园
                     </div>
                     <div class="leftClass_con">
-                        <p class="leftChild">学校概况<span></span></p>
-                        <p class="leftChild">领导简介<span></span></p>
-                        <p class="leftChild">通知公告<span></span></p>
-                        <p class="leftChild  choosen">校园新闻<span></span></p>
-                        <p class="leftChild">党建工会<span></span></p>
-                        <p class="leftChild">规章制度<span></span></p>
-                        <p class="leftChild">责任督学<span></span></p>
-                        <p class="leftChild">文明建设<span></span></p>
-                        <p class="leftChild">法制校园<span></span></p>
-                        <p class="leftChild">校园风光<span></span></p>
+                        <a href="${APP_PATH}/pc/xxgk.jsp"><p class="leftChild">学校概况<span></span></p></a>
+                        <a href="${APP_PATH}/pc/ldjj.jsp"><p class="leftChild">领导简介<span></span></p></a>
+                        <a href="${APP_PATH}/pc/tzgg.jsp"><p class="leftChild">通知公告<span></span></p></a>
+                        <a href="${APP_PATH}/pc/xyxw.jsp"><p class="leftChild choosen">校园新闻<span></span></p></a>
+                        <a href="${APP_PATH}/pc/djgh.jsp"><p class="leftChild">党建工会<span></span></p></a>
+                        <a href="${APP_PATH}/pc/gzzd.jsp"><p class="leftChild">规章制度<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zrdx.jsp"><p class="leftChild">责任督学<span></span></p></a>
+                        <a href="${APP_PATH}/pc/wmcj.jsp"><p class="leftChild">文明创建<span></span></p></a>
+                        <a href="${APP_PATH}/pc/fzxy.jsp"><p class="leftChild">法治校园<span></span></p></a>
+                        <a href="${APP_PATH}/pc/xyfg.jsp"><p class="leftChild">校园风光<span></span></p></a>
                     </div>
                 </div>
                 <div class="history">
