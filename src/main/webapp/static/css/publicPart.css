@@ -86,6 +86,10 @@
     cursor: pointer;
 }
 
+.title_tab .first_title a{
+    color: #fff;
+}
+
 .title_tab .second_title{
     display: none;
     position: absolute;

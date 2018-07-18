@@ -40,7 +40,7 @@
         <%--导航栏--%>
         <div class="navigation clearfix">
                 <div class="title_tab">
-                    <div class="first_title">学校首页</div>
+                    <div class="first_title"><a href="${APP_PATH}/pc/homepage.jsp">学校首页</a></div>
                 </div>
                 <div class="title_tab">
                     <div class="first_title">致用校园</div>
