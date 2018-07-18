@@ -182,70 +182,102 @@
 
             <%--功能模块快捷方式--%>
             <div class="infor clearfix">
-                <div class="icon">
-                    <img src="../static/images/icon_01.png">
-                    <div class="icon_font">学校概况</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_02.png">
-                    <div class="icon_font">通知公告</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_03.png">
-                    <div class="icon_font">校园新闻</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_04.png">
-                    <div class="icon_font">责任督学</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_05.png">
-                    <div class="icon_font">文明创建</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_06.png">
-                    <div class="icon_font">党建工会</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_07.png">
-                    <div class="icon_font">校长信箱</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_08.png">
-                    <div class="icon_font">班本课程</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_09.png">
-                    <div class="icon_font">教育科研</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_10.png">
-                    <div class="icon_font">校园节庆</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_11.png">
-                    <div class="icon_font">精品社区</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_12.png">
-                    <div class="icon_font">家校心桥</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_13.png">
-                    <div class="icon_font">教学资源</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_14.png">
-                    <div class="icon_font">校本培训</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_15.png">
-                    <div class="icon_font">健康教育</div>
-                </div>
-                <div class="icon">
-                    <img src="../static/images/icon_16.png">
-                    <div class="icon_font">法制校园</div>
-                </div>
+                <a href="${APP_PATH}/pc/zyxiaoyuan/xxgk.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_01.png">
+                        <div class="icon_font">学校概况</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_02.png">
+                        <div class="icon_font">通知公告</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_03.png">
+                        <div class="icon_font">校园新闻</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zyxiaoyuan/zrdx.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_04.png">
+                        <div class="icon_font">责任督学</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zyxiaoyuan/wmcj.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_05.png">
+                        <div class="icon_font">文明创建</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zyxiaoyuan/djgh.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_06.png">
+                        <div class="icon_font">党建工会</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zmjiaxiao/mail.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_07.png">
+                        <div class="icon_font">校长信箱</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zykecheng/bbkc.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_08.png">
+                        <div class="icon_font">班本课程</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zyxueyuan/jyky.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_09.png">
+                        <div class="icon_font">教育科研</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zykecheng/xyjq.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_10.png">
+                        <div class="icon_font">校园节庆</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zykecheng/jpst.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_11.png">
+                        <div class="icon_font">精品社团</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zmjiaxiao/jxxq.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_12.png">
+                        <div class="icon_font">家校心桥</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zyyuanding/jxzy.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_13.png">
+                        <div class="icon_font">教学资源</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zyxueyuan/xbpx.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_14.png">
+                        <div class="icon_font">校本培训</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zmjiaxiao/jkjy.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_15.png">
+                        <div class="icon_font">健康教育</div>
+                    </div>
+                </a>
+                <a href="${APP_PATH}/pc/zyxiaoyuan/fzxy.jsp">
+                    <div class="icon">
+                        <img src="../static/images/icon_16.png">
+                        <div class="icon_font">法治校园</div>
+                    </div>
+                </a>
             </div>
 
             <%--校史--%>
@@ -269,11 +301,12 @@
                             国家教育资源平台
                             <span><img src="../static/images/down.png"></span>
                             <div class="linking_list none">
-                                <p onclick='window.location.href = "http://www.baidu.com"'>江苏基础教育平台</p>
-                                <p onclick='window.location.href = "http://www.baidu.com"'>校本教研星级平台</p>
-                                <p onclick='window.location.href = "http://www.baidu.com"'>扬州智慧校园平台</p>
-                                <p onclick='window.location.href = "http://www.baidu.com"'>教育装备管理平台</p>
-                                <p onclick='window.location.href = "http://www.baidu.com"'>超星校园阅读系统</p>
+                                <p onclick='window.location.href = "http://www.eduyun.cn/"'>国家教育资源平台</p>
+                                <p onclick='window.location.href = "http://be.jse.edu.cn/"'>江苏基础教育平台</p>
+                                <p onclick='window.location.href = "http://xbjy.yzjy.com.cn"'>校本教研星级平台</p>
+                                <p onclick='window.location.href = "http://yun.yzjy.com.cn"'>扬州智慧校园平台</p>
+                                <p onclick='window.location.href = "http://yz.eamn.net/"'>教育装备管理平台</p>
+                                <p onclick='window.location.href = "http://xueya.chaoxing.com/"'>超星校园阅读系统</p>
                             </div>
                         </a>
                     </div>
