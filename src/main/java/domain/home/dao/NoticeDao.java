@@ -50,4 +50,6 @@ public interface NoticeDao {
      * @return List<NoticeEntity>
      */
     List<NoticeEntity> noticeAllList(NoticeEntity noticeEntity);
+
+    NoticeEntity noticeDetails(Long id);
 }

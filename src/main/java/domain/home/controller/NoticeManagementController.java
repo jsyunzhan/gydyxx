@@ -68,6 +68,15 @@ public class NoticeManagementController extends AbstractActionController{
         return noticeManagementService.noticeAllList(noticeEntity);
     }
 
+    @RequestMapping(value = "/homepage/notice/details/{id}")
+    @ResponseBody
+    public ModelAndView noticeDetails(@PathVariable("id") Long id){
+        final ModelAndView modelAndView = new ModelAndView("pc/zyxiaoyuan/tzggdetails");
+        final NoticeEntity noticeEntity = noticeManagementService.noticeDetails(id);
+        modelAndView.addObject("entity"+noticeEntity);
+        return modelAndView;
+    }
+
     /**
      * 公告新增
      * @param noticeEntity 新增实体
