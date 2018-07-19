@@ -36,4 +36,6 @@ public interface PartyManagementService {
     Boolean partyDelete(Long id, Long loginId);
 
     List<PartyEntity> partyAllList(PartyEntity partyEntity);
+
+    PartyEntity partyDetails(Long id);
 }

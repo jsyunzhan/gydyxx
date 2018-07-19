@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'partyTitle', title: "党建工会标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'partyDetails', title: "党建工会内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'partyDetails', title: "党建工会内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editPartyForm.form('load', selectedParty);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedParty.partyDetails);  //赋值给UEditor
+                            });
+                        });
 
                         $editPartyWin.window('open');
                     }
@@ -62,6 +70,9 @@ $(function () {
     });
 
     /*************新增*******************/
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $addPartyForm = $('#addPartyForm').form({
         novalidate: true
@@ -73,6 +84,7 @@ $(function () {
         footer: '#addPartyWinFooter',
         onClose: function () {
             $('#addPartyForm').form('disableValidation').form('reset');
+            reportAdd.setContent("")
         }
     });
 
@@ -105,6 +117,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editPartyForm = $('#editPartyForm').form({
         novalidate: true
     });
@@ -114,8 +130,8 @@ $(function () {
         width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
         footer: '#editPartyWinFooter',
         onClose: function () {
-
             $('#editPartyForm').form('disableValidation').form('reset');
+            reportEdit.setContent("")
         }
     });
 

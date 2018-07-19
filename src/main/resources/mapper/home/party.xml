@@ -40,6 +40,19 @@
         ORDER BY t.CREATE_DATA
     </select>
 
+    <select id="partyDetails" resultType="PartyEntityInfo">
+        SELECT
+        t.ID id,
+        t.PARTY_TITLE partyTitle,
+        t.PARTY_DETAILS partyDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_party t
+        WHERE t.DELETE_FLAG='1' AND t.ID=#{id}
+    </select>
+
     <!--新增-->
     <insert id="partyAdd" >
         INSERT INTO t_home_party
