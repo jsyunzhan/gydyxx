@@ -79,7 +79,7 @@ $(function () {
     });
 
     /*************新增*******************/
-    var reportEdit = UE.getEditor('containerAdd', {
+    var reportAdd = UE.getEditor('containerAdd', {
         initialFrameWidth: '100%', initialFrameHeight: 240
     });
 
@@ -96,7 +96,7 @@ $(function () {
             $('#addPicture,#editPicture').empty();
             $('#addNoticeForm').form('disableValidation').form('reset');
             // var ue = UE.getEditor('containerAdd');//初始化对象
-            reportEdit.setContent('');
+            reportAdd.setContent('');
         }
     });
 
@@ -147,6 +147,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editNoticeForm = $('#editNoticeForm').form({
         novalidate: true
     });
@@ -159,6 +163,7 @@ $(function () {
             $('#pictureNoticeForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editNoticeForm').form('disableValidation').form('reset');
+            reportEdit.setContent('');
         }
     });
 
