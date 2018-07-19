@@ -117,6 +117,10 @@ $(function () {
             if (!$('#addMessageForm').form('enableValidation').form('validate')) {
                 return;
             }
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
+            }
 
             var leaderData = $addLeaderForm.serializeObject(),
                 url = path + "/home/leadermanpage/add";
@@ -180,6 +184,10 @@ $(function () {
         onClick: function () {
             if (!$('#editLeaderForm').form('enableValidation').form('validate')) {
                 return;
+            }
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
             }
 
             var leaderData = $editLeaderForm.serializeObject(),
