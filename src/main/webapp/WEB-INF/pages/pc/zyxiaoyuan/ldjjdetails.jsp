@@ -18,7 +18,7 @@
     <script type="text/javascript" src="${APP_PATH}/static/js/public.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/secondaryPage.js"></script>
-    <script type="text/javascript" src="${APP_PATH}/static/js/data/ldjjdetails.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/data/details.js"></script>
     <title>领导简介</title>
 </head>
 <body>

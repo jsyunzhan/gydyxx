@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 文明创建跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/civilization/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

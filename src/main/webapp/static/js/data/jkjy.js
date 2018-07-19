@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 健康教育跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/health/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

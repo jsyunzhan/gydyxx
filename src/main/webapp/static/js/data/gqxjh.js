@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 国旗下讲话跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/speech/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

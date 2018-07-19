@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 校园新闻跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/news/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

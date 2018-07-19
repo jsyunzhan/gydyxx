@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 精品社团跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/community/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

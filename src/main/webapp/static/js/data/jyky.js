@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 教育科研跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/education/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

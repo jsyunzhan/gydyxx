@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 党建工会跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/party/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 致用课堂跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/classroom/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

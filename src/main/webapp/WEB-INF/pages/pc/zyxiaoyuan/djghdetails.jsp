@@ -19,7 +19,7 @@
     <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/secondaryPage.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/data/details.js"></script>
-    <title>通知公告</title>
+    <title>党建工会</title>
 </head>
 <body>
 <div class="wrapper">
@@ -118,9 +118,9 @@
                     <div class="leftClass_con">
                         <a href="${APP_PATH}/homepage/profile/details"><p class="leftChild">学校概况<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/ldjj.jsp"><p class="leftChild">领导简介<span></span></p></a>
-                        <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp"><p class="leftChild choosen">通知公告<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp"><p class="leftChild">通知公告<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp"><p class="leftChild">校园新闻<span></span></p></a>
-                        <a href="${APP_PATH}/pc/zyxiaoyuan/djgh.jsp"><p class="leftChild">党建工会<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/djgh.jsp"><p class="leftChild choosen">党建工会<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/gzzd.jsp"><p class="leftChild">规章制度<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/zrdx.jsp"><p class="leftChild">责任督学<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/wmcj.jsp"><p class="leftChild">文明创建<span></span></p></a>
@@ -146,8 +146,8 @@
 
             <div class="news">
                 <div class="title_news">
-                    通知公告
-                    <a href="javascript:;">您当前的位置：<b>首页-致用校园-通知公告</b></a>
+                    党建工会
+                    <a href="javascript:;">您当前的位置：<b>首页-致用校园-党建工会</b></a>
                 </div>
                 <div class="content_news01">
                     <div class="main_title01"></div>

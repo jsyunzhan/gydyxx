@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 课题研究跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/subject/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

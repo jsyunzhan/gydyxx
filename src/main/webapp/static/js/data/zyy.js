@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 致用邑跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/yi/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 致远工作室跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/far/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

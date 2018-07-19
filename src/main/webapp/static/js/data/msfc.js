@@ -17,6 +17,11 @@ $(function () {
                     $($(".every_search")[i]).show();
                 }
             }
+            // 名师风采跳转详情
+            $(".every_search").click(function () {
+                var url = path + '/homepage/teacher/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 
