@@ -74,4 +74,9 @@ public class RulesManagementServiceImpl implements RulesManagementService{
     public List<RulesEntity> rulesAllList(RulesEntity rulesEntity) {
         return rulesDao.rulesAllList(rulesEntity);
     }
+
+    @Override
+    public RulesEntity rulesDetails(Long id) {
+        return rulesDao.rulesDetails(id);
+    }
 }

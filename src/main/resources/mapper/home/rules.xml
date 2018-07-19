@@ -40,6 +40,19 @@
         ORDER BY t.CREATE_DATA
     </select>
 
+    <select id="rulesDetails" resultType="RulesEntityInfo">
+        SELECT
+        t.ID id,
+        t.RULES_TITLE rulesTitle,
+        t.RULES_DETAILS rulesDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_rules t
+        WHERE t.DELETE_FLAG='1' AND t.ID=#{id}
+    </select>
+
     <!--首页公告新增-->
     <insert id="rulesAdd" >
         INSERT INTO t_home_rules

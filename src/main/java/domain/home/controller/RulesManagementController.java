@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_RULES_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -61,6 +63,17 @@ public class RulesManagementController extends AbstractActionController{
     @ResponseBody
     public List<RulesEntity> rulesAllList(RulesEntity rulesEntity){
         return rulesManagementService.rulesAllList(rulesEntity);
+    }
+
+    @RequestMapping(value = "/homepage/rules/details/{id}")
+    @ResponseBody
+    public ModelAndView rulesDetails(@PathVariable("id") Long id){
+        final RulesEntity rulesEntity = rulesManagementService.rulesDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",rulesEntity.getRulesTitle());
+        map.put("details",rulesEntity.getRulesDetails());
+        map.put("createDate",rulesEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/gzzddetails",map);
     }
 
     /**

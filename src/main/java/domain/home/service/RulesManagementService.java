@@ -41,4 +41,6 @@ public interface RulesManagementService {
      * @return List<RulesEntity>
      */
     List<RulesEntity> rulesAllList(RulesEntity rulesEntity);
+
+    RulesEntity rulesDetails(Long id);
 }
