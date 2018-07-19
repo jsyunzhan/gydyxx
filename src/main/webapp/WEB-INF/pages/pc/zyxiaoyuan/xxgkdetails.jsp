@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -9,30 +11,30 @@
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
-    <link rel="stylesheet" type="text/css" href="../../static/css/public.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/publicPart.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/secondaryPage.css">
-    <script type="text/javascript" src="../../static/jq/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="../../static/js/public.js"></script>
-    <script type="text/javascript" src="../../static/js/publicPart.js"></script>
-    <script type="text/javascript" src="../../static/js/secondaryPage.js"></script>
-    <script type="text/javascript" src="../../static/js/data/jxzy.js"></script>
-    <title>教学资源</title>
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/publicPart.css">
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/secondaryPage.css">
+    <script type="text/javascript" src="${APP_PATH}/static/jq/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/public.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/secondaryPage.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/data/xxgkdetails.js"></script>
+    <title>学校概况</title>
 </head>
 <body>
 <div class="wrapper">
     <div class="bg">
-        <img src="../../static/images/bg.png">
+        <img src="${APP_PATH}/static/images/bg.png">
     </div>
     <%--学校logo--%>
     <div class="school_logo clearfix">
         <div class="logo">
-            <img src="../../static/images/logo.png">
+            <img src="${APP_PATH}/static/images/logo.png">
         </div>
         <div class="search">
             <div class="search_input">
                 <input type="text" placeholder="请输入关键词">
-                <span><img src="../../static/images/search.png"></span>
+                <span><img src="${APP_PATH}/static/images/search.png"></span>
             </div>
         </div>
     </div>
@@ -111,18 +113,25 @@
             <div class="leftSide">
                 <div class="leftClass">
                     <div class="leftClass_title">
-                        致用园丁
+                        致用校园
                     </div>
                     <div class="leftClass_con">
-                        <a href="${APP_PATH}/pc/zyyuanding/msfc.jsp"><p class="leftChild">名师风采<span></span></p></a>
-                        <a href="${APP_PATH}/pc/zyyuanding/zygzs.jsp"><p class="leftChild">致远工作室<span></span></p></a>
-                        <a href="${APP_PATH}/pc/zyyuanding/jxzy.jsp"><p class="leftChild choosen">教学资源<span></span></p></a>
+                        <a href="${APP_PATH}/homepage/profile/details"><p class="leftChild choosen">学校概况<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/ldjj.jsp"><p class="leftChild">领导简介<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp"><p class="leftChild">通知公告<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp"><p class="leftChild">校园新闻<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/djgh.jsp"><p class="leftChild">党建工会<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/gzzd.jsp"><p class="leftChild">规章制度<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/zrdx.jsp"><p class="leftChild">责任督学<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/wmcj.jsp"><p class="leftChild">文明创建<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/fzxy.jsp"><p class="leftChild">法治校园<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/xyfg.jsp"><p class="leftChild">校园风光<span></span></p></a>
                     </div>
                 </div>
                 <div class="history">
                     <div class="title_news">
                         校史天地丨School History
-                        <a href="javascript:;">更多<span><img src="../../static/images/more1.png"></span></a>
+                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
                     </div>
                     <div class="history_con">
                         <div class="history_list">关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项</div>
@@ -137,13 +146,13 @@
 
             <div class="news">
                 <div class="title_news">
-                    教学资源
-                    <a href="javascript:;">您当前的位置：<b>首页-致用园丁-教学资源</b></a>
+                    学校概况
+                    <a href="javascript:;">您当前的位置：<b>首页-致用校园-学校概况</b></a>
                 </div>
                 <div class="content_news01">
+                    <div class="main_title01"></div>
                     <div class="newsCon">
                     </div>
-                    <script type="text/javascript" src="../../static/js/paging.js"></script>
                 </div>
             </div>
         </div>
@@ -153,16 +162,16 @@
     <div class="footer">
         <div class="footer_con clearfix">
             <div class="footer_img">
-                <img src="../../static/images/img_02.png">
+                <img src="${APP_PATH}/static/images/img_02.png">
             </div>
             <div class="footer_font">
                 <p style="line-height: 80px;">Copyright@2018 http://xxx.org All Rights Reserved</p>
-                <p style="line-height: 30px;">学校地址：江苏省高邮市xxx路xxx号 邮编：225600 <a href="javascript:;">用户登录</a></p>
+                <p style="line-height: 30px;">学校地址：江苏省高邮市xxx路xxx号 邮编：225600 <a href="${APP_PATH}/security/movetologin">用户登录</a></p>
                 <p style="line-height: 30px;">联系电话：0514-8xxxxxxx 苏ICP备xxxxxxxx号 校长信箱：xxxxx@163.com</p>
                 <p style="line-height: 80px;">苏公网安备用 7852595156256</p>
             </div>
             <div class="footer_img">
-                <img src="../../static/images/img_01.png">
+                <img src="${APP_PATH}/static/images/img_01.png">
             </div>
         </div>
     </div>

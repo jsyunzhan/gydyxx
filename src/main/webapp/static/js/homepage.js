@@ -26,7 +26,7 @@ $(function () {
                 }
             }
             $(".notice_scroll").append(_html);
-            // 跳转详情
+            // 通知公告跳转详情
             $(".notification").click(function () {
                 var url = path + '/homepage/notice/details/'+$(this).attr("name");
                 window.location.href = url;

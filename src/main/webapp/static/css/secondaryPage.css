@@ -86,7 +86,10 @@
 }
 
 .newsCon .listChild02{
+    display: block;
     width: 120px;
+    float: right;
+    line-height: 40px;
 }
 
 .newsCon .every_search{

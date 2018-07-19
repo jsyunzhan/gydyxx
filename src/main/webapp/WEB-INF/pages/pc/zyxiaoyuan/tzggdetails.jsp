@@ -19,7 +19,7 @@
     <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/secondaryPage.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/data/tzggdetails.js"></script>
-    <title>致用校园</title>
+    <title>通知公告</title>
 </head>
 <body>
 <div class="wrapper">
@@ -116,7 +116,7 @@
                         致用校园
                     </div>
                     <div class="leftClass_con">
-                        <a href="${APP_PATH}/pc/zyxiaoyuan/xxgkDetails.jsp"><p class="leftChild">学校概况<span></span></p></a>
+                        <a href="${APP_PATH}/homepage/profile/details"><p class="leftChild">学校概况<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/ldjj.jsp"><p class="leftChild">领导简介<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp"><p class="leftChild choosen">通知公告<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp"><p class="leftChild">校园新闻<span></span></p></a>
@@ -181,10 +181,10 @@
 
     var path  = '<%=request.getContextPath()%>';
 
-    var title = "${title}";
-    var details = "${details}";
-    var picturePath = "${picturePath}";
-    var createDate = "${createDate}";
+    var title = '${title}';
+    var details = '${details}';
+    var picturePath = '${picturePath}';
+    var createDate = '${createDate}';
 
 </script>
 </html>

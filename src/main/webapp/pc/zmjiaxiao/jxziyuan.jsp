@@ -45,7 +45,7 @@
             <div class="title_tab">
                 <div class="first_title">致用校园</div>
                 <div class="second_title">
-                    <a href="${APP_PATH}/pc/zyxiaoyuan/xxgk.jsp">学校概况</a>
+                    <a href="${APP_PATH}/homepage/profile/details">学校概况</a>
                     <a href="${APP_PATH}/pc/zyxiaoyuan/ldjj.jsp">领导简介</a>
                     <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp">通知公告</a>
                     <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp">校园新闻</a>

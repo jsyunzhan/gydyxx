@@ -45,7 +45,7 @@
                 <div class="title_tab">
                     <div class="first_title">致用校园</div>
                     <div class="second_title">
-                        <a href="${APP_PATH}/pc/zyxiaoyuan/xxgk.jsp">学校概况</a>
+                        <a href="${APP_PATH}/homepage/profile/details">学校概况</a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/ldjj.jsp">领导简介</a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp">通知公告</a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp">校园新闻</a>
@@ -114,7 +114,7 @@
                         致用校园
                     </div>
                     <div class="leftClass_con">
-                        <a href="${APP_PATH}/pc/zyxiaoyuan/xxgk.jsp"><p class="leftChild">学校概况<span></span></p></a>
+                        <a href="${APP_PATH}/homepage/profile/details"><p class="leftChild">学校概况<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/ldjj.jsp"><p class="leftChild choosen">领导简介<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp"><p class="leftChild">通知公告<span></span></p></a>
                         <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp"><p class="leftChild">校园新闻<span></span></p></a>
