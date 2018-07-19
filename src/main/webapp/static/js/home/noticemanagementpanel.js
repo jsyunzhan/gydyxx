@@ -109,8 +109,6 @@ $(function () {
             var noticeData = $addNoticeForm.serializeObject(),
                 url = path + "/home/noticemanpage/add";
 
-            console.log(noticeData);
-
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/通知公告",
                 type:'POST',
