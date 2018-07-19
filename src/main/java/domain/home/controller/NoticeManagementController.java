@@ -1,5 +1,6 @@
 package domain.home.controller;
 
+import com.alibaba.fastjson.JSON;
 import domain.home.entity.NoticeEntity;
 import domain.home.service.NoticeManagementService;
 import domain.shiro.controller.AbstractActionController;
@@ -73,7 +74,7 @@ public class NoticeManagementController extends AbstractActionController{
     public ModelAndView noticeDetails(@PathVariable("id") Long id){
         final ModelAndView modelAndView = new ModelAndView("pc/zyxiaoyuan/tzggdetails");
         final NoticeEntity noticeEntity = noticeManagementService.noticeDetails(id);
-        modelAndView.addObject("entity",noticeEntity);
+        modelAndView.addObject("entity", JSON.toJSONString(noticeEntity));
         return modelAndView;
     }
 
