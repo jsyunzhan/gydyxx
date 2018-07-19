@@ -20,8 +20,10 @@
 
 </body>
 <script>
-    var entity = "${entity}";
-    console.log("1");
-    console.log(entity);
+    var title = "${title}";
+    var details = "${details}";
+    var picturePath = "${picturePath}";
+    var createDate = "${createDate}";
+
 </script>
 </html>

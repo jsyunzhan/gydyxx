@@ -1,6 +1,5 @@
 package domain.home.controller;
 
-import com.alibaba.fastjson.JSON;
 import domain.home.entity.NoticeEntity;
 import domain.home.service.NoticeManagementService;
 import domain.shiro.controller.AbstractActionController;
@@ -21,7 +20,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.google.common.collect.Lists.newArrayList;
 import static domain.home.HomeWebForward.TO_NOTICE_PAGE;
@@ -72,10 +73,13 @@ public class NoticeManagementController extends AbstractActionController{
     @RequestMapping(value = "/homepage/notice/details/{id}")
     @ResponseBody
     public ModelAndView noticeDetails(@PathVariable("id") Long id){
-        final ModelAndView modelAndView = new ModelAndView("pc/zyxiaoyuan/tzggdetails");
         final NoticeEntity noticeEntity = noticeManagementService.noticeDetails(id);
-        modelAndView.addObject("entity", JSON.toJSONString(noticeEntity));
-        return modelAndView;
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",noticeEntity.getNoticeTitle());
+        map.put("details",noticeEntity.getNoticeDetails());
+        map.put("picturePath",noticeEntity.getPicturePath());
+        map.put("createDate",noticeEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/tzggdetails",map);
     }
 
     /**

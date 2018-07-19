@@ -1,3 +1,6 @@
 $(function () {
-   console.log(entity)
+   console.log(title);
+    console.log(details)
+    console.log(picturePath)
+    console.log(createDate)
 });
