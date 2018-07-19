@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_PROFILE_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -64,15 +62,10 @@ public class ProfileManagementController extends AbstractActionController{
         return profileManagementService.profileAllList(profileEntity);
     }
 
-    @RequestMapping(value = "/homepage/profile/details/{id}")
+    @RequestMapping(value = "/homepage/profile/details")
     @ResponseBody
-    public ModelAndView profileDetails(@PathVariable("id") Long id){
-        final ProfileEntity profileEntity = profileManagementService.profileDetails(id);
-        final Map<String, Object> map = new HashMap<>(3);
-        map.put("title",profileEntity.getProfileTitle());
-        map.put("details",profileEntity.getProfileDetails());
-        map.put("createDate",profileEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/xygkdetails",map);
+    public ModelAndView profileDetails(){
+        return new ModelAndView("pc/zyxiaoyuan/xygkdetails");
     }
 
     /**
