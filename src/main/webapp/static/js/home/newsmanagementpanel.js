@@ -36,23 +36,34 @@ $(function () {
                     } else {
                         $editNewsForm.form('load', selectedNews);
 
-                        var data = {picturePath:selectedNews.picturePath};
-
-                        var url = path + "/home/picture/show";
-                        $.ajax({
-                            url:url,type:"POST",contentType: "application/json",data:JSON.stringify(data),
-                            success:function (r) {
-
-                                var pictureDiv = $('#editPicture');
-                                pictureDiv.empty();
-
-                                for (var i=0;i<r.length;i++){
-                                    var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
-                                    pictureDiv.append(picture);
-                                }
-
-                            }
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedNews.newsDetails);  //赋值给UEditor
+                            });
                         });
+
+
+
+                        if (selectedNews.picturePath){
+                            var data = {picturePath:selectedNews.picturePath};
+                            var url = path + "/home/picture/show";
+                            $.ajax({
+                                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(data),
+                                success:function (r) {
+
+                                    var pictureDiv = $('#editPicture');
+                                    pictureDiv.empty();
+
+                                    for (var i=0;i<r.length;i++){
+                                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                                        pictureDiv.append(picture);
+                                    }
+
+                                }
+                            });
+                        }
+
 
                         $editNewsWin.window('open');
                     }
@@ -81,6 +92,10 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $addNewsForm = $('#addNewsForm').form({
         novalidate: true
     });
@@ -93,6 +108,7 @@ $(function () {
             $('#pictureNewsForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addNewsForm').form('disableValidation').form('reset');
+            reportAdd.setContent("");
         }
     });
 
@@ -140,6 +156,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editNewsForm = $('#editNewsForm').form({
         novalidate: true
     });
@@ -152,6 +172,7 @@ $(function () {
             $('#pictureNewsForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editNewsForm').form('disableValidation').form('reset');
+            reportEdit.setContent("");
         }
     });
 
