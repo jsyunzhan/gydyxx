@@ -41,4 +41,6 @@ public interface NewsManagementService {
      * @return List<NewsEntity>
      */
     List<NewsEntity> newsAllList(NewsEntity newsEntity);
+
+    NewsEntity newsDetails(Long id);
 }

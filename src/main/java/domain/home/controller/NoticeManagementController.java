@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Calendar;
@@ -72,7 +73,7 @@ public class NoticeManagementController extends AbstractActionController{
 
     @RequestMapping(value = "/homepage/notice/details/{id}")
     @ResponseBody
-    public ModelAndView noticeDetails(@PathVariable("id") Long id){
+    public ModelAndView noticeDetails(@PathVariable("id") Long id) throws UnsupportedEncodingException {
         final NoticeEntity noticeEntity = noticeManagementService.noticeDetails(id);
         final Map<String, Object> map = new HashMap<>(4);
         map.put("title",noticeEntity.getNoticeTitle());

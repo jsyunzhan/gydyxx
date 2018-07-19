@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_LEADER_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -60,6 +62,18 @@ public class LeaderManagementController extends AbstractActionController{
     @ResponseBody
     public List<LeaderEntity> leaderAllList(LeaderEntity leaderEntity){
         return leaderManagementService.leaderAllList(leaderEntity);
+    }
+
+    @RequestMapping(value = "/homepage/leader/details/{id}")
+    @ResponseBody
+    public ModelAndView leaderDetails(@PathVariable("id") Long id){
+        final LeaderEntity leaderEntity = leaderManagementService.leaderDetails(id);
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",leaderEntity.getLeaderTitle());
+        map.put("details",leaderEntity.getLeaderDetails());
+        map.put("picturePath",leaderEntity.getPicturePath());
+        map.put("createDate",leaderEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/ldjjdetails",map);
     }
 
     /**
