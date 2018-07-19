@@ -78,4 +78,9 @@ public class ProfileManagementServiceImpl implements ProfileManagementService{
     public List<ProfileEntity> profileAllList(ProfileEntity profileEntity) {
         return profileDao.profileAllList(profileEntity);
     }
+
+    @Override
+    public ProfileEntity profileDetails(Long id) {
+        return profileDao.profileDetails(id);
+    }
 }

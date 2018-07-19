@@ -14,11 +14,11 @@ $(function () {
             {
                 field: 'leaderTitle', title: "领导简介标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'leaderDetails', title: "领导简介内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // , {
+            //     field: 'leaderDetails', title: "领导简介内容", width: 400, sortable: true,
+            //     align: 'left',hidden:true
+            // }
         ]],
         toolbar: [
             {
@@ -36,23 +36,34 @@ $(function () {
                     } else {
                         $editLeaderWin.form('load', selectedLeader);
 
-                        var data = {picturePath:selectedLeader.picturePath};
-
-                        var url = path + "/home/picture/show";
-                        $.ajax({
-                            url:url,type:"POST",contentType: "application/json",data:JSON.stringify(data),
-                            success:function (r) {
-
-                                var pictureDiv = $('#editPicture');
-                                pictureDiv.empty();
-
-                                for (var i=0;i<r.length;i++){
-                                    var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
-                                    pictureDiv.append(picture);
-                                }
-
-                            }
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedLeader.leaderDetails);  //赋值给UEditor
+                            });
                         });
+
+                        if (selectedLeader.picturePath){
+                            var data = {picturePath:selectedLeader.picturePath};
+
+                            var url = path + "/home/picture/show";
+                            $.ajax({
+                                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(data),
+                                success:function (r) {
+
+                                    var pictureDiv = $('#editPicture');
+                                    pictureDiv.empty();
+
+                                    for (var i=0;i<r.length;i++){
+                                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                                        pictureDiv.append(picture);
+                                    }
+
+                                }
+                            });
+                        }
+
+
 
                         $editLeaderWin.window('open');
                     }
@@ -81,6 +92,10 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $addLeaderForm = $('#addLeaderForm').form({
         novalidate: true
     });
@@ -93,6 +108,7 @@ $(function () {
             $('#pictureLeaderForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addLeaderForm').form('disableValidation').form('reset');
+            reportAdd.setContent('');
         }
     });
 
@@ -100,6 +116,10 @@ $(function () {
         onClick: function () {
             if (!$('#addMessageForm').form('enableValidation').form('validate')) {
                 return;
+            }
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
             }
 
             var leaderData = $addLeaderForm.serializeObject(),
@@ -140,6 +160,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editLeaderForm = $('#editLeaderForm').form({
         novalidate: true
     });
@@ -152,6 +176,7 @@ $(function () {
             $('#pictureLeaderForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editLeaderForm').form('disableValidation').form('reset');
+            reportEdit.setContent('');
         }
     });
 
@@ -159,6 +184,10 @@ $(function () {
         onClick: function () {
             if (!$('#editLeaderForm').form('enableValidation').form('validate')) {
                 return;
+            }
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
             }
 
             var leaderData = $editLeaderForm.serializeObject(),

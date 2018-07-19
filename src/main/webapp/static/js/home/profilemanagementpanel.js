@@ -63,6 +63,11 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
+
     var $addProfileForm = $('#addProfileForm').form({
         novalidate: true
     });
@@ -73,6 +78,7 @@ $(function () {
         footer: '#addProfileWinFooter',
         onClose: function () {
             $('#addProfileForm').form('disableValidation').form('reset');
+            reportAdd.setContent('');
         }
     });
 

@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'noticeTitle', title: "公告标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'noticeDetails', title: "公告内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'noticeDetails', title: "公告内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -36,21 +37,30 @@ $(function () {
                     } else {
                         $editNoticeForm.form('load', selectedNotice);
 
-                        var url = path + "/home/picture/show";
-                        $.ajax({
-                            url:url,type:"POST",contentType: "application/json",data:JSON.stringify(selectedNotice),
-                            success:function (r) {
-
-                                var pictureDiv = $('#editPicture');
-                                pictureDiv.empty();
-
-                                for (var i=0;i<r.length;i++){
-                                    var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
-                                    pictureDiv.append(picture);
-                                }
-
-                            }
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedNotice.noticeDetails);  //赋值给UEditor
+                            });
                         });
+
+                        if (selectedNotice.picturePath){
+                            var url = path + "/home/picture/show";
+                            $.ajax({
+                                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(selectedNotice),
+                                success:function (r) {
+
+                                    var pictureDiv = $('#editPicture');
+                                    pictureDiv.empty();
+
+                                    for (var i=0;i<r.length;i++){
+                                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                                        pictureDiv.append(picture);
+                                    }
+
+                                }
+                            });
+                        }
 
 
                         $editNoticeWin.window('open');
@@ -79,7 +89,7 @@ $(function () {
     });
 
     /*************新增*******************/
-    var reportEdit = UE.getEditor('containerAdd', {
+    var reportAdd = UE.getEditor('containerAdd', {
         initialFrameWidth: '100%', initialFrameHeight: 240
     });
 
@@ -96,7 +106,7 @@ $(function () {
             $('#addPicture,#editPicture').empty();
             $('#addNoticeForm').form('disableValidation').form('reset');
             // var ue = UE.getEditor('containerAdd');//初始化对象
-            reportEdit.setContent('');
+            reportAdd.setContent('');
         }
     });
 
@@ -108,8 +118,6 @@ $(function () {
 
             var noticeData = $addNoticeForm.serializeObject(),
                 url = path + "/home/noticemanpage/add";
-
-            console.log(noticeData);
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/通知公告",
@@ -149,6 +157,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editNoticeForm = $('#editNoticeForm').form({
         novalidate: true
     });
@@ -161,6 +173,7 @@ $(function () {
             $('#pictureNoticeForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editNoticeForm').form('disableValidation').form('reset');
+            reportEdit.setContent('');
         }
     });
 

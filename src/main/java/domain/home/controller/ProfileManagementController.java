@@ -62,6 +62,12 @@ public class ProfileManagementController extends AbstractActionController{
         return profileManagementService.profileAllList(profileEntity);
     }
 
+    @RequestMapping(value = "/homepage/profile/details")
+    @ResponseBody
+    public ModelAndView profileDetails(){
+        return new ModelAndView("pc/zyxiaoyuan/xygkdetails");
+    }
+
     /**
      * 学校概况新增
      * @param profileEntity 新增实体
