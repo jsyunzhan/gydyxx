@@ -78,4 +78,9 @@ public class PartyManagementServiceImpl implements PartyManagementService{
     public List<PartyEntity> partyAllList(PartyEntity partyEntity) {
         return partyDao.partyAllList(partyEntity);
     }
+
+    @Override
+    public PartyEntity partyDetails(Long id) {
+        return partyDao.partyDetails(id);
+    }
 }

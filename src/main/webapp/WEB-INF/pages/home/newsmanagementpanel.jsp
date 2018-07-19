@@ -43,7 +43,7 @@
         </table>
 
         <div style="padding-top: 2px; margin-right: 2px">
-            <script id="containerAdd" name="leaderDetails" type="text/plain"></script>
+            <script id="containerAdd" name="newsDetails" type="text/plain"></script>
         </div>
 
         <div style="text-align:center;padding:10px 5px">
@@ -87,7 +87,7 @@
         </table>
 
         <div style="padding-top: 2px; margin-right: 2px">
-            <script id="containerEdit" name="leaderDetails" type="text/plain"></script>
+            <script id="containerEdit" name="newsDetails" type="text/plain"></script>
         </div>
 
         <div style="text-align:center;padding:10px 5px">

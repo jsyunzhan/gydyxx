@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_PARTY_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -60,6 +62,17 @@ public class PartyManagementController extends AbstractActionController{
     @ResponseBody
     public List<PartyEntity> partyAllList(PartyEntity partyEntity){
         return partyManagementService.partyAllList(partyEntity);
+    }
+
+    @RequestMapping(value = "/homepage/party/details/{id}")
+    @ResponseBody
+    public ModelAndView partyDetails(@PathVariable("id") Long id){
+        final PartyEntity partyEntity = partyManagementService.partyDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",partyEntity.getPartyTitle());
+        map.put("details",partyEntity.getPartyDetails());
+        map.put("createDate",partyEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/djghdetails",map);
     }
 
     /**

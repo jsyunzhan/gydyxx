@@ -19,4 +19,6 @@ public interface PartyDao {
     Integer partyDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<PartyEntity> partyAllList(PartyEntity partyEntity);
+
+    PartyEntity partyDetails(Long id);
 }

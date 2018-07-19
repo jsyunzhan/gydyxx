@@ -65,7 +65,7 @@ public class ProfileManagementController extends AbstractActionController{
     @RequestMapping(value = "/homepage/profile/details")
     @ResponseBody
     public ModelAndView profileDetails(){
-        return new ModelAndView("pc/zyxiaoyuan/xygkdetails");
+        return new ModelAndView("pc/zyxiaoyuan/xxgkdetails");
     }
 
     /**

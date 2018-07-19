@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'newsTitle', title: "新闻标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'newsDetails', title: "新闻内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'newsDetails', title: "新闻内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
