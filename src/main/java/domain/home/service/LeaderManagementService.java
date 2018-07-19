@@ -41,4 +41,6 @@ public interface LeaderManagementService {
      * @return List<LeaderEntity>
      */
     List<LeaderEntity> leaderAllList(LeaderEntity leaderEntity);
+
+    LeaderEntity leaderDetails(Long id);
 }

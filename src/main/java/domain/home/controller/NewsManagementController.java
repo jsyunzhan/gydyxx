@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_NEWS_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -61,6 +63,18 @@ public class NewsManagementController extends AbstractActionController{
     @ResponseBody
     public List<NewsEntity> newsAllList(NewsEntity newsEntity){
         return newsManagementService.newsAllList(newsEntity);
+    }
+
+    @RequestMapping(value = "/homepage/news/details/{id}")
+    @ResponseBody
+    public ModelAndView newsDetails(@PathVariable("id") Long id){
+        final NewsEntity newsEntity = newsManagementService.newsDetails(id);
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",newsEntity.getNewsTitle());
+        map.put("details",newsEntity.getNewsDetails());
+        map.put("picturePath",newsEntity.getPicturePath());
+        map.put("createDate",newsEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/xyxwdetails",map);
     }
 
     /**

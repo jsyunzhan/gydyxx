@@ -79,6 +79,9 @@ $(function () {
     });
 
     /*************新增*******************/
+    var reportEdit = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $addNoticeForm = $('#addNoticeForm').form({
         novalidate: true
@@ -92,6 +95,8 @@ $(function () {
             $('#pictureNoticeForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addNoticeForm').form('disableValidation').form('reset');
+            // var ue = UE.getEditor('containerAdd');//初始化对象
+            reportEdit.setContent('');
         }
     });
 
@@ -104,6 +109,7 @@ $(function () {
             var noticeData = $addNoticeForm.serializeObject(),
                 url = path + "/home/noticemanpage/add";
 
+            console.log(noticeData);
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/通知公告",
@@ -138,6 +144,8 @@ $(function () {
             $addNoticeWin.window('close');
         }
     });
+
+
 
     /*************修改*******************/
 

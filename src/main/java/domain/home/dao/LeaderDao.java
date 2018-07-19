@@ -19,4 +19,6 @@ public interface LeaderDao {
     Integer leaderDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<LeaderEntity> leaderAllList(LeaderEntity leaderEntity);
+
+    LeaderEntity leaderDetails(Long id);
 }
