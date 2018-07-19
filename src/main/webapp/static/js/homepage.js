@@ -7,7 +7,7 @@ $(function () {
             var _html = "";
             for (var i=0;i<event.length;i++){
                 if(i<8){
-                    _html += '<div class="news_list"><span><img src="../static/images/icon_round.png"></span>'+event[i].newsTitle+'</div>';
+                    _html += '<div class="news_list" name="'+event[i].id+'"><span><img src="../static/images/icon_round.png"></span>'+event[i].newsTitle+'</div>';
                 }
             }
             $(".main_content_right").append(_html);
@@ -22,10 +22,15 @@ $(function () {
             var _html = "";
             for (var i=0;i<event.length;i++){
                 if(i<8) {
-                    _html += '<div class="notification">' + event[i].noticeTitle + '</div>';
+                    _html += '<div class="notification" name="'+event[i].id+'">' + event[i].noticeTitle + '</div>';
                 }
             }
             $(".notice_scroll").append(_html);
+            // 跳转详情
+            $(".notification").click(function () {
+                var url = path + '/homepage/notice/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 
@@ -37,7 +42,7 @@ $(function () {
             var _html = "";
             for (var i=0;i<event.length;i++){
                 if(i<6) {
-                    _html += '<div class="ex_list clearfix"><p>' + event[i].worksTitle + '</p><span>' + timestampToTime02(event[i].createDate) + '</span></div>';
+                    _html += '<div class="ex_list clearfix" name="'+event[i].id+'"><p>' + event[i].worksTitle + '</p><span>' + timestampToTime02(event[i].createDate) + '</span></div>';
                 }
             }
             $(".ex_child:nth-child(1) .content_ex").append(_html);
@@ -52,7 +57,7 @@ $(function () {
             var _html = "";
             for (var i=0;i<event.length;i++){
                 if(i<6) {
-                    _html += '<div class="ex_list clearfix"><p>' + event[i].teacherTitle+ '</p><span>' + timestampToTime02(event[i].createDate) + '</span></div>';
+                    _html += '<div class="ex_list clearfix" name="'+event[i].id+'"><p>' + event[i].teacherTitle+ '</p><span>' + timestampToTime02(event[i].createDate) + '</span></div>';
                 }
             }
             $(".ex_child:nth-child(2) .content_ex").append(_html);
@@ -68,7 +73,7 @@ $(function () {
             var _html = "";
             for (var i=0;i<event.length;i++){
                 if(i<6) {
-                    _html += '<div class="ex_list clearfix"><p>' + event[i].studentTitle + '</p><span>' + timestampToTime02(event[i].createDate) + '</span></div>';
+                    _html += '<div class="ex_list clearfix" name="'+event[i].id+'"><p>' + event[i].studentTitle + '</p><span>' + timestampToTime02(event[i].createDate) + '</span></div>';
                 }
             }
             $(".ex_child:nth-child(3) .content_ex").append(_html);
@@ -84,7 +89,7 @@ $(function () {
             var _html = "";
             for (var i=0;i<event.length;i++){
                 if(i<6) {
-                    _html += '<div class="ex_list clearfix"><p>' + event[i].subjectTitle + '</p><span>' + timestampToTime02(event[i].createDate) + '</span></div>';
+                    _html += '<div class="ex_list clearfix" name="'+event[i].id+'"><p>' + event[i].subjectTitle + '</p><span>' + timestampToTime02(event[i].createDate) + '</span></div>';
                 }
             }
             $(".ex_child:nth-child(4) .content_ex").append(_html);
@@ -111,6 +116,8 @@ $(function () {
 
         }
     });
+
+
 
     // 学校风采图片切换
     var mien_pic = new Swiper(".mien_pic",{

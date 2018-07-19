@@ -6,29 +6,32 @@
     <meta name="renderer" content="webkit">
     <meta name="google" value="notranslate"><!-- 禁止Chrome 浏览器中自动提示翻译 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/public.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/publicPart.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/secondaryPage.css">
-    <script type="text/javascript" src="../static/jq/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="../static/js/public.js"></script>
-    <script type="text/javascript" src="../static/js/publicPart.js"></script>
-    <script type="text/javascript" src="../static/js/secondaryPage.js"></script>
+    <%
+        pageContext.setAttribute("APP_PATH", request.getContextPath());
+    %>
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/publicPart.css">
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/secondaryPage.css">
+    <script type="text/javascript" src="${APP_PATH}/static/jq/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/public.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/secondaryPage.js"></script>
     <title>致用校园</title>
 </head>
 <body>
 <div class="wrapper">
     <div class="bg">
-        <img src="../static/images/bg.png">
+        <img src="${APP_PATH}/static/images/bg.png">
     </div>
     <%--学校logo--%>
     <div class="school_logo clearfix">
         <div class="logo">
-            <img src="../static/images/logo.png">
+            <img src="${APP_PATH}/static/images/logo.png">
         </div>
         <div class="search">
             <div class="search_input">
                 <input type="text" placeholder="请输入关键词">
-                <span><img src="../static/images/search.png"></span>
+                <span><img src="${APP_PATH}/static/images/search.png"></span>
             </div>
         </div>
     </div>
@@ -110,22 +113,22 @@
                         致用校园
                     </div>
                     <div class="leftClass_con">
-                        <p class="leftChild choosen">学校概况<span></span></p>
-                        <p class="leftChild">领导简介<span></span></p>
-                        <p class="leftChild">通知公告<span></span></p>
-                        <p class="leftChild">校园新闻<span></span></p>
-                        <p class="leftChild">党建工会<span></span></p>
-                        <p class="leftChild">规章制度<span></span></p>
-                        <p class="leftChild">责任督学<span></span></p>
-                        <p class="leftChild">文明建设<span></span></p>
-                        <p class="leftChild">法制校园<span></span></p>
-                        <p class="leftChild">校园风光<span></span></p>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/xxgkDetails.jsp"><p class="leftChild choosen">学校概况<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/ldjj.jsp"><p class="leftChild">领导简介<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp"><p class="leftChild">通知公告<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp"><p class="leftChild">校园新闻<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/djgh.jsp"><p class="leftChild">党建工会<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/gzzd.jsp"><p class="leftChild">规章制度<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/zrdx.jsp"><p class="leftChild">责任督学<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/wmcj.jsp"><p class="leftChild">文明创建<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/fzxy.jsp"><p class="leftChild">法治校园<span></span></p></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/xyfg.jsp"><p class="leftChild">校园风光<span></span></p></a>
                     </div>
                 </div>
                 <div class="history">
                     <div class="title_news">
                         校史天地丨School History
-                        <a href="javascript:;">更多<span><img src="../static/images/more1.png"></span></a>
+                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
                     </div>
                     <div class="history_con">
                         <div class="history_list">关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项</div>
@@ -146,6 +149,12 @@
                 <div class="content_news01">
                     <div class="main_title01">学校概况</div>
                     <div class="newsCon">
+                        <div class="imgDetial">
+                            <img src="${APP_PATH}/static/images/banner.jpg">
+                        </div>
+                        <div class="imgDetial">
+                            <img src="${APP_PATH}/static/images/banner.jpg">
+                        </div>
                         <p>学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校校概况学校概况学校概况学校概况学校概况学校概况学校概况</p>
                         <p>学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况学校概况</p>
                         <p>学校概况学校概况学校概况学校概况学校概况学校概校概况学校概况学校概况学校概况学校概况学校概况</p>
@@ -159,7 +168,7 @@
     <div class="footer">
         <div class="footer_con clearfix">
             <div class="footer_img">
-                <img src="../static/images/img_02.png">
+                <img src="${APP_PATH}/static/images/img_02.png">
             </div>
             <div class="footer_font">
                 <p style="line-height: 80px;">Copyright@2018 http://xxx.org All Rights Reserved</p>
@@ -168,10 +177,13 @@
                 <p style="line-height: 80px;">苏公网安备用 7852595156256</p>
             </div>
             <div class="footer_img">
-                <img src="../static/images/img_01.png">
+                <img src="${APP_PATH}/static/images/img_01.png">
             </div>
         </div>
     </div>
 </div>
 </body>
+<script>
+    var path  = '<%=request.getContextPath()%>';
+</script>
 </html>

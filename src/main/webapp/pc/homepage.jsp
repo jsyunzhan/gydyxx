@@ -28,12 +28,12 @@
         <%--学校logo--%>
         <div class="school_logo clearfix">
             <div class="logo">
-                <img src="../static/images/logo.png">
+                <img src="${APP_PATH}/static/images/logo.png">
             </div>
             <div class="search">
                 <div class="search_input">
                     <input type="text" placeholder="请输入关键词">
-                    <span><img src="../static/images/search.png"></span>
+                    <span><img src="${APP_PATH}/static/images/search.png"></span>
                 </div>
             </div>
         </div>
@@ -109,20 +109,20 @@
             <%--轮播图--%>
             <div class="swiper-container banner">
                 <a class="arrow-left" href="#">
-                    <img src="../static/images/arrow_left.png">
+                    <img src="${APP_PATH}/static/images/arrow_left.png">
                 </a>
                 <a class="arrow-right" href="#">
-                    <img src="../static/images/arrow_right.png">
+                    <img src="${APP_PATH}/static/images/arrow_right.png">
                 </a>
                 <div class="swiper-wrapper banner_wrapper clearfix">
                     <div class="swiper-slide">
-                        <img src="../static/images/banner.jpg">
+                        <img src="${APP_PATH}/static/images/banner.jpg">
                     </div>
                     <div class="swiper-slide">
-                        <img src="../static/images/banner.jpg">
+                        <img src="${APP_PATH}/static/images/banner.jpg">
                     </div>
                     <div class="swiper-slide">
-                        <img src="../static/images/banner.jpg">
+                        <img src="${APP_PATH}/static/images/banner.jpg">
                     </div>
                 </div>
                 <div class="pagination"></div>
@@ -143,7 +143,7 @@
                 <div class="news">
                     <div class="title_news">
                         新闻中心丨News Center
-                        <a href="javascript:;">更多<span><img src="../static/images/more1.png"></span></a>
+                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
                     </div>
                     <div class="content_news">
                         <div class="main_title">
@@ -158,13 +158,13 @@
                             <div class="swiper-container news_banner">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <img src="../static/images/news.jpg">
+                                        <img src="${APP_PATH}/static/images/news.jpg">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="../static/images/news.jpg">
+                                        <img src="${APP_PATH}/static/images/news.jpg">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="../static/images/news.jpg">
+                                        <img src="${APP_PATH}/static/images/news.jpg">
                                     </div>
                                 </div>
                                 <div class="pagination01"></div>
@@ -184,97 +184,97 @@
             <div class="infor clearfix">
                 <a href="${APP_PATH}/pc/zyxiaoyuan/xxgk.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_01.png">
+                        <img src="${APP_PATH}/static/images/icon_01.png">
                         <div class="icon_font">学校概况</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_02.png">
+                        <img src="${APP_PATH}/static/images/icon_02.png">
                         <div class="icon_font">通知公告</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_03.png">
+                        <img src="${APP_PATH}/static/images/icon_03.png">
                         <div class="icon_font">校园新闻</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zyxiaoyuan/zrdx.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_04.png">
+                        <img src="${APP_PATH}/static/images/icon_04.png">
                         <div class="icon_font">责任督学</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zyxiaoyuan/wmcj.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_05.png">
+                        <img src="${APP_PATH}/static/images/icon_05.png">
                         <div class="icon_font">文明创建</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zyxiaoyuan/djgh.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_06.png">
+                        <img src="${APP_PATH}/static/images/icon_06.png">
                         <div class="icon_font">党建工会</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zmjiaxiao/mail.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_07.png">
+                        <img src="${APP_PATH}/static/images/icon_07.png">
                         <div class="icon_font">校长信箱</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zykecheng/bbkc.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_08.png">
+                        <img src="${APP_PATH}/static/images/icon_08.png">
                         <div class="icon_font">班本课程</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zyxueyuan/jyky.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_09.png">
+                        <img src="${APP_PATH}/static/images/icon_09.png">
                         <div class="icon_font">教育科研</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zykecheng/xyjq.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_10.png">
+                        <img src="${APP_PATH}/static/images/icon_10.png">
                         <div class="icon_font">校园节庆</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zykecheng/jpst.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_11.png">
+                        <img src="${APP_PATH}/static/images/icon_11.png">
                         <div class="icon_font">精品社团</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zmjiaxiao/jxxq.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_12.png">
+                        <img src="${APP_PATH}/static/images/icon_12.png">
                         <div class="icon_font">家校心桥</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zyyuanding/jxzy.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_13.png">
+                        <img src="${APP_PATH}/static/images/icon_13.png">
                         <div class="icon_font">教学资源</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zyxueyuan/xbpx.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_14.png">
+                        <img src="${APP_PATH}/static/images/icon_14.png">
                         <div class="icon_font">校本培训</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zmjiaxiao/jkjy.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_15.png">
+                        <img src="${APP_PATH}/static/images/icon_15.png">
                         <div class="icon_font">健康教育</div>
                     </div>
                 </a>
                 <a href="${APP_PATH}/pc/zyxiaoyuan/fzxy.jsp">
                     <div class="icon">
-                        <img src="../static/images/icon_16.png">
+                        <img src="${APP_PATH}/static/images/icon_16.png">
                         <div class="icon_font">法治校园</div>
                     </div>
                 </a>
@@ -285,7 +285,7 @@
                 <div class="history">
                     <div class="title_news">
                         校史天地丨School History
-                        <a href="javascript:;">更多<span><img src="../static/images/more1.png"></span></a>
+                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
                     </div>
                     <div class="history_con">
                         <div class="history_list">关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项</div>
@@ -299,7 +299,7 @@
                         <a href="javascript:;" class="linking">友情链接丨LINK</a>
                         <a href="javascript:;" class="linking platform">
                             国家教育资源平台
-                            <span><img src="../static/images/down.png"></span>
+                            <span><img src="${APP_PATH}/static/images/down.png"></span>
                             <div class="linking_list none">
                                 <p onclick='window.location.href = "http://www.eduyun.cn/"'>国家教育资源平台</p>
                                 <p onclick='window.location.href = "http://be.jse.edu.cn/"'>江苏基础教育平台</p>
@@ -316,7 +316,7 @@
                     <%--作品展示--%>
                     <div class="ex_child">
                         <div class="title_ex">
-                            <img src="../static/images/title_01.jpg">
+                            <img src="${APP_PATH}/static/images/title_01.jpg">
                             <a href="javascript:;">更多></a>
                         </div>
                         <div class="content_ex"></div>
@@ -325,7 +325,7 @@
                     <%--名师风采--%>
                     <div class="ex_child">
                         <div class="title_ex">
-                            <img src="../static/images/title_02.jpg">
+                            <img src="${APP_PATH}/static/images/title_02.jpg">
                             <a href="javascript:;">更多></a>
                         </div>
                         <div class="content_ex"></div>
@@ -334,7 +334,7 @@
                     <%--学习风采--%>
                     <div class="ex_child">
                         <div class="title_ex">
-                            <img src="../static/images/title_03.jpg">
+                            <img src="${APP_PATH}/static/images/title_03.jpg">
                             <a href="javascript:;">更多></a>
                         </div>
                         <div class="content_ex"></div>
@@ -343,7 +343,7 @@
                     <%--课题研究--%>
                     <div class="ex_child">
                         <div class="title_ex">
-                            <img src="../static/images/title_04.jpg">
+                            <img src="${APP_PATH}/static/images/title_04.jpg">
                             <a href="javascript:;">更多></a>
                         </div>
                         <div class="content_ex"></div>
@@ -354,9 +354,9 @@
             <%--学校风采--%>
             <div class="infor">
                 <div class="mien">
-                    <img src="../static/images/mien.png">
+                    <img src="${APP_PATH}/static/images/mien.png">
                     <div class="title_mien">
-                        <img src="../static/images/school_fc.png">
+                        <img src="${APP_PATH}/static/images/school_fc.png">
                     </div>
                     <div class="swiper-container mien_pic">
                         <div class="swiper-wrapper">
@@ -371,7 +371,7 @@
         <div class="footer">
             <div class="footer_con clearfix">
                 <div class="footer_img">
-                    <img src="../static/images/img_02.png">
+                    <img src="${APP_PATH}/static/images/img_02.png">
                 </div>
                 <div class="footer_font">
                     <p style="line-height: 80px;">Copyright@2018 http://xxx.org All Rights Reserved</p>
@@ -387,15 +387,15 @@
     </div>
 
 <a href="javascript:;" class="floatImage floatImage01">
-    <img src="../static/images/icon_01.png">
+    <img src="${APP_PATH}/static/images/icon_01.png">
     <div class="imgClose">
-        <img src="../static/images/more1.png">
+        <img src="${APP_PATH}/static/images/more1.png">
     </div>
 </a>
 <a href="javascript:;" class="floatImage floatImage02">
-    <img src="../static/images/icon_02.png">
+    <img src="${APP_PATH}/static/images/icon_02.png">
     <div class="imgClose">
-        <img src="../static/images/more1.png">
+        <img src="${APP_PATH}/static/images/more1.png">
     </div>
 </a>
 
