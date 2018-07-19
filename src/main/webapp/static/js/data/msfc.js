@@ -8,7 +8,7 @@ $(function () {
             data_number = event.length;
             var _html = "";
             for (var i=0;i<event.length;i++){
-                _html += '<div class="every_search clearfix"><span class="listChild01">'+event[i].teacherTitle+'</span><span class="listChild02">' + timestampToTime03(event[i].createDate) + '</span></div>';
+                _html += '<div class="every_search clearfix" name="'+event[i].id+'"><span class="listChild01">'+event[i].teacherTitle+'</span><span class="listChild02">' + timestampToTime03(event[i].createDate) + '</span></div>';
             }
             $(".newsCon").append(_html);
             $(".every_search").hide();
