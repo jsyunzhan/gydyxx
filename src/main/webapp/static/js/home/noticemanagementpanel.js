@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'noticeTitle', title: "公告标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'noticeDetails', title: "公告内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'noticeDetails', title: "公告内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -36,21 +37,30 @@ $(function () {
                     } else {
                         $editNoticeForm.form('load', selectedNotice);
 
-                        var url = path + "/home/picture/show";
-                        $.ajax({
-                            url:url,type:"POST",contentType: "application/json",data:JSON.stringify(selectedNotice),
-                            success:function (r) {
-
-                                var pictureDiv = $('#editPicture');
-                                pictureDiv.empty();
-
-                                for (var i=0;i<r.length;i++){
-                                    var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
-                                    pictureDiv.append(picture);
-                                }
-
-                            }
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedNotice.noticeDetails);  //赋值给UEditor
+                            });
                         });
+
+                        if (selectedNotice.picturePath){
+                            var url = path + "/home/picture/show";
+                            $.ajax({
+                                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(selectedNotice),
+                                success:function (r) {
+
+                                    var pictureDiv = $('#editPicture');
+                                    pictureDiv.empty();
+
+                                    for (var i=0;i<r.length;i++){
+                                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
+                                        pictureDiv.append(picture);
+                                    }
+
+                                }
+                            });
+                        }
 
 
                         $editNoticeWin.window('open');
