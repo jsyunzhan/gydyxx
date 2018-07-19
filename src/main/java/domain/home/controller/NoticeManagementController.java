@@ -73,7 +73,7 @@ public class NoticeManagementController extends AbstractActionController{
     public ModelAndView noticeDetails(@PathVariable("id") Long id){
         final ModelAndView modelAndView = new ModelAndView("pc/zyxiaoyuan/tzggdetails");
         final NoticeEntity noticeEntity = noticeManagementService.noticeDetails(id);
-        modelAndView.addObject("entity"+noticeEntity);
+        modelAndView.addObject("entity",noticeEntity);
         return modelAndView;
     }
 
