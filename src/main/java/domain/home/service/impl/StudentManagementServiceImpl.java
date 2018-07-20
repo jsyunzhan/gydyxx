@@ -80,4 +80,9 @@ public class StudentManagementServiceImpl implements StudentManagementService{
     public List<StudentEntity> studentAllList(StudentEntity studentEntity) {
         return studentDao.studentAllList(studentEntity);
     }
+
+    @Override
+    public StudentEntity studentDetails(Long id) {
+        return studentDao.studentDetails(id);
+    }
 }

@@ -42,6 +42,20 @@
         ORDER BY t.CREATE_DATA
     </select>
 
+    <select id="speechDetails" resultType="SpeechEntityInfo">
+        SELECT
+        t.ID id,
+        t.SPEECH_TITLE speechTitle,
+        t.SPEECH_DETAILS speechDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_speech t
+        WHERE t.DELETE_FLAG='1' AND t.ID=#{id}
+    </select>
+
     <!--新增-->
     <insert id="speechAdd" >
         INSERT INTO t_home_speech

@@ -74,4 +74,9 @@ public class TeachingManagementServiceImpl implements TeachingManagementService{
     public List<TeachingEntity> teachingAllList(TeachingEntity teachingEntity) {
         return teachingDao.teachingAllList(teachingEntity);
     }
+
+    @Override
+    public TeachingEntity teacheringDetails(Long id) {
+        return teachingDao.teacheringDetails(id);
+    }
 }

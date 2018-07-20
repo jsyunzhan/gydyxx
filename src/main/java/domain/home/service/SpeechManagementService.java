@@ -36,4 +36,6 @@ public interface SpeechManagementService {
     Boolean speechDelete(Long id, Long loginId);
 
     List<SpeechEntity> speechAllList(SpeechEntity speechEntity);
+
+    SpeechEntity speechDetails(Long id);
 }

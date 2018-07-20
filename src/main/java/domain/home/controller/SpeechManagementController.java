@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_SPEECH_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -59,6 +61,18 @@ public class SpeechManagementController extends AbstractActionController{
     @ResponseBody
     public List<SpeechEntity> speechAllList(SpeechEntity speechEntity){
         return speechManagementService.speechAllList(speechEntity);
+    }
+
+    @RequestMapping(value = "/homepage/speech/details/{id}")
+    @ResponseBody
+    public ModelAndView speechDetails(@PathVariable("id") Long id){
+        final SpeechEntity speechEntity = speechManagementService.speechDetails(id);
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",speechEntity.getSpeechTitle());
+        map.put("details",speechEntity.getSpeechDetails());
+        map.put("picturePath",speechEntity.getPicturePath());
+        map.put("createDate",speechEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/gqxjhdetails",map);
     }
 
     /**

@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_TEACHING_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -58,6 +60,17 @@ public class TeachingManagementController extends AbstractActionController{
     @ResponseBody
     public List<TeachingEntity> teachingAllList(TeachingEntity teachingEntity){
         return teachingManagementService.teachingAllList(teachingEntity);
+    }
+
+    @RequestMapping(value = "/homepage/teaching/details/{id}")
+    @ResponseBody
+    public ModelAndView teacheringDetails(@PathVariable("id") Long id){
+        final TeachingEntity teachingEntity = teachingManagementService.teacheringDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",teachingEntity.getTeachingTitle());
+        map.put("details",teachingEntity.getTeachingDetails());
+        map.put("createDate",teachingEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/jxziyuandetails",map);
     }
 
     /**

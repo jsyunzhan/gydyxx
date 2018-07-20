@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_WROKS_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -59,6 +61,18 @@ public class WorksManagementController extends AbstractActionController{
     @ResponseBody
     public List<WorksEntity> worksAllList(WorksEntity worksEntity){
         return wroksManagementService.worksAllList(worksEntity);
+    }
+
+    @RequestMapping(value = "/homepage/works/details/{id}")
+    @ResponseBody
+    public ModelAndView worksDetails(@PathVariable("id") Long id){
+        final WorksEntity worksEntity = wroksManagementService.worksDetails(id);
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",worksEntity.getWorksTitle());
+        map.put("details",worksEntity.getWorksDetails());
+        map.put("picturePath",worksEntity.getPicturePath());
+        map.put("createDate",worksEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/zpzshdetails",map);
     }
 
     /**

@@ -74,4 +74,9 @@ public class SpeechManagementServiceImpl implements SpeechManagementService{
     public List<SpeechEntity> speechAllList(SpeechEntity speechEntity) {
         return speechDao.speechAllList(speechEntity);
     }
+
+    @Override
+    public SpeechEntity speechDetails(Long id) {
+        return speechDao.speechDetails(id);
+    }
 }

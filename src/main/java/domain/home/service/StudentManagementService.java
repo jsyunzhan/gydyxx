@@ -41,4 +41,6 @@ public interface StudentManagementService {
      * @return List<StudentEntity>
      */
     List<StudentEntity> studentAllList(StudentEntity studentEntity);
+
+    StudentEntity studentDetails(Long id);
 }

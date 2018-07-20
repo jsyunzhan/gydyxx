@@ -82,4 +82,9 @@ public class WroksManagementServiceImpl implements WroksManagementService{
     public List<WorksEntity> worksAllList(WorksEntity worksEntity) {
         return wroksDao.worksAllList(worksEntity);
     }
+
+    @Override
+    public WorksEntity worksDetails(Long id) {
+        return wroksDao.worksDetails(id);
+    }
 }

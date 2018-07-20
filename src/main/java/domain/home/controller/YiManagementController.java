@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_YI_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -58,6 +60,18 @@ public class YiManagementController extends AbstractActionController{
     @ResponseBody
     public List<YiEntity> yiAllList(YiEntity yiEntity){
         return yiManagementService.yiAllList(yiEntity);
+    }
+
+    @RequestMapping(value = "/homepage/yi/details/{id}")
+    @ResponseBody
+    public ModelAndView yiDetails(@PathVariable("id") Long id){
+        final YiEntity yiEntity = yiManagementService.yiDetails(id);
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",yiEntity.getYiTitle());
+        map.put("details",yiEntity.getYiDetails());
+        map.put("picturePath",yiEntity.getPicturePath());
+        map.put("createDate",yiEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/zyydetails",map);
     }
 
     /**

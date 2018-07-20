@@ -74,4 +74,9 @@ public class YiManagementServiceImpl implements YiManagementService{
     public List<YiEntity> yiAllList(YiEntity yiEntity) {
         return yiDao.yiAllList(yiEntity);
     }
+
+    @Override
+    public YiEntity yiDetails(Long id) {
+        return yiDao.yiDetails(id);
+    }
 }

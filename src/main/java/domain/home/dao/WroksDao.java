@@ -45,4 +45,6 @@ public interface WroksDao {
     Integer worksDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<WorksEntity> worksAllList(WorksEntity worksEntity);
+
+    WorksEntity worksDetails(Long id);
 }

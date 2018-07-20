@@ -42,6 +42,20 @@
         ORDER BY t.CREATE_DATA
     </select>
 
+    <select id="worksDetails" resultType="WorksEntityInfo">
+        SELECT
+        t.ID id,
+        t.WORKS_TITLE worksTitle,
+        t.WORKS_DETAILS worksDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_works t
+        WHERE t.DELETE_FLAG='1' AND t.ID=#{id}
+    </select>
+
     <!--首页公告新增-->
     <insert id="worksAdd" >
         INSERT INTO t_home_works

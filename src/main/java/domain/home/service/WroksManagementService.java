@@ -41,4 +41,6 @@ public interface WroksManagementService {
      * @return List<WorksEntity>
      */
     List<WorksEntity> worksAllList(WorksEntity worksEntity);
+
+    WorksEntity worksDetails(Long id);
 }

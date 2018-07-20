@@ -36,4 +36,6 @@ public interface TeachingManagementService {
     Boolean teachingDelete(Long id, Long loginId);
 
     List<TeachingEntity> teachingAllList(TeachingEntity teachingEntity);
+
+    TeachingEntity teacheringDetails(Long id);
 }

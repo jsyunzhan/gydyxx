@@ -36,4 +36,6 @@ public interface YiManagementService {
     Boolean yiDelete(Long id, Long loginId);
 
     List<YiEntity> yiAllList(YiEntity yiEntity);
+
+    YiEntity yiDetails(Long id);
 }
