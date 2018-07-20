@@ -36,4 +36,6 @@ public interface ResourcesManagementService {
     Boolean resourcesDelete(Long id, Long loginId);
 
     List<ResourcesEntity> resourcesAllList(ResourcesEntity resourcesEntity);
+
+    ResourcesEntity resourcesDetails(Long id);
 }

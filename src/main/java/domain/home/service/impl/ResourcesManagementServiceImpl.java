@@ -74,4 +74,9 @@ public class ResourcesManagementServiceImpl implements ResourcesManagementServic
     public List<ResourcesEntity> resourcesAllList(ResourcesEntity resourcesEntity) {
         return resourcesDao.resourcesAllList(resourcesEntity);
     }
+
+    @Override
+    public ResourcesEntity resourcesDetails(Long id) {
+        return resourcesDao.resourcesDetails(id);
+    }
 }
