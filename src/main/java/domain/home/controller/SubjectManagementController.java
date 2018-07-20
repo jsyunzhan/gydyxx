@@ -67,7 +67,7 @@ public class SubjectManagementController extends AbstractActionController{
         map.put("title",subjectEntity.getSubjectTitle());
         map.put("details",subjectEntity.getSubjectDetails());
         map.put("createDate",subjectEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/ktyjdetails",map);
+        return new ModelAndView("pc/zyxueyuan/ktyjdetails",map);
     }
 
     /**

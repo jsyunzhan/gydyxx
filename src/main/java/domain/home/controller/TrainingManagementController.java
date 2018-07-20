@@ -70,7 +70,7 @@ public class TrainingManagementController extends AbstractActionController{
         map.put("title",trainingEntity.getTrainingTitle());
         map.put("details",trainingEntity.getTrainingDetails());
         map.put("createDate",trainingEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/xbpxdetails",map);
+        return new ModelAndView("pc/zyxueyuan/xbpxdetails",map);
     }
 
     /**

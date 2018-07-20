@@ -70,7 +70,7 @@ public class ClassroomManagementController extends AbstractActionController{
         map.put("title",classroomEntity.getClassroomTitle());
         map.put("details",classroomEntity.getClassroomDetails());
         map.put("createDate",classroomEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/zyktdetails",map);
+        return new ModelAndView("pc/zyxueyuan/zyktdetails",map);
     }
 
     /**

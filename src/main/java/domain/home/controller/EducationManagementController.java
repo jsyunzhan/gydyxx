@@ -70,7 +70,7 @@ public class EducationManagementController extends AbstractActionController{
         map.put("title",educationEntity.getEducationTitle());
         map.put("details",educationEntity.getEducationDetails());
         map.put("createDate",educationEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/jykydetails",map);
+        return new ModelAndView("pc/zyxueyuan/jykydetails",map);
     }
 
     /**
