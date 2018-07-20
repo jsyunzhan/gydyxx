@@ -36,4 +36,6 @@ public interface CelebrateManagementService {
     Boolean celebrateDelete(Long id, Long loginId);
 
     List<CelebrateEntity> celebrateAllList(CelebrateEntity celebrateEntity);
+
+    CelebrateEntity celebrateDetails(Long id);
 }

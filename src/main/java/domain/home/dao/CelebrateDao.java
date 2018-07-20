@@ -19,4 +19,6 @@ public interface CelebrateDao {
     Integer celebrateDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<CelebrateEntity> celebrateAllList(CelebrateEntity celebrateEntity);
+
+    CelebrateEntity celebrateDetails(Long id);
 }

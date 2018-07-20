@@ -74,4 +74,9 @@ public class CelebrateManagementServiceImpl implements CelebrateManagementServic
     public List<CelebrateEntity> celebrateAllList(CelebrateEntity celebrateEntity) {
         return celebrateDao.celebrateAllList(celebrateEntity);
     }
+
+    @Override
+    public CelebrateEntity celebrateDetails(Long id) {
+        return celebrateDao.celebrateDetails(id);
+    }
 }

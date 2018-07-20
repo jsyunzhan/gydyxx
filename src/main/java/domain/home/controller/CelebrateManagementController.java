@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_CELEBRATE_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -58,6 +60,18 @@ public class CelebrateManagementController extends AbstractActionController{
     @ResponseBody
     public List<CelebrateEntity> celebrateAllList(CelebrateEntity celebrateEntity){
         return celebrateManagementService.celebrateAllList(celebrateEntity);
+    }
+
+    @RequestMapping(value = "/homepage/celebrate/details/{id}")
+    @ResponseBody
+    public ModelAndView celebrateDetails(@PathVariable("id") Long id){
+        final CelebrateEntity celebrateEntity = celebrateManagementService.celebrateDetails(id);
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",celebrateEntity.getCelebrateTitle());
+        map.put("details",celebrateEntity.getCelebrateDetails());
+        map.put("picturePath",celebrateEntity.getPicturePath());
+        map.put("createDate",celebrateEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/xyjqdetails",map);
     }
 
     /**
