@@ -36,4 +36,6 @@ public interface FarManagementService {
     Boolean farDelete(Long id, Long loginId);
 
     List<FarEntity> farAllList(FarEntity farEntity);
+
+    FarEntity farDetails(Long id);
 }

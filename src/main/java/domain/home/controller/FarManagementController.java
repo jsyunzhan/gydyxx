@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_FAR_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -59,6 +61,17 @@ public class FarManagementController extends AbstractActionController{
     @ResponseBody
     public List<FarEntity> farAllList(FarEntity farEntity){
         return farManagementService.farAllList(farEntity);
+    }
+
+    @RequestMapping(value = "/homepage/far/details/{id}")
+    @ResponseBody
+    public ModelAndView farDetails(@PathVariable("id") Long id){
+        final FarEntity farEntity = farManagementService.farDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",farEntity.getFarTitle());
+        map.put("details",farEntity.getFarDetails());
+        map.put("createDate",farEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/zygzsdetails",map);
     }
 
     /**
