@@ -65,6 +65,7 @@ public class CelebrateManagementController extends AbstractActionController{
     @RequestMapping(value = "/homepage/celebrate/details/{id}")
     @ResponseBody
     public ModelAndView celebrateDetails(@PathVariable("id") Long id){
+
         final CelebrateEntity celebrateEntity = celebrateManagementService.celebrateDetails(id);
         final Map<String, Object> map = new HashMap<>(4);
         map.put("title",celebrateEntity.getCelebrateTitle());
