@@ -65,6 +65,7 @@ public class CourseManagementController extends AbstractActionController{
     @RequestMapping(value = "/homepage/course/details/{id}")
     @ResponseBody
     public ModelAndView courseDetails(@PathVariable("id") Long id){
+
         final CourseEntity courseEntity = courseManagementService.courseDetails(id);
         final Map<String, Object> map = new HashMap<>(4);
         map.put("title",courseEntity.getCourseTitle());
