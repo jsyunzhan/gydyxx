@@ -36,4 +36,6 @@ public interface CommunityManagementService {
     Boolean communityDelete(Long id, Long loginId);
 
     List<CommunityEntity> communityAllList(CommunityEntity communityEntity);
+
+    CommunityEntity communityDetails(Long id);
 }

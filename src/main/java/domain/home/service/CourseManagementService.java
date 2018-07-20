@@ -36,4 +36,6 @@ public interface CourseManagementService {
     Boolean courseDelete(Long id, Long loginId);
 
     List<CourseEntity> courseAllList(CourseEntity courseEntity);
+
+    CourseEntity courseDetails(Long id);
 }

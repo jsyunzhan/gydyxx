@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_COMMUNITY_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -58,6 +60,18 @@ public class CommunityManagementController extends AbstractActionController{
     @ResponseBody
     public List<CommunityEntity> communityAllList(CommunityEntity communityEntity){
         return communityManagementService.communityAllList(communityEntity);
+    }
+
+    @RequestMapping(value = "/homepage/community/details/{id}")
+    @ResponseBody
+    public ModelAndView communityDetails(@PathVariable("id") Long id){
+        final CommunityEntity communityEntity = communityManagementService.communityDetails(id);
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",communityEntity.getCommunityTitle());
+        map.put("details",communityEntity.getCommunityDetails());
+        map.put("picturePath",communityEntity.getPicturePath());
+        map.put("createDate",communityEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/jpstdetails",map);
     }
 
     /**

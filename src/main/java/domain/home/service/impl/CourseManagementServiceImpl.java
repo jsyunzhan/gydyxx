@@ -75,4 +75,9 @@ public class CourseManagementServiceImpl implements CourseManagementService{
     public List<CourseEntity> courseAllList(CourseEntity courseEntity) {
         return courseDao.courseAllList(courseEntity);
     }
+
+    @Override
+    public CourseEntity courseDetails(Long id) {
+        return courseDao.courseDetails(id);
+    }
 }
