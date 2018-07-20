@@ -65,6 +65,7 @@ public class ResourcesManagementController extends AbstractActionController{
     @RequestMapping(value = "/homepage/resources/details/{id}")
     @ResponseBody
     public ModelAndView resourcesDetails(@PathVariable("id") Long id){
+
         final ResourcesEntity resourcesEntity = resourcesManagementService.resourcesDetails(id);
         final Map<String, Object> map = new HashMap<>(3);
         map.put("title",resourcesEntity.getResourcesTitle());
