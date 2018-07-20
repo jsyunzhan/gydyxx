@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_CLASSROOM_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -58,6 +60,17 @@ public class ClassroomManagementController extends AbstractActionController{
     @ResponseBody
     public List<ClassroomEntity> classroomAllList(ClassroomEntity classroomEntity){
         return classroomManagementService.classroomAllList(classroomEntity);
+    }
+
+    @RequestMapping(value = "/homepage/classroom/details/{id}")
+    @ResponseBody
+    public ModelAndView classroomDetails(@PathVariable("id") Long id){
+        final ClassroomEntity classroomEntity = classroomManagementService.classroomDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",classroomEntity.getClassroomTitle());
+        map.put("details",classroomEntity.getClassroomDetails());
+        map.put("createDate",classroomEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/zyktdetails",map);
     }
 
     /**

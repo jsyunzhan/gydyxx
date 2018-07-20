@@ -74,4 +74,9 @@ public class ClassroomManagementServiceImpl implements ClassroomManagementServic
     public List<ClassroomEntity> classroomAllList(ClassroomEntity classroomEntity) {
         return classroomDao.classroomAllList(classroomEntity);
     }
+
+    @Override
+    public ClassroomEntity classroomDetails(Long id) {
+        return classroomDao.classroomDetails(id);
+    }
 }

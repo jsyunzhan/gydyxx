@@ -41,4 +41,6 @@ public interface TeacherManagementService {
      * @return List<TeacherEntity>
      */
     List<TeacherEntity> teacherAllList(TeacherEntity teacherEntity);
+
+    TeacherEntity teacherDetails(Long id);
 }

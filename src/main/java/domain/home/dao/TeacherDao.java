@@ -45,4 +45,6 @@ public interface TeacherDao {
     Integer teacherDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<TeacherEntity> teacherAllList(TeacherEntity teacherEntity);
+
+    TeacherEntity teacherDetails(Long id);
 }

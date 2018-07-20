@@ -19,4 +19,6 @@ public interface ClassroomDao {
     Integer classroomDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<ClassroomEntity> classroomAllList(ClassroomEntity classroomEntity);
+
+    ClassroomEntity classroomDetails(Long id);
 }

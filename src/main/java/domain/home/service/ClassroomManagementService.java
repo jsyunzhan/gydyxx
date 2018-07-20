@@ -36,4 +36,6 @@ public interface ClassroomManagementService {
     Boolean classroomDelete(Long id, Long loginId);
 
     List<ClassroomEntity> classroomAllList(ClassroomEntity classroomEntity);
+
+    ClassroomEntity classroomDetails(Long id);
 }
