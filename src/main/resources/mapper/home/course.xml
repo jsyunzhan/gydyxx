@@ -42,7 +42,7 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="courseAllList" resultType="CourseEntityInfo">
+    <select id="courseDetails" resultType="CourseEntityInfo">
         SELECT
         t.ID id,
         t.COURSE_TITLE courseTitle,
