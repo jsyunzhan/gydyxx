@@ -19,4 +19,6 @@ public interface HomeschoolDao {
     Integer homeschoolDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<HomeschoolEntity> homeschoolAllList(HomeschoolEntity homeschoolEntity);
+
+    HomeschoolEntity homeDetails(Long id);
 }

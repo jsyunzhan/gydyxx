@@ -36,4 +36,6 @@ public interface HomeschoolManagementService {
     Boolean homeschoolDelete(Long id, Long loginId);
 
     List<HomeschoolEntity> homeschoolAllList(HomeschoolEntity homeschoolEntity);
+
+    HomeschoolEntity homeDetails(Long id);
 }

@@ -36,4 +36,6 @@ public interface HealthManagementService {
     Boolean healthDelete(Long id, Long loginId);
 
     List<HealthEntity> healthAllList(HealthEntity healthEntity);
+
+    HealthEntity healthDetails(Long id);
 }

@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_HOMESCHOOL_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -58,6 +60,17 @@ public class HomeschoolManagementController extends AbstractActionController{
     @ResponseBody
     public List<HomeschoolEntity> homeschoolAllList(HomeschoolEntity homeschoolEntity){
         return homeschoolManagementService.homeschoolAllList(homeschoolEntity);
+    }
+
+    @RequestMapping(value = "/homepage/homepage/details/{id}")
+    @ResponseBody
+    public ModelAndView homeDetails(@PathVariable("id") Long id){
+        final HomeschoolEntity homeschoolEntity = homeschoolManagementService.homeDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",homeschoolEntity.getHomeschoolTitle());
+        map.put("details",homeschoolEntity.getHomeschoolDetails());
+        map.put("createDate",homeschoolEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/jxxqdetails",map);
     }
 
     /**

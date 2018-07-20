@@ -74,4 +74,9 @@ public class HealthManagementServiceImpl implements HealthManagementService{
     public List<HealthEntity> healthAllList(HealthEntity healthEntity) {
         return healthDao.healthAllList(healthEntity);
     }
+
+    @Override
+    public HealthEntity healthDetails(Long id) {
+        return healthDao.healthDetails(id);
+    }
 }

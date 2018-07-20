@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_HEALTH_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -58,6 +60,17 @@ public class HealthManagementController extends AbstractActionController{
     @ResponseBody
     public List<HealthEntity> healthAllList(HealthEntity healthEntity){
         return healthManagementService.healthAllList(healthEntity);
+    }
+
+    @RequestMapping(value = "/homepage/health/details/{id}")
+    @ResponseBody
+    public ModelAndView healthDetails(@PathVariable("id") Long id){
+        final HealthEntity healthEntity = healthManagementService.healthDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",healthEntity.getHealthTitle());
+        map.put("details",healthEntity.getHealthDetails());
+        map.put("createDate",healthEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/jkjydetails",map);
     }
 
     /**
