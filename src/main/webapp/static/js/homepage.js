@@ -10,7 +10,12 @@ $(function () {
                     _html += '<div class="news_list" name="'+event[i].id+'"><span><img src="../static/images/icon_round.png"></span>'+event[i].newsTitle+'</div>';
                 }
             }
-            $(".main_content_right").append(_html);
+            $(".news_list").append(_html);
+            // 新闻中心跳转详情
+            $(".notification").click(function () {
+                var url = path + '/homepage/news/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 
@@ -46,6 +51,11 @@ $(function () {
                 }
             }
             $(".ex_child:nth-child(1) .content_ex").append(_html);
+            // 作品展示跳转详情
+            $(".ex_child:nth-child(1) .ex_list").click(function () {
+                var url = path + '/homepage/works/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 
@@ -61,6 +71,11 @@ $(function () {
                 }
             }
             $(".ex_child:nth-child(2) .content_ex").append(_html);
+            // 名师风采跳转详情
+            $(".ex_child:nth-child(2) .ex_list").click(function () {
+                var url = path + '/homepage/teacher/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 
@@ -77,6 +92,11 @@ $(function () {
                 }
             }
             $(".ex_child:nth-child(3) .content_ex").append(_html);
+            // 学子风采跳转详情
+            $(".ex_child:nth-child(3) .ex_list").click(function () {
+                var url = path + '/homepage/student/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 
@@ -93,6 +113,11 @@ $(function () {
                 }
             }
             $(".ex_child:nth-child(4) .content_ex").append(_html);
+            // 课题研究跳转详情
+            $(".ex_child:nth-child(4) .ex_list").click(function () {
+                var url = path + '/homepage/subject/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 

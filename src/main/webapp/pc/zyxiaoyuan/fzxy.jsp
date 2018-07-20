@@ -17,7 +17,7 @@
     <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/secondaryPage.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/data/fzxy.js"></script>
-    <title>法制校园</title>
+    <title>法治校园</title>
 </head>
 <body>
 <div class="wrapper">

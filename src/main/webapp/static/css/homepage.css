@@ -255,7 +255,7 @@
 
 .exhibition .content_ex .ex_list{
     line-height: 32px;
-
+    cursor: pointer;
 }
 
 .exhibition .content_ex .ex_list p{
@@ -265,6 +265,10 @@
     white-space: nowrap;
     float: left;
     font-size: 13px;
+}
+
+.exhibition .content_ex .ex_list p:hover{
+    text-decoration: underline;
 }
 
 .exhibition .content_ex .ex_list span{
