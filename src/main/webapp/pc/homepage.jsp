@@ -133,7 +133,7 @@
                 <div class="notice">
                     <div class="title_notice">
                         通知公告
-                        <a href="javascript:;">更多<span><img src="../static/images/more2.png"></span></a>
+                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more2.png"></span></a>
                     </div>
                     <div class="content_notice">
                         <div class="notice_scroll">
@@ -380,7 +380,7 @@
                     <p style="line-height: 80px;">苏公网安备用 7852595156256</p>
                 </div>
                 <div class="footer_img">
-                    <img src="../static/images/img_01.png">
+                    <img src="${APP_PATH}/static/images/img_01.png">
                 </div>
             </div>
         </div>

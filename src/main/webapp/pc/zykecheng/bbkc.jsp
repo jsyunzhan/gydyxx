@@ -9,30 +9,30 @@
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
-    <link rel="stylesheet" type="text/css" href="../../static/css/public.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/publicPart.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/secondaryPage.css">
-    <script type="text/javascript" src="../../static/jq/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="../../static/js/public.js"></script>
-    <script type="text/javascript" src="../../static/js/publicPart.js"></script>
-    <script type="text/javascript" src="../../static/js/secondaryPage.js"></script>
-    <script type="text/javascript" src="../../static/js/data/bbkc.js"></script>
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/public.css">
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/publicPart.css">
+    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/secondaryPage.css">
+    <script type="text/javascript" src="${APP_PATH}/static/jq/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/public.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/secondaryPage.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/data/bbkc.js"></script>
     <title>班本课程</title>
 </head>
 <body>
 <div class="wrapper">
     <div class="bg">
-        <img src="../../static/images/bg.png">
+        <img src="${APP_PATH}/static/images/bg.png">
     </div>
     <%--学校logo--%>
     <div class="school_logo clearfix">
         <div class="logo">
-            <img src="../../static/images/logo.png">
+            <img src="${APP_PATH}/static/images/logo.png">
         </div>
         <div class="search">
             <div class="search_input">
                 <input type="text" placeholder="请输入关键词">
-                <span><img src="../../static/images/search.png"></span>
+                <span><img src="${APP_PATH}/static/images/search.png"></span>
             </div>
         </div>
     </div>
@@ -122,7 +122,7 @@
                 <div class="history">
                     <div class="title_news">
                         校史天地丨School History
-                        <a href="javascript:;">更多<span><img src="../../static/images/more1.png"></span></a>
+                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
                     </div>
                     <div class="history_con">
                         <div class="history_list">关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项</div>
@@ -143,7 +143,7 @@
                 <div class="content_news01">
                     <div class="newsCon">
                     </div>
-                    <script type="text/javascript" src="../../static/js/paging.js"></script>
+                    <script type="text/javascript" src="${APP_PATH}/static/js/paging.js"></script>
                 </div>
             </div>
         </div>
@@ -153,7 +153,7 @@
     <div class="footer">
         <div class="footer_con clearfix">
             <div class="footer_img">
-                <img src="../../static/images/img_02.png">
+                <img src="${APP_PATH}/static/images/img_02.png">
             </div>
             <div class="footer_font">
                 <p style="line-height: 80px;">Copyright@2018 http://xxx.org All Rights Reserved</p>
@@ -162,7 +162,7 @@
                 <p style="line-height: 80px;">苏公网安备用 7852595156256</p>
             </div>
             <div class="footer_img">
-                <img src="../../static/images/img_01.png">
+                <img src="${APP_PATH}/static/images/img_01.png">
             </div>
         </div>
     </div>
