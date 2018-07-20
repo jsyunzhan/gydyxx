@@ -72,7 +72,7 @@ public class CelebrateManagementController extends AbstractActionController{
         map.put("details",celebrateEntity.getCelebrateDetails());
         map.put("picturePath",celebrateEntity.getPicturePath());
         map.put("createDate",celebrateEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/xyjqdetails",map);
+        return new ModelAndView("pc/zykecheng/xyjqdetails",map);
     }
 
     /**

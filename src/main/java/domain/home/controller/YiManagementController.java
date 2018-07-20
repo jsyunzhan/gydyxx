@@ -71,7 +71,7 @@ public class YiManagementController extends AbstractActionController{
         map.put("details",yiEntity.getYiDetails());
         map.put("picturePath",yiEntity.getPicturePath());
         map.put("createDate",yiEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/zyydetails",map);
+        return new ModelAndView("pc/zyshaonian/zyydetails",map);
     }
 
     /**

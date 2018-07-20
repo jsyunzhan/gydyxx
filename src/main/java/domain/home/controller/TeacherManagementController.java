@@ -79,7 +79,7 @@ public class TeacherManagementController extends AbstractActionController{
         map.put("details",teacherEntity.getTeacherDetails());
         map.put("picturePath",teacherEntity.getPicturePath());
         map.put("createDate",teacherEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/msfcdetails",map);
+        return new ModelAndView("pc/zyyuanding/msfcdetails",map);
     }
 
 

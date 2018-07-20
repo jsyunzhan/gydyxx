@@ -70,7 +70,7 @@ public class HomeschoolManagementController extends AbstractActionController{
         map.put("title",homeschoolEntity.getHomeschoolTitle());
         map.put("details",homeschoolEntity.getHomeschoolDetails());
         map.put("createDate",homeschoolEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/jxxqdetails",map);
+        return new ModelAndView("pc/zmjiaxiao/jxxqdetails",map);
     }
 
     /**

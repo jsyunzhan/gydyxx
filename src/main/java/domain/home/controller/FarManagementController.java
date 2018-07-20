@@ -71,7 +71,7 @@ public class FarManagementController extends AbstractActionController{
         map.put("title",farEntity.getFarTitle());
         map.put("details",farEntity.getFarDetails());
         map.put("createDate",farEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/zygzsdetails",map);
+        return new ModelAndView("pc/zyyuanding/zygzsdetails",map);
     }
 
     /**

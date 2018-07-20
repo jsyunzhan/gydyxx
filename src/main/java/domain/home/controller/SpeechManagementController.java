@@ -72,7 +72,7 @@ public class SpeechManagementController extends AbstractActionController{
         map.put("details",speechEntity.getSpeechDetails());
         map.put("picturePath",speechEntity.getPicturePath());
         map.put("createDate",speechEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/gqxjhdetails",map);
+        return new ModelAndView("pc/zyshaonian/gqxjhdetails",map);
     }
 
     /**

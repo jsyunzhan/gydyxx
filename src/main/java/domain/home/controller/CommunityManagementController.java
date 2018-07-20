@@ -71,7 +71,7 @@ public class CommunityManagementController extends AbstractActionController{
         map.put("details",communityEntity.getCommunityDetails());
         map.put("picturePath",communityEntity.getPicturePath());
         map.put("createDate",communityEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/jpstdetails",map);
+        return new ModelAndView("pc/zykecheng/jpstdetails",map);
     }
 
     /**

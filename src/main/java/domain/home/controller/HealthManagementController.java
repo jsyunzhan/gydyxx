@@ -70,7 +70,7 @@ public class HealthManagementController extends AbstractActionController{
         map.put("title",healthEntity.getHealthTitle());
         map.put("details",healthEntity.getHealthDetails());
         map.put("createDate",healthEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/jkjydetails",map);
+        return new ModelAndView("pc/zmjiaxiao/jkjydetails",map);
     }
 
     /**

@@ -71,7 +71,7 @@ public class ResourcesManagementController extends AbstractActionController{
         map.put("title",resourcesEntity.getResourcesTitle());
         map.put("details",resourcesEntity.getResourcesDetails());
         map.put("createDate",resourcesEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/jxziyuandetails",map);
+        return new ModelAndView("pc/zmjiaxiao/jxziyuandetails",map);
     }
 
     /**

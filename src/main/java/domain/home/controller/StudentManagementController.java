@@ -76,7 +76,7 @@ public class StudentManagementController extends AbstractActionController{
         map.put("details",studentEntity.getStudentDetails());
         map.put("picturePath",studentEntity.getPicturePath());
         map.put("createDate",studentEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/xzfchdetails",map);
+        return new ModelAndView("pc/zyshaonian/xzfchdetails",map);
     }
 
     /**

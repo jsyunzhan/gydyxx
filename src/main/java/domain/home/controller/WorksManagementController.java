@@ -72,7 +72,7 @@ public class WorksManagementController extends AbstractActionController{
         map.put("details",worksEntity.getWorksDetails());
         map.put("picturePath",worksEntity.getPicturePath());
         map.put("createDate",worksEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/zpzshdetails",map);
+        return new ModelAndView("pc/zyshaonian/zpzshdetails",map);
     }
 
     /**

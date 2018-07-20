@@ -72,7 +72,7 @@ public class CourseManagementController extends AbstractActionController{
         map.put("details",courseEntity.getCourseDetails());
         map.put("picturePath",courseEntity.getPicturePath());
         map.put("createDate",courseEntity.getCreateDate());
-        return new ModelAndView("pc/zyxiaoyuan/bbkcdetails",map);
+        return new ModelAndView("pc/zykecheng/bbkcdetails",map);
     }
 
     /**
