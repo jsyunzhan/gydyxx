@@ -41,4 +41,6 @@ public interface ResponsibilityManagementService {
      * @return List<ResponsibilityEntity>
      */
     List<ResponsibilityEntity> responsibilityAllList(ResponsibilityEntity responsibilityEntity);
+
+    ResponsibilityEntity responsibilityDetails(Long id);
 }

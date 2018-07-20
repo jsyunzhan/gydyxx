@@ -37,12 +37,18 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editRulesForm.form('load', selectedRules);
-                        $(document).ready(function(){
-                            var ue = UE.getEditor('containerEdit');
-                            ue.ready(function() {//编辑器初始化完成再赋值
-                                ue.setContent(selectedRules.rulesDetails);  //赋值给UEditor
-                            });
-                        });
+                        debugger
+                        var str = selectedRules.rulesDetails;
+
+                        var ue = UE.getEditor('containerEdit');
+
+                        ue.setContent(str);  //赋值给UEditor
+                        // $(document).ready(function(){
+                        //     var ue = UE.getEditor('containerEdit');
+                        //     ue.ready(function() {//编辑器初始化完成再赋值
+                        //         ue.setContent(selectedRules.rulesDetails);  //赋值给UEditor
+                        //     });
+                        // });
 
                         $editRulesWin.window('open');
                     }

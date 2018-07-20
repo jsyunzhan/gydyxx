@@ -40,6 +40,19 @@
         ORDER BY t.CREATE_DATA
     </select>
 
+    <select id="responsibilityDetails" resultType="ResponsibilityEntityInfo">
+        SELECT
+        t.ID id,
+        t.RESPONSIBILITY_TITLE responsibilityTitle,
+        t.RESPONSIBILITY_DETAILS responsibilityDetails,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_responsibility t
+        WHERE t.DELETE_FLAG='1' AND t.ID=#{id}
+    </select>
+
     <!--新增-->
     <insert id="responsibilityAdd" >
         INSERT INTO t_home_responsibility

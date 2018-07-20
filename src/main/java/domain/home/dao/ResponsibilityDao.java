@@ -19,4 +19,6 @@ public interface ResponsibilityDao {
     Integer responsibilityDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<ResponsibilityEntity> responsibilityAllList(ResponsibilityEntity responsibilityEntity);
+
+    ResponsibilityEntity responsibilityDetails(Long id);
 }

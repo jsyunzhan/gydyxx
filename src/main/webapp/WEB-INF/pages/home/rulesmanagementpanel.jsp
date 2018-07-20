@@ -12,13 +12,10 @@
 <head>
     <title>Title</title>
     <jsp:include flush="true" page="/WEB-INF/pages/commons/servercommonjs.jsp"/>
-    <jsp:include flush="true" page="/WEB-INF/pages/commons/ueditorcommon.jsp"/>
 
 
     <script type="text/javascript"
             src="<c:url value="/static/js/home/rulesmanagementpanel.js"/>"></script>
-    <%--<script type="text/javascript" charset="utf-8"--%>
-            <%--src="<c:url value="/static/ue/lang/zh-cn/zh-cn.js"/>"></script>--%>
 </head>
 <body class="easyui-layout">
 

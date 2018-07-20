@@ -74,4 +74,9 @@ public class ResponsibilityManagementServiceImpl implements ResponsibilityManage
     public List<ResponsibilityEntity> responsibilityAllList(ResponsibilityEntity responsibilityEntity) {
         return responsibilityDao.responsibilityAllList(responsibilityEntity);
     }
+
+    @Override
+    public ResponsibilityEntity responsibilityDetails(Long id) {
+        return responsibilityDao.responsibilityDetails(id);
+    }
 }

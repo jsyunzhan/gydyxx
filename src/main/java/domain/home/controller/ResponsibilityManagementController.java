@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_RESPONSIBILITY_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -60,6 +62,17 @@ public class ResponsibilityManagementController extends AbstractActionController
     @ResponseBody
     public List<ResponsibilityEntity> responsibilityAllList(ResponsibilityEntity responsibilityEntity){
         return responsibilityManagementService.responsibilityAllList(responsibilityEntity);
+    }
+
+    @RequestMapping(value = "/homepage/responsibility/details/{id}")
+    @ResponseBody
+    public ModelAndView responsibilityDetails(@PathVariable("id") Long id){
+        final ResponsibilityEntity responsibilityEntity = responsibilityManagementService.responsibilityDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",responsibilityEntity.getResponsibilityTitle());
+        map.put("details",responsibilityEntity.getResponsibilityDetails());
+        map.put("createDate",responsibilityEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/zrdxdetails",map);
     }
 
     /**

@@ -21,14 +21,7 @@ public class NoticeEntity extends AbstractEntity{
     //图片地址
     private String picturePath;
 
-//    public byte[] getNoticeDetailsByte() {
-//        return noticeDetailsByte == null ? new byte[0] : copyOf(noticeDetailsByte, noticeDetailsByte.length);
-//    }
-//
-//    public void setNoticeDetailsByte(byte[] noticeDetailsByte) {
-//        this.noticeDetailsByte = noticeDetailsByte == null ? new byte[0] : copyOf(noticeDetailsByte, noticeDetailsByte.length);
-//    }
-//
+
 //    public String getNoticeDetails() throws UnsupportedEncodingException {
 //        return noticeDetailsByte == null ? "" : new String(noticeDetailsByte, "UTF-8");
 //    }
