@@ -121,6 +121,7 @@
                         <a href="${APP_PATH}/pc/zmjiaxiao/mail.jsp"><p class="leftChild">校长信箱<span></span></p></a>
                     </div>
                 </div>
+
                 <div class="history">
                     <div class="title_news">
                         校史天地丨School History
