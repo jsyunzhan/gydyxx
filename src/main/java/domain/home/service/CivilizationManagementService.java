@@ -41,4 +41,6 @@ public interface CivilizationManagementService {
      * @return List<CivilizationEntity>
      */
     List<CivilizationEntity> civilizationAllList(CivilizationEntity civilizationEntity);
+
+    CivilizationEntity civilizationDetails(Long id);
 }

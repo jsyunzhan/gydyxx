@@ -19,4 +19,6 @@ public interface CivilizationDao {
     Integer civilizationDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<CivilizationEntity> civilizationAllList(CivilizationEntity civilizationEntity);
+
+    CivilizationEntity civilizationDetails(Long id);
 }

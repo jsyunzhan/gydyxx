@@ -42,6 +42,20 @@
         ORDER BY t.CREATE_DATA
     </select>
 
+    <select id="civilizationDetails" resultType="CivilizationEntityInfo">
+        SELECT
+        t.ID id,
+        t.CIVILIZATION_TITLE civilizationTitle,
+        t.CIVILIZATION_DETAILS civilizationDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_civilization t
+        WHERE t.DELETE_FLAG='1' AND t.ID=#{id}
+    </select>
+
     <!--新增-->
     <insert id="civilizationAdd" >
         INSERT INTO t_home_civilization

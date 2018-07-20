@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_CIVILIZATION_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -60,6 +62,18 @@ public class CivilizationManagementController extends AbstractActionController{
     @ResponseBody
     public List<CivilizationEntity> civilizationAllList(CivilizationEntity civilizationEntity){
         return civilizationManagementService.civilizationAllList(civilizationEntity);
+    }
+
+    @RequestMapping(value = "/homepage/civilization/details/{id}")
+    @ResponseBody
+    public ModelAndView civilizationDetails(@PathVariable("id") Long id){
+        final CivilizationEntity civilizationEntity = civilizationManagementService.civilizationDetails(id);
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",civilizationEntity.getCivilizationTitle());
+        map.put("details",civilizationEntity.getCivilizationDetails());
+        map.put("picturePath",civilizationEntity.getPicturePath());
+        map.put("createDate",civilizationEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/wmcjdetails",map);
     }
 
     /**

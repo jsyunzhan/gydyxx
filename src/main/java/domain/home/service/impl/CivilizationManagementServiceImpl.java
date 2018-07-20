@@ -74,4 +74,9 @@ public class CivilizationManagementServiceImpl implements CivilizationManagement
     public List<CivilizationEntity> civilizationAllList(CivilizationEntity civilizationEntity) {
         return civilizationDao.civilizationAllList(civilizationEntity);
     }
+
+    @Override
+    public CivilizationEntity civilizationDetails(Long id) {
+        return civilizationDao.civilizationDetails(id);
+    }
 }
