@@ -74,4 +74,9 @@ public class TrainingManagementServiceImpl implements TrainingManagementService{
     public List<TrainingEntity> trainingAllList(TrainingEntity trainingEntity) {
         return trainingDao.trainingAllList(trainingEntity);
     }
+
+    @Override
+    public TrainingEntity trainingDetails(Long id) {
+        return trainingDao.trainingDetails(id);
+    }
 }

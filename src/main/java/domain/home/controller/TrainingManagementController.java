@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_TRAINING_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -58,6 +60,17 @@ public class TrainingManagementController extends AbstractActionController{
     @ResponseBody
     public List<TrainingEntity> trainingAllList(TrainingEntity trainingEntity){
         return trainingManagementService.trainingAllList(trainingEntity);
+    }
+
+    @RequestMapping(value = "/homepage/training/details/{id}")
+    @ResponseBody
+    public ModelAndView trainingDetails(@PathVariable("id") Long id){
+        final TrainingEntity trainingEntity = trainingManagementService.trainingDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",trainingEntity.getTrainingTitle());
+        map.put("details",trainingEntity.getTrainingDetails());
+        map.put("createDate",trainingEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/xbpxdetails",map);
     }
 
     /**

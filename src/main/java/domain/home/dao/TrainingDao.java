@@ -19,4 +19,6 @@ public interface TrainingDao {
     Integer trainingDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<TrainingEntity> trainingAllList(TrainingEntity trainingEntity);
+
+    TrainingEntity trainingDetails(Long id);
 }

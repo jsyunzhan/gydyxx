@@ -75,4 +75,9 @@ public class EducationManagementServiceImpl implements EducationManagementServic
     public List<EducationEntity> educationAllList(EducationEntity educationEntity) {
         return educationDao.educationAllList(educationEntity);
     }
+
+    @Override
+    public EducationEntity educationDetails(Long id) {
+        return educationDao.educationDetails(id);
+    }
 }

@@ -36,4 +36,6 @@ public interface TrainingManagementService {
     Boolean trainingDelete(Long id, Long loginId);
 
     List<TrainingEntity> trainingAllList(TrainingEntity trainingEntity);
+
+    TrainingEntity trainingDetails(Long id);
 }
