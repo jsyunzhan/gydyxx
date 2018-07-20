@@ -74,4 +74,9 @@ public class LawManagementServiceImpl implements LawManagementService{
     public List<LawEntity> lawAllList(LawEntity lawEntity) {
         return lawDao.lawAllList(lawEntity);
     }
+
+    @Override
+    public LawEntity lawDetails(Long id) {
+        return lawDao.lawDetails(id);
+    }
 }

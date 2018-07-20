@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_SUBJECT_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -55,6 +57,17 @@ public class SubjectManagementController extends AbstractActionController{
     @ResponseBody
     public List<SubjectEntity> subjectAllList(SubjectEntity subjectEntity){
         return subjectManagementService.subjectAllList(subjectEntity);
+    }
+
+    @RequestMapping(value = "/homepage/subject/details/{id}")
+    @ResponseBody
+    public ModelAndView subjectDetails(@PathVariable("id") Long id){
+        final SubjectEntity subjectEntity = subjectManagementService.subjectDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",subjectEntity.getSubjectTitle());
+        map.put("details",subjectEntity.getSubjectDetails());
+        map.put("createDate",subjectEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/ktyjdetails",map);
     }
 
     /**

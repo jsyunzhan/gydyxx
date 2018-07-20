@@ -41,4 +41,6 @@ public interface LawManagementService {
      * @return List<LawEntity>
      */
     List<LawEntity> lawAllList(LawEntity lawEntity);
+
+    LawEntity lawDetails(Long id);
 }

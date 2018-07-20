@@ -79,4 +79,9 @@ public class SubjectManagementServiceImpl implements SubjectManagementService{
     public List<SubjectEntity> subjectAllList(SubjectEntity subjectEntity) {
         return subjectDao.subjectAllList(subjectEntity);
     }
+
+    @Override
+    public SubjectEntity subjectDetails(Long id) {
+        return subjectDao.subjectDetails(id);
+    }
 }

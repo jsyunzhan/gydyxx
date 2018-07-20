@@ -45,4 +45,6 @@ public interface SchoolDao {
     Integer schoolDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<SchoolEntity> schoolAllList(SchoolEntity schoolEntity);
+
+    SchoolEntity schoolDetails(Long id);
 }

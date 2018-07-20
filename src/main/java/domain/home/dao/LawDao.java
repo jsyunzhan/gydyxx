@@ -19,4 +19,6 @@ public interface LawDao {
     Integer lawDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<LawEntity> lawAllList(LawEntity lawEntity);
+
+    LawEntity lawDetails(Long id);
 }

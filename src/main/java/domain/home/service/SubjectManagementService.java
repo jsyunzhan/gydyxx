@@ -36,4 +36,6 @@ public interface SubjectManagementService {
     Boolean subjectDelete(Long id, Long loginId);
 
     List<SubjectEntity> subjectAllList(SubjectEntity subjectEntity);
+
+    SubjectEntity subjectDetails(Long id);
 }

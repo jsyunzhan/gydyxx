@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_LAW_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -63,6 +65,17 @@ public class LawManagementController extends AbstractActionController{
     @ResponseBody
     public List<LawEntity> lawAllList(LawEntity lawEntity){
         return lawManagementService.lawAllList(lawEntity);
+    }
+
+    @RequestMapping(value = "/homepage/law/details/{id}")
+    @ResponseBody
+    public ModelAndView lawDetails(@PathVariable("id") Long id){
+        final LawEntity lawEntity = lawManagementService.lawDetails(id);
+        final Map<String, Object> map = new HashMap<>(3);
+        map.put("title",lawEntity.getLawTitle());
+        map.put("details",lawEntity.getLawDetails());
+        map.put("createDate",lawEntity.getCreateDate());
+        return new ModelAndView("pc/zyxiaoyuan/fzxydetails",map);
     }
 
     /**

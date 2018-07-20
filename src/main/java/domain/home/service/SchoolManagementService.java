@@ -41,4 +41,6 @@ public interface SchoolManagementService {
      * @return List<SchoolEntity>
      */
     List<SchoolEntity> schoolAllList(SchoolEntity schoolEntity);
+
+    SchoolEntity schoolDetails(Long id);
 }
