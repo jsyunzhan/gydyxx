@@ -371,7 +371,6 @@ $(function () {
 
         var msg = String.format("您确定要取消轮播图新闻：<span style='color: red;'>{0}</span>？", selectedNews.newsTitle);
 
-
         showConfirm(msg, function () {
             $.ajax({
                 url:path + "/home/newsmanpage/cancelChange/"+selectedNews.id,
