@@ -112,4 +112,14 @@ public class NewsManagementServiceImpl implements NewsManagementService{
     public Boolean changeChange(Long id, Long loginId) {
         return newsDao.changeChange(id,loginId);
     }
+
+    @Override
+    public List<NewsEntity> newsMainList(NewsEntity newsEntity) {
+        return newsDao.newsMainList(newsEntity);
+    }
+
+    @Override
+    public List<NewsEntity> newsChangeList(NewsEntity newsEntity) {
+        return newsDao.newsChangeList(newsEntity);
+    }
 }

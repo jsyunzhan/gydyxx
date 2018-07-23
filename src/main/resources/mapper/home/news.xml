@@ -45,6 +45,36 @@
         ORDER BY t.CREATE_DATA
     </select>
 
+    <select id="newsMainList" resultType="NewsEntityInfo">
+        SELECT
+        t.ID id,
+        t.NEWS_TITLE newsTitle,
+        t.NEWS_DETAILS newsDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_news t
+        WHERE t.DELETE_FLAG='1' AND t.MAIN_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
+    <select id="newsChangeList" resultType="NewsEntityInfo">
+        SELECT
+        t.ID id,
+        t.NEWS_TITLE newsTitle,
+        t.NEWS_DETAILS newsDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_news t
+        WHERE t.DELETE_FLAG='1' AND t.CHANGE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <select id="newsDetails" resultType="NewsEntityInfo">
         SELECT
         t.ID id,

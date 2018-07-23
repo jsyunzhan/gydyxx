@@ -75,4 +75,18 @@ public interface NewsManagementService {
      * @return Boolean
      */
     Boolean changeChange(Long id, Long loginId);
+
+    /**
+     * 主标题
+     * @param newsEntity
+     * @return
+     */
+    List<NewsEntity> newsMainList(NewsEntity newsEntity);
+
+    /**
+     * 轮播图
+     * @param newsEntity
+     * @return
+     */
+    List<NewsEntity> newsChangeList(NewsEntity newsEntity);
 }

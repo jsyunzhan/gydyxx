@@ -57,4 +57,8 @@ public interface NewsDao {
     Boolean setChange(@Param("id")Long id,@Param("updateUserId") Long loginId);
 
     Boolean changeChange(@Param("id")Long id,@Param("updateUserId") Long loginId);
+
+    List<NewsEntity> newsMainList(NewsEntity newsEntity);
+
+    List<NewsEntity> newsChangeList(NewsEntity newsEntity);
 }

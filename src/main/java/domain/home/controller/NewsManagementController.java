@@ -65,6 +65,19 @@ public class NewsManagementController extends AbstractActionController{
         return newsManagementService.newsAllList(newsEntity);
     }
 
+    @RequestMapping(value = "/homepage/news/main/list")
+    @ResponseBody
+    public List<NewsEntity> newsMainList(NewsEntity newsEntity){
+        return newsManagementService.newsMainList(newsEntity);
+    }
+
+    @RequestMapping(value = "/homepage/news/change/list")
+    @ResponseBody
+    public List<NewsEntity> newsChangeList(NewsEntity newsEntity){
+        return newsManagementService.newsChangeList(newsEntity);
+    }
+
+
     @RequestMapping(value = "/homepage/news/details/{id}")
     @ResponseBody
     public ModelAndView newsDetails(@PathVariable("id") Long id){
