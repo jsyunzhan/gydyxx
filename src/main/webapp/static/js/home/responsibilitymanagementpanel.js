@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'responsibilityTitle', title: "责任督学标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'responsibilityDetails', title: "责任督学内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'responsibilityDetails', title: "责任督学内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editResponsibilityForm.form('load', selectedResponsibility);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedResponsibility.responsibilityDetails);  //赋值给UEditor
+                            });
+                        });
 
                         $editResponsibilityWin.window('open');
                     }
@@ -63,6 +71,10 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $addResponsibilityForm = $('#addResponsibilityForm').form({
         novalidate: true
     });
@@ -73,17 +85,23 @@ $(function () {
         footer: '#addResponsibilityWinFooter',
         onClose: function () {
             $('#addResponsibilityForm').form('disableValidation').form('reset');
+            reportAdd.setContent("")
         }
     });
 
     $('#addResponsibilityWinSubmitBtn').linkbutton({
         onClick: function () {
-            if (!$('#addWorksForm').form('enableValidation').form('validate')) {
+            if (!$('#addResponsibilityForm').form('enableValidation').form('validate')) {
                 return;
             }
 
             var responsibilityData = $addResponsibilityForm.serializeObject(),
                 url = path + "/home/responsibilitymanpage/add";
+
+            if (!responsibilityData.responsibilityDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(responsibilityData),
@@ -104,6 +122,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editResponsibilityForm = $('#editResponsibilityForm').form({
         novalidate: true
     });
@@ -114,6 +136,7 @@ $(function () {
         footer: '#editResponsibilityWinFooter',
         onClose: function () {
             $('#editResponsibilityForm').form('disableValidation').form('reset');
+            reportEdit.setContent("")
         }
     });
 
@@ -126,6 +149,11 @@ $(function () {
             var responsibilityData = $editResponsibilityForm.serializeObject(),
                 url = path + "/home/responsibilitymanpage/edit";
             responsibilityData.id = selectedResponsibility.id;
+
+            if (!responsibilityData.responsibilityDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(responsibilityData),

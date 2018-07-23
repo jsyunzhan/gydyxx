@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'civilizationTitle', title: "文明创建标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'civilizationDetails', title: "文明创建内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'civilizationDetails', title: "文明创建内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editCivilizationForm.form('load', selectedCivilization);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedCivilization.civilizationDetails);  //赋值给UEditor
+                            });
+                        });
 
                         var data = {picturePath:selectedCivilization.picturePath};
 
@@ -81,6 +89,10 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $addCiviliztionForm = $('#addCiviliztionForm').form({
         novalidate: true
     });
@@ -93,6 +105,7 @@ $(function () {
             $('#pictureCiviliztionForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addCiviliztionForm').form('disableValidation').form('reset');
+            reportAdd.setContent("")
         }
     });
 
@@ -104,6 +117,11 @@ $(function () {
 
             var civilizationData = $addCiviliztionForm.serializeObject(),
                 url = path + "/home/civilizationmanpage/add";
+
+            if (!civilizationData.civilizationDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/文明创建",
@@ -138,6 +156,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editCivilizationForm = $('#editCivilizationForm').form({
         novalidate: true
     });
@@ -150,6 +172,7 @@ $(function () {
             $('#pictureCiviliztionForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editCivilizationForm').form('disableValidation').form('reset');
+            reportEdit.setContent("")
         }
     });
 
@@ -162,6 +185,11 @@ $(function () {
             var editCivilizationData = $editCivilizationForm.serializeObject(),
                 url = path + "/home/civilizationmanpage/edit";
             editCivilizationData.id = selectedCivilization.id;
+
+            if (!editCivilizationData.civilizationDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
 
             $.ajax({

@@ -12,7 +12,6 @@
 <head>
     <title>Title</title>
     <jsp:include flush="true" page="/WEB-INF/pages/commons/servercommonjs.jsp"/>
-    <jsp:include flush="true" page="/WEB-INF/pages/commons/ueditorcommon.jsp"/>
 
 
     <script type="text/javascript"

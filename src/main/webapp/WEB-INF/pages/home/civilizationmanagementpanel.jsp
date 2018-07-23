@@ -38,17 +38,12 @@
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
             </tr>
 
-            <tr>
-                <th width="120"><label class="control-label required-mark" style="width:110px"
-                                       required="required">文明创建内容
-
-                </label>
-                </th>
-                <td width="200"><input class="easyui-textbox control" style="height: 200px;width: 300px" name="civilizationDetails" required="required"
-                                       data-options="multiline:true,prompt:'请输入...'"/></td>
-            </tr>
 
         </table>
+
+        <div style="padding-top: 2px; margin-right: 2px">
+            <script id="containerAdd" name="civilizationDetails" type="text/plain"></script>
+        </div>
 
         <div style="text-align:center;padding:10px 5px">
             <a id="pictureCiviliztionUploadBtnAdd" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
@@ -88,17 +83,11 @@
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
             </tr>
 
-            <tr>
-                <th width="120"><label class="control-label required-mark" style="width:110px"
-                                       required="required">文明创建内容
-
-                </label>
-                </th>
-                <td width="200"><input class="easyui-textbox control" style="height: 200px;width: 300px" name="civilizationDetails" required="required"
-                                       data-options="multiline:true,prompt:'请输入...'"/></td>
-            </tr>
-
         </table>
+
+        <div style="padding-top: 2px; margin-right: 2px">
+            <script id="containerEdit" name="civilizationDetails" type="text/plain"></script>
+        </div>
 
         <div style="text-align:center;padding:10px 5px">
             <a id="pictureCivilizationUploadBtnEdit" href="javascript:void(0);" iconCls="l-btn-icon icon-add"

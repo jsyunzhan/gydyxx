@@ -114,7 +114,7 @@ $(function () {
 
     $('#addLeaderWinSubmitBtn').linkbutton({
         onClick: function () {
-            if (!$('#addMessageForm').form('enableValidation').form('validate')) {
+            if (!$('#addLeaderForm').form('enableValidation').form('validate')) {
                 return;
             }
             if (!$("input[name=file]").val()){
@@ -124,6 +124,11 @@ $(function () {
 
             var leaderData = $addLeaderForm.serializeObject(),
                 url = path + "/home/leadermanpage/add";
+
+            if (!leaderData.leaderDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/领导简介",
@@ -185,14 +190,15 @@ $(function () {
             if (!$('#editLeaderForm').form('enableValidation').form('validate')) {
                 return;
             }
-            if (!$("input[name=file]").val()){
-                showErrorMessage("请选择图片！");
-                return
-            }
 
             var leaderData = $editLeaderForm.serializeObject(),
                 url = path + "/home/leadermanpage/edit";
             leaderData.id = selectedLeader.id;
+
+            if (!leaderData.leaderDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
 
             $.ajax({

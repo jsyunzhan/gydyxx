@@ -96,12 +96,17 @@ $(function () {
 
     $('#addRulesWinSubmitBtn').linkbutton({
         onClick: function () {
-            if (!$('#addWorksForm').form('enableValidation').form('validate')) {
+            if (!$('#addRulesForm').form('enableValidation').form('validate')) {
                 return;
             }
-            debugger
+
             var rulesData = $addRulesForm.serializeObject(),
                 url = path + "/home/rulesmanpage/add";
+
+            if (!rulesData.rulesDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(rulesData),
@@ -149,6 +154,11 @@ $(function () {
             var rulesData = $editRulesForm.serializeObject(),
                 url = path + "/home/rulesmanpage/edit";
             rulesData.id = selectedRules.id;
+
+            if (!rulesData.rulesDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(rulesData),

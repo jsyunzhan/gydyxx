@@ -119,6 +119,11 @@ $(function () {
             var noticeData = $addNoticeForm.serializeObject(),
                 url = path + "/home/noticemanpage/add";
 
+            if (!noticeData.noticeDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
+
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/通知公告",
                 type:'POST',
@@ -186,6 +191,11 @@ $(function () {
             var noticeData = $editNoticeForm.serializeObject(),
                 url = path + "/home/noticemanpage/edit";
             noticeData.id = selectedNotice.id;
+
+            if (!noticeData.noticeDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/通知公告",

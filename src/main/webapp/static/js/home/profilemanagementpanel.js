@@ -14,11 +14,11 @@ $(function () {
             {
                 field: 'profileTitle', title: "学校概况标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'profileDetails', title: "学校概况内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // , {
+            //     field: 'profileDetails', title: "学校概况内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +35,15 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editProfileForm.form('load', selectedProfile);
+
+
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedProfile.profileDetails);  //赋值给UEditor
+                            });
+                        });
 
                         $editProfileWin.window('open');
                     }
@@ -84,12 +93,17 @@ $(function () {
 
     $('#addProfileWinSubmitBtn').linkbutton({
         onClick: function () {
-            if (!$('#addWorksForm').form('enableValidation').form('validate')) {
+            if (!$('#addProfileForm').form('enableValidation').form('validate')) {
                 return;
             }
 
             var profileData = $addProfileForm.serializeObject(),
                 url = path + "/home/profilemanpage/add";
+
+            if (!profileData.profileDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(profileData),
@@ -110,6 +124,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editProfileForm = $('#editProfileForm').form({
         novalidate: true
     });
@@ -120,6 +138,7 @@ $(function () {
         footer: '#editProfileWinFooter',
         onClose: function () {
             $('#editProfileForm').form('disableValidation').form('reset');
+            reportEdit.setContent("")
         }
     });
 
@@ -132,6 +151,11 @@ $(function () {
             var profileData = $editProfileForm.serializeObject(),
                 url = path + "/home/profilemanpage/edit";
             profileData.id = selectedProfile.id;
+
+            if (!profileData.profileDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
 
             $.ajax({

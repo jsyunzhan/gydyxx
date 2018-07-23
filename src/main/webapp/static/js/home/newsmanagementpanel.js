@@ -140,12 +140,17 @@ $(function () {
 
     $('#addNewsWinSubmitBtn').linkbutton({
         onClick: function () {
-            if (!$('#addMessageForm').form('enableValidation').form('validate')) {
+            if (!$('#addNewsForm').form('enableValidation').form('validate')) {
                 return;
             }
 
             var newsData = $addNewsForm.serializeObject(),
                 url = path + "/home/newsmanpage/add";
+
+            if (!newsData.newsDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/新闻中心",
@@ -211,6 +216,11 @@ $(function () {
             var newsData = $editNewsForm.serializeObject(),
                 url = path + "/home/newsmanpage/edit";
             newsData.id = selectedNews.id;
+
+            if (!newsData.newsDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/新闻中心",

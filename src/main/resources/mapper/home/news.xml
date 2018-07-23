@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="domain.home.dao.NewsDao">
+
+    <resultMap id="ResultNewsEntityInfo" type="NewsEntityInfo">
+        <result property="newsDetails" column="NEWS_DETAILS" typeHandler="domain.shiro.entity.ConvertBlobTypeHandler"/>
+    </resultMap>
 
     <!--查总数-->
     <select id="newsCount" resultType="Integer">
@@ -11,11 +16,11 @@
     </select>
 
     <!--查询集合-->
-    <select id="newsListInfo" resultType="NewsEntityInfo">
+    <select id="newsListInfo" resultMap="ResultNewsEntityInfo">
         SELECT
         t.ID id,
         t.NEWS_TITLE newsTitle,
-        t.NEWS_DETAILS newsDetails,
+        t.NEWS_DETAILS,
         t.PICTURE_PATH picturePath,
         t.MAIN_FLAG mainFlag,
         t.CHANGE_FLAG changeFlag,
@@ -30,11 +35,11 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
-    <select id="newsAllList" resultType="NewsEntityInfo">
+    <select id="newsAllList" resultMap="ResultNewsEntityInfo">
         SELECT
         t.ID id,
         t.NEWS_TITLE newsTitle,
-        t.NEWS_DETAILS newsDetails,
+        t.NEWS_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -45,11 +50,11 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="newsMainList" resultType="NewsEntityInfo">
+    <select id="newsMainList" resultMap="ResultNewsEntityInfo">
         SELECT
         t.ID id,
         t.NEWS_TITLE newsTitle,
-        t.NEWS_DETAILS newsDetails,
+        t.NEWS_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -60,11 +65,11 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="newsChangeList" resultType="NewsEntityInfo">
+    <select id="newsChangeList" resultMap="ResultNewsEntityInfo">
         SELECT
         t.ID id,
         t.NEWS_TITLE newsTitle,
-        t.NEWS_DETAILS newsDetails,
+        t.NEWS_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -75,11 +80,11 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="newsDetails" resultType="NewsEntityInfo">
+    <select id="newsDetails" resultMap="ResultNewsEntityInfo">
         SELECT
         t.ID id,
         t.NEWS_TITLE newsTitle,
-        t.NEWS_DETAILS newsDetails,
+        t.NEWS_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,

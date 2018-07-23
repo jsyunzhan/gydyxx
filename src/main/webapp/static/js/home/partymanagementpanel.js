@@ -97,6 +97,11 @@ $(function () {
             var partyData = $addPartyForm.serializeObject(),
                 url = path + "/home/partymanpage/add";
 
+            if (!partyData.partyDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
+
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(partyData),
                 success:function (r) {
@@ -144,6 +149,11 @@ $(function () {
             var partyData = $editPartyForm.serializeObject(),
                 url = path + "/home/partymanpage/edit";
             partyData.id = selectedParty.id;
+
+            if (!partyData.partyDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(partyData),

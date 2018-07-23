@@ -118,7 +118,7 @@ $(function () {
                 url = path + "/home/historymanpage/add";
 
             $.ajax({
-                url: path + "/home/noticemanpage/pictureUpload/新闻中心",
+                url: path + "/home/noticemanpage/pictureUpload/校史天地",
                 type:'POST',
                 cache: false,
                 contentType: false,

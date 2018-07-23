@@ -6,4 +6,4 @@
 <!-- 编辑器源码文件 -->
 <script type="text/javascript" src="<c:url value="/static/ue/ueditor.all.min.js"/>" charset="utf-8"></script>
 <!-- 实例化编辑器 -->
-<%--<script type="text/javascript" charset="utf-8" src="<c:url value="/static/ue/lang/zh-cn/zh-cn.js"/>"></script>--%>
+<script type="text/javascript" charset="utf-8" src="<c:url value="/static/ue/lang/zh-cn/zh-cn.js"/>"></script>
