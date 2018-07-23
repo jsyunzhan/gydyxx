@@ -16,7 +16,10 @@ $(function () {
                 align: 'left'
             },
             {
-                field: 'mainFlag', title: "是否主标题", width: 400, sortable: true,
+                field: 'mainFlag', title: "是否主标题", width: 150, sortable: true,
+                align: 'left',formatter:result
+            }, {
+                field: 'changeFlag', title: "是否轮播图", width: 150, sortable: true,
                 align: 'left',formatter:result
             }
         ]],
@@ -85,6 +88,18 @@ $(function () {
                 text: "取消主标题", iconCls: 'icon-remove',
                 handler: function () {
                     cancelMain();
+                }
+            },
+            {
+                text: "设为轮播图", iconCls: 'icon-remove',
+                handler: function () {
+                    setChange();
+                }
+            },
+            {
+                text: "取消轮播图", iconCls: 'icon-remove',
+                handler: function () {
+                    cancelChange();
                 }
             }
         ],
@@ -300,6 +315,65 @@ $(function () {
         showConfirm(msg, function () {
             $.ajax({
                 url:path + "/home/newsmanpage/cancelMain/"+selectedNews.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $newsGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
+    /************设为轮播图*************/
+
+    function setChange() {
+
+        if (!selectedNews) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+        if (1 == selectedNews.changeFlag){
+            showWarningMessage("该新闻已是轮播图，请重新选择！");
+            return
+        }
+
+        if (selectedNews.changeCount > 2){
+            showWarningMessage("轮播图不能超过三个，请先取消其他新闻！");
+            return
+        }
+
+        var msg = String.format("您确定要设置轮播图新闻：<span style='color: red;'>{0}</span>？", selectedNews.newsTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/newsmanpage/setChange/"+selectedNews.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $newsGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
+    /************取消轮播图*************/
+
+    function cancelChange() {
+
+        if (!selectedNews) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+        if (0 == selectedNews.changeFlag){
+            showWarningMessage("该新闻不是轮播图，请重新选择！");
+            return
+        }
+
+        var msg = String.format("您确定要取消轮播图新闻：<span style='color: red;'>{0}</span>？", selectedNews.newsTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/newsmanpage/cancelChange/"+selectedNews.id,
                 type:"GET",dataType:"json",
                 success:function (r) {
                     $newsGrid.datagrid('reload');

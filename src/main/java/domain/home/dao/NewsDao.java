@@ -53,4 +53,8 @@ public interface NewsDao {
     Integer cancelMain(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     Integer cancelALlMain(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    Boolean setChange(@Param("id")Long id,@Param("updateUserId") Long loginId);
+
+    Boolean changeChange(@Param("id")Long id,@Param("updateUserId") Long loginId);
 }

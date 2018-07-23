@@ -59,4 +59,20 @@ public interface NewsManagementService {
      * @return Boolean
      */
     Boolean cancelMain(Long id, Long loginId);
+
+    /**
+     * 设置轮播图
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean setChange(Long id, Long loginId);
+
+    /**
+     * 取消轮播图
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean changeChange(Long id, Long loginId);
 }

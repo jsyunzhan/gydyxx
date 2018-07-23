@@ -189,4 +189,46 @@ public class NewsManagementController extends AbstractActionController{
         }
         return jsonResponseVO;
     }
+
+    /**
+     * 设置轮播图
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = NEWS_MANAGEMENT_SET_CHANGE)
+    @ResponseBody
+    public JsonResponseVO setChange(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("新闻设置轮播图,id:{}",id);
+            }
+            final Boolean flag = newsManagementService.setChange(id,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
+
+    /**
+     * 取消轮播图
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = NEWS_MANAGEMENT_CANCEL_CHANGE)
+    @ResponseBody
+    public JsonResponseVO changeChange(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("新闻取消轮播图,id:{}",id);
+            }
+            final Boolean flag = newsManagementService.changeChange(id,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
 }

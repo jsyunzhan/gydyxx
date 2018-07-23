@@ -19,6 +19,7 @@
         t.PICTURE_PATH picturePath,
         t.MAIN_FLAG mainFlag,
         t.CHANGE_FLAG changeFlag,
+        (SELECT COUNT(*) FROM t_home_news b WHERE b.CHANGE_FLAG='1') changeCount,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,
@@ -123,6 +124,22 @@
         MAIN_FLAG='0',
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()
+    </update>
+
+    <update id="setChange">
+        UPDATE t_home_news SET
+        CHANGE_FLAG='1',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <update id="changeChange">
+        UPDATE t_home_news SET
+        CHANGE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
     </update>
 
 </mapper>

@@ -102,4 +102,14 @@ public class NewsManagementServiceImpl implements NewsManagementService{
     public Boolean cancelMain(Long id, Long loginId) {
         return newsDao.cancelMain(id,loginId) > 0;
     }
+
+    @Override
+    public Boolean setChange(Long id, Long loginId) {
+        return newsDao.setChange(id,loginId);
+    }
+
+    @Override
+    public Boolean changeChange(Long id, Long loginId) {
+        return newsDao.changeChange(id,loginId);
+    }
 }

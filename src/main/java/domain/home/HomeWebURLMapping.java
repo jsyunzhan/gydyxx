@@ -83,6 +83,15 @@ public final class HomeWebURLMapping {
      */
     public static final String NEWS_MANAGEMENT_CANCEL_MAIN = NEWS_MANAGEMENT_PAGE + "/cancelMain/{id}";
 
+    /**
+     * 新闻管理设为轮播图
+     */
+    public static final String NEWS_MANAGEMENT_SET_CHANGE = NEWS_MANAGEMENT_PAGE + "/setChange/{id}";
+
+    /**
+     * 新闻管理取消轮播图
+     */
+    public static final String NEWS_MANAGEMENT_CANCEL_CHANGE = NEWS_MANAGEMENT_PAGE + "/cancelChange/{id}";
     /*******************作品管理*************************/
     /**
      * 去作品管理页面

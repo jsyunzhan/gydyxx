@@ -23,6 +23,8 @@ public class NewsEntity extends AbstractEntity{
 
     private Long changeFlag;
 
+    private Long changeCount;
+
 //    public byte[] getNewsDetails() {
 //        return newsDetails == null ? new byte[0] : copyOf(newsDetails, newsDetails.length);
 //    }
