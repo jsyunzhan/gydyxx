@@ -212,7 +212,6 @@ $(function () {
                 url = path + "/home/newsmanpage/edit";
             newsData.id = selectedNews.id;
 
-
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/新闻中心",
                 type:'POST',
