@@ -19,6 +19,56 @@ $(function () {
         }
     });
 
+    // 新闻中心主题数据
+    $.ajax({
+        url:path + "/homepage/news/main/list",
+        type:"GET",dataType:"json",
+        success:function (event) {
+            var _html = "";
+            var font = event[0].newsDetails;
+            var dd=font.replace(/<\/?.+?>/g,"");
+            var dds=dd.replace(/ /g,"");
+            var dds=dds.slice(0,30);
+            _html += '<div class="main_title" name="'+event[0].id+'">'+event[0].newsTitle+'</div>';
+            _html += '<div class="secondary_title" name="'+event[0].id+'">'+dds+'<a href="javascript:;">[更多]</a></div>'
+            $(".content_news").append(_html);
+            // 新闻中心跳转详情
+            $(".main_title,.secondary_title").click(function(){
+                var url = path + '/homepage/news/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
+        }
+    });
+
+    // 新闻中心轮播图
+    $.ajax({
+        url:path + "/homepage/news/change/list",
+        type:"GET",dataType:"json",
+        success:function (event) {
+            for(var i=0;i<event.length;i++) {
+                var data = {picturePath: event[i].picturePath};
+                $.ajax({
+                    url:path + "/home/picture/show",
+                    type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
+                    success:function (r) {
+                        var _html = "";
+                        _html += '<div class="swiper-slide"><img src="data:image/gif;base64,'+r+'"><div class="newsPic_font">'+event[i].newsTitle+'</div><div class="newsPic_title"></div></div>';
+                        $(".news_banner .swiper-wrapper").append(_html);
+                    }
+                })
+            }
+            // 新闻轮播图
+            var news_banner = new Swiper(".news_banner",{
+                autoplay : 3000,
+                speed: 1000,
+                loop:true,
+                pagination: '.pagination01',
+                paginationClickable: true,
+                autoplayDisableOnInteraction : false,
+            });
+        }
+    });
+
     // 通知公告
     $.ajax({
         url:path + "/homepage/notice/list",
@@ -136,31 +186,8 @@ $(function () {
                     }
                 })
             }
-
         }
     });
-
-    // 校史天地
-    $.ajax({
-        url:path + "/homepage/history/list",
-        type:"GET",dataType:"json",async:false,
-        success:function (event) {
-            var _html = "";
-            for (var i=0;i<event.length;i++){
-                if(i<6) {
-                    _html += '<div class="history_list" name="'+event[i].id+'">' + event[i].historyTitle + '</div>';
-                }
-            }
-            console.log(2);
-            $(".history_con").append(_html);
-            // 学子风采跳转详情
-            $(".history_con .history_list").click(function () {
-                var url = path + '/homepage/history/details/'+$(this).attr("name");
-                window.location.href = url;
-            })
-        }
-    })
-
 
     // 学校风采图片切换
     var mien_pic = new Swiper(".mien_pic",{
@@ -189,16 +216,6 @@ $(function () {
     $(".arrow-right").on("click", function(e){
         e.preventDefault();
         banner.swipeNext();
-    });
-
-    // 新闻轮播图
-    var news_banner = new Swiper(".news_banner",{
-        autoplay : 3000,
-        speed: 1000,
-        loop:true,
-        pagination: '.pagination01',
-        paginationClickable: true,
-        autoplayDisableOnInteraction : false,
     });
 
     /*功能模块快捷方式*/

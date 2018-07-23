@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="title_tab">
-                    <div class="first_title">联系我们</div>
+                    <div class="first_title"><a href="${APP_PATH}/pc/contact.jsp">联系我们</a></div>
                 </div>
             </div>
 

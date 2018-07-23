@@ -101,7 +101,7 @@
                     </div>
                 </div>
                 <div class="title_tab">
-                    <div class="first_title">联系我们</div>
+                    <div class="first_title"><a href="${APP_PATH}/pc/contact.jsp">联系我们</a></div>
                 </div>
             </div>
 
@@ -112,7 +112,7 @@
                 <div class="notice">
                     <div class="title_notice">
                         通知公告
-                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more2.png"></span></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp">更多<span><img src="${APP_PATH}/static/images/more2.png"></span></a>
                     </div>
                     <div class="content_notice">
                         <div class="notice_scroll">
@@ -168,5 +168,25 @@
 </body>
 <script>
     var path  = '<%=request.getContextPath()%>';
+
+    // 通知公告
+    $.ajax({
+        url:path + "/homepage/notice/list",
+        type:"GET",dataType:"json",
+        success:function (event) {
+            var _html = "";
+            for (var i=0;i<event.length;i++){
+                if(i<8) {
+                    _html += '<div class="notification" name="'+event[i].id+'">' + event[i].noticeTitle + '</div>';
+                }
+            }
+            $(".notice_scroll").append(_html);
+            // 通知公告跳转详情
+            $(".notification").click(function () {
+                var url = path + '/homepage/notice/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
+        }
+    });
 </script>
 </html>

@@ -87,6 +87,7 @@
 }
 
 .title_tab .first_title a{
+    display: block;
     color: #fff;
 }
 

@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="title_tab">
-                        <div class="first_title">联系我们</div>
+                        <div class="first_title"><a href="${APP_PATH}/pc/contact.jsp">联系我们</a></div>
                     </div>
                 </div>
 
@@ -145,33 +145,13 @@
                         新闻中心丨News Center
                         <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
                     </div>
-                    <div class="content_news">
-                        <div class="main_title">
-                            新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题
-                        </div>
-                        <div class="secondary_title">
-                            新闻副标题新闻副标题新闻副标题<a href="javascript:;">[更多]</a>
-                        </div>
-                    </div>
+                    <div class="content_news"></div>
                     <div class="main_content clearfix">
                         <div class="main_content_left">
                             <div class="swiper-container news_banner">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img src="${APP_PATH}/static/images/news.jpg">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="${APP_PATH}/static/images/news.jpg">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img src="${APP_PATH}/static/images/news.jpg">
-                                    </div>
-                                </div>
+                                <div class="swiper-wrapper"></div>
                                 <div class="pagination01"></div>
-                                <div class="newsPic_title"></div>
-                                <div class="newsPic_font">
-                                    <div>标题</div>
-                                </div>
+
                             </div>
                         </div>
                         <div class="main_content_right">

@@ -142,6 +142,10 @@
     height: 240px;
 }
 
+.news_banner .swiper-slide{
+    position: relative;
+}
+
 .news_banner .pagination01 {
     position: absolute;
     right: 30px;
@@ -175,12 +179,14 @@
     height: 30px;
 }
 
-.news_banner .newsPic_font{
+.newsPic_font{
     position: absolute;
     bottom: 0px;
     left: 10px;
     line-height: 30px;
     color: #fff;
+    width: 100px;
+    z-index: 20;
 }
 
 /*新闻列表*/
