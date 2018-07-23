@@ -14,12 +14,11 @@ $(function () {
             {
                 field: 'newsTitle', title: "新闻标题", width: 150, sortable: true,
                 align: 'left'
+            },
+            {
+                field: 'mainFlag', title: "是否主标题", width: 400, sortable: true,
+                align: 'left',formatter:result
             }
-            // ,
-            // {
-            //     field: 'newsDetails', title: "新闻内容", width: 400, sortable: true,
-            //     align: 'left'
-            // }
         ]],
         toolbar: [
             {
@@ -75,6 +74,17 @@ $(function () {
                 text: "删除", iconCls: 'icon-remove',
                 handler: function () {
                     removeHandle();
+                }
+            },{
+                text: "设为主标题", iconCls: 'icon-remove',
+                handler: function () {
+                    setMain();
+                }
+            },
+            {
+                text: "取消主标题", iconCls: 'icon-remove',
+                handler: function () {
+                    cancelMain();
                 }
             }
         ],
@@ -244,6 +254,60 @@ $(function () {
         })
     }
 
+    /************设为主标题*************/
+
+    function setMain() {
+
+        if (!selectedNews) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+        if (1 == selectedNews.mainFlag){
+            showWarningMessage("该新闻已是主标题，请重新选择！");
+            return
+        }
+
+        var msg = String.format("您确定要设置主标题新闻：<span style='color: red;'>{0}</span>？", selectedNews.newsTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/newsmanpage/setMain/"+selectedNews.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $newsGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
+    /************取消主标题*************/
+
+    function cancelMain() {
+
+        if (!selectedNews) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+        if (0 == selectedNews.mainFlag){
+            showWarningMessage("该新闻不是主标题，请重新选择！");
+            return
+        }
+
+        var msg = String.format("您确定要取消主标题新闻：<span style='color: red;'>{0}</span>？", selectedNews.newsTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/newsmanpage/cancelMain/"+selectedNews.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $newsGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
 
     /***************************图片上传*********************************************/
     $('#pictureNewsUploadBtnAdd,#pictureNewsUploadBtnEdit').linkbutton({
@@ -298,5 +362,14 @@ $(function () {
 
         }
     });
+
+    function result(value, row, index) {
+
+        if (0 == value ) {
+            return "<span style='color:red;'>" + '否' + "</span>";
+        } else {
+            return "<span style='color:blue;'>" + '是' + "</span>";
+        }
+    }
 
 });

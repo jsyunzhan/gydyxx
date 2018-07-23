@@ -43,4 +43,20 @@ public interface NewsManagementService {
     List<NewsEntity> newsAllList(NewsEntity newsEntity);
 
     NewsEntity newsDetails(Long id);
+
+    /**
+     * 设置主标题
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean setMain(Long id, Long loginId);
+
+    /**
+     * 取消主标题
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean cancelMain(Long id, Long loginId);
 }

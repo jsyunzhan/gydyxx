@@ -147,4 +147,46 @@ public class NewsManagementController extends AbstractActionController{
 
         return jsonResponseVO;
     }
+
+    /**
+     * 设置主标题
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = NEWS_MANAGEMENT_SET_MAIN)
+    @ResponseBody
+    public JsonResponseVO setMain(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("新闻设置主标题,id:{}",id);
+            }
+            final Boolean flag = newsManagementService.setMain(id,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
+
+    /**
+     * 取消主标题
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = NEWS_MANAGEMENT_CANCEL_MAIN)
+    @ResponseBody
+    public JsonResponseVO cancelMain(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("新闻取消主标题,id:{}",id);
+            }
+            final Boolean flag = newsManagementService.cancelMain(id,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
 }

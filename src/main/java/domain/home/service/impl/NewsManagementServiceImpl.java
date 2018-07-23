@@ -87,4 +87,19 @@ public class NewsManagementServiceImpl implements NewsManagementService{
     public NewsEntity newsDetails(Long id) {
         return newsDao.newsDetails(id);
     }
+
+    @Override
+    public Boolean setMain(Long id, Long loginId) {
+        Boolean flag = false;
+        final Integer cout = newsDao.cancelALlMain(id,loginId);
+        if (cout > 0){
+            flag = newsDao.setMain(id,loginId) > 0;
+        }
+        return flag;
+    }
+
+    @Override
+    public Boolean cancelMain(Long id, Long loginId) {
+        return newsDao.cancelMain(id,loginId) > 0;
+    }
 }

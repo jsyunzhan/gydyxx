@@ -19,6 +19,10 @@ public class NewsEntity extends AbstractEntity{
     //图片地址
     private String picturePath;
 
+    private Long mainFlag;
+
+    private Long changeFlag;
+
 //    public byte[] getNewsDetails() {
 //        return newsDetails == null ? new byte[0] : copyOf(newsDetails, newsDetails.length);
 //    }
