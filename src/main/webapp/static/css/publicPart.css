@@ -122,6 +122,7 @@
 .notice_scroll{
     padding-bottom: 24px;
     background: url(../../static/images/notice_bg01.jpg) no-repeat bottom center;
+    height: 240px;
 }
 
 .notice .title_notice{
@@ -189,6 +190,10 @@
     border-top: 5px solid #90531a;
     padding-left: 20px;
     border-bottom: 1px solid #e5e5e5;
+}
+
+.infor .history .history_con{
+    height: 306px;
 }
 
 .news .title_news a,.history .title_news a,.title_ex a{

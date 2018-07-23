@@ -10,7 +10,7 @@ $(function () {
                     _html += '<div class="news_list" name="'+event[i].id+'"><span><img src="../static/images/icon_round.png"></span>'+event[i].newsTitle+'</div>';
                 }
             }
-            $(".news_list").append(_html);
+            $(".main_content_right").append(_html);
             // 新闻中心跳转详情
             $(".notification").click(function () {
                 var url = path + '/homepage/news/details/'+$(this).attr("name");
@@ -84,7 +84,6 @@ $(function () {
         url:path + "/homepage/student/list",
         type:"GET",dataType:"json",
         success:function (event) {
-            console.log(event);
             var _html = "";
             for (var i=0;i<event.length;i++){
                 if(i<6) {
@@ -105,7 +104,6 @@ $(function () {
         url:path + "/homepage/subject/list",
         type:"GET",dataType:"json",
         success:function (event) {
-            console.log(event);
             var _html = "";
             for (var i=0;i<event.length;i++){
                 if(i<6) {
@@ -142,6 +140,26 @@ $(function () {
         }
     });
 
+    // 校史天地
+    $.ajax({
+        url:path + "/homepage/history/list",
+        type:"GET",dataType:"json",async:false,
+        success:function (event) {
+            var _html = "";
+            for (var i=0;i<event.length;i++){
+                if(i<6) {
+                    _html += '<div class="history_list" name="'+event[i].id+'">' + event[i].historyTitle + '</div>';
+                }
+            }
+            console.log(2);
+            $(".history_con").append(_html);
+            // 学子风采跳转详情
+            $(".history_con .history_list").click(function () {
+                var url = path + '/homepage/history/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
+        }
+    })
 
 
     // 学校风采图片切换
