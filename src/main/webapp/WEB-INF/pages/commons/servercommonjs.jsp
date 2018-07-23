@@ -10,6 +10,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
+    <jsp:include flush="true" page="/WEB-INF/pages/commons/ueditorcommon.jsp"/>
 
 
     <link rel="stylesheet" type="text/css" media="screen" href="<c:url value="/static/easyui/themes/default/easyui.css"/>"/>

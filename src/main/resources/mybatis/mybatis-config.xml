@@ -37,6 +37,7 @@
         <typeAlias alias="ResourcesEntityInfo" type="domain.home.entity.ResourcesEntity"/>
         <typeAlias alias="EmailEntityInfo" type="domain.home.entity.EmailEntity"/>
         <typeAlias alias="LeaderEntityInfo" type="domain.home.entity.LeaderEntity"/>
+        <typeAlias alias="HistoryEntityInfo" type="domain.home.entity.HistoryEntity"/>
     </typeAliases>
 
 </configuration>

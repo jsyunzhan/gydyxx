@@ -734,4 +734,30 @@ public final class HomeWebURLMapping {
      */
     public static final String LEADER_MANAGEMENT_DELETE = LEADER_MANAGEMENT_PAGE + "/delete/{id}";
 
+    /*******************校史天地管理*************************/
+    /**
+     * 去校史天地页面
+     */
+    public static final String HISTORY_MANAGEMENT_PAGE = HOME_ROOT + "historymanpage";
+
+    /**
+     * 校史天地分页
+     */
+    public static final String HISTORY_MANAGEMENT_LIST = HISTORY_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 校史天地新增
+     */
+    public static final String HISTORY_MANAGEMENT_ADD = HISTORY_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 校史天地修改
+     */
+    public static final String HISTORY_MANAGEMENT_EDIT = HISTORY_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 校史天地删除
+     */
+    public static final String HISTORY_MANAGEMENT_DELETE = HISTORY_MANAGEMENT_PAGE + "/delete/{id}";
+
 }

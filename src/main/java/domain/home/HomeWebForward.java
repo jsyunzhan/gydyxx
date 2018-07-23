@@ -143,4 +143,9 @@ public final class HomeWebForward {
      * 去领导简介页面
      */
     public static final String TO_LEADER_PAGE = "home/leadermanagementpanel";
+
+    /**
+     * 去校史天地页面
+     */
+    public static final String TO_HISTORY_PAGE = "home/historymanagementpanel";
 }

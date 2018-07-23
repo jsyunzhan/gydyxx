@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.HistoryDao">
+
+    <!--查总数-->
+    <select id="historyCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_history t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="historyList" resultType="HistoryEntityInfo">
+        SELECT
+        t.ID id,
+        t.HISTORY_TITLE historyTitle,
+        t.HISTORY_HISTORY historyDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_history t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <select id="historyAllList" resultType="HistoryEntityInfo">
+        SELECT
+        t.ID id,
+        t.HISTORY_TITLE historyTitle,
+        t.HISTORY_HISTORY historyDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_history t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
+    <select id="historyDetails" resultType="HistoryEntityInfo">
+        SELECT
+        t.ID id,
+        t.HISTORY_TITLE historyTitle,
+        t.HISTORY_HISTORY historyDetails,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_history t
+        WHERE t.DELETE_FLAG='1' AND t.ID=#{id}
+    </select>
+
+    <!--校史天地新增-->
+    <insert id="historyAdd" >
+        INSERT INTO t_home_history
+        (
+        HISTORY_TITLE,
+        HISTORY_HISTORY,
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH,
+        </if>
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{historyTitle},
+        #{historyDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            #{picturePath},
+        </if>
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="historyEdit">
+        UPDATE t_home_history SET
+        HISTORY_TITLE=#{historyTitle},
+        HISTORY_HISTORY=#{historyDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH=#{picturePath},
+        </if>
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="historyDelete">
+        UPDATE t_home_history SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+</mapper>
