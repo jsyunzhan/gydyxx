@@ -16,7 +16,7 @@
     <script type="text/javascript" src="${APP_PATH}/static/js/public.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/secondaryPage.js"></script>
-    <script type="text/javascript" src="${APP_PATH}/static/js/data/zrdx.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/data/xyfg.js"></script>
     <title>校园风光</title>
 </head>
 <body>

@@ -133,7 +133,7 @@
                 <div class="notice">
                     <div class="title_notice">
                         通知公告
-                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more2.png"></span></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp">更多<span><img src="${APP_PATH}/static/images/more2.png"></span></a>
                     </div>
                     <div class="content_notice">
                         <div class="notice_scroll">
@@ -143,7 +143,7 @@
                 <div class="news">
                     <div class="title_news">
                         新闻中心丨News Center
-                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
                     </div>
                     <div class="content_news">
                         <div class="main_title">
@@ -351,7 +351,7 @@
                 </div>
             </div>
 
-            <%--学校风采--%>
+            <%--校园风光--%>
             <div class="infor">
                 <div class="mien">
                     <img src="${APP_PATH}/static/images/mien.png">
