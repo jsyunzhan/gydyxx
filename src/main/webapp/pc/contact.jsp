@@ -16,7 +16,7 @@
     <script type="text/javascript" src="../static/js/public.js"></script>
     <script type="text/javascript" src="../static/js/publicPart.js"></script>
     <script type="text/javascript" src="../static/js/secondaryPage.js"></script>
-    <title>搜索结果</title>
+    <title>联系我们</title>
 </head>
 
 <body>
@@ -116,29 +116,15 @@
                     </div>
                     <div class="content_notice">
                         <div class="notice_scroll">
-                            <div class="notification">1.公公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                            <div class="notification">2.公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                            <div class="notification">3.公告公告公告公告公告公公告公告公告公告公告公告告公告公告告公告公告告公告</div>
-                            <div class="notification">4.公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                            <div class="notification">5.公告公告公告公告公告公告公告公告公告公告公告公告</div>
-                            <div class="notification">6.公告公告公告公告公告公告公告公告公告公告公告告公告公告告公告公告公告</div>
-                            <div class="notification">7.公告公告公告公告公告公告公告公告公告公告公告公告公告告公告</div>
-                            <div class="notification">8.公告公告公告公告公告公告公告公告公告公告公告公告</div>
                         </div>
                     </div>
                 </div>
                 <div class="history">
                     <div class="title_news">
                         校史天地丨School History
-                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
+                        <a href="${APP_PATH}/pc/xstiandi/xstd.jsp">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
                     </div>
                     <div class="history_con">
-                        <div class="history_list">关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项</div>
-                        <div class="history_list">关于某活动获得奖项</div>
-                        <div class="history_list">关于某活动获得奖项</div>
-                        <div class="history_list">关于某活动获得奖项</div>
-                        <div class="history_list">关于某活动获得奖项</div>
-                        <div class="history_list">关于某活动获得奖项</div>
                     </div>
                 </div>
             </div>

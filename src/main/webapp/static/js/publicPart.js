@@ -15,4 +15,23 @@ $(function () {
         $(this).find(".second_title").hide();
     });
 
+    // 校史天地
+    $.ajax({
+        url:path + "/homepage/history/list",
+        type:"GET",dataType:"json",async:false,
+        success:function (event) {
+            var _html = "";
+            for (var i=0;i<event.length;i++){
+                if(i<6) {
+                    _html += '<div class="history_list" name="'+event[i].id+'">' + event[i].historyTitle + '</div>';
+                }
+            }
+            $(".history_con").append(_html);
+            // 校史天地跳转详情
+            $(".history_con .history_list").click(function () {
+                var url = path + '/homepage/history/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
+        }
+    });
 })

@@ -128,12 +128,6 @@
                         <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
                     </div>
                     <div class="history_con">
-                        <div class="history_list">关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项关于某活动获得奖项</div>
-                        <div class="history_list">关于某活动获得奖项</div>
-                        <div class="history_list">关于某活动获得奖项</div>
-                        <div class="history_list">关于某活动获得奖项</div>
-                        <div class="history_list">关于某活动获得奖项</div>
-                        <div class="history_list">关于某活动获得奖项</div>
                     </div>
                 </div>
             </div>

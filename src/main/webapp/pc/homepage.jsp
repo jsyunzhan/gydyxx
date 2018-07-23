@@ -285,7 +285,7 @@
                 <div class="history">
                     <div class="title_news">
                         校史天地丨School History
-                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
+                        <a href="${APP_PATH}/pc/xstiandi/xstd.jsp">更多<span><img src="${APP_PATH}/static/images/more1.png"></span></a>
                     </div>
                     <div class="history_con">
                     </div>
