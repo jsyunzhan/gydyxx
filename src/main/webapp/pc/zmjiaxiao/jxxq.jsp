@@ -27,7 +27,7 @@
     <%--学校logo--%>
     <div class="school_logo clearfix">
         <div class="logo">
-            <img src="${APP_PATH}/static/images/logo.png">
+            <a href="${APP_PATH}/pc/homepage.jsp"><img src="${APP_PATH}/static/images/logo.png"></a>
         </div>
         <div class="search">
             <div class="search_input">
@@ -152,7 +152,7 @@
             </div>
             <div class="footer_font">
                 <p style="line-height: 80px;">Copyright@2018 http://xxx.org All Rights Reserved</p>
-                <p style="line-height: 30px;">学校地址：江苏省高邮市xxx路xxx号 邮编：225600 <a href="javascript:;">用户登录</a></p>
+                <p style="line-height: 30px;">学校地址：江苏省高邮市xxx路xxx号 邮编：225600 <a href="${APP_PATH}/security/movetologin">用户登录</a></p>
                 <p style="line-height: 30px;">联系电话：0514-8xxxxxxx 苏ICP备xxxxxxxx号 校长信箱：xxxxx@163.com</p>
                 <p style="line-height: 80px;">苏公网安备用 7852595156256</p>
             </div>

@@ -52,7 +52,7 @@ $(function () {
                     type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
                     success:function (r) {
                         var _html = "";
-                        _html += '<div class="swiper-slide"><img src="data:image/gif;base64,'+r+'"><div class="newsPic_font">'+event[i].newsTitle+'</div><div class="newsPic_title"></div></div>';
+                        _html += '<div class="swiper-slide" name="'+event[0].id+'"><img src="data:image/gif;base64,'+r+'"><div class="newsPic_font">'+event[i].newsTitle+'</div><div class="newsPic_title"></div></div>';
                         $(".news_banner .swiper-wrapper").append(_html);
                     }
                 })
@@ -64,8 +64,13 @@ $(function () {
                 loop:true,
                 pagination: '.pagination01',
                 paginationClickable: true,
-                autoplayDisableOnInteraction : false,
+                autoplayDisableOnInteraction : false
             });
+            // 新闻中心跳转详情
+            $(".news_banner .swiper-slide .newsPic_font").click(function(){
+                var url = path + '/homepage/news/details/'+$(this).parent(".swiper-slide").attr("name");
+                window.location.href = url;
+            })
         }
     });
 

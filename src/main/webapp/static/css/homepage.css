@@ -187,6 +187,7 @@
     color: #fff;
     width: 100px;
     z-index: 20;
+    cursor: pointer;
 }
 
 /*新闻列表*/

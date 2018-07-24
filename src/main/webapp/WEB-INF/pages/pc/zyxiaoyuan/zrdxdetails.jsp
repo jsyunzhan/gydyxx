@@ -29,7 +29,7 @@
     <%--学校logo--%>
     <div class="school_logo clearfix">
         <div class="logo">
-            <img src="${APP_PATH}/static/images/logo.png">
+            <a href="${APP_PATH}/pc/homepage.jsp"><img src="${APP_PATH}/static/images/logo.png"></a>
         </div>
         <div class="search">
             <div class="search_input">
