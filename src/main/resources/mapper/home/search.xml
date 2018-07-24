@@ -8,11 +8,13 @@
         (
         TABLE_ID,
         TABLE_NAME,
-        TITLE
+        TITLE,
+        MAIN_CHAR
         ) VALUE (
         #{id},
         #{tableName},
-        #{title}
+        #{title},
+        #{mainChar}
         )
     </insert>
 
@@ -21,23 +23,10 @@
         t.ID id,
         t.TABLE_ID tableId,
         t.TABLE_NAME tableName,
-        t.TITLE title
+        t.TITLE title,
+        t.MAIN_CHAR mainChar
         FROM t_home_search t
         WHERE t.TITLE like concat(concat('%',#{title}),'%')
-    </select>
-
-    <select id="searchDetails" resultType="SearchEntityInfo">
-        SELECT
-        t.ID id,
-        t.NOTICE_TITLE title,
-        t.NOTICE_DETAILS details,
-        t.PICTURE_PATH picturePath,
-        t.CREATE_USER_ID createUserId,
-        t.CREATE_DATA createDate,
-        t.UPDATE_USER_ID updateUserId,
-        t.UPDATE_DATA updateDate
-        FROM t_home_notice t
-        WHERE t.DELETE_FLAG='1' AND t.ID=#{id}
     </select>
 
 </mapper>

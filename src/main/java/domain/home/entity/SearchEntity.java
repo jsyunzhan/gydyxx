@@ -18,6 +18,8 @@ public class SearchEntity extends AbstractEntity{
 
     private String picturePath;
 
+    private String mainChar;
+
     @Override
     public String toString() {
         return "SearchEntity{" +

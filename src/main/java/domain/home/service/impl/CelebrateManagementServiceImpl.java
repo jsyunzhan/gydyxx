@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.CelebrateDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.CelebrateEntity;
 import domain.home.service.CelebrateManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class CelebrateManagementServiceImpl implements CelebrateManagementServic
     private static final Logger LOGGER = LoggerFactory.getLogger(CelebrateManagementServiceImpl.class);
 
     final private CelebrateDao celebrateDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public CelebrateManagementServiceImpl(CelebrateDao celebrateDao){
+    public CelebrateManagementServiceImpl(CelebrateDao celebrateDao,SearchDao searchDao){
         this.celebrateDao = celebrateDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class CelebrateManagementServiceImpl implements CelebrateManagementServic
     @Override
     public Boolean celebrateAdd(CelebrateEntity celebrateEntity) {
         final Boolean flag = celebrateDao.celebrateAdd(celebrateEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(celebrateEntity.getId(),celebrateEntity.getCelebrateTitle(),"t_home_celebrate","CELEBRATE");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("校园节庆新增结果:",flag);
         }

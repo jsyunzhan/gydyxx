@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.CivilizationDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.CivilizationEntity;
 import domain.home.service.CivilizationManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class CivilizationManagementServiceImpl implements CivilizationManagement
     private static final Logger LOGGER = LoggerFactory.getLogger(CivilizationManagementServiceImpl.class);
 
     final private CivilizationDao civilizationDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public CivilizationManagementServiceImpl(CivilizationDao civilizationDao){
+    public CivilizationManagementServiceImpl(CivilizationDao civilizationDao,SearchDao searchDao){
         this.civilizationDao = civilizationDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class CivilizationManagementServiceImpl implements CivilizationManagement
     @Override
     public Boolean civilizationAdd(CivilizationEntity civilizationEntity) {
         final Boolean flag = civilizationDao.civilizationAdd(civilizationEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(civilizationEntity.getId(),civilizationEntity.getCivilizationTitle(),"t_home_civilization","CIVILIZATION");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("文明创建新增结果:",flag);
         }
