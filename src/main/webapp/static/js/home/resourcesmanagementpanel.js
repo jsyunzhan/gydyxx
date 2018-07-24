@@ -148,7 +148,6 @@ $(function () {
             var resourcesData = $editResourcesForm.serializeObject(),
                 url = path + "/home/resourcesmanpage/edit";
             resourcesData.id = selectedResources.id;
-
             if (!resourcesData.resourcesDetails){
                 showErrorMessage("正文不可为空！");
                 return
