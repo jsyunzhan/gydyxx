@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'studentTitle', title: "学子风采标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'studentDetails', title: "学子风采内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'studentDetails', title: "学子风采内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,15 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editStudentForm.form('load', selectedStudent);
+
+                        if (selectedStudent.studentDetails){
+                            $(document).ready(function(){
+                                var ue = UE.getEditor('containerEdit');
+                                ue.ready(function() {//编辑器初始化完成再赋值
+                                    ue.setContent(selectedStudent.studentDetails);  //赋值给UEditor
+                                });
+                            });
+                        }
 
                         var url = path + "/home/picture/show";
 
@@ -81,6 +91,9 @@ $(function () {
     });
 
     /*************新增*******************/
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $addStudentForm = $('#addStudentForm').form({
         novalidate: true
@@ -94,6 +107,7 @@ $(function () {
             $('#pictureStudentForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addStudentForm').form('disableValidation').form('reset');
+            reportAdd.setContext("")
         }
     });
 
@@ -101,6 +115,11 @@ $(function () {
         onClick: function () {
             if (!$('#addStudentForm').form('enableValidation').form('validate')) {
                 return;
+            }
+
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
             }
 
             var studentData = $addStudentForm.serializeObject(),
@@ -140,6 +159,9 @@ $(function () {
     });
 
     /*************修改*******************/
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $editStudentForm = $('#editStudentForm').form({
         novalidate: true
@@ -153,6 +175,7 @@ $(function () {
             $('#pictureStudentForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editStudentForm').form('disableValidation').form('reset');
+            reportEdit.setContext("")
         }
     });
 

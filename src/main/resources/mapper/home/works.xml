@@ -3,6 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.home.dao.WroksDao">
 
+    <resultMap id="ResultWorksEntityInfo" type="WorksEntityInfo">
+        <result property="worksDetails" column="WORKS_DETAILS" typeHandler="domain.shiro.entity.ConvertBlobTypeHandler"/>
+    </resultMap>
+
     <!--查总数-->
     <select id="worksCount" resultType="Integer">
         SELECT COUNT(*)
@@ -11,7 +15,7 @@
     </select>
 
     <!--查询集合-->
-    <select id="worksListInfo" resultType="WorksEntityInfo">
+    <select id="worksListInfo" resultMap="ResultWorksEntityInfo">
         SELECT
         t.ID id,
         t.WORKS_TITLE worksTitle,
@@ -27,7 +31,7 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
-    <select id="worksAllList" resultType="WorksEntityInfo">
+    <select id="worksAllList" resultMap="ResultWorksEntityInfo">
         SELECT
         t.ID id,
         t.WORKS_TITLE worksTitle,
@@ -42,7 +46,7 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="worksDetails" resultType="WorksEntityInfo">
+    <select id="worksDetails" resultMap="ResultWorksEntityInfo">
         SELECT
         t.ID id,
         t.WORKS_TITLE worksTitle,

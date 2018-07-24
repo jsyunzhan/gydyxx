@@ -3,6 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.home.dao.ResourcesDao">
 
+    <resultMap id="ResultResourcesEntityInfo" type="ResourcesEntityInfo">
+        <result property="resourcesDetails" column="RESOURCES_DETAILS" typeHandler="domain.shiro.entity.ConvertBlobTypeHandler"/>
+    </resultMap>
+
     <!--查总数-->
     <select id="resourcesCount" resultType="Integer">
         SELECT COUNT(*)
@@ -11,11 +15,11 @@
     </select>
 
     <!--查询集合-->
-    <select id="resourcesList" resultType="ResourcesEntityInfo">
+    <select id="resourcesList" resultMap="ResultResourcesEntityInfo">
         SELECT
         t.ID id,
         t.RESOURCES_TITLE resourcesTitle,
-        t.RESOURCES_DETAILS resourcesDetails,
+        t.RESOURCES_DETAILS,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,
@@ -26,11 +30,11 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
-    <select id="resourcesAllList" resultType="ResourcesEntityInfo">
+    <select id="resourcesAllList" resultMap="ResultResourcesEntityInfo">
         SELECT
         t.ID id,
         t.RESOURCES_TITLE resourcesTitle,
-        t.RESOURCES_DETAILS resourcesDetails,
+        t.RESOURCES_DETAILS,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,
@@ -40,11 +44,11 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="resourcesDetails" resultType="ResourcesEntityInfo">
+    <select id="resourcesDetails" resultMap="ResultResourcesEntityInfo">
         SELECT
         t.ID id,
         t.RESOURCES_TITLE resourcesTitle,
-        t.RESOURCES_DETAILS resourcesDetails,
+        t.RESOURCES_DETAILS,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,

@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'celebrateTitle', title: "校园节庆标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'celebrateDetails', title: "校园节庆内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'celebrateDetails', title: "校园节庆内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editCelebrateForm.form('load', selectedCelebrate);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedCelebrate.celebrateDetails);  //赋值给UEditor
+                            });
+                        });
 
                         var data = {picturePath:selectedCelebrate.picturePath};
 
@@ -81,6 +89,10 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $addCelebrateForm = $('#addCelebrateForm').form({
         novalidate: true
     });
@@ -93,6 +105,7 @@ $(function () {
             $('#pictureCelebrateForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addCelebrateForm').form('disableValidation').form('reset');
+            reportAdd.setContext("")
         }
     });
 
@@ -104,6 +117,16 @@ $(function () {
 
             var celebrateData = $addCelebrateForm.serializeObject(),
                 url = path + "/home/celebratemanpage/add";
+
+            if (!celebrateData.celebrateDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
+
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
+            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/校园节庆",
@@ -139,6 +162,9 @@ $(function () {
     });
 
     /*************修改*******************/
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $editCelebrateForm = $('#editCelebrateForm').form({
         novalidate: true
@@ -152,6 +178,7 @@ $(function () {
             $('#pictureCelebrateForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editCelebrateForm').form('disableValidation').form('reset');
+            reportEdit.setContext("")
         }
     });
 
@@ -164,6 +191,11 @@ $(function () {
             var celebrateData = $editCelebrateForm.serializeObject(),
                 url = path + "/home/celebratemanpage/edit";
             celebrateData.id = selectedCelebrate.id;
+
+            if (!celebrateData.celebrateDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
 
             $.ajax({

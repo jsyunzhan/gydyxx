@@ -3,6 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.home.dao.YiDao">
 
+    <resultMap id="ResultYiEntityInfo" type="YiEntityInfo">
+        <result property="yiDetails" column="YI_DETAILS" typeHandler="domain.shiro.entity.ConvertBlobTypeHandler"/>
+    </resultMap>
+
+
     <!--查总数-->
     <select id="yiCount" resultType="Integer">
         SELECT COUNT(*)
@@ -11,11 +16,11 @@
     </select>
 
     <!--查询集合-->
-    <select id="yiList" resultType="YiEntityInfo">
+    <select id="yiList" resultMap="ResultYiEntityInfo">
         SELECT
         t.ID id,
         t.YI_TITLE yiTitle,
-        t.YI_DETAILS yiDetails,
+        t.YI_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -27,11 +32,11 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
-    <select id="yiAllList" resultType="YiEntityInfo">
+    <select id="yiAllList" resultMap="ResultYiEntityInfo">
         SELECT
         t.ID id,
         t.YI_TITLE yiTitle,
-        t.YI_DETAILS yiDetails,
+        t.YI_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -42,11 +47,11 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="yiDetails" resultType="YiEntityInfo">
+    <select id="yiDetails" resultMap="ResultYiEntityInfo">
         SELECT
         t.ID id,
         t.YI_TITLE yiTitle,
-        t.YI_DETAILS yiDetails,
+        t.YI_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,

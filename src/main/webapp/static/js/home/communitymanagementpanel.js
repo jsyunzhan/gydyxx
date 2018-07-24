@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'communityTitle', title: "精品社团标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'communityDetails', title: "精品社团内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'communityDetails', title: "精品社团内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editCommunityForm.form('load', selectedCommunity);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedCommunity.communityDetails);  //赋值给UEditor
+                            });
+                        });
 
                         var data = {picturePath:selectedCommunity.picturePath};
 
@@ -80,6 +88,9 @@ $(function () {
     });
 
     /*************新增*******************/
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $addCommunityForm = $('#addCommunityForm').form({
         novalidate: true
@@ -93,6 +104,7 @@ $(function () {
             $('#pictureCommunityForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addCommunityForm').form('disableValidation').form('reset');
+            reportAdd.setContext("")
         }
     });
 
@@ -104,6 +116,16 @@ $(function () {
 
             var communityData = $addCommunityForm.serializeObject(),
                 url = path + "/home/communitymanpage/add";
+
+            if (!communityData.communityDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
+
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
+            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/精品校园",
@@ -139,6 +161,9 @@ $(function () {
     });
 
     /*************修改*******************/
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $editCommunityForm = $('#editCommunityForm').form({
         novalidate: true
@@ -152,6 +177,7 @@ $(function () {
             $('#pictureCommunityForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editCommunityForm').form('disableValidation').form('reset');
+            reportEdit.setContext('')
         }
     });
 
@@ -164,6 +190,11 @@ $(function () {
             var communityData = $editCommunityForm.serializeObject(),
                 url = path + "/home/communitymanpage/edit";
             communityData.id = selectedCommunity.id;
+
+            if (!communityData.communityDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
 
             $.ajax({

@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'worksTitle', title: "作品标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'worksDetails', title: "作品内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'worksDetails', title: "作品内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,15 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editWorksForm.form('load', selectedWorks);
+
+                        if (selectedWorks.worksDetails){
+                            $(document).ready(function(){
+                                var ue = UE.getEditor('containerEdit');
+                                ue.ready(function() {//编辑器初始化完成再赋值
+                                    ue.setContent(selectedWorks.worksDetails);  //赋值给UEditor
+                                });
+                            });
+                        }
 
                         var data = {picturePath:selectedWorks.picturePath};
 
@@ -81,6 +91,10 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $addWorksForm = $('#addWorksForm').form({
         novalidate: true
     });
@@ -93,6 +107,7 @@ $(function () {
             $('#pictureWorksForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addWorksForm').form('disableValidation').form('reset');
+            reportAdd.setContext("")
         }
     });
 
@@ -100,6 +115,11 @@ $(function () {
         onClick: function () {
             if (!$('#addWorksForm').form('enableValidation').form('validate')) {
                 return;
+            }
+
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
             }
 
             var worksData = $addWorksForm.serializeObject(),
@@ -140,6 +160,9 @@ $(function () {
     });
 
     /*************修改*******************/
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $editWorksForm = $('#editWorksForm').form({
         novalidate: true
@@ -153,6 +176,7 @@ $(function () {
             $('#pictureWorksForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editWorksForm').form('disableValidation').form('reset');
+            reportEdit.setContext("")
         }
     });
 

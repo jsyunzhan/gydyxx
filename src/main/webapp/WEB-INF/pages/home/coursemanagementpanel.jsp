@@ -38,17 +38,11 @@
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
             </tr>
 
-            <tr>
-                <th width="120"><label class="control-label required-mark" style="width:110px"
-                                       required="required">班本课程内容
-
-                </label>
-                </th>
-                <td width="200"><input class="easyui-textbox control" style="height: 200px;width: 300px" name="courseDetails" required="required"
-                                       data-options="multiline:true,prompt:'请输入...'"/></td>
-            </tr>
-
         </table>
+
+        <div style="padding-top: 2px; margin-right: 2px">
+            <script id="containerAdd" name="courseDetails" type="text/plain"></script>
+        </div>
 
         <div style="text-align:center;padding:10px 5px">
             <a id="pictureCourseUploadBtnAdd" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
@@ -88,17 +82,11 @@
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
             </tr>
 
-            <tr>
-                <th width="120"><label class="control-label required-mark" style="width:110px"
-                                       required="required">班本课程内容
-
-                </label>
-                </th>
-                <td width="200"><input class="easyui-textbox control" style="height: 200px;width: 300px" name="courseDetails" required="required"
-                                       data-options="multiline:true,prompt:'请输入...'"/></td>
-            </tr>
-
         </table>
+
+        <div style="padding-top: 2px; margin-right: 2px">
+            <script id="containerEdit" name="courseDetails" type="text/plain"></script>
+        </div>
 
         <div style="text-align:center;padding:10px 5px">
             <a id="pictureCourseUploadBtnEdit" href="javascript:void(0);" iconCls="l-btn-icon icon-add"

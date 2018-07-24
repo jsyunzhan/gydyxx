@@ -3,6 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.home.dao.HomeschoolDao">
 
+    <resultMap id="ResultHomeschoolEntityInfo" type="HomeschoolEntityInfo">
+        <result property="homeschoolDetails" column="HOMESCHOOL_DETAILS" typeHandler="domain.shiro.entity.ConvertBlobTypeHandler"/>
+    </resultMap>
+
     <!--查总数-->
     <select id="homeschoolCount" resultType="Integer">
         SELECT COUNT(*)
@@ -11,11 +15,11 @@
     </select>
 
     <!--查询集合-->
-    <select id="homeschoolList" resultType="HomeschoolEntityInfo">
+    <select id="homeschoolList" resultMap="ResultHomeschoolEntityInfo">
         SELECT
         t.ID id,
         t.HOMESCHOOL_TITLE homeschoolTitle,
-        t.HOMESCHOOL_DETAILS homeschoolDetails,
+        t.HOMESCHOOL_DETAILS,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,
@@ -26,11 +30,11 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
-    <select id="homeschoolAllList" resultType="HomeschoolEntityInfo">
+    <select id="homeschoolAllList" resultMap="ResultHomeschoolEntityInfo">
         SELECT
         t.ID id,
         t.HOMESCHOOL_TITLE homeschoolTitle,
-        t.HOMESCHOOL_DETAILS homeschoolDetails,
+        t.HOMESCHOOL_DETAILS,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,
@@ -40,11 +44,11 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="homeDetails" resultType="HomeschoolEntityInfo">
+    <select id="homeDetails" resultMap="ResultHomeschoolEntityInfo">
         SELECT
         t.ID id,
         t.HOMESCHOOL_TITLE homeschoolTitle,
-        t.HOMESCHOOL_DETAILS homeschoolDetails,
+        t.HOMESCHOOL_DETAILS,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,

@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'courseTitle', title: "班本课程标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'courseDetails', title: "班本课程内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'courseDetails', title: "班本课程内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editCourseForm.form('load', selectedCourse);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedCourse.courseDetails);  //赋值给UEditor
+                            });
+                        });
 
                         var data = {picturePath:selectedCourse.picturePath};
 
@@ -80,6 +88,9 @@ $(function () {
     });
 
     /*************新增*******************/
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $addCourseForm = $('#addCourseForm').form({
         novalidate: true
@@ -93,6 +104,7 @@ $(function () {
             $('#pictureCourseForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addCourseForm').form('disableValidation').form('reset');
+            reportAdd.setContext("")
         }
     });
 
@@ -104,6 +116,16 @@ $(function () {
 
             var newsData = $addCourseForm.serializeObject(),
                 url = path + "/home/coursemanpage/add";
+
+            if (!newsData.courseDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
+
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
+            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/班本课程",
@@ -139,6 +161,9 @@ $(function () {
     });
 
     /*************修改*******************/
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $editCourseForm = $('#editCourseForm').form({
         novalidate: true
@@ -152,6 +177,7 @@ $(function () {
             $('#pictureCourseForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editCourseForm').form('disableValidation').form('reset');
+            reportEdit.setContext("")
         }
     });
 
@@ -164,6 +190,11 @@ $(function () {
             var courseData = $editCourseForm.serializeObject(),
                 url = path + "/home/coursemanpage/edit";
             courseData.id = selectedCourse.id;
+
+            if (!courseData.courseDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
 
             $.ajax({

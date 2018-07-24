@@ -3,6 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.home.dao.StudentDao">
 
+    <resultMap id="ResultStudentEntityInfo" type="StudentEntityInfo">
+        <result property="studentDetails" column="STUDENT_DETAILS" typeHandler="domain.shiro.entity.ConvertBlobTypeHandler"/>
+    </resultMap>
+
     <!--查总数-->
     <select id="studentCount" resultType="Integer">
         SELECT COUNT(*)
@@ -11,11 +15,11 @@
     </select>
 
     <!--查询集合-->
-    <select id="studentList" resultType="StudentEntityInfo">
+    <select id="studentList" resultMap="ResultStudentEntityInfo">
         SELECT
         t.ID id,
         t.STUDENT_TITLE studentTitle,
-        t.STUDENT_DETAILS studentDetails,
+        t.STUDENT_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -27,11 +31,11 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
-    <select id="studentAllList" resultType="StudentEntityInfo">
+    <select id="studentAllList" resultMap="ResultStudentEntityInfo">
         SELECT
         t.ID id,
         t.STUDENT_TITLE studentTitle,
-        t.STUDENT_DETAILS studentDetails,
+        t.STUDENT_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -42,11 +46,11 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="studentDetails" resultType="StudentEntityInfo">
+    <select id="studentDetails" resultMap="ResultStudentEntityInfo">
         SELECT
         t.ID id,
         t.STUDENT_TITLE studentTitle,
-        t.STUDENT_DETAILS studentDetails,
+        t.STUDENT_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,

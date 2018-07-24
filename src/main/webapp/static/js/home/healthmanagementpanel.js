@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'healthTitle', title: "健康教育标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'healthDetails', title: "健康教育内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'healthDetails', title: "健康教育内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editHealthForm.form('load', selectedHealth);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedHealth.healthDetails);  //赋值给UEditor
+                            });
+                        });
 
                         $editHealthWin.window('open');
                     }
@@ -61,6 +69,9 @@ $(function () {
     });
 
     /*************新增*******************/
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $addHealthForm = $('#addHealthForm').form({
         novalidate: true
@@ -72,6 +83,7 @@ $(function () {
         footer: '#addHealthWinFooter',
         onClose: function () {
             $('#addHealthForm').form('disableValidation').form('reset');
+            reportAdd.setContext("")
         }
     });
 
@@ -83,6 +95,11 @@ $(function () {
 
             var healthData = $addHealthForm.serializeObject(),
                 url = path + "/home/healthmanpage/add";
+
+            if (!healthData.healthDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(healthData),
@@ -103,6 +120,9 @@ $(function () {
     });
 
     /*************修改*******************/
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $editHealthForm = $('#editHealthForm').form({
         novalidate: true
@@ -113,7 +133,7 @@ $(function () {
         width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
         footer: '#editHealthWinFooter',
         onClose: function () {
-
+            reportEdit.setContext("")
             $('#editHealthForm').form('disableValidation').form('reset');
         }
     });
@@ -127,6 +147,11 @@ $(function () {
             var healthData = $editHealthForm.serializeObject(),
                 url = path + "/home/healthmanpage/edit";
             healthData.id = selectedHealth.id;
+
+            if (!healthData.healthDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(healthData),

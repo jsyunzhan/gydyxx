@@ -79,7 +79,6 @@ $(function(){
         timeout: 360000,
         cache: false,
         success: function (resouces) {
-            console.log(resouces);
             var _html = "";
             var  num = 0;
             for(var i=0;i<resouces.length;i++){
