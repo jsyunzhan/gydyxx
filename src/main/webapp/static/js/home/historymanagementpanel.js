@@ -117,6 +117,11 @@ $(function () {
             var historyData = $addHistoryForm.serializeObject(),
                 url = path + "/home/historymanpage/add";
 
+            if (!historyData.historyDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
+
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/校史天地",
                 type:'POST',
@@ -182,6 +187,10 @@ $(function () {
                 url = path + "/home/historymanpage/edit";
             historyData.id = selectedHistory.id;
 
+            if (!historyData.historyDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/校史天地",
