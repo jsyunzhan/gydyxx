@@ -38,16 +38,11 @@
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
             </tr>
 
-            <tr>
-                <th width="120"><label class="control-label required-mark" style="width:110px"
-                                       required="required">校本培训内容
-                </label>
-                </th>
-                <td width="200"><input class="easyui-textbox control" style="height: 200px;width: 300px" name="trainingDetails" required="required"
-                                       data-options="multiline:true,prompt:'请输入...'"/></td>
-            </tr>
-
         </table>
+
+        <div style="padding-top: 2px; margin-right: 2px">
+            <script id="containerAdd" name="trainingDetails" type="text/plain"></script>
+        </div>
 
     </form>
 
@@ -77,17 +72,11 @@
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
             </tr>
 
-            <tr>
-                <th width="120"><label class="control-label required-mark" style="width:110px"
-                                       required="required">校本培训内容
-
-                </label>
-                </th>
-                <td width="200"><input class="easyui-textbox control" style="height: 200px;width: 300px" name="trainingDetails" required="required"
-                                       data-options="multiline:true,prompt:'请输入...'"/></td>
-            </tr>
-
         </table>
+
+        <div style="padding-top: 2px; margin-right: 2px">
+            <script id="containerEdit" name="trainingDetails" type="text/plain"></script>
+        </div>
 
     </form>
 

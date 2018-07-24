@@ -3,6 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.home.dao.TrainingDao">
 
+    <resultMap id="ResultTrainingEntityInfo" type="TrainingEntityInfo">
+        <result property="trainingDetails" column="TRAINING_DETAILS" typeHandler="domain.shiro.entity.ConvertBlobTypeHandler"/>
+    </resultMap>
+
     <!--查总数-->
     <select id="trainingCount" resultType="Integer">
         SELECT COUNT(*)
@@ -11,11 +15,11 @@
     </select>
 
     <!--查询集合-->
-    <select id="trainingList" resultType="TrainingEntityInfo">
+    <select id="trainingList" resultMap="ResultTrainingEntityInfo">
         SELECT
         t.ID id,
         t.TRAINING_TITLE trainingTitle,
-        t.TRAINING_DETAILS trainingDetails,
+        t.TRAINING_DETAILS,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,
@@ -26,11 +30,11 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
-    <select id="trainingAllList" resultType="TrainingEntityInfo">
+    <select id="trainingAllList" resultMap="ResultTrainingEntityInfo">
         SELECT
         t.ID id,
         t.TRAINING_TITLE trainingTitle,
-        t.TRAINING_DETAILS trainingDetails,
+        t.TRAINING_DETAILS,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,
@@ -40,11 +44,11 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="trainingDetails" resultType="TrainingEntityInfo">
+    <select id="trainingDetails" resultMap="ResultTrainingEntityInfo">
         SELECT
         t.ID id,
         t.TRAINING_TITLE trainingTitle,
-        t.TRAINING_DETAILS trainingDetails,
+        t.TRAINING_DETAILS,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,

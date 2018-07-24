@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'teacherTitle', title: "名师风采标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'teacherDetails', title: "名师风采内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'teacherDetails', title: "名师风采内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editTeacherForm.form('load', selectedTeacher);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedTeacher.teacherDetails);  //赋值给UEditor
+                            });
+                        });
 
                         var data = {picturePath:selectedTeacher.picturePath};
 
@@ -81,6 +89,10 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $addTeacherForm = $('#addTeacherForm').form({
         novalidate: true
     });
@@ -93,6 +105,7 @@ $(function () {
             $('#pictureTeacherForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addTeacherForm').form('disableValidation').form('reset');
+            reportAdd.setContent("")
         }
     });
 
@@ -140,6 +153,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editTeacherForm = $('#editTeacherForm').form({
         novalidate: true
     });
@@ -152,6 +169,7 @@ $(function () {
             $('#pictureTeacherForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editTeacherForm').form('disableValidation').form('reset');
+            reportEdit.setContent("")
         }
     });
 
@@ -164,7 +182,6 @@ $(function () {
             var teacherData = $editTeacherForm.serializeObject(),
                 url = path + "/home/teachermanpage/edit";
             teacherData.id = selectedTeacher.id;
-
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/名师风采",

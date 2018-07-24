@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'teachingTitle', title: "教学资源标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'teachingDetails', title: "教学资源内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'teachingDetails', title: "教学资源内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editTeachingForm.form('load', selectedTeaching);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedTeaching.teachingDetails);  //赋值给UEditor
+                            });
+                        });
 
                         $editTeachingWin.window('open');
                     }
@@ -62,6 +70,10 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $addTeachingForm = $('#addTeachingForm').form({
         novalidate: true
     });
@@ -72,6 +84,7 @@ $(function () {
         footer: '#addTeachingWinFooter',
         onClose: function () {
             $('#addTeachingWinFooter').form('disableValidation').form('reset');
+            reportAdd.setContent("")
         }
     });
 
@@ -83,6 +96,11 @@ $(function () {
 
             var teachingData = $addTeachingForm.serializeObject(),
                 url = path + "/home/teachingmanpage/add";
+
+            if (!teachingData.teachingDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(teachingData),
@@ -104,6 +122,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editTeachingForm = $('#editTeachingForm').form({
         novalidate: true
     });
@@ -113,7 +135,7 @@ $(function () {
         width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
         footer: '#editTeachingWinFooter',
         onClose: function () {
-
+            reportEdit.setContent("");
             $('#editTeachingForm').form('disableValidation').form('reset');
         }
     });
@@ -127,6 +149,11 @@ $(function () {
             var teachingData = $editTeachingForm.serializeObject(),
                 url = path + "/home/teachingmanpage/edit";
             teachingData.id = selectedTeaching.id;
+
+            if (!teachingData.teachingDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(teachingData),

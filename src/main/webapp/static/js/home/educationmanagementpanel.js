@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'educationTitle', title: "教育科研标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'educationDetails', title: "教育科研内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'educationDetails', title: "教育科研内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editEducationForm.form('load', selectedEducation);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedEducation.educationDetails);  //赋值给UEditor
+                            });
+                        });
 
                         $editEducationWin.window('open');
                     }
@@ -63,6 +71,10 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $addEducationForm = $('#addEducationForm').form({
         novalidate: true
     });
@@ -73,6 +85,7 @@ $(function () {
         footer: '#addEducationWinFooter',
         onClose: function () {
             $('#addEducationForm').form('disableValidation').form('reset');
+            reportAdd.setContent("")
         }
     });
 
@@ -84,6 +97,11 @@ $(function () {
 
             var educationData = $addEducationForm.serializeObject(),
                 url = path + "/home/educationmanpage/add";
+
+            if (!educationData.educationDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(educationData),
@@ -105,6 +123,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editEducationForm = $('#editEducationForm').form({
         novalidate: true
     });
@@ -115,6 +137,7 @@ $(function () {
         footer: '#editEducationWinFooter',
         onClose: function () {
             $('#editEducationForm').form('disableValidation').form('reset');
+            reportEdit.setContent("")
         }
     });
 
@@ -127,6 +150,11 @@ $(function () {
             var educationData = $editEducationForm.serializeObject(),
                 url = path + "/home/educationmanpage/edit";
             educationData.id = selectedEducation.id;
+
+            if (!educationData.educationDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(educationData),

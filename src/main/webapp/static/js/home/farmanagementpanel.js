@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'farTitle', title: "致用工作室标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'farDetails', title: "致用工作室内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'farDetails', title: "致用工作室内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editFarForm.form('load', selectedFar);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedFar.farDetails);  //赋值给UEditor
+                            });
+                        });
 
                         $editFarWin.window('open');
                     }
@@ -62,6 +70,10 @@ $(function () {
 
     /*************新增*******************/
 
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $addFarForm = $('#addFarForm').form({
         novalidate: true
     });
@@ -72,6 +84,7 @@ $(function () {
         footer: '#addFarWinFooter',
         onClose: function () {
             $('#addFarForm').form('disableValidation').form('reset');
+            reportAdd.setContent("")
         }
     });
 
@@ -83,6 +96,11 @@ $(function () {
 
             var farData = $addFarForm.serializeObject(),
                 url = path + "/home/farmanpage/add";
+
+            if (!farData.farDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(farData),
@@ -103,6 +121,9 @@ $(function () {
     });
 
     /*************修改*******************/
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $editFarForm = $('#editFarForm').form({
         novalidate: true
@@ -113,7 +134,7 @@ $(function () {
         width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
         footer: '#editFarWinFooter',
         onClose: function () {
-
+            reportEdit.setContent("")
             $('#editFarForm').form('disableValidation').form('reset');
         }
     });
@@ -127,6 +148,11 @@ $(function () {
             var farData = $editFarForm.serializeObject(),
                 url = path + "/home/farmanpage/edit";
             farData.id = selectedFar.id;
+
+            if (!farData.farDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url:url,type:"POST",contentType: "application/json",data:JSON.stringify(farData),

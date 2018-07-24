@@ -14,11 +14,12 @@ $(function () {
             {
                 field: 'subjectTitle', title: "课题研究标题", width: 150, sortable: true,
                 align: 'left'
-            },
-            {
-                field: 'subjectDetails', title: "课题研究内容", width: 400, sortable: true,
-                align: 'left'
             }
+            // ,
+            // {
+            //     field: 'subjectDetails', title: "课题研究内容", width: 400, sortable: true,
+            //     align: 'left'
+            // }
         ]],
         toolbar: [
             {
@@ -35,6 +36,13 @@ $(function () {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
                         $editSubjectForm.form('load', selectedSubject);
+
+                        $(document).ready(function(){
+                            var ue = UE.getEditor('containerEdit');
+                            ue.ready(function() {//编辑器初始化完成再赋值
+                                ue.setContent(selectedSubject.subjectDetails);  //赋值给UEditor
+                            });
+                        });
 
                         var data = {picturePath:selectedSubject.picturePath};
 
@@ -80,6 +88,9 @@ $(function () {
     });
 
     /*************新增*******************/
+    var reportAdd = UE.getEditor('containerAdd', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
 
     var $addSubjectForm = $('#addSubjectForm').form({
         novalidate: true
@@ -93,6 +104,7 @@ $(function () {
             $('#pictureSubjectForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addSubjectForm').form('disableValidation').form('reset');
+            reportAdd.setContent("")
         }
     });
 
@@ -104,6 +116,11 @@ $(function () {
 
             var subjectData = $addSubjectForm.serializeObject(),
                 url = path + "/home/subjectmanpage/add";
+
+            if (!subjectData.subjectDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/课题研究",
@@ -140,6 +157,10 @@ $(function () {
 
     /*************修改*******************/
 
+    var reportEdit = UE.getEditor('containerEdit', {
+        initialFrameWidth: '100%', initialFrameHeight: 240
+    });
+
     var $editSubjectForm = $('#editSubjectForm').form({
         novalidate: true
     });
@@ -152,6 +173,7 @@ $(function () {
             $('#pictureSubjectForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editSubjectForm').form('disableValidation').form('reset');
+            reportEdit.setContent("")
         }
     });
 
@@ -164,6 +186,11 @@ $(function () {
             var subjectData = $editSubjectForm.serializeObject(),
                 url = path + "/home/subjectmanpage/edit";
             subjectData.id = selectedSubject.id;
+
+            if (!subjectData.subjectDetails){
+                showErrorMessage("正文不可为空！");
+                return
+            }
 
 
             $.ajax({
