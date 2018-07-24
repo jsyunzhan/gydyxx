@@ -62,7 +62,7 @@
     </select>
 
     <!--首页公告新增-->
-    <insert id="noticeAdd" >
+    <insert id="noticeAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_notice
         (
         NOTICE_TITLE,

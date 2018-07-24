@@ -61,7 +61,7 @@
     </select>
 
     <!--新增-->
-    <insert id="celebrateAdd" >
+    <insert id="celebrateAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_celebrate
         (
         CELEBRATE_TITLE,

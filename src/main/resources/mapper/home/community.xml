@@ -61,7 +61,7 @@
     </select>
 
     <!--新增-->
-    <insert id="communityAdd" >
+    <insert id="communityAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_community
         (
         COMMUNITY_TITLE,

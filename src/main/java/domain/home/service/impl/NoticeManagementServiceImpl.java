@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.NoticeDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.NoticeEntity;
 import domain.home.service.NoticeManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -21,10 +22,12 @@ public class NoticeManagementServiceImpl implements NoticeManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(NoticeManagementServiceImpl.class);
 
     final private NoticeDao noticeDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public NoticeManagementServiceImpl(NoticeDao noticeDao){
+    public NoticeManagementServiceImpl(NoticeDao noticeDao,SearchDao searchDao){
         this.noticeDao = noticeDao;
+        this.searchDao = searchDao;
     }
 
 
@@ -48,6 +51,10 @@ public class NoticeManagementServiceImpl implements NoticeManagementService{
     @Override
     public Boolean noticeAdd(NoticeEntity noticeEntity) {
         final Boolean flag = noticeDao.noticeAdd(noticeEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(noticeEntity.getId(),noticeEntity.getNoticeTitle(),"t_home_notice");
+        }
 
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("公告新增结果:",flag);

@@ -1,4 +1,18 @@
 $(function () {
+
+    $("#ss").click(function () {
+       var title = $("#searchTitle").val();
+
+        $.ajax({
+            url:path + "/homepage/home/search?title=" + title,
+            type:"GET",dataType:"json",
+            success:function (event) {
+
+            }
+        });
+
+    });
+
     // 新闻中心
     $.ajax({
         url:path + "/homepage/news/list",

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.SearchDao">
+
+    <insert id="searchAdd">
+        INSERT INTO t_home_search
+        (
+        TABLE_ID,
+        TABLE_NAME,
+        TITLE
+        ) VALUE (
+        #{id},
+        #{tableName},
+        #{title}
+        )
+    </insert>
+
+    <select id="searchList" resultType="SearchEntityInfo">
+        SELECT
+        t.ID id,
+        t.TABLE_ID tableId,
+        t.TABLE_NAME tableName,
+        t.TITLE title
+        FROM t_home_search t
+        WHERE t.TITLE like concat(concat('%',#{title}),'%')
+    </select>
+
+    <select id="searchDetails" resultType="SearchEntityInfo">
+        SELECT
+        t.ID id,
+        t.NOTICE_TITLE title,
+        t.NOTICE_DETAILS details,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_notice t
+        WHERE t.DELETE_FLAG='1' AND t.ID=#{id}
+    </select>
+
+</mapper>

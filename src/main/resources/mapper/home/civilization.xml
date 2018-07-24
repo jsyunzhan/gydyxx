@@ -61,7 +61,7 @@
     </select>
 
     <!--新增-->
-    <insert id="civilizationAdd" >
+    <insert id="civilizationAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_civilization
         (
         CIVILIZATION_TITLE,
