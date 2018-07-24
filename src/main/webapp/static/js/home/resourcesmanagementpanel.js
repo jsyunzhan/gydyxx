@@ -145,7 +145,6 @@ $(function () {
             if (!$('#editResourcesForm').form('enableValidation').form('validate')) {
                 return;
             }
-
             var resourcesData = $editResourcesForm.serializeObject(),
                 url = path + "/home/resourcesmanpage/edit";
             resourcesData.id = selectedResources.id;
