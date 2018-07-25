@@ -8,11 +8,13 @@
         (
         TABLE_ID,
         TITLE,
-        URL
+        URL,
+        CREATE_DATA
         ) VALUE (
         #{id},
         #{title},
-        #{url}
+        #{url},
+        NOW()
         )
     </insert>
 
@@ -21,7 +23,8 @@
         t.ID id,
         t.TABLE_ID tableId,
         t.TITLE title,
-        t.URL url
+        t.URL url,
+        t.CREATE_DATA createDate
         FROM t_home_search t
         WHERE t.TITLE like concat(concat('%',#{title}),'%')
     </select>

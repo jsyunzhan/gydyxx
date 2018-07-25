@@ -164,5 +164,6 @@
 </body>
 <script>
     var path  = '<%=request.getContextPath()%>';
+    var result = '${result}';
 </script>
 </html>

@@ -3,13 +3,9 @@ $(function () {
     $("#ss").click(function () {
        var title = $("#searchTitle").val();
 
-        $.ajax({
-            url:path + "/homepage/home/search?title=" + title,
-            type:"GET",dataType:"json",
-            success:function (event) {
-                console.log(event)
-            }
-        });
+        var url = path + "/homepage/home/search?title=" + title;
+
+        window.location.href = url;
 
     });
 
