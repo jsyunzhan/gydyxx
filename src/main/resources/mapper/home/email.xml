@@ -52,14 +52,12 @@
         SEND_EMAIL,
         SEND_NUMBER,
         SEND_DETAILS,
-        CREATE_USER_ID,
         CREATE_DATA
         ) VALUE (
         #{sendName},
         #{sendEmail},
         #{sendNumber},
         #{sendDetails},
-        #{createUserId},
         NOW()
         )
     </insert>

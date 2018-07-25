@@ -61,7 +61,6 @@ public class EmailManagementController extends AbstractActionController{
     @ResponseBody
     public JsonResponseVO emailAdd(@RequestBody EmailEntity emailEntity){
         final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
-        emailEntity.setCreateUserId(getLoginId());
         Boolean flag = emailManagementService.emailAdd(emailEntity);
         jsonResponseVO.setSuccess(flag);
         return jsonResponseVO;
