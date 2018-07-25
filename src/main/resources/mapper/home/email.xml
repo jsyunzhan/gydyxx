@@ -44,6 +44,26 @@
         ORDER BY t.CREATE_DATA
     </select>
 
+    <!--新增-->
+    <insert id="emailAdd">
+        INSERT INTO t_home_email
+        (
+        SEND_NAME,
+        SEND_EMAIL,
+        SEND_NUMBER,
+        SEND_DETAILS,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{sendName},
+        #{sendEmail},
+        #{sendNumber},
+        #{sendDetails},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
 
 
 </mapper>

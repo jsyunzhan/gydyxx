@@ -14,4 +14,6 @@ public interface EmailManagementService {
     PageQueryResult emailList(EmailEntity emailEntity);
 
     List<EmailEntity> emailAllList(EmailEntity emailEntity);
+
+    Boolean emailAdd(EmailEntity emailEntity);
 }

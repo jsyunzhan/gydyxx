@@ -44,4 +44,9 @@ public class EmailManagementServiceImpl implements EmailManagementService{
     public List<EmailEntity> emailAllList(EmailEntity emailEntity) {
         return emailDao.emailAllList(emailEntity);
     }
+
+    @Override
+    public Boolean emailAdd(EmailEntity emailEntity) {
+        return emailDao.emailAdd(emailEntity) > 0;
+    }
 }
