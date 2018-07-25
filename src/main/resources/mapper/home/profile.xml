@@ -41,7 +41,7 @@
         t.UPDATE_USER_ID updateUserId,
         t.UPDATE_DATA updateDate
         FROM t_home_profile t
-        WHERE t.DELETE_FLAG='1'
+        WHERE t.DELETE_FLAG='1' AND t.STATUE_ID='1'
         ORDER BY t.CREATE_DATA
     </select>
 
