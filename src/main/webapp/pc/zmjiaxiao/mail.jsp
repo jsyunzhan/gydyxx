@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/7/13
-  Time: 15:24
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,12 +11,18 @@
     <link rel="stylesheet" href="${APP_PATH}/static/css/backstage/public.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/mail.css">
     <script src="${APP_PATH}/static/jq/jquery-1.7.2.min.js"></script>
+    <script src="${APP_PATH}/static/js/mail.js"></script>
     <title>校长信箱</title>
 </head>
 <body>
     <div class="wrapper">
         <div class="banner">
             <img src="${APP_PATH}/static/images/mailbg.jpg">
+        </div>
+        <div class="bigLogin">
+            <a href="${APP_PATH}/pc/homepage.jsp">
+                <img src="${APP_PATH}/static/images/bigLogin.png">
+            </a>
         </div>
         <div class="mailbox">
             <div class="title">校长信箱</div>

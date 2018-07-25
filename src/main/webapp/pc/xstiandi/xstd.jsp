@@ -112,7 +112,7 @@
                 <div class="notice">
                     <div class="title_notice">
                         通知公告
-                        <a href="javascript:;">更多<span><img src="${APP_PATH}/static/images/more2.png"></span></a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp">更多<span><img src="${APP_PATH}/static/images/more2.png"></span></a>
                     </div>
                     <div class="content_notice">
                         <div class="notice_scroll">

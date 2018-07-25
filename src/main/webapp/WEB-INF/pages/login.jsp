@@ -32,6 +32,11 @@
         <div class="banner">
             <img src="${APP_PATH}/static/images/backstage/login_banner.jpg">
         </div>
+        <div class="bigLogin">
+            <a href="${APP_PATH}/pc/homepage.jsp">
+                <img src="${APP_PATH}/static/images/backstage/bigLogin.png">
+            </a>
+        </div>
         <div class="login">
             <img src="${APP_PATH}/static/images/backstage/form_bg.png">
             <div class="loginForm">

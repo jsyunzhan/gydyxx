@@ -32,10 +32,8 @@
             </div>
             <div class="search">
                 <div class="search_input">
-                    <input id="searchTitle" type="text" placeholder="请输入关键词">
+                    <input type="text" placeholder="请输入关键词">
                     <span><img src="${APP_PATH}/static/images/search.png"></span>
-
-                    <a id="ss">点击</a>
                 </div>
             </div>
         </div>
@@ -153,7 +151,6 @@
                             <div class="swiper-container news_banner">
                                 <div class="swiper-wrapper"></div>
                                 <div class="pagination01"></div>
-
                             </div>
                         </div>
                         <div class="main_content_right">

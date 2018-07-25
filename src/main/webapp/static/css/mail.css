@@ -17,6 +17,13 @@ body{
     height: 100%;
 }
 
+.bigLogin{
+    position: fixed;
+    top: 38px;
+    left: 23px;
+    z-index: 10;
+}
+
 .mailbox{
     position: fixed;
     top: 50%;

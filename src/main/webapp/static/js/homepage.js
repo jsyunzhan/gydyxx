@@ -1,14 +1,4 @@
 $(function () {
-
-    $("#ss").click(function () {
-       var title = $("#searchTitle").val();
-
-        var url = path + "/homepage/home/search?title=" + title;
-
-        window.location.href = url;
-
-    });
-
     // 新闻中心
     $.ajax({
         url:path + "/homepage/news/list",
@@ -201,18 +191,19 @@ $(function () {
                     }
                 })
             }
+            if(event.length>4){
+                // 学校风采图片切换
+                var mien_pic = new Swiper(".mien_pic",{
+                    autoplay : 5000,
+                    speed: 1000,
+                    loop:true,
+                    pagination: '.pagination02',
+                    paginationClickable: true,
+                    slidesPerView: 4,
+                    autoplayDisableOnInteraction : false
+                });
+            }
         }
-    });
-
-    // 学校风采图片切换
-    var mien_pic = new Swiper(".mien_pic",{
-        autoplay : 5000,
-        speed: 1000,
-        loop:true,
-        pagination: '.pagination02',
-        paginationClickable: true,
-        slidesPerView: 4,
-        autoplayDisableOnInteraction : false
     });
 
     // banner轮播图

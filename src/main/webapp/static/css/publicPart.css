@@ -326,4 +326,6 @@
     font-size: 9px;
     line-height: 21px;
     border-radius: 11px;
+    vertical-align: top;
+    margin-top: 4px;
 }

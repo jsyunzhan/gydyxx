@@ -15,6 +15,13 @@ $(function () {
         $(this).find(".second_title").hide();
     });
 
+    // 搜索
+    $(".wrapper .search span").click(function () {
+        var title = $(".search_input input").val();
+        var url = path + "/homepage/home/search?title=" + title;
+        window.location.href = url;
+    });
+
     // 校史天地
     $.ajax({
         url:path + "/homepage/history/list",
