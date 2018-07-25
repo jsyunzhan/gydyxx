@@ -163,6 +163,7 @@
 </div>
 </body>
 <script>
+
     var path  = '<%=request.getContextPath()%>';
     var result = '${result}';
     var jsString = JSON.parse(result);
