@@ -13,7 +13,6 @@ import java.util.List;
 @Transactional
 public class SearchManagementServiceImpl implements SearchManagementService{
 
-
     final private SearchDao searchDao;
 
     @Autowired
