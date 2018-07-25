@@ -33,7 +33,7 @@
 <div class="container-fluid p0">
     <div class="tit_home row m0 pr white" style="display: block;">
         <img src="${APP_PATH}/static/images/backstage/tit_bg.jpg" class="tit_bg">
-        <div class="pa title_project">高邮市教育局听课管理系统</div>
+        <div class="pa title_project">高邮市第一实验小学管理系统</div>
         <div class="pa personal" style="background: url(123.png)">
             <div class="clearfix">
                 <div style="width:30px; height:30px;">

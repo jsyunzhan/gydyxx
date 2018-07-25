@@ -164,7 +164,7 @@
 
             <%--功能模块快捷方式--%>
             <div class="infor clearfix">
-                <a href="${APP_PATH}/pc/zyxiaoyuan/xxgk.jsp">
+                <a href="${APP_PATH}/homepage/profile/details">
                     <div class="icon">
                         <img src="${APP_PATH}/static/images/icon_01.png">
                         <div class="icon_font">学校概况</div>
