@@ -376,7 +376,6 @@ $(function () {
             showWarningMessage("该新闻不是轮播图，请重新选择！");
             return
         }
-
         var msg = String.format("您确定要取消轮播图新闻：<span style='color: red;'>{0}</span>？", selectedNews.newsTitle);
 
         showConfirm(msg, function () {
