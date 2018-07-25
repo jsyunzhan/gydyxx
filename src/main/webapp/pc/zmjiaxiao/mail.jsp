@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -27,22 +28,22 @@
         <div class="mailbox">
             <div class="title">校长信箱</div>
             <div class="invite">请你留言<div class="invite_bor"></div></div>
-            <form class="clearfix">
+            <form id="emailForm" class="clearfix">
                 <div class="message clearfix">
                     <div>姓名<span>*</span></div>
-                    <input type="text">
+                    <input type="text" id="sendName" name="sendName">
                 </div>
                 <div class="message clearfix">
                     <div>邮箱<span>*</span></div>
-                    <input type="text">
+                    <input type="text" id="sendEmail" name="sendEmail">
                 </div>
                 <div class="message clearfix">
                     <div>电话</div>
-                    <input type="text">
+                    <input type="text" id="sendNumber" name="sendNumber">
                 </div>
                 <div class="message_area clearfix">
                     <div>留言内容<span>*</span></div>
-                    <textarea></textarea>
+                    <textarea id="sendDetails" name="sendDetails"></textarea>
                 </div>
             </form>
             <div class="send">
