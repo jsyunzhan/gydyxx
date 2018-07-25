@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.CourseDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.CourseEntity;
 import domain.home.service.CourseManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class CourseManagementServiceImpl implements CourseManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(CourseManagementServiceImpl.class);
 
     final private CourseDao courseDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public CourseManagementServiceImpl(CourseDao courseDao){
+    public CourseManagementServiceImpl(CourseDao courseDao,SearchDao searchDao){
         this.courseDao = courseDao;
+        this.searchDao = searchDao;
     }
 
 
@@ -47,6 +50,11 @@ public class CourseManagementServiceImpl implements CourseManagementService{
     @Override
     public Boolean courseAdd(CourseEntity courseEntity) {
         final Boolean flag = courseDao.courseAdd(courseEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(courseEntity.getId(),courseEntity.getCourseTitle(),"/homepage/course/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("班本课程新增结果:",flag);
         }

@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.HistoryDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.HistoryEntity;
 import domain.home.service.HistoryManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class HistoryManagementServiceImpl implements HistoryManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(HistoryManagementServiceImpl.class);
 
     final private HistoryDao historyDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public HistoryManagementServiceImpl(HistoryDao historyDao){
+    public HistoryManagementServiceImpl(HistoryDao historyDao,SearchDao searchDao){
         this.historyDao = historyDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class HistoryManagementServiceImpl implements HistoryManagementService{
     @Override
     public Boolean historyAdd(HistoryEntity historyEntity) {
         final Boolean flag = historyDao.historyAdd(historyEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(historyEntity.getId(),historyEntity.getHistoryTitle(),"/homepage/history/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("校史天地新增:",flag);
         }

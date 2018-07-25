@@ -1,5 +1,6 @@
 package domain.home.service.impl;
 
+import domain.home.dao.SearchDao;
 import domain.home.dao.StudentDao;
 import domain.home.entity.StudentEntity;
 import domain.home.service.StudentManagementService;
@@ -20,10 +21,12 @@ public class StudentManagementServiceImpl implements StudentManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(StudentManagementServiceImpl.class);
 
     final private StudentDao studentDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public StudentManagementServiceImpl(StudentDao studentDao){
+    public StudentManagementServiceImpl(StudentDao studentDao,SearchDao searchDao){
         this.studentDao = studentDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,10 @@ public class StudentManagementServiceImpl implements StudentManagementService{
     @Override
     public Boolean studentAdd(StudentEntity studentEntity) {
         final Boolean flag = studentDao.studentAdd(studentEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(studentEntity.getId(),studentEntity.getStudentTitle(),"/homepage/student/details/");
+        }
 
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("学子风采新增结果:",flag);

@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.HomeschoolDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.HomeschoolEntity;
 import domain.home.service.HomeschoolManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class HomeschoolManagementServiceImpl implements HomeschoolManagementServ
     private static final Logger LOGGER = LoggerFactory.getLogger(HomeschoolManagementServiceImpl.class);
 
     final private HomeschoolDao homeschoolDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public HomeschoolManagementServiceImpl(HomeschoolDao homeschoolDao){
+    public HomeschoolManagementServiceImpl(HomeschoolDao homeschoolDao,SearchDao searchDao){
         this.homeschoolDao = homeschoolDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class HomeschoolManagementServiceImpl implements HomeschoolManagementServ
     @Override
     public Boolean homeschoolAdd(HomeschoolEntity homeschoolEntity) {
         final Boolean flag = homeschoolDao.homeschoolAdd(homeschoolEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(homeschoolEntity.getId(),homeschoolEntity.getHomeschoolTitle(),"/homepage/homeschool/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("家校心桥新增结果:",flag);
         }

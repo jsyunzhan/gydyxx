@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.SchoolDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.SchoolEntity;
 import domain.home.service.SchoolManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class SchoolManagementServiceImpl implements SchoolManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(SchoolManagementServiceImpl.class);
 
     final private SchoolDao schoolDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public SchoolManagementServiceImpl(SchoolDao schoolDao){
+    public SchoolManagementServiceImpl(SchoolDao schoolDao,SearchDao searchDao){
         this.schoolDao = schoolDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class SchoolManagementServiceImpl implements SchoolManagementService{
     @Override
     public Boolean schoolAdd(SchoolEntity schoolEntity) {
         final Boolean flag = schoolDao.schoolAdd(schoolEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(schoolEntity.getId(),schoolEntity.getSchoolTitle(),"/homepage/school/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("学校风采新增结果:",flag);
         }

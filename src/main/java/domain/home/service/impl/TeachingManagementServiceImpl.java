@@ -1,5 +1,6 @@
 package domain.home.service.impl;
 
+import domain.home.dao.SearchDao;
 import domain.home.dao.TeachingDao;
 import domain.home.entity.TeachingEntity;
 import domain.home.service.TeachingManagementService;
@@ -20,10 +21,12 @@ public class TeachingManagementServiceImpl implements TeachingManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(TeachingManagementServiceImpl.class);
 
     final private TeachingDao teachingDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public TeachingManagementServiceImpl(TeachingDao teachingDao){
+    public TeachingManagementServiceImpl(TeachingDao teachingDao,SearchDao searchDao){
         this.teachingDao = teachingDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class TeachingManagementServiceImpl implements TeachingManagementService{
     @Override
     public Boolean teachingAdd(TeachingEntity teachingEntity) {
         final Boolean flag = teachingDao.teachingAdd(teachingEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(teachingEntity.getId(),teachingEntity.getTeachingTitle(),"/homepage/eaching/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("教学资源新增结果:",flag);
         }

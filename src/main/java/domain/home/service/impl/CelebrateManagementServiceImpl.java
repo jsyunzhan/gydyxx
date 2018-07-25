@@ -51,7 +51,7 @@ public class CelebrateManagementServiceImpl implements CelebrateManagementServic
         final Boolean flag = celebrateDao.celebrateAdd(celebrateEntity) > 0;
 
         if (flag){
-            searchDao.searchAdd(celebrateEntity.getId(),celebrateEntity.getCelebrateTitle(),"t_home_celebrate");
+            searchDao.searchAdd(celebrateEntity.getId(),celebrateEntity.getCelebrateTitle(),"/homepage/celebrate/details/");
         }
 
         if (LOGGER.isDebugEnabled()){

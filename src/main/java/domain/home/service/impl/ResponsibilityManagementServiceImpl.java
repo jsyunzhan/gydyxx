@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.ResponsibilityDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.ResponsibilityEntity;
 import domain.home.service.ResponsibilityManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class ResponsibilityManagementServiceImpl implements ResponsibilityManage
     private static final Logger LOGGER = LoggerFactory.getLogger(ResponsibilityManagementServiceImpl.class);
 
     final private ResponsibilityDao responsibilityDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public ResponsibilityManagementServiceImpl(ResponsibilityDao responsibilityDao){
+    public ResponsibilityManagementServiceImpl(ResponsibilityDao responsibilityDao,SearchDao searchDao){
         this.responsibilityDao = responsibilityDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class ResponsibilityManagementServiceImpl implements ResponsibilityManage
     @Override
     public Boolean responsibilityAdd(ResponsibilityEntity responsibilityEntity) {
         final Boolean flag = responsibilityDao.responsibilityAdd(responsibilityEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(responsibilityEntity.getId(),responsibilityEntity.getResponsibilityTitle(),"/homepage/responsibility/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("责任督学新增结果:",flag);
         }

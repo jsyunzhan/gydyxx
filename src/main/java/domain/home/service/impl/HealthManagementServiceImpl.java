@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.HealthDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.HealthEntity;
 import domain.home.service.HealthManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class HealthManagementServiceImpl implements HealthManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(HealthManagementServiceImpl.class);
 
     final private HealthDao healthDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public HealthManagementServiceImpl(HealthDao healthDao){
+    public HealthManagementServiceImpl(HealthDao healthDao,SearchDao searchDao){
         this.healthDao = healthDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class HealthManagementServiceImpl implements HealthManagementService{
     @Override
     public Boolean healthAdd(HealthEntity healthEntity) {
         final Boolean flag = healthDao.healthAdd(healthEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(healthEntity.getId(),healthEntity.getHealthTitle(),"/homepage/health/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("健康教育新增结果:",flag);
         }

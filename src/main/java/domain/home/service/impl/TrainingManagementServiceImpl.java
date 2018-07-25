@@ -1,5 +1,6 @@
 package domain.home.service.impl;
 
+import domain.home.dao.SearchDao;
 import domain.home.dao.TrainingDao;
 import domain.home.entity.TrainingEntity;
 import domain.home.service.TrainingManagementService;
@@ -20,10 +21,12 @@ public class TrainingManagementServiceImpl implements TrainingManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(TrainingManagementServiceImpl.class);
 
     final private TrainingDao trainingDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public TrainingManagementServiceImpl(TrainingDao trainingDao){
+    public TrainingManagementServiceImpl(TrainingDao trainingDao,SearchDao searchDao){
         this.trainingDao = trainingDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class TrainingManagementServiceImpl implements TrainingManagementService{
     @Override
     public Boolean trainingAdd(TrainingEntity trainingEntity) {
         final Boolean flag = trainingDao.trainingAdd(trainingEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(trainingEntity.getId(),trainingEntity.getTrainingTitle(),"/homepage/training/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("校本培训新增结果:",flag);
         }

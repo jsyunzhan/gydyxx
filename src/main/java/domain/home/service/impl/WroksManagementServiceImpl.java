@@ -1,5 +1,6 @@
 package domain.home.service.impl;
 
+import domain.home.dao.SearchDao;
 import domain.home.dao.WroksDao;
 import domain.home.entity.WorksEntity;
 import domain.home.service.WroksManagementService;
@@ -21,10 +22,12 @@ public class WroksManagementServiceImpl implements WroksManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(WroksManagementServiceImpl.class);
 
     final private WroksDao wroksDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public WroksManagementServiceImpl(WroksDao wroksDao){
+    public WroksManagementServiceImpl(WroksDao wroksDao,SearchDao searchDao){
         this.wroksDao = wroksDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -48,6 +51,10 @@ public class WroksManagementServiceImpl implements WroksManagementService{
     public Boolean worksAdd(WorksEntity worksEntity) {
 
         final Boolean flag = wroksDao.worksAdd(worksEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(worksEntity.getId(),worksEntity.getWorksTitle(),"/homepage/works/details/");
+        }
 
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("作品新增结果:",flag);

@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.PartyDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.PartyEntity;
 import domain.home.service.PartyManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class PartyManagementServiceImpl implements PartyManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(PartyManagementServiceImpl.class);
 
     final private PartyDao partyDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public PartyManagementServiceImpl(PartyDao partyDao){
+    public PartyManagementServiceImpl(PartyDao partyDao,SearchDao searchDao){
         this.partyDao = partyDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,10 @@ public class PartyManagementServiceImpl implements PartyManagementService{
     @Override
     public Boolean partyAdd(PartyEntity partyEntity) {
         final Boolean flag = partyDao.partyAdd(partyEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(partyEntity.getId(),partyEntity.getPartyTitle(),"/homepage/party/details/");
+        }
 
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("党建工会新增结果:",flag);

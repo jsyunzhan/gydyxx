@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.FarDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.FarEntity;
 import domain.home.service.FarManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class FarManagementServiceImpl implements FarManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(FarManagementServiceImpl.class);
 
     final private FarDao farDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public FarManagementServiceImpl(FarDao farDao){
+    public FarManagementServiceImpl(FarDao farDao,SearchDao searchDao){
         this.farDao = farDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class FarManagementServiceImpl implements FarManagementService{
     @Override
     public Boolean farAdd(FarEntity farEntity) {
         final Boolean flag = farDao.farAdd(farEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(farEntity.getId(),farEntity.getFarTitle(),"/homepage/far/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("致用工作室新增结果:",flag);
         }

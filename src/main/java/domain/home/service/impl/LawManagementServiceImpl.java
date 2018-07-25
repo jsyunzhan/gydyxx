@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.LawDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.LawEntity;
 import domain.home.service.LawManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class LawManagementServiceImpl implements LawManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(LawManagementServiceImpl.class);
 
     final private LawDao lawDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public LawManagementServiceImpl(LawDao lawDao){
+    public LawManagementServiceImpl(LawDao lawDao,SearchDao searchDao){
         this.lawDao=lawDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class LawManagementServiceImpl implements LawManagementService{
     @Override
     public Boolean lawAdd(LawEntity lawEntity) {
         final Boolean flag = lawDao.lawAdd(lawEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(lawEntity.getId(),lawEntity.getLawTitle(),"/homepage/law/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("法制校园新增结果:",flag);
         }

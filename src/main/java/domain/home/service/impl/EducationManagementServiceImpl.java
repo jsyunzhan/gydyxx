@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.EducationDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.EducationEntity;
 import domain.home.service.EducationManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class EducationManagementServiceImpl implements EducationManagementServic
     private static final Logger LOGGER = LoggerFactory.getLogger(EducationManagementServiceImpl.class);
 
     final private EducationDao educationDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public EducationManagementServiceImpl(EducationDao educationDao){
+    public EducationManagementServiceImpl(EducationDao educationDao,SearchDao searchDao){
         this.educationDao = educationDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class EducationManagementServiceImpl implements EducationManagementServic
     @Override
     public Boolean educationAdd(EducationEntity educationEntity) {
         final Boolean flag = educationDao.educationAdd(educationEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(educationEntity.getId(),educationEntity.getEducationTitle(),"/homepage/education/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("教育科研新增结果:",flag);
         }

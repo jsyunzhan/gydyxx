@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.LeaderDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.LeaderEntity;
 import domain.home.service.LeaderManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class LeaderManagementServiceImpl implements LeaderManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(LeaderManagementServiceImpl.class);
 
     final private LeaderDao leaderDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public LeaderManagementServiceImpl(LeaderDao leaderDao){
+    public LeaderManagementServiceImpl(LeaderDao leaderDao,SearchDao searchDao){
         this.leaderDao = leaderDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class LeaderManagementServiceImpl implements LeaderManagementService{
     @Override
     public Boolean leaderAdd(LeaderEntity leaderEntity) {
         final Boolean flag = leaderDao.leaderAdd(leaderEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(leaderEntity.getId(),leaderEntity.getLeaderTitle(),"/homepage/leader/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("领导简介新增:",flag);
         }

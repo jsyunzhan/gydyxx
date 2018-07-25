@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.NewsDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.NewsEntity;
 import domain.home.service.NewsManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class NewsManagementServiceImpl implements NewsManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(NewsManagementServiceImpl.class);
 
     final private NewsDao newsDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public NewsManagementServiceImpl(NewsDao newsDao){
+    public NewsManagementServiceImpl(NewsDao newsDao,SearchDao searchDao){
         this.newsDao = newsDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -47,6 +50,10 @@ public class NewsManagementServiceImpl implements NewsManagementService{
     public Boolean newsAdd(NewsEntity newsEntity) {
 
         final Boolean flag = newsDao.newsAdd(newsEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(newsEntity.getId(),newsEntity.getNewsTitle(),"/homepage/news/details/");
+        }
 
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("新闻新增:",flag);

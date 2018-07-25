@@ -1,5 +1,6 @@
 package domain.home.service.impl;
 
+import domain.home.dao.SearchDao;
 import domain.home.dao.SpeechDao;
 import domain.home.entity.SpeechEntity;
 import domain.home.service.SpeechManagementService;
@@ -20,10 +21,12 @@ public class SpeechManagementServiceImpl implements SpeechManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(SpeechManagementServiceImpl.class);
 
     final private SpeechDao speechDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public SpeechManagementServiceImpl(SpeechDao speechDao){
+    public SpeechManagementServiceImpl(SpeechDao speechDao,SearchDao searchDao){
         this.speechDao = speechDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class SpeechManagementServiceImpl implements SpeechManagementService{
     @Override
     public Boolean speechAdd(SpeechEntity speechEntity) {
         final Boolean flag = speechDao.speechAdd(speechEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(speechEntity.getId(),speechEntity.getSpeechTitle(),"/homepage/speech/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("国旗下讲话新增:",flag);
         }

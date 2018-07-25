@@ -1,5 +1,6 @@
 package domain.home.service.impl;
 
+import domain.home.dao.SearchDao;
 import domain.home.dao.SubjectDao;
 import domain.home.entity.SubjectEntity;
 import domain.home.service.SubjectManagementService;
@@ -20,10 +21,12 @@ public class SubjectManagementServiceImpl implements SubjectManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(SubjectManagementServiceImpl.class);
 
     final private SubjectDao subjectDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public SubjectManagementServiceImpl(SubjectDao subjectDao){
+    public SubjectManagementServiceImpl(SubjectDao subjectDao,SearchDao searchDao){
         this.subjectDao = subjectDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,10 @@ public class SubjectManagementServiceImpl implements SubjectManagementService{
     @Override
     public Boolean subjectAdd(SubjectEntity subjectEntity) {
         final Boolean flag = subjectDao.subjectAdd(subjectEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(subjectEntity.getId(),subjectEntity.getSubjectTitle(),"/homepage/subject/details/");
+        }
 
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("课题研究新增结果:",flag);

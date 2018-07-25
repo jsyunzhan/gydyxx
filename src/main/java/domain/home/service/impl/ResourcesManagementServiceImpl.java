@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.ResourcesDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.ResourcesEntity;
 import domain.home.service.ResourcesManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class ResourcesManagementServiceImpl implements ResourcesManagementServic
     private static final Logger LOGGER = LoggerFactory.getLogger(ResourcesManagementServiceImpl.class);
 
     final private ResourcesDao resourcesDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public ResourcesManagementServiceImpl(ResourcesDao resourcesDao){
+    public ResourcesManagementServiceImpl(ResourcesDao resourcesDao,SearchDao searchDao){
         this.resourcesDao = resourcesDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class ResourcesManagementServiceImpl implements ResourcesManagementServic
     @Override
     public Boolean resourcesAdd(ResourcesEntity resourcesEntity) {
         final Boolean flag = resourcesDao.resourcesAdd(resourcesEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(resourcesEntity.getId(),resourcesEntity.getResourcesTitle(),"/homepage/resources/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("家校资源新增结果:",flag);
         }

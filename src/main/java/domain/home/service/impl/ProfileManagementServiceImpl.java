@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.ProfileDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.ProfileEntity;
 import domain.home.service.ProfileManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -21,10 +22,12 @@ public class ProfileManagementServiceImpl implements ProfileManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(ProfileManagementServiceImpl.class);
 
     final private ProfileDao profileDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public ProfileManagementServiceImpl(ProfileDao profileDao){
+    public ProfileManagementServiceImpl(ProfileDao profileDao,SearchDao searchDao){
         this.profileDao =profileDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -47,6 +50,10 @@ public class ProfileManagementServiceImpl implements ProfileManagementService{
     @Override
     public Boolean profileAdd(ProfileEntity profileEntity) {
         final Boolean flag = profileDao.profileAdd(profileEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(profileEntity.getId(),profileEntity.getProfileTitle(),"/homepage/profile/details/");
+        }
 
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("学校概况新增结果:",flag);

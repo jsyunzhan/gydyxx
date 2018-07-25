@@ -1,5 +1,6 @@
 package domain.home.service.impl;
 
+import domain.home.dao.SearchDao;
 import domain.home.dao.YiDao;
 import domain.home.entity.YiEntity;
 import domain.home.service.YiManagementService;
@@ -20,10 +21,12 @@ public class YiManagementServiceImpl implements YiManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(YiManagementServiceImpl.class);
 
     final private YiDao yiDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public YiManagementServiceImpl(YiDao yiDao){
+    public YiManagementServiceImpl(YiDao yiDao,SearchDao searchDao){
         this.yiDao = yiDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,12 @@ public class YiManagementServiceImpl implements YiManagementService{
     @Override
     public Boolean yiAdd(YiEntity yiEntity) {
         final Boolean flag = yiDao.yiAdd(yiEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(yiEntity.getId(),yiEntity.getYiTitle(),"/homepage/yi/details/");
+        }
+
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("致用邑新增:",flag);
         }

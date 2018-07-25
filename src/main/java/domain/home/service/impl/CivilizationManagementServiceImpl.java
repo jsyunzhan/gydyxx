@@ -51,7 +51,7 @@ public class CivilizationManagementServiceImpl implements CivilizationManagement
         final Boolean flag = civilizationDao.civilizationAdd(civilizationEntity) > 0;
 
         if (flag){
-            searchDao.searchAdd(civilizationEntity.getId(),civilizationEntity.getCivilizationTitle(),"t_home_civilization");
+            searchDao.searchAdd(civilizationEntity.getId(),civilizationEntity.getCivilizationTitle(),"/homepage/civilization/details/");
         }
 
         if (LOGGER.isDebugEnabled()){

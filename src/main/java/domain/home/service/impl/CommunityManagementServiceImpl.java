@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.CommunityDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.CommunityEntity;
 import domain.home.service.CommunityManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class CommunityManagementServiceImpl implements CommunityManagementServic
     private static final Logger LOGGER = LoggerFactory.getLogger(CommunityManagementServiceImpl.class);
 
     final private CommunityDao communityDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public CommunityManagementServiceImpl(CommunityDao communityDao){
+    public CommunityManagementServiceImpl(CommunityDao communityDao,SearchDao searchDao){
         this.communityDao = communityDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class CommunityManagementServiceImpl implements CommunityManagementServic
     @Override
     public Boolean communityAdd(CommunityEntity communityEntity) {
         final Boolean flag = communityDao.communityAdd(communityEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(communityEntity.getId(),communityEntity.getCommunityTitle(),"/homepage/community/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("精品社团新增结果:",flag);
         }

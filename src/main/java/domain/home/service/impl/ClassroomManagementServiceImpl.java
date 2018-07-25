@@ -51,7 +51,7 @@ public class ClassroomManagementServiceImpl implements ClassroomManagementServic
         final Boolean flag = classroomDao.classroomAdd(classroomEntity) > 0;
 
         if (flag){
-            searchDao.searchAdd(classroomEntity.getId(),classroomEntity.getClassroomTitle(),"t_home_classroom");
+            searchDao.searchAdd(classroomEntity.getId(),classroomEntity.getClassroomTitle(),"/homepage/classroom/details/");
         }
 
         if (LOGGER.isDebugEnabled()){

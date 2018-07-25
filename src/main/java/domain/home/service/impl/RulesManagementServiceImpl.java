@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.RulesDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.RulesEntity;
 import domain.home.service.RulesManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class RulesManagementServiceImpl implements RulesManagementService{
     private static final Logger LOGGER = LoggerFactory.getLogger(RulesManagementServiceImpl.class);
 
     final private RulesDao rulesDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public RulesManagementServiceImpl(RulesDao rulesDao){
+    public RulesManagementServiceImpl(RulesDao rulesDao,SearchDao searchDao){
         this.rulesDao = rulesDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class RulesManagementServiceImpl implements RulesManagementService{
     @Override
     public Boolean rulesAdd(RulesEntity rulesEntity) {
         final Boolean flag = rulesDao.rulesAdd(rulesEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(rulesEntity.getId(),rulesEntity.getRulesTitle(),"/homepage/rules/details/");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("规章制度新增结果:",flag);
         }
