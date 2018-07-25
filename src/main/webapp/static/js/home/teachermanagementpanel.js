@@ -118,6 +118,11 @@ $(function () {
             var teacherData = $addTeacherForm.serializeObject(),
                 url = path + "/home/teachermanpage/add";
 
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
+            }
+
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/名师风采",
                 type:'POST',
