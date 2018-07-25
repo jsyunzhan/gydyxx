@@ -52,6 +52,11 @@
             </div>
         </div>
     </div>
+
+    <div class="timeLimit">
+        <div class="colorLimit"></div>
+        <div class="fontLimit">提交成功！<br>即将返回学校首页...</div>
+    </div>
 </body>
 <script>
     var path  = '<%=request.getContextPath()%>';
