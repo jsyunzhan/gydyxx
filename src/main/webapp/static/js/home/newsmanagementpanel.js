@@ -367,7 +367,6 @@ $(function () {
     /************取消轮播图*************/
 
     function cancelChange() {
-
         if (!selectedNews) {
             showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
             return
