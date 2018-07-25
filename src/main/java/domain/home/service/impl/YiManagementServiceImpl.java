@@ -64,6 +64,9 @@ public class YiManagementServiceImpl implements YiManagementService{
     @Override
     public Boolean yiEdit(YiEntity yiEntity) {
         final Boolean flag = yiDao.yiEdit(yiEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(yiEntity.getId(),yiEntity.getYiTitle(),"/homepage/yi/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("致用邑修改:",flag);
         }

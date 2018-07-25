@@ -65,7 +65,9 @@ public class ProfileManagementServiceImpl implements ProfileManagementService{
     @Override
     public Boolean profileEdit(ProfileEntity profileEntity) {
         final Boolean flag = profileDao.profileEdit(profileEntity) > 0;
-
+        if (flag){
+            searchDao.searchEdit(profileEntity.getId(),profileEntity.getProfileTitle(),"/homepage/profile/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("学校概况修改结果:",flag);
         }

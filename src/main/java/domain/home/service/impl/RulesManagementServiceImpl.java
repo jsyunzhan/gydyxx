@@ -63,6 +63,9 @@ public class RulesManagementServiceImpl implements RulesManagementService{
     @Override
     public Boolean rulesEdit(RulesEntity rulesEntity) {
         final Boolean flag = rulesDao.rulesEdit(rulesEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(rulesEntity.getId(),rulesEntity.getRulesTitle(),"/homepage/rules/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("规章制度修改结果:",flag);
         }

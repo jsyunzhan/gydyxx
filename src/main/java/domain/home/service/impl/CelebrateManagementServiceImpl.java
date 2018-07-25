@@ -63,6 +63,9 @@ public class CelebrateManagementServiceImpl implements CelebrateManagementServic
     @Override
     public Boolean celebrateEdit(CelebrateEntity celebrateEntity) {
         final Boolean flag = celebrateDao.celebrateEdit(celebrateEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(celebrateEntity.getId(),celebrateEntity.getCelebrateTitle(),"/homepage/celebrate/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("校园节庆修改结果:",flag);
         }

@@ -63,6 +63,9 @@ public class HealthManagementServiceImpl implements HealthManagementService{
     @Override
     public Boolean healthEdit(HealthEntity healthEntity) {
         final Boolean flag = healthDao.healthEdit(healthEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(healthEntity.getId(),healthEntity.getHealthTitle(),"/homepage/health/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("健康教育修改结果:",flag);
         }

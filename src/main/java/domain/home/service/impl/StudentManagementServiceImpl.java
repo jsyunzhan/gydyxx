@@ -64,6 +64,9 @@ public class StudentManagementServiceImpl implements StudentManagementService{
     @Override
     public Boolean studentEdit(StudentEntity studentEntity) {
         final Boolean flag = studentDao.studentEdit(studentEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(studentEntity.getId(),studentEntity.getStudentTitle(),"/homepage/student/details/");
+        }
 
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("学子风采修改结果:",flag);

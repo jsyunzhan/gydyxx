@@ -63,6 +63,9 @@ public class ResourcesManagementServiceImpl implements ResourcesManagementServic
     @Override
     public Boolean resourcesEdit(ResourcesEntity resourcesEntity) {
         final Boolean flag = resourcesDao.resourcesEdit(resourcesEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(resourcesEntity.getId(),resourcesEntity.getResourcesTitle(),"/homepage/resources/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("家校资源修改结果:",flag);
         }

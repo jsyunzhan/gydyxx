@@ -63,6 +63,9 @@ public class LeaderManagementServiceImpl implements LeaderManagementService{
     @Override
     public Boolean leaderEdit(LeaderEntity leaderEntity) {
         final Boolean flag = leaderDao.leaderEdit(leaderEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(leaderEntity.getId(),leaderEntity.getLeaderTitle(),"/homepage/leader/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("领导简介修改:",flag);
         }

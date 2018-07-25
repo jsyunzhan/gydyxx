@@ -65,7 +65,9 @@ public class NewsManagementServiceImpl implements NewsManagementService{
     @Override
     public Boolean newsEdit(NewsEntity newsEntity) {
         final Boolean flag = newsDao.newsEdit(newsEntity) > 0;
-
+        if (flag){
+            searchDao.searchEdit(newsEntity.getId(),newsEntity.getNewsTitle(),"/homepage/news/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("新闻修改:",flag);
         }

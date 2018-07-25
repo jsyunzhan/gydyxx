@@ -63,6 +63,9 @@ public class SchoolManagementServiceImpl implements SchoolManagementService{
     @Override
     public Boolean schoolEdit(SchoolEntity schoolEntity) {
         final Boolean flag = schoolDao.schoolEdit(schoolEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(schoolEntity.getId(),schoolEntity.getSchoolTitle(),"/homepage/school/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("学校风采修改结果:",flag);
         }

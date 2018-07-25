@@ -63,6 +63,9 @@ public class SpeechManagementServiceImpl implements SpeechManagementService{
     @Override
     public Boolean speechEdit(SpeechEntity speechEntity) {
         final Boolean flag = speechDao.speechEdit(speechEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(speechEntity.getId(),speechEntity.getSpeechTitle(),"/homepage/speech/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("国旗下讲话修改:",flag);
         }

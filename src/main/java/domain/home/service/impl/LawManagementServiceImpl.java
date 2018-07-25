@@ -63,6 +63,9 @@ public class LawManagementServiceImpl implements LawManagementService{
     @Override
     public Boolean lawEdit(LawEntity lawEntity) {
         final Boolean flag = lawDao.lawEdit(lawEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(lawEntity.getId(),lawEntity.getLawTitle(),"/homepage/law/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("法制校园修改结果:",flag);
         }

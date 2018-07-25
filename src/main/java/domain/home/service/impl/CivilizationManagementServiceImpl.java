@@ -63,6 +63,9 @@ public class CivilizationManagementServiceImpl implements CivilizationManagement
     @Override
     public Boolean civilizationEdit(CivilizationEntity civilizationEntity) {
         final Boolean flag = civilizationDao.civilizationEdit(civilizationEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(civilizationEntity.getId(),civilizationEntity.getCivilizationTitle(),"/homepage/civilization/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("文明创建修改结果:",flag);
         }

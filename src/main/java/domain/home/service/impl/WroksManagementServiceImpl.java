@@ -66,7 +66,9 @@ public class WroksManagementServiceImpl implements WroksManagementService{
     @Override
     public Boolean worksEdit(WorksEntity worksEntity) {
         final Boolean flag = wroksDao.worksEdit(worksEntity) > 0;
-
+        if (flag){
+            searchDao.searchEdit(worksEntity.getId(),worksEntity.getWorksTitle(),"/homepage/works/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("作品修改结果:",flag);
         }

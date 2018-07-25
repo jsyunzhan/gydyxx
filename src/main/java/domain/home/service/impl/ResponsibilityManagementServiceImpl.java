@@ -63,6 +63,9 @@ public class ResponsibilityManagementServiceImpl implements ResponsibilityManage
     @Override
     public Boolean responsibilityEdit(ResponsibilityEntity responsibilityEntity) {
         final Boolean flag = responsibilityDao.responsibilityEdit(responsibilityEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(responsibilityEntity.getId(),responsibilityEntity.getResponsibilityTitle(),"/homepage/responsibility/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("责任督学修改结果:",flag);
         }

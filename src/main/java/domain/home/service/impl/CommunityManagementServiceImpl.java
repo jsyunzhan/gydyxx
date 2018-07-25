@@ -63,6 +63,9 @@ public class CommunityManagementServiceImpl implements CommunityManagementServic
     @Override
     public Boolean communityEdit(CommunityEntity communityEntity) {
         final Boolean flag = communityDao.communityEdit(communityEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(communityEntity.getId(),communityEntity.getCommunityTitle(),"/homepage/community/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("精品社团修改结果:",flag);
         }

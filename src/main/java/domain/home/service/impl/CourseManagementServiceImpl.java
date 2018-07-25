@@ -64,6 +64,9 @@ public class CourseManagementServiceImpl implements CourseManagementService{
     @Override
     public Boolean courseEdit(CourseEntity courseEntity) {
         final Boolean flag = courseDao.courseEdit(courseEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(courseEntity.getId(),courseEntity.getCourseTitle(),"/homepage/course/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("班本课程修改结果:",flag);
         }

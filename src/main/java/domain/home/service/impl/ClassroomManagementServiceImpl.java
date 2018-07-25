@@ -63,7 +63,9 @@ public class ClassroomManagementServiceImpl implements ClassroomManagementServic
     @Override
     public Boolean classroomEdit(ClassroomEntity classroomEntity) {
         final Boolean flag = classroomDao.classroomEdit(classroomEntity) > 0;
-
+        if (flag){
+            searchDao.searchEdit(classroomEntity.getId(),classroomEntity.getClassroomTitle(),"/homepage/classroom/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("致用课堂修改结果:",flag);
         }

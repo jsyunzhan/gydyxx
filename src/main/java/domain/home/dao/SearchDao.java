@@ -10,6 +10,8 @@ import java.util.List;
 public interface SearchDao {
     Integer searchAdd(@Param("id") Long id,@Param("title")String title,@Param("url") String url);
 
+    Integer searchEdit(@Param("id") Long id,@Param("title")String title,@Param("url") String url);
+
     List<SearchEntity> searchList(String title);
 
 }

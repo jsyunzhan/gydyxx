@@ -64,7 +64,9 @@ public class SubjectManagementServiceImpl implements SubjectManagementService{
     @Override
     public Boolean subjectEdit(SubjectEntity subjectEntity) {
         final Boolean flag = subjectDao.subjectEdit(subjectEntity) > 0;
-
+        if (flag){
+            searchDao.searchEdit(subjectEntity.getId(),subjectEntity.getSubjectTitle(),"/homepage/subject/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("课题研究修改结果:",flag);
         }

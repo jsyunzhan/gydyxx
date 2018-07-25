@@ -51,7 +51,7 @@ public class TeachingManagementServiceImpl implements TeachingManagementService{
         final Boolean flag = teachingDao.teachingAdd(teachingEntity) > 0;
 
         if (flag){
-            searchDao.searchAdd(teachingEntity.getId(),teachingEntity.getTeachingTitle(),"/homepage/eaching/details/");
+            searchDao.searchAdd(teachingEntity.getId(),teachingEntity.getTeachingTitle(),"/homepage/teaching/details/");
         }
 
         if (LOGGER.isDebugEnabled()){
@@ -63,6 +63,9 @@ public class TeachingManagementServiceImpl implements TeachingManagementService{
     @Override
     public Boolean teachingEdit(TeachingEntity teachingEntity) {
         final Boolean flag = teachingDao.teachingEdit(teachingEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(teachingEntity.getId(),teachingEntity.getTeachingTitle(),"/homepage/teaching/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("教学资源修改结果:",flag);
         }

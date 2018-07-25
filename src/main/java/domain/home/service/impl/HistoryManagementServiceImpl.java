@@ -63,6 +63,9 @@ public class HistoryManagementServiceImpl implements HistoryManagementService{
     @Override
     public Boolean historyEdit(HistoryEntity historyEntity) {
         final Boolean flag = historyDao.historyEdit(historyEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(historyEntity.getId(),historyEntity.getHistoryTitle(),"/homepage/history/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("校史天地修改:",flag);
         }

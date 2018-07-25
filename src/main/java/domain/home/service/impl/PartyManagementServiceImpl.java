@@ -64,7 +64,9 @@ public class PartyManagementServiceImpl implements PartyManagementService{
     @Override
     public Boolean partyEdit(PartyEntity partyEntity) {
         final Boolean flag = partyDao.partyEdit(partyEntity) > 0;
-
+        if (flag){
+            searchDao.searchEdit(partyEntity.getId(),partyEntity.getPartyTitle(),"/homepage/party/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("党建工会修改结果:",flag);
         }

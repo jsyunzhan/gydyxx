@@ -63,6 +63,9 @@ public class TrainingManagementServiceImpl implements TrainingManagementService{
     @Override
     public Boolean trainingEdit(TrainingEntity trainingEntity) {
         final Boolean flag = trainingDao.trainingEdit(trainingEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(trainingEntity.getId(),trainingEntity.getTrainingTitle(),"/homepage/training/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("校本培训修改结果:",flag);
         }

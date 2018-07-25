@@ -65,7 +65,9 @@ public class NoticeManagementServiceImpl implements NoticeManagementService{
     @Override
     public Boolean noticeEdit(NoticeEntity noticeEntity) {
         final Boolean flag = noticeDao.noticeEdit(noticeEntity);
-
+        if (flag){
+            searchDao.searchEdit(noticeEntity.getId(),noticeEntity.getNoticeTitle(),"/homepage/notice/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("公告修改结果:",flag);
         }

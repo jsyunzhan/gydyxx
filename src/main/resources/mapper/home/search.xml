@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="domain.home.dao.SearchDao">
 
+    <!--新增-->
     <insert id="searchAdd">
         INSERT INTO t_home_search
         (
@@ -17,6 +18,13 @@
         NOW()
         )
     </insert>
+
+    <!--修改-->
+    <update id="searchEdit">
+        UPDATE t_home_search SET
+        TITLE=#{title}
+        WHERE TABLE_ID=#{id} AND URL=#{url}
+    </update>
 
     <select id="searchList" resultType="SearchEntityInfo">
         SELECT

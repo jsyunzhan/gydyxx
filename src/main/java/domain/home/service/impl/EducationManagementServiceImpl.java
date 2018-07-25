@@ -64,6 +64,9 @@ public class EducationManagementServiceImpl implements EducationManagementServic
     @Override
     public Boolean educationEdit(EducationEntity educationEntity) {
         final Boolean flag = educationDao.educationEdit(educationEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(educationEntity.getId(),educationEntity.getEducationTitle(),"/homepage/education/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("教育科研新增结果:",flag);
         }

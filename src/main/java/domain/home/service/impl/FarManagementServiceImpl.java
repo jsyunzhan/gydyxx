@@ -63,6 +63,9 @@ public class FarManagementServiceImpl implements FarManagementService{
     @Override
     public Boolean farEdit(FarEntity farEntity) {
         final Boolean flag = farDao.farEdit(farEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(farEntity.getId(),farEntity.getFarTitle(),"/homepage/far/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("致用工作室修改结果:",flag);
         }

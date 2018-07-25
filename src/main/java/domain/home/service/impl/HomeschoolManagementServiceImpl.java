@@ -63,6 +63,9 @@ public class HomeschoolManagementServiceImpl implements HomeschoolManagementServ
     @Override
     public Boolean homeschoolEdit(HomeschoolEntity homeschoolEntity) {
         final Boolean flag = homeschoolDao.homeschoolEdit(homeschoolEntity) > 0;
+        if (flag){
+            searchDao.searchEdit(homeschoolEntity.getId(),homeschoolEntity.getHomeschoolTitle(),"/homepage/homeschool/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("家校心桥修改结果:",flag);
         }
