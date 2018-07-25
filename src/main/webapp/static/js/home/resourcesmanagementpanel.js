@@ -84,7 +84,7 @@ $(function () {
         footer: '#addResourcesWinFooter',
         onClose: function () {
             $('#addResourcesForm').form('disableValidation').form('reset');
-            reportAdd.setContext("")
+            reportAdd.setContent("")
         }
     });
 
@@ -135,7 +135,7 @@ $(function () {
         width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
         footer: '#editResourcesWinFooter',
         onClose: function () {
-            reportEdit.setContext("")
+            reportEdit.setContent("")
             $('#editResourcesForm').form('disableValidation').form('reset');
         }
     });

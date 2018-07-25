@@ -104,7 +104,7 @@ $(function () {
             $('#pictureSpeechForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addSpeechForm').form('disableValidation').form('reset');
-            reportAdd.setContext("")
+            reportAdd.setContent("")
         }
     });
 
@@ -177,7 +177,7 @@ $(function () {
             $('#pictureSpeechForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editSpeechForm').form('disableValidation').form('reset');
-            reportEdit.setContext("")
+            reportEdit.setContent("")
         }
     });
 

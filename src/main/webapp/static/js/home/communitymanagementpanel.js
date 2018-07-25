@@ -104,7 +104,7 @@ $(function () {
             $('#pictureCommunityForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addCommunityForm').form('disableValidation').form('reset');
-            reportAdd.setContext("")
+            reportAdd.setContent("")
         }
     });
 
@@ -177,7 +177,7 @@ $(function () {
             $('#pictureCommunityForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editCommunityForm').form('disableValidation').form('reset');
-            reportEdit.setContext('')
+            reportEdit.setContent()
         }
     });
 

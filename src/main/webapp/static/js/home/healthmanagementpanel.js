@@ -83,7 +83,7 @@ $(function () {
         footer: '#addHealthWinFooter',
         onClose: function () {
             $('#addHealthForm').form('disableValidation').form('reset');
-            reportAdd.setContext("")
+            reportAdd.setContent("")
         }
     });
 
@@ -133,7 +133,7 @@ $(function () {
         width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
         footer: '#editHealthWinFooter',
         onClose: function () {
-            reportEdit.setContext("")
+            reportEdit.setContent("")
             $('#editHealthForm').form('disableValidation').form('reset');
         }
     });

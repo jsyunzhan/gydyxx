@@ -84,7 +84,7 @@ $(function () {
         footer: '#addHomeschoolWinFooter',
         onClose: function () {
             $('#addHomeschoolForm').form('disableValidation').form('reset');
-            reportAdd.setContext("")
+            reportAdd.setContent("")
         }
     });
 
@@ -134,7 +134,7 @@ $(function () {
         width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
         footer: '#editHomeschoolWinFooter',
         onClose: function () {
-            reportEdit.setContext("")
+            reportEdit.setContent("")
             $('#editHomeschoolForm').form('disableValidation').form('reset');
         }
     });

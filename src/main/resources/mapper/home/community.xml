@@ -46,7 +46,7 @@
         ORDER BY t.CREATE_DATA
     </select>
 
-    <select id="courseDetails" resultMap="ResultCommunityEntityInfo">
+    <select id="communityDetails" resultMap="ResultCommunityEntityInfo">
         SELECT
         t.ID id,
         t.COMMUNITY_TITLE communityTitle,
