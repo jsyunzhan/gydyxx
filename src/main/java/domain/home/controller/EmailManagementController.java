@@ -3,9 +3,11 @@ package domain.home.controller;
 import domain.home.entity.EmailEntity;
 import domain.home.service.EmailManagementService;
 import domain.shiro.controller.AbstractActionController;
+import domain.shiro.entity.JsonResponseVO;
 import domain.shiro.entity.PageQueryResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -53,5 +55,15 @@ public class EmailManagementController extends AbstractActionController{
     @ResponseBody
     public List<EmailEntity> emailAllList(EmailEntity emailEntity){
         return emailManagementService.emailAllList(emailEntity);
+    }
+
+    @RequestMapping(value = "/homepage/email/add")
+    @ResponseBody
+    public JsonResponseVO emailAdd(@RequestBody EmailEntity emailEntity){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        emailEntity.setCreateUserId(getLoginId());
+        Boolean flag = emailManagementService.emailAdd(emailEntity);
+        jsonResponseVO.setSuccess(flag);
+        return jsonResponseVO;
     }
 }
