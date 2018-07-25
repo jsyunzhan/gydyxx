@@ -168,7 +168,6 @@
 <script>
 
     var path  = '<%=request.getContextPath()%>';
-
     var title = '${title}';
     var details = '${details}';
     var picturePath = '${picturePath}';
