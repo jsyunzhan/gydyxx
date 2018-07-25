@@ -14,11 +14,15 @@ public class ProfileEntity extends AbstractEntity{
     //学校概况正文
     private String profileDetails;
 
+    //状态
+    private Long statueId;
+
     @Override
     public String toString() {
         return "ProfileEntity{" +
                 "profileTitle='" + profileTitle + '\'' +
                 ", profileDetails='" + profileDetails + '\'' +
+                ", statueId='" + statueId + '\'' +
                 '}';
     }
 }

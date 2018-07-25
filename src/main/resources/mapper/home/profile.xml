@@ -20,6 +20,7 @@
         t.ID id,
         t.PROFILE_TITLE profileTitle,
         t.PROFILE_DETAILS,
+        t.STATUE_ID statueId,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,
@@ -87,6 +88,32 @@
     <update id="profileDelete">
         UPDATE t_home_profile SET
         DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--取消所有-->
+    <update id="cancelAllProfile">
+        UPDATE t_home_profile SET
+        STATUE_ID='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+    </update>
+
+    <!--开启-->
+    <update id="openProfile">
+        UPDATE t_home_profile SET
+        STATUE_ID='1',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--禁用-->
+    <update id="closeProfile">
+        UPDATE t_home_profile SET
+        STATUE_ID='0',
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()
         WHERE ID=#{id}

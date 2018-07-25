@@ -21,4 +21,10 @@ public interface ProfileDao {
     List<ProfileEntity> profileAllList(ProfileEntity profileEntity);
 
     ProfileEntity profileDetails(Long id);
+
+    Integer cancelAllProfile(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    Integer openProfile(@Param("id")Long id,@Param("updateUserId") Long loginId);
+
+    Integer closeProfile(@Param("id")Long id,@Param("updateUserId") Long loginId);
 }

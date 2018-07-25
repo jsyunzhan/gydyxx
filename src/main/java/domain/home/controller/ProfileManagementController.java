@@ -137,4 +137,48 @@ public class ProfileManagementController extends AbstractActionController{
         }
         return jsonResponseVO;
     }
+
+    /**
+     * 启用
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = PROFILE_MANAGEMENT_OPEN)
+    @ResponseBody
+    public JsonResponseVO profileOpen(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("学校概况启用,id:{}",id);
+            }
+            Boolean flag =  profileManagementService.profileOpen(id,getLoginId());
+
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
+
+    /**
+     * 禁用
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = PROFILE_MANAGEMENT_CLOSE)
+    @ResponseBody
+    public JsonResponseVO profileClose(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("学校概况禁用,id:{}",id);
+            }
+            Boolean flag =  profileManagementService.profileClose(id,getLoginId());
+
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
 }

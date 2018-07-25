@@ -90,4 +90,19 @@ public class ProfileManagementServiceImpl implements ProfileManagementService{
     public ProfileEntity profileDetails(Long id) {
         return profileDao.profileDetails(id);
     }
+
+    @Override
+    public Boolean profileOpen(Long id, Long loginId) {
+        Boolean result = false;
+        final Boolean flag = profileDao.cancelAllProfile(id,loginId) > 0;
+        if (flag){
+            result = profileDao.openProfile(id,loginId) > 0;
+        }
+        return result;
+    }
+
+    @Override
+    public Boolean profileClose(Long id, Long loginId) {
+        return profileDao.closeProfile(id,loginId) > 0;
+    }
 }

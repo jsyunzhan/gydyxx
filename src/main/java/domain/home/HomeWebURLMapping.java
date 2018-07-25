@@ -248,6 +248,15 @@ public final class HomeWebURLMapping {
      */
     public static final String PROFILE_MANAGEMENT_DELETE = PROFILE_MANAGEMENT_PAGE + "/delete/{id}";
 
+    /**
+     * 学校概况启用
+     */
+    public static final String PROFILE_MANAGEMENT_OPEN = PROFILE_MANAGEMENT_PAGE + "/open/{id}";
+
+    /**
+     * 学校概况禁用
+     */
+    public static final String PROFILE_MANAGEMENT_CLOSE = PROFILE_MANAGEMENT_PAGE + "/close/{id}";
     /*******************党建工会管理*************************/
     /**
      * 去党建工会管理页面

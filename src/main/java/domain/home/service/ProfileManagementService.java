@@ -43,4 +43,20 @@ public interface ProfileManagementService {
     List<ProfileEntity> profileAllList(ProfileEntity profileEntity);
 
     ProfileEntity profileDetails(Long id);
+
+    /**
+     * 启用
+     * @param id
+     * @param loginId
+     * @return
+     */
+    Boolean profileOpen(Long id, Long loginId);
+
+    /**
+     * 禁用
+     * @param id
+     * @param loginId
+     * @return
+     */
+    Boolean profileClose(Long id, Long loginId);
 }

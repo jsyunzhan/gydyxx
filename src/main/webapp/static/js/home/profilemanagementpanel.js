@@ -15,10 +15,10 @@ $(function () {
                 field: 'profileTitle', title: "学校概况标题", width: 150, sortable: true,
                 align: 'left'
             }
-            // , {
-            //     field: 'profileDetails', title: "学校概况内容", width: 400, sortable: true,
-            //     align: 'left'
-            // }
+            , {
+                field: 'statueId', title: "是否开启", width: 150, sortable: true,
+                align: 'left',formatter:result
+            }
         ]],
         toolbar: [
             {
@@ -54,6 +54,17 @@ $(function () {
                 text: "删除", iconCls: 'icon-remove',
                 handler: function () {
                     removeHandle();
+                }
+            }, {
+                text: "启用", iconCls: 'icon-remove',
+                handler: function () {
+                    open();
+                }
+            },
+            {
+                text: "禁用", iconCls: 'icon-remove',
+                handler: function () {
+                    close();
                 }
             }
         ],
@@ -199,6 +210,68 @@ $(function () {
                 }
             })
         })
+    }
+
+    /************启用*************/
+
+    function open() {
+        if (!selectedProfile) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+        if (1 == selectedProfile.statueId){
+            showWarningMessage("该条目处于开启状态，请重新选择！");
+            return
+        }
+
+        var msg = String.format("您确定要启用学校概况：<span style='color: red;'>{0}</span>？", selectedProfile.profileTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/profilemanpage/open/"+selectedProfile.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $profileGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
+    /************关闭*************/
+
+    function close() {
+        if (!selectedProfile) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+        if (0 == selectedProfile.statueId){
+            showWarningMessage("该条目处于禁用状态，请重新选择！");
+            return
+        }
+
+
+        var msg = String.format("您确定要禁用学校概况：<span style='color: red;'>{0}</span>？", selectedProfile.profileTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/profilemanpage/close/"+selectedProfile.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $profileGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
+    function result(value, row, index) {
+
+        if (0 == value ) {
+            return "<span style='color:red;'>" + '否' + "</span>";
+        } else {
+            return "<span style='color:blue;'>" + '是' + "</span>";
+        }
     }
 
 });
