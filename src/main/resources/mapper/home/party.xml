@@ -58,7 +58,7 @@
     </select>
 
     <!--新增-->
-    <insert id="partyAdd" >
+    <insert id="partyAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_party
         (
         PARTY_TITLE,

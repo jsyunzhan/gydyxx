@@ -61,7 +61,7 @@
     </select>
 
     <!--校史天地新增-->
-    <insert id="historyAdd" >
+    <insert id="historyAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_history
         (
         HISTORY_TITLE,

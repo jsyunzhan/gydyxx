@@ -62,7 +62,7 @@
     </select>
 
     <!--新增-->
-    <insert id="speechAdd" >
+    <insert id="speechAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_speech
         (
         SPEECH_TITLE,

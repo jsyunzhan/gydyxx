@@ -61,7 +61,7 @@
     </select>
 
     <!--课题研究新增-->
-    <insert id="subjectAdd" >
+    <insert id="subjectAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_subject
         (
         SUBJECT_TITLE,

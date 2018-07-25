@@ -61,7 +61,7 @@
     </select>
 
     <!--首页公告新增-->
-    <insert id="leaderAdd" >
+    <insert id="leaderAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_leader
         (
         LEADER_TITLE,

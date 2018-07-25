@@ -61,7 +61,7 @@
     </select>
 
     <!--名师风采新增-->
-    <insert id="teacherAdd" >
+    <insert id="teacherAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_teacher
         (
         TEACHER_TITLE,

@@ -45,7 +45,7 @@
     </select>
 
     <!--新增-->
-    <insert id="emailAdd">
+    <insert id="emailAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_email
         (
         SEND_NAME,

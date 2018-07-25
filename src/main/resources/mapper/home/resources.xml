@@ -58,7 +58,7 @@
     </select>
 
     <!--新增-->
-    <insert id="resourcesAdd" >
+    <insert id="resourcesAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_resources
         (
         RESOURCES_TITLE,

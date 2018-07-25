@@ -95,7 +95,7 @@
     </select>
 
     <!--首页公告新增-->
-    <insert id="newsAdd" >
+    <insert id="newsAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_news
         (
         NEWS_TITLE,

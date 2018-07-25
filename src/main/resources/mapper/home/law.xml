@@ -58,7 +58,7 @@
     </select>
 
     <!--新增-->
-    <insert id="lawAdd" >
+    <insert id="lawAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_law
         (
         LAW_TITLE,

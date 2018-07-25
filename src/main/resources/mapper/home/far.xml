@@ -59,7 +59,7 @@
     </select>
 
     <!--新增-->
-    <insert id="farAdd" >
+    <insert id="farAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_far
         (
         FAR_TITLE,

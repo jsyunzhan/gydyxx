@@ -61,7 +61,7 @@
     </select>
 
     <!--新增-->
-    <insert id="courseAdd" >
+    <insert id="courseAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_course
         (
         COURSE_TITLE,

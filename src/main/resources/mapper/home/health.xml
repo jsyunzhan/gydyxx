@@ -58,7 +58,7 @@
     </select>
 
     <!--新增-->
-    <insert id="healthAdd" >
+    <insert id="healthAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_healty
         (
         HEALTH_TITLE,

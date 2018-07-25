@@ -58,7 +58,7 @@
     </select>
 
     <!--新增-->
-    <insert id="educationAdd" >
+    <insert id="educationAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_education
         (
         EDUCATION_TITLE,

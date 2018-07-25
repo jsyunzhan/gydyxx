@@ -58,7 +58,7 @@
     </select>
 
     <!--首页公告新增-->
-    <insert id="rulesAdd" >
+    <insert id="rulesAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_rules
         (
         RULES_TITLE,

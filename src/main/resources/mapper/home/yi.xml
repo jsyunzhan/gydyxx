@@ -62,7 +62,7 @@
     </select>
 
     <!--首页公告新增-->
-    <insert id="yiAdd" >
+    <insert id="yiAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_yi
         (
         YI_TITLE,

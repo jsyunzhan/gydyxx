@@ -58,7 +58,7 @@
     </select>
 
     <!--新增-->
-    <insert id="responsibilityAdd" >
+    <insert id="responsibilityAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_responsibility
         (
         RESPONSIBILITY_TITLE,

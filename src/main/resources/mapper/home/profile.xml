@@ -59,7 +59,7 @@
     </select>
 
     <!--新增-->
-    <insert id="profileAdd" >
+    <insert id="profileAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_profile
         (
         PROFILE_TITLE,

@@ -61,7 +61,7 @@
     </select>
 
     <!--学子风采新增-->
-    <insert id="studentAdd" >
+    <insert id="studentAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_student
         (
         STUDENT_TITLE,

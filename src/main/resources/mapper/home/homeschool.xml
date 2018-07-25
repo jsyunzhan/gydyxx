@@ -58,7 +58,7 @@
     </select>
 
     <!--新增-->
-    <insert id="homeschoolAdd" >
+    <insert id="homeschoolAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_homeschool
         (
         HOMESCHOOL_TITLE,
