@@ -7,14 +7,12 @@
         INSERT INTO t_home_search
         (
         TABLE_ID,
-        TABLE_NAME,
         TITLE,
-        MAIN_CHAR
+        URL
         ) VALUE (
         #{id},
-        #{tableName},
         #{title},
-        #{mainChar}
+        #{url}
         )
     </insert>
 
@@ -22,9 +20,8 @@
         SELECT
         t.ID id,
         t.TABLE_ID tableId,
-        t.TABLE_NAME tableName,
         t.TITLE title,
-        t.MAIN_CHAR mainChar
+        t.URL url
         FROM t_home_search t
         WHERE t.TITLE like concat(concat('%',#{title}),'%')
     </select>

@@ -53,7 +53,7 @@ public class NoticeManagementServiceImpl implements NoticeManagementService{
         final Boolean flag = noticeDao.noticeAdd(noticeEntity) > 0;
 
         if (flag){
-            searchDao.searchAdd(noticeEntity.getId(),noticeEntity.getNoticeTitle(),"t_home_notice","NOTICE");
+            searchDao.searchAdd(noticeEntity.getId(),noticeEntity.getNoticeTitle(),"/homepage/notice/details/");
         }
 
         if (LOGGER.isDebugEnabled()){

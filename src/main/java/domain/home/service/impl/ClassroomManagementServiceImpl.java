@@ -1,6 +1,7 @@
 package domain.home.service.impl;
 
 import domain.home.dao.ClassroomDao;
+import domain.home.dao.SearchDao;
 import domain.home.entity.ClassroomEntity;
 import domain.home.service.ClassroomManagementService;
 import domain.shiro.entity.PageQueryResult;
@@ -20,10 +21,12 @@ public class ClassroomManagementServiceImpl implements ClassroomManagementServic
     private static final Logger LOGGER = LoggerFactory.getLogger(ClassroomManagementServiceImpl.class);
 
     final private ClassroomDao classroomDao;
+    final private SearchDao searchDao;
 
     @Autowired
-    public ClassroomManagementServiceImpl(ClassroomDao classroomDao){
+    public ClassroomManagementServiceImpl(ClassroomDao classroomDao,SearchDao searchDao){
         this.classroomDao = classroomDao;
+        this.searchDao = searchDao;
     }
 
     @Override
@@ -46,6 +49,11 @@ public class ClassroomManagementServiceImpl implements ClassroomManagementServic
     @Override
     public Boolean classroomAdd(ClassroomEntity classroomEntity) {
         final Boolean flag = classroomDao.classroomAdd(classroomEntity) > 0;
+
+        if (flag){
+            searchDao.searchAdd(classroomEntity.getId(),classroomEntity.getClassroomTitle(),"t_home_classroom");
+        }
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("致用课堂新增结果:",flag);
         }
@@ -55,6 +63,7 @@ public class ClassroomManagementServiceImpl implements ClassroomManagementServic
     @Override
     public Boolean classroomEdit(ClassroomEntity classroomEntity) {
         final Boolean flag = classroomDao.classroomEdit(classroomEntity) > 0;
+
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("致用课堂修改结果:",flag);
         }

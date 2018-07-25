@@ -8,10 +8,8 @@ import java.util.List;
 
 @Repository
 public interface SearchDao {
-    Integer searchAdd(@Param("id") Long id,@Param("title")String title,@Param("tableName") String t_home_notice,@Param("mainChar") String mainChar);
+    Integer searchAdd(@Param("id") Long id,@Param("title")String title,@Param("url") String url);
 
     List<SearchEntity> searchList(String title);
 
-
-    SearchEntity searchDetails(@Param("id") String tableId,@Param("tableName") String tableName);
 }

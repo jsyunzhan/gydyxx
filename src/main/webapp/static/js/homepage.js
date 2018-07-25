@@ -7,7 +7,7 @@ $(function () {
             url:path + "/homepage/home/search?title=" + title,
             type:"GET",dataType:"json",
             success:function (event) {
-
+                console.log(event)
             }
         });
 
