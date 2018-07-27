@@ -18,7 +18,6 @@ $(function () {
             })
         }
     });
-
     // 新闻中心主题数据
     $.ajax({
         url:path + "/homepage/news/main/list",
