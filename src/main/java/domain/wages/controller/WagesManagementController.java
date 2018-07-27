@@ -36,6 +36,8 @@ public class WagesManagementController extends AbstractActionController{
         this.stockImportExcel = stockImportExcel;
     }
 
+
+
     /**
      * 去工资管理页面
      * @return ModelAndView
