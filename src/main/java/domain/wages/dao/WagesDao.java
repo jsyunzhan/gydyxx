@@ -28,4 +28,6 @@ public interface WagesDao {
     Integer wagesDelete(Long id);
 
     Integer wagesEditMain(WagesMainEntity wagesMainEntity);
+
+    List<WagesEntity> wagesListByAccountId(Long loginId);
 }

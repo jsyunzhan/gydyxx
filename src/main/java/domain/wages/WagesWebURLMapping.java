@@ -10,7 +10,7 @@ public final class WagesWebURLMapping {
 
     public static final String WAGES_ROOT = "/wages/";
 
-    /*------------------角色管理--------------------------------------------------------- */
+    /*------------------工资管理--------------------------------------------------------- */
     /**
      * 去工资管理页面
      */
@@ -50,6 +50,17 @@ public final class WagesWebURLMapping {
      * 表格上传
      */
     public static final String WAGES_MANAGEMENT_EXCEL_IMPORT = WAGES_MANAGEMENT_PAGE + "/import";
+
+    /*------------------工资查询--------------------------------------------------------- */
+    /**
+     * 去工资查询页面
+     */
+    public static final String WAGES_QUERY_MANAGEMENT_PAGE = WAGES_ROOT + "wagesquerymanpage";
+
+    /**
+     * 查询自己的工资
+     */
+    public static final String WAGES_QUERY_MANAGEMENT_LIST = WAGES_QUERY_MANAGEMENT_PAGE + "/list";
 
 
 }

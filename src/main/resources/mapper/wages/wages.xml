@@ -102,4 +102,22 @@
         WHERE ID=#{id}
     </delete>
 
+
+    <!--根据用户id查询-->
+    <select id="wagesListByAccountId" resultType="WagesEntityInfo">
+        SELECT
+        t.ID id,
+        t.WAGES_ID wagesId,
+        t.ACCOUNT_ID accountId,
+        (SELECT b.USER_NAME FROM t_sys_account b WHERE b.id=t.ACCOUNT_ID) accountName,
+        t.WAGES_DETAILS wagesdetails,
+        t.WAGES_DATA wagesData,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_teacher_wages t
+        WHERE t.DELETE_FLAG='1' AND t.ACCOUNT_ID=#{id}
+        ORDER BY t.CREATE_DATA
+    </select>
 </mapper>
