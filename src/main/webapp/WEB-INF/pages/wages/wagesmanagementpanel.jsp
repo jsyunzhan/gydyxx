@@ -71,7 +71,6 @@
 <!--查看详情窗口-->
 <div id="detailsWagesWin">
 
-
     <div id="detailsWinFooter" style="text-align:center;padding:5px">
 
         <a id="detailsWinCloseBtn" href="javascript:void(0);" iconCls="icon-cancel" style="margin-left:20px;"
