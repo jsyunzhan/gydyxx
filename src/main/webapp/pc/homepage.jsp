@@ -290,7 +290,7 @@
                     <div class="ex_child">
                         <div class="title_ex">
                             <img src="${APP_PATH}/static/images/title_01.jpg">
-                            <a href="javascript:;">更多></a>
+                            <a href="${APP_PATH}/pc/zyshaonian/zpzs.jsp">更多></a>
                         </div>
                         <div class="content_ex"></div>
                     </div>
@@ -299,16 +299,16 @@
                     <div class="ex_child">
                         <div class="title_ex">
                             <img src="${APP_PATH}/static/images/title_02.jpg">
-                            <a href="javascript:;">更多></a>
+                            <a href="${APP_PATH}/pc/zyyuanding/msfc.jsp">更多></a>
                         </div>
                         <div class="content_ex"></div>
                     </div>
 
-                    <%--学习风采--%>
+                    <%--学子风采--%>
                     <div class="ex_child">
                         <div class="title_ex">
                             <img src="${APP_PATH}/static/images/title_03.jpg">
-                            <a href="javascript:;">更多></a>
+                            <a href="${APP_PATH}/pc/zyshaonian/xzfc.jsp">更多></a>
                         </div>
                         <div class="content_ex"></div>
                     </div>
@@ -317,7 +317,7 @@
                     <div class="ex_child">
                         <div class="title_ex">
                             <img src="${APP_PATH}/static/images/title_04.jpg">
-                            <a href="javascript:;">更多></a>
+                            <a href="${APP_PATH}/pc/zyxueyuan/ktyj.jsp">更多></a>
                         </div>
                         <div class="content_ex"></div>
                     </div>
