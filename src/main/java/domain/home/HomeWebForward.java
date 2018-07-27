@@ -148,4 +148,9 @@ public final class HomeWebForward {
      * 去校史天地页面
      */
     public static final String TO_HISTORY_PAGE = "home/historymanagementpanel";
+
+    /**
+     * 去轮播图页面
+     */
+    public static final String TO_BANNER_PAGE = "home/bannermanagementpanel";
 }

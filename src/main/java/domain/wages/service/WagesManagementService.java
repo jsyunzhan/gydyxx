@@ -36,4 +36,19 @@ public interface WagesManagementService {
      * @return
      */
     List<WagesEntity> wagesDetails(Long id);
+
+    /**
+     * 工资删除
+     * @param id id
+     * @return Boolean
+     */
+    Boolean wagesDelete(Long id);
+
+    /**
+     * 工资修改
+     * @param requsetVOEntity 修改实体
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean wagesEdit(RequsetVOEntity requsetVOEntity, Long loginId);
 }
