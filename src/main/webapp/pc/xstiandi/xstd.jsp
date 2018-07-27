@@ -19,7 +19,6 @@
     <script type="text/javascript" src="${APP_PATH}/static/js/data/xstd.js"></script>
     <title>校史天地</title>
 </head>
-
 <body>
 <div class="wrapper">
     <div class="bg">
