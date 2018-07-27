@@ -20,6 +20,7 @@
     <script type="text/javascript" src="${APP_PATH}/static/js/homepage.js"></script>
     <title>高邮市第一实验小学</title>
 </head>
+
 <body>
     <div class="wrapper">
         <div class="bg">
