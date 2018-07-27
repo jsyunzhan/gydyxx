@@ -37,7 +37,6 @@ public class WagesManagementController extends AbstractActionController{
     }
 
 
-
     /**
      * 去工资管理页面
      * @return ModelAndView
