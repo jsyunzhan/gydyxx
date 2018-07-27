@@ -69,3 +69,11 @@ function formatDate(value) {
         return "";
     }
 }
+
+function formatMonth(value) {
+    if (value) {
+        return new Date(value).Format("yyyy-MM");
+    } else {
+        return "";
+    }
+}

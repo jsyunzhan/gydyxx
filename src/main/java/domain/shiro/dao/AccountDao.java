@@ -73,4 +73,17 @@ public interface AccountDao {
      * @return Integer
      */
     Integer editPassWord(AccountEntity accountEntity);
+
+    /**
+     * 获取所有用户
+     * @return List<AccountEntity>
+     */
+    List<AccountEntity> accountAllList();
+
+    /**
+     * 根据用户名搜索
+     * @param userName
+     * @return
+     */
+    AccountEntity checkUserName(String userName);
 }

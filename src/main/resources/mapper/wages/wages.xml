@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.wages.dao.WagesDao">
+
+    <!--查总数-->
+    <select id="wagesMainCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_main_wages t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="wagesMainList" resultType="WagesMainEntityInfo">
+        SELECT
+        t.ID id,
+        t.WAGES_NAME wagesName,
+        t.WAGES_DATA wagesDate,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_main_wages t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <!--查看详情-->
+    <select id="wagesDetails" resultType="WagesEntityInfo">
+        SELECT
+        t.ID id,
+        t.WAGES_ID wagesId,
+        t.ACCOUNT_ID accountId,
+        (SELECT b.USER_NAME FROM t_sys_account b WHERE b.id=t.ACCOUNT_ID) accountName,
+        t.WAGES_DETAILS wagesdetails,
+        t.WAGES_DATA wagesData,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_teacher_wages t
+        WHERE t.DELETE_FLAG='1' AND t.WAGES_ID=#{id}
+        ORDER BY t.CREATE_DATA
+    </select>
+
+    <!--工资主表新增-->
+    <insert id="wagesAddMain" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_main_wages
+        (
+        WAGES_NAME,
+        WAGES_DATA,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{wagesName},
+        #{wagesDate},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--工资表新增-->
+    <insert id="wagesAdd" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_teacher_wages
+        (
+        WAGES_ID,
+        ACCOUNT_ID,
+        WAGES_DATA,
+        WAGES_DETAILS,
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{wagesId},
+        #{accountId},
+        #{wagesData},
+        #{wagesdetails},
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+</mapper>

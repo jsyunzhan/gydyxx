@@ -8,7 +8,7 @@
     </sql>
 
 
-    <!--根据用户名查询-用登录验证-->
+    <!--根据登录名查询-用登录验证-->
     <select id="accoutInfo" resultType="AccountEntityInfo">
         select
         t.ID id,
@@ -24,6 +24,19 @@
         from t_sys_account t
         LEFT JOIN t_sys_role b ON t.ROLE_ID=b.ID
         where t.LOGIN_NAME=#{loginName} AND t.DELETE_FLAG='1'
+    </select>
+
+    <!--根据用户名查询-->
+    <select id="checkUserName" resultType="AccountEntityInfo">
+        select
+        t.ID id,
+        t.USER_NAME userName,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        from t_sys_account t
+        where t.USER_NAME=#{userName} AND t.DELETE_FLAG='1'
     </select>
 
     <!--新增-->
@@ -114,4 +127,17 @@
         UPDATE_DATA=NOW()
         WHERE ID=#{id}
     </update>
+
+    <select id="accountAllList" resultType="AccountEntityInfo">
+        SELECT
+        t.ID id,
+        t.USER_NAME userName,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_sys_account t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA DESC
+    </select>
 </mapper>
