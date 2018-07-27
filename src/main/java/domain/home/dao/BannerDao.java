@@ -8,6 +8,7 @@ import java.util.List;
 
 @Repository
 public interface BannerDao {
+
     Integer bannerCount(BannerEntity bannerEntity);
 
     List<BannerEntity> bannerList(BannerEntity bannerEntity);
