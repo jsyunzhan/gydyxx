@@ -110,7 +110,7 @@
         t.WAGES_ID wagesId,
         t.ACCOUNT_ID accountId,
         (SELECT b.USER_NAME FROM t_sys_account b WHERE b.id=t.ACCOUNT_ID) accountName,
-        (SELECT b.WAGES_NAME FROM t_main_wages b WHERE b.id=t.wagesId) wagesName,
+        (SELECT b.WAGES_NAME FROM t_main_wages b WHERE b.id=t.WAGES_ID) wagesName,
         t.WAGES_DETAILS wagesdetails,
         t.WAGES_DATA wagesData,
         t.CREATE_USER_ID createUserId,
