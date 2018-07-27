@@ -115,6 +115,38 @@
 
 <!--查看详情窗口-->
 <div id="detailsWagesWin">
+    <style>
+        #detailsWagesWin{
+            width: 100%;
+            overflow-x: auto;
+        }
+        .pay{
+            white-space: nowrap;
+            font-size: 0;
+        }
+        .pay .payNum{
+            width: 100px;
+            line-height: 50px;
+            font-size: 18px;
+            text-align: center;
+            border-bottom: 1px solid #000;
+            font-size: 14px;
+            box-sizing: border-box;
+            white-space: normal;
+            word-wrap: break-word;
+            word-break: break-all;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .payNum p{
+            border: 1px solid #000;
+            border-bottom: 0;
+            margin: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
 
     <div id="detailsWinFooter" style="text-align:center;padding:5px">
 

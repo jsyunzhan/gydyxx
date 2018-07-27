@@ -63,7 +63,24 @@ $(function () {
                             dataTye: 'json',
                             success: function (data) {
                                 $detailsWagesWin.window('open');
-                                console.log(data)
+                                console.log(data);
+                                var data01 = data[0].wagesdetails.split(";");
+                                var _html = '';
+                                _html += '<div class="pay"><div class="payNum"><p title="姓名">姓名</p></div>';
+                                for(var j=0;j<data01.length-1;j++){
+                                    var data02 = data01[j].split(":");
+                                    _html += '<div class="payNum"><p title="'+data02[0]+'">'+data02[0]+'</p></div>';
+                                }
+                                for(var i=0;i<data.length;i++){
+                                    _html += '<div class="pay"><div class="payNum"><p>'+data[i].accountName+'</p></div>'
+                                    for(var j=0;j<data01.length-1;j++){
+                                        var data02 = data01[j].split(":");
+                                        _html += '<div class="payNum"><p>'+data02[1]+'</p></div>';
+                                    }
+                                    _html += '</div>';
+                                }
+                                _html += '</div>';
+                                $("#detailsWagesWin").append(_html);
                             }
                         });
                     }
@@ -185,7 +202,7 @@ $(function () {
         width: 900, iconCls: 'icon-add', collapsible: false, minimizable: false,
         footer: '#detailsWinFooter',
         onClose: function () {
-
+            $(".pay").remove();
         }
     });
 
