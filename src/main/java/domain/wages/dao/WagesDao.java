@@ -22,4 +22,10 @@ public interface WagesDao {
     Integer wagesAdd(WagesEntity wagesEntity);
 
     List<WagesEntity> wagesDetails(Long id);
+
+    Integer wagesMainDelete(Long id);
+
+    Integer wagesDelete(Long id);
+
+    Integer wagesEditMain(WagesMainEntity wagesMainEntity);
 }

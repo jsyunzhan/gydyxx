@@ -34,12 +34,13 @@ $(function () {
                 text: "修改", iconCls: 'icon-edit',
                 handler: function () {
 
-                    if (!selectedCelebrate) {
+                    if (!selectedWages) {
                         showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
                     } else {
-                        $editCelebrateForm.form('load', selectedCelebrate);
 
-                        $editCelebrateWin.window('open');
+                        selectedWages.wagesDate = formatDate(selectedWages.wagesDate);
+                        $editWagesForm.form('load', selectedWages);
+                        $editWagesWin.window('open');
                     }
 
                 }
@@ -103,6 +104,7 @@ $(function () {
                 return;
             }
             if (!wagesEntities){
+                showWarningMessage("请上传Excel表格！");
                 return
             }
 
@@ -132,6 +134,50 @@ $(function () {
         }
     });
 
+    /*************修改*******************/
+
+    var $editWagesForm = $('#editWagesForm').form({
+        novalidate: true
+    });
+
+    var $editWagesWin = $('#editWagesWin').window({
+        title: "修改", closed: true, modal: true, height: 380,
+        width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
+        footer: '#editWagesWinFooter',
+        onClose: function () {
+            $('#editWagesForm').form('disableValidation').form('reset');
+        }
+    });
+
+    $('#editWagesWinSubmitBtn').linkbutton({
+        onClick: function () {
+            if (!$('#editWagesForm').form('enableValidation').form('validate')) {
+                return;
+            }
+
+            var wagesData = $editWagesForm.serializeObject(),
+                url = path + "/wages/wagesmanpage/edit";
+            wagesData.id = selectedWages.id;
+            var data = {wagesMainEntity:wagesData,wagesEntities:wagesEntities};
+
+            $.ajax({
+                url:url,type:"POST",contentType: "application/json",data:JSON.stringify(data),
+                success:function (r) {
+                    $wagesGrid.datagrid('reload');
+                    $editWagesWin.window('close');
+                    showInfoMessage(SYSTEM_MESSAGE.msg_action_success)
+                }
+            })
+
+        }
+    });
+
+    $('#editWagesWinCloseBtn').linkbutton({
+        onClick: function () {
+            $editWagesWin.window('close');
+        }
+    });
+
     /********************************查看详情窗口*********************************************/
 
     var $detailsWagesWin = $('#detailsWagesWin').window({
@@ -151,8 +197,31 @@ $(function () {
         }
     });
 
+    /************删除*************/
+
+    function removeHandle() {
+        if (!selectedWages) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+
+
+        var msg = String.format("您确定要删除工资：<span style='color: red;'>{0}</span>？", selectedWages.wagesName);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/wages/wagesmanpage/delete/"+selectedWages.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $wagesGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
     /***************************表格上传*********************************************/
-    $('#wagesExcelBtn').linkbutton({
+    $('#wagesExcelBtn,#wagesExcelBtnEdit').linkbutton({
         onClick: function () {
             $wagesExcelWin.window('open');
         }

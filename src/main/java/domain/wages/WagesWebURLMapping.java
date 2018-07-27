@@ -32,6 +32,16 @@ public final class WagesWebURLMapping {
     public static final String WAGES_MANAGEMENT_ADD = WAGES_MANAGEMENT_PAGE + "/add";
 
     /**
+     * 工资管理修改
+     */
+    public static final String WAGES_MANAGEMENT_EDIT = WAGES_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 工资管理删除
+     */
+    public static final String WAGES_MANAGEMENT_DELETE = WAGES_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /**
      * 用户表所有数据
      */
     public static final String WAGES_MANAGEMENT_ACCOUNT_ALL_LIST = WAGES_MANAGEMENT_PAGE + "/allaccountlist";

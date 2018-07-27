@@ -75,17 +75,79 @@ public class WagesManagementController extends AbstractActionController{
         return stockImportExcel.analysisExcel(file);
     }
 
+    /**
+     * 工资新增
+     * @param requsetVOEntity 新增实体
+     * @return JsonResponseVO
+     */
     @RequestMapping(value = WAGES_MANAGEMENT_ADD)
     @ResponseBody
     public JsonResponseVO wagesAdd(@RequestBody RequsetVOEntity requsetVOEntity){
         final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
-        final Boolean flag = wagesManagementService.wagesAdd(requsetVOEntity,getLoginId());
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("工资新增新增,title:{}",requsetVOEntity.getWagesMainEntity().getWagesName());
+            }
+            final Boolean flag = wagesManagementService.wagesAdd(requsetVOEntity,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
         return jsonResponseVO;
     }
 
+    /**
+     * 工资修改
+     * @param requsetVOEntity 修改实体
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = WAGES_MANAGEMENT_EDIT)
+    @ResponseBody
+    public JsonResponseVO wagesEdit(@RequestBody RequsetVOEntity requsetVOEntity){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("工资修改,title:{}",requsetVOEntity.getWagesMainEntity().getWagesName());
+            }
+            final Boolean flag = wagesManagementService.wagesEdit(requsetVOEntity,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
+
+    /**
+     * 工资查看详情
+     * @param id id
+     * @return List<WagesEntity>
+     */
     @RequestMapping(value = WAGES_MANAGEMENT_DETAILS)
     @ResponseBody
     public List<WagesEntity> wagesDetails(@PathVariable("id") Long id){
         return wagesManagementService.wagesDetails(id);
+    }
+
+    /**
+     * 工资删除
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = WAGES_MANAGEMENT_DELETE)
+    @ResponseBody
+    public JsonResponseVO wagesDelete(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("工资删除,id:{}",id);
+            }
+            final Boolean flag = wagesManagementService.wagesDelete(id);
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+
+        return jsonResponseVO;
     }
 }

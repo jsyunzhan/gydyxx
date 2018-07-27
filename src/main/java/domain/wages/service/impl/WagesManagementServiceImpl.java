@@ -78,4 +78,32 @@ public class WagesManagementServiceImpl implements WagesManagementService{
     public List<WagesEntity> wagesDetails(Long id) {
         return wagesDao.wagesDetails(id);
     }
+
+    @Override
+    public Boolean wagesDelete(Long id) {
+        final Boolean flag = wagesDao.wagesMainDelete(id) > 0;
+        if (flag){
+            wagesDao.wagesDelete(id);
+        }
+        return flag;
+    }
+
+    @Override
+    public Boolean wagesEdit(RequsetVOEntity requsetVOEntity, Long loginId) {
+        final List<WagesEntity> wagesEntities = requsetVOEntity.getWagesEntities();
+        final WagesMainEntity wagesMainEntity = requsetVOEntity.getWagesMainEntity();
+        wagesMainEntity.setUpdateUserId(loginId);
+        final Boolean flag = wagesDao.wagesEditMain(wagesMainEntity) > 0;
+        if (null != wagesEntities && flag){
+            wagesDao.wagesDelete(wagesMainEntity.getId());
+            for (WagesEntity wagesEntity:
+                    wagesEntities) {
+                wagesEntity.setWagesId(wagesMainEntity.getId());
+                wagesEntity.setWagesData(wagesMainEntity.getWagesDate());
+                wagesEntity.setCreateUserId(loginId);
+                wagesDao.wagesAdd(wagesEntity);
+            }
+        }
+        return flag;
+    }
 }
