@@ -788,4 +788,31 @@ public final class HomeWebURLMapping {
      */
     public static final String HISTORY_MANAGEMENT_DELETE = HISTORY_MANAGEMENT_PAGE + "/delete/{id}";
 
+    /*******************轮播图管理*************************/
+    /**
+     * 去轮播图页面
+     */
+    public static final String BANNER_MANAGEMENT_PAGE = HOME_ROOT + "bannermanpage";
+
+    /**
+     * 轮播图分页
+     */
+    public static final String BANNER_MANAGEMENT_LIST = BANNER_MANAGEMENT_PAGE + "/list";
+
+    /**
+     * 轮播图新增
+     */
+    public static final String BANNER_MANAGEMENT_ADD = BANNER_MANAGEMENT_PAGE + "/add";
+
+    /**
+     * 轮播图修改
+     */
+    public static final String BANNER_MANAGEMENT_EDIT = BANNER_MANAGEMENT_PAGE + "/edit";
+
+    /**
+     * 轮播图删除
+     */
+    public static final String BANNER_MANAGEMENT_DELETE = BANNER_MANAGEMENT_PAGE + "/delete/{id}";
+
+
 }

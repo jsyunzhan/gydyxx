@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="domain.home.dao.BannerDao">
+
+    <resultMap id="ResultBannerEntityInfo" type="BannerEntityInfo">
+        <result property="bannerDetails" column="BANNER_DETAILS" typeHandler="domain.shiro.entity.ConvertBlobTypeHandler"/>
+    </resultMap>
+
+    <!--查总数-->
+    <select id="bannerCount" resultType="Integer">
+        SELECT COUNT(*)
+        FROM t_home_banner t
+        WHERE t.DELETE_FLAG='1'
+    </select>
+
+    <!--查询集合-->
+    <select id="bannerList" resultMap="ResultBannerEntityInfo">
+        SELECT
+        t.ID id,
+        t.BANNER_TITLE bannerTitle,
+        t.BANNER_DETAILS,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_banner t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+        LIMIT #{rows} OFFSET #{page}
+    </select>
+
+    <!--首页轮播图新增-->
+    <insert id="bannerAdd" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_home_banner
+        (
+        BANNER_TITLE,
+        BANNER_DETAILS,
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH,
+        </if>
+        CREATE_USER_ID,
+        CREATE_DATA
+        ) VALUE (
+        #{bannerTitle},
+        #{bannerDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            #{picturePath},
+        </if>
+        #{createUserId},
+        NOW()
+        )
+    </insert>
+
+    <!--修改-->
+    <update id="bannerEdit">
+        UPDATE t_home_banner SET
+        BANNER_TITLE=#{bannerTitle},
+        BANNER_DETAILS=#{bannerDetails},
+        <if test="picturePath!=null and picturePath!=''">
+            PICTURE_PATH=#{picturePath},
+        </if>
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--删除-->
+    <update id="bannerDelete">
+        UPDATE t_home_banner SET
+        DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+</mapper>
