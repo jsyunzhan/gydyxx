@@ -19,6 +19,9 @@ public class WagesEntity extends AbstractEntity{
     //工资主表id
     private Long wagesId;
 
+    //工资名称
+    private String wagesName;
+
     //基本工资
     private String wagesdetails;
 
