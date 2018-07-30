@@ -814,6 +814,16 @@ public final class HomeWebURLMapping {
      */
     public static final String BANNER_MANAGEMENT_DELETE = BANNER_MANAGEMENT_PAGE + "/delete/{id}";
 
+    /**
+     * 轮播图开启
+     */
+    public static final String BANNER_MANAGEMENT_OPEN = BANNER_MANAGEMENT_PAGE + "/open/{id}";
+
+    /**
+     * 轮播图暂停
+     */
+    public static final String BANNER_MANAGEMENT_CLOSE = BANNER_MANAGEMENT_PAGE + "/close/{id}";
+
     /*******************飘窗管理*************************/
     /**
      * 去飘窗页面
@@ -839,5 +849,15 @@ public final class HomeWebURLMapping {
      * 飘窗删除
      */
     public static final String WINDOW_MANAGEMENT_DELETE = WINDOW_MANAGEMENT_PAGE + "/delete/{id}";
+
+    /**
+     * 飘窗开启
+     */
+    public static final String WINDOW_MANAGEMENT_OPEN = WINDOW_MANAGEMENT_PAGE + "/open/{id}";
+
+    /**
+     * 飘窗关闭
+     */
+    public static final String WINDOW_MANAGEMENT_CLOSE = WINDOW_MANAGEMENT_PAGE + "/close/{id}";
 
 }

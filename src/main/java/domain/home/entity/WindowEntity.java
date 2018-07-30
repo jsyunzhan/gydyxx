@@ -14,6 +14,8 @@ public class WindowEntity extends AbstractEntity{
 
     private String picturePath;
 
+    private Long statueId;
+
     @Override
     public String toString() {
         return "WindowEntity{" +

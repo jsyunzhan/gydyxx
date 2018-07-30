@@ -83,4 +83,22 @@ public class BannerManagementServiceImpl implements BannerManagementService{
     public List<BannerEntity> bannerAllList(BannerEntity bannerEntity) {
         return bannerDao.bannerAllList(bannerEntity);
     }
+
+    @Override
+    public Boolean bannerOpen(Long id, Long loginId) {
+        final Boolean flag = bannerDao.bannerOpen(id,loginId) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("轮播图开启结果:",flag);
+        }
+        return flag;
+    }
+
+    @Override
+    public Boolean bannerClose(Long id, Long loginId) {
+        final Boolean flag = bannerDao.bannerClose(id,loginId) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("轮播图暂停结果:",flag);
+        }
+        return flag;
+    }
 }

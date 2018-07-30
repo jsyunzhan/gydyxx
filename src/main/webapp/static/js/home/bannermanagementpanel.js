@@ -15,11 +15,10 @@ $(function () {
                 field: 'bannerTitle', title: "轮播图标题", width: 150, sortable: true,
                 align: 'left'
             }
-            // ,
-            // {
-            //     field: 'noticeDetails', title: "公告内容", width: 400, sortable: true,
-            //     align: 'left'
-            // }
+            , {
+                field: 'statueId', title: "是否开启", width: 150, sortable: true,
+                align: 'left',formatter:result
+            }
         ]],
         toolbar: [
             {
@@ -74,6 +73,18 @@ $(function () {
                 text: "删除", iconCls: 'icon-remove',
                 handler: function () {
                     removeHandle();
+                }
+            },
+            {
+                text: "开启", iconCls: 'icon-remove',
+                handler: function () {
+                    open();
+                }
+            },
+            {
+                text: "暂停", iconCls: 'icon-remove',
+                handler: function () {
+                    close();
                 }
             }
         ],
@@ -250,6 +261,60 @@ $(function () {
         })
     }
 
+    /************开启*************/
+
+    function open() {
+        if (!selectedBanner) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+        if (1 == selectedBanner.statueId){
+            showWarningMessage("该条目处于开启状态，请重新选择！");
+            return
+        }
+
+
+
+        var msg = String.format("您确定要开启轮播图：<span style='color: red;'>{0}</span>？", selectedBanner.bannerTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/bannermanpage/open/"+selectedBanner.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $bannerGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
+    /************关闭*************/
+
+    function close() {
+        if (!selectedBanner) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+        if (0 == selectedBanner.statueId){
+            showWarningMessage("该条目处于禁用状态，请重新选择！");
+            return
+        }
+
+        var msg = String.format("您确定要关闭轮播图：<span style='color: red;'>{0}</span>？", selectedBanner.bannerTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/bannermanpage/close/"+selectedBanner.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $bannerGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
     /***************************图片上传*********************************************/
     $('#pictureBannerUploadBtnAdd,#pictureBannerUploadBtnEdit').linkbutton({
         onClick: function () {
@@ -303,5 +368,15 @@ $(function () {
 
         }
     });
+
+
+    function result(value, row, index) {
+
+        if (0 == value ) {
+            return "<span style='color:red;'>" + '否' + "</span>";
+        } else {
+            return "<span style='color:blue;'>" + '是' + "</span>";
+        }
+    }
 
 });

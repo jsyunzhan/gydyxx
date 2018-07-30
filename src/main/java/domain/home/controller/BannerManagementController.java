@@ -132,4 +132,46 @@ public class BannerManagementController extends AbstractActionController{
         }
         return jsonResponseVO;
     }
+
+    /**
+     * 轮播图开启
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = BANNER_MANAGEMENT_OPEN)
+    @ResponseBody
+    public JsonResponseVO bannerOpen(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("轮播图开启,id:{}",id);
+            }
+            final Boolean flag = bannerManagementService.bannerOpen(id,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
+
+    /**
+     * 轮播图暂停
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = BANNER_MANAGEMENT_CLOSE)
+    @ResponseBody
+    public JsonResponseVO bannerClose(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("轮播图暂停,id:{}",id);
+            }
+            final Boolean flag = bannerManagementService.bannerClose(id,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
+
 }

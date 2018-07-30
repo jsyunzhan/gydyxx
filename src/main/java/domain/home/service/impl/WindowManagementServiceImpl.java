@@ -85,4 +85,22 @@ public class WindowManagementServiceImpl implements WindowManagementService{
     public List<WindowEntity> windowAllList(WindowEntity windowEntity) {
         return windowDao.windowAllList(windowEntity);
     }
+
+    @Override
+    public Boolean windowOpen(Long id, Long loginId) {
+        final Boolean flag = windowDao.windowOpen(id,loginId) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("飘窗结果:",flag);
+        }
+        return flag;
+    }
+
+    @Override
+    public Boolean windowClose(Long id, Long loginId) {
+        final Boolean flag = windowDao.windowClose(id,loginId) > 0;
+        if (LOGGER.isDebugEnabled()){
+            LOGGER.debug("飘窗结果:",flag);
+        }
+        return flag;
+    }
 }

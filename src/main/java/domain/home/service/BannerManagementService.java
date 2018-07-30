@@ -36,4 +36,20 @@ public interface BannerManagementService {
     Boolean bannerDelete(Long id, Long loginId);
 
     List<BannerEntity> bannerAllList(BannerEntity bannerEntity);
+
+    /**
+     * 轮播图开启
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean bannerOpen(Long id, Long loginId);
+
+    /**
+     * 轮播图暂停
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean bannerClose(Long id, Long loginId);
 }

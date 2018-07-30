@@ -19,4 +19,8 @@ public interface WindowDao {
     Integer windowDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<WindowEntity> windowAllList(WindowEntity windowEntity);
+
+    Integer windowOpen(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    Integer windowClose(@Param("id")Long id,@Param("updateUserId") Long loginId);
 }

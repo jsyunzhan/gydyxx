@@ -21,6 +21,7 @@
         t.WINDOW_TITLE windowTitle,
         t.WINDOW_DETAILS,
         t.PICTURE_PATH picturePath,
+        t.STATUE_ID statueId,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,
@@ -42,7 +43,7 @@
         t.UPDATE_USER_ID updateUserId,
         t.UPDATE_DATA updateDate
         FROM t_home_window t
-        WHERE t.DELETE_FLAG='1'
+        WHERE t.DELETE_FLAG='1' AND t.STATUE_ID='1'
         ORDER BY t.CREATE_DATA
     </select>
 
@@ -85,6 +86,24 @@
     <update id="windowDelete">
         UPDATE t_home_window SET
         DELETE_FLAG='0',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--开启-->
+    <update id="windowOpen">
+        UPDATE t_home_window SET
+        STATUE_ID='1',
+        UPDATE_USER_ID=#{updateUserId},
+        UPDATE_DATA=NOW()
+        WHERE ID=#{id}
+    </update>
+
+    <!--关闭-->
+    <update id="windowClose">
+        UPDATE t_home_window SET
+        STATUE_ID='0',
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()
         WHERE ID=#{id}

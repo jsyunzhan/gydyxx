@@ -117,4 +117,45 @@ public class WindowManagementController extends AbstractActionController{
         }
         return jsonResponseVO;
     }
+
+    /**
+     * 飘窗开启
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = WINDOW_MANAGEMENT_OPEN)
+    @ResponseBody
+    public JsonResponseVO windowOpen(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("飘窗页面开启,id:{}",id);
+            }
+            final Boolean flag = windowManagementService.windowOpen(id,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
+
+    /**
+     * 飘窗关闭
+     * @param id id
+     * @return JsonResponseVO
+     */
+    @RequestMapping(value = WINDOW_MANAGEMENT_CLOSE)
+    @ResponseBody
+    public JsonResponseVO windowClose(@PathVariable("id") Long id){
+        final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+        try {
+            if (LOGGER.isDebugEnabled()){
+                LOGGER.debug("飘窗页面关闭,id:{}",id);
+            }
+            final Boolean flag = windowManagementService.windowClose(id,getLoginId());
+            jsonResponseVO.setSuccess(flag);
+        }catch (Exception e){
+            LOGGER.error("业务处理异常:",e);
+        }
+        return jsonResponseVO;
+    }
 }

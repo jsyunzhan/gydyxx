@@ -36,4 +36,20 @@ public interface WindowManagementService {
     Boolean windowDelete(Long id, Long loginId);
 
     List<WindowEntity> windowAllList(WindowEntity windowEntity);
+
+    /**
+     * 飘窗开启
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean windowOpen(Long id, Long loginId);
+
+    /**
+     * 飘窗关闭
+     * @param id id
+     * @param loginId 当前登录id
+     * @return Boolean
+     */
+    Boolean windowClose(Long id, Long loginId);
 }

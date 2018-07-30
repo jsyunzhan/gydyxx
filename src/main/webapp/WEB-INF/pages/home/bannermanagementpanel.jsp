@@ -118,7 +118,7 @@
 
         <form id='pictureBannerForm' enctype="multipart/form-data" class="control-form">
             <div style="padding:20px">
-                <input type="file" name='file' multiple accept=".jpg"/>
+                <input type="file" name='file' accept=".jpg"/>
             </div>
         </form>
 

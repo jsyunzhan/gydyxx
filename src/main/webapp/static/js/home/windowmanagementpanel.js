@@ -15,6 +15,10 @@ $(function () {
                 field: 'windowTitle', title: "飘窗标题", width: 150, sortable: true,
                 align: 'left'
             }
+            , {
+                field: 'statueId', title: "是否开启", width: 150, sortable: true,
+                align: 'left',formatter:result
+            }
         ]],
         toolbar: [
             {
@@ -70,6 +74,18 @@ $(function () {
                 text: "删除", iconCls: 'icon-remove',
                 handler: function () {
                     removeHandle();
+                }
+            },
+            {
+                text: "开启", iconCls: 'icon-remove',
+                handler: function () {
+                    open();
+                }
+            },
+            {
+                text: "关闭", iconCls: 'icon-remove',
+                handler: function () {
+                    close();
                 }
             }
         ],
@@ -248,6 +264,58 @@ $(function () {
         })
     }
 
+    /************开启*************/
+
+    function open() {
+        if (!selectedWindow) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+        if (1 == selectedWindow.statueId){
+            showWarningMessage("该条目处于开启状态，请重新选择！");
+            return
+        }
+
+        var msg = String.format("您确定要开启：<span style='color: red;'>{0}</span>？", selectedWindow.windowTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/windowmanpage/open/"+selectedWindow.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $windowGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
+    /************关闭*************/
+
+    function close() {
+        if (!selectedWindow) {
+            showWarningMessage(SYSTEM_MESSAGE.msg_please_select_record);
+            return
+        }
+
+        if (0 == selectedWindow.statueId){
+            showWarningMessage("该条目处于禁用状态，请重新选择！");
+            return
+        }
+
+        var msg = String.format("您确定要关闭：<span style='color: red;'>{0}</span>？", selectedWindow.windowTitle);
+
+        showConfirm(msg, function () {
+            $.ajax({
+                url:path + "/home/windowmanpage/close/"+selectedWindow.id,
+                type:"GET",dataType:"json",
+                success:function (r) {
+                    $windowGrid.datagrid('reload');
+                }
+            })
+        })
+    }
+
     /***************************图片上传*********************************************/
     $('#pictureWindowUploadBtnAdd,#pictureWindowUploadBtnEdit').linkbutton({
         onClick: function () {
@@ -302,5 +370,14 @@ $(function () {
 
         }
     });
+
+    function result(value, row, index) {
+
+        if (0 == value ) {
+            return "<span style='color:red;'>" + '否' + "</span>";
+        } else {
+            return "<span style='color:blue;'>" + '是' + "</span>";
+        }
+    }
 
 });

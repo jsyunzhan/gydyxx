@@ -17,6 +17,9 @@ public class BannerEntity extends AbstractEntity{
     //轮播图图片地址
     private String picturePath;
 
+    //状态id
+    private Long statueId;
+
     @Override
     public String toString() {
         return "BannerEntity{" +

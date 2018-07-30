@@ -20,4 +20,8 @@ public interface BannerDao {
     Integer bannerDelete(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     List<BannerEntity> bannerAllList(BannerEntity bannerEntity);
+
+    Integer bannerOpen(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    Integer bannerClose(@Param("id") Long id,@Param("updateUserId") Long loginId);
 }
