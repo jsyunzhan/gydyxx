@@ -147,6 +147,7 @@ public class WindowManagementController extends AbstractActionController{
     @ResponseBody
     public JsonResponseVO windowClose(@PathVariable("id") Long id){
         final JsonResponseVO jsonResponseVO = new JsonResponseVO(Boolean.FALSE);
+
         try {
             if (LOGGER.isDebugEnabled()){
                 LOGGER.debug("飘窗页面关闭,id:{}",id);
