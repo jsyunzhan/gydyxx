@@ -3,6 +3,8 @@ package domain.home.service;
 import domain.home.entity.BannerEntity;
 import domain.shiro.entity.PageQueryResult;
 
+import java.util.List;
+
 public interface BannerManagementService {
     /**
      * 轮播图分页
@@ -32,4 +34,6 @@ public interface BannerManagementService {
      * @return Boolean
      */
     Boolean bannerDelete(Long id, Long loginId);
+
+    List<BannerEntity> bannerAllList(BannerEntity bannerEntity);
 }

@@ -31,6 +31,21 @@
         LIMIT #{rows} OFFSET #{page}
     </select>
 
+    <select id="bannerAllList" resultMap="ResultBannerEntityInfo">
+        SELECT
+        t.ID id,
+        t.BANNER_TITLE bannerTitle,
+        t.BANNER_DETAILS,
+        t.PICTURE_PATH picturePath,
+        t.CREATE_USER_ID createUserId,
+        t.CREATE_DATA createDate,
+        t.UPDATE_USER_ID updateUserId,
+        t.UPDATE_DATA updateDate
+        FROM t_home_banner t
+        WHERE t.DELETE_FLAG='1'
+        ORDER BY t.CREATE_DATA
+    </select>
+
     <!--首页轮播图新增-->
     <insert id="bannerAdd" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO t_home_banner

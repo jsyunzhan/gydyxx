@@ -78,4 +78,9 @@ public class BannerManagementServiceImpl implements BannerManagementService{
         }
         return flag;
     }
+
+    @Override
+    public List<BannerEntity> bannerAllList(BannerEntity bannerEntity) {
+        return bannerDao.bannerAllList(bannerEntity);
+    }
 }

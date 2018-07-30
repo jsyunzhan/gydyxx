@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 import static domain.home.HomeWebForward.TO_BANNER_PAGE;
 import static domain.home.HomeWebURLMapping.*;
 
@@ -47,6 +49,23 @@ public class BannerManagementController extends AbstractActionController{
     public PageQueryResult bannerList(BannerEntity bannerEntity){
         return bannerManagementService.bannerList(bannerEntity);
     }
+
+    @RequestMapping(value = "/homepage/banner/list")
+    @ResponseBody
+    public List<BannerEntity> bannerAllList(BannerEntity bannerEntity){
+        return bannerManagementService.bannerAllList(bannerEntity);
+    }
+
+//    @RequestMapping(value = "/homepage/banner/details/{id}")
+//    @ResponseBody
+//    public ModelAndView bannerDetails(@PathVariable("id") Long id){
+//        final Map<String, Object> map = new HashMap<>(4);
+//        map.put("title",classroomEntity.getClassroomTitle());
+//        map.put("details",classroomEntity.getClassroomDetails());
+//        map.put("picturePath",newsEntity.getPicturePath());
+//        map.put("createDate",classroomEntity.getCreateDate());
+//        return new ModelAndView("pc//zyktdetails",map);
+//    }
 
     /**
      * 轮播图新增
