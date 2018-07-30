@@ -255,6 +255,7 @@ $(function () {
         }
     });
 
+
     $('#pictureWindowWinCloseBtn').linkbutton({
         onClick: function () {
             $pictureWindowWin.window('close');
