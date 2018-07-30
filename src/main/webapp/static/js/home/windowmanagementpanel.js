@@ -248,7 +248,6 @@ $(function () {
         })
     }
 
-
     /***************************图片上传*********************************************/
     $('#pictureWindowUploadBtnAdd,#pictureWindowUploadBtnEdit').linkbutton({
         onClick: function () {
