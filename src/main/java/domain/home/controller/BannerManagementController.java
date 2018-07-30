@@ -56,6 +56,7 @@ public class BannerManagementController extends AbstractActionController{
         return bannerManagementService.bannerAllList(bannerEntity);
     }
 
+
 //    @RequestMapping(value = "/homepage/banner/details/{id}")
 //    @ResponseBody
 //    public ModelAndView bannerDetails(@PathVariable("id") Long id){

@@ -153,4 +153,9 @@ public final class HomeWebForward {
      * 去轮播图页面
      */
     public static final String TO_BANNER_PAGE = "home/bannermanagementpanel";
+
+    /**
+     * 去飘窗页面
+     */
+    public static final String TO_WINDOW_PAGE = "home/windowmanagementpanel";
 }

@@ -42,6 +42,7 @@
         <typeAlias alias="WagesEntityInfo" type="domain.wages.entity.WagesEntity"/>
         <typeAlias alias="WagesMainEntityInfo" type="domain.wages.entity.WagesMainEntity"/>
         <typeAlias alias="BannerEntityInfo" type="domain.home.entity.BannerEntity"/>
+        <typeAlias alias="WindowEntityInfo" type="domain.home.entity.WindowEntity"/>
     </typeAliases>
 
 </configuration>
