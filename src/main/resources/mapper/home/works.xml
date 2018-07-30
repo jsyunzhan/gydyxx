@@ -19,7 +19,7 @@
         SELECT
         t.ID id,
         t.WORKS_TITLE worksTitle,
-        t.WORKS_DETAILS worksDetails,
+        t.WORKS_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -35,7 +35,7 @@
         SELECT
         t.ID id,
         t.WORKS_TITLE worksTitle,
-        t.WORKS_DETAILS worksDetails,
+        t.WORKS_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -50,7 +50,7 @@
         SELECT
         t.ID id,
         t.WORKS_TITLE worksTitle,
-        t.WORKS_DETAILS worksDetails,
+        t.WORKS_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
