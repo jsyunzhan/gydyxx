@@ -7,6 +7,7 @@ body{
     top: 38px;
     left: 23px;
     z-index: 10;
+    width: 40%;
 }
 
 .container-fluid .banner{
