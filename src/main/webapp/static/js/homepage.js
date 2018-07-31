@@ -206,22 +206,84 @@ $(function () {
     });
 
     // banner轮播图
-    var banner = new Swiper(".banner",{
-        autoplay : 3000,
-        speed: 1000,
-        loop:true,
-        pagination: '.pagination',
-        paginationClickable: true,
-        autoplayDisableOnInteraction : false
+    $.ajax({
+        url:path + "/homepage/banner/list",
+        type:"GET",dataType:"json",
+        success:function(event){
+            for(var i=0;i<event.length;i++){
+                var data = {picturePath: event[i].picturePath};
+                $.ajax({
+                    url:path + "/home/picture/show",
+                    type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
+                    success:function (r) {
+                        var _html = "";
+                        _html += '<div class="swiper-slide" name="'+event[0].id+'"><img src="data:image/gif;base64,'+r+'"></div>';
+                        $(".banner_wrapper").append(_html);
+                    }
+                })
+            }
+            // 调用swiper插件
+            var banner = new Swiper(".banner",{
+                autoplay : 3000,
+                speed: 1000,
+                loop:true,
+                pagination: '.pagination',
+                paginationClickable: true,
+                autoplayDisableOnInteraction : false
+            });
+            $(".arrow-left").on("click", function(e){
+                e.preventDefault();
+                banner.swipePrev();
+            });
+            $(".arrow-right").on("click", function(e){
+                e.preventDefault();
+                banner.swipeNext();
+            });
+            // 点击飘窗跳转
+            $(".banner_wrapper .swiper-slide").click(function () {
+                var url = path + '/homepage/banner/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
+        }
     });
-    $(".arrow-left").on("click", function(e){
-        e.preventDefault();
-        banner.swipePrev();
-    });
-    $(".arrow-right").on("click", function(e){
-        e.preventDefault();
-        banner.swipeNext();
-    });
+
+    // 飘窗
+    $.ajax({
+        url:path + "/homepage/window/list",
+        type:"GET",dataType:"json",
+        success:function(event){
+            var _html = "";
+            _html += '<div class="floatImage">';
+            for(var i=0;i<event.length;i++){
+                var data = {picturePath: event[i].picturePath};
+                $.ajax({
+                    url:path + "/home/picture/show",
+                    type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
+                    success:function (r) {
+                        _html += '<a href="javascript:;" name="'+event[i].id+'" ><img src="data:image/gif;base64,'+r+'"></a>';
+                    }
+                })
+            }
+            _html += '<div class="imgClose">x&nbsp;关闭</div>';
+            $("body").append(_html);
+            // 调用飘窗
+            var floatImage = new imgFloat(".floatImage",{
+                "time":30,
+                "speedx":0.5,
+                "speedy":1
+            });
+            floatImage.resize();
+            floatImage.move();
+            $(".floatImage .imgClose").click(function(){
+                $(this).parent(".floatImage").remove();
+            })
+            // 点击飘窗跳转
+            $(".floatImage a").click(function () {
+                var url = path + '/homepage/window/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
+        }
+    })
 
     /*功能模块快捷方式*/
     $(".infor .icon").mouseover(function(){
@@ -246,23 +308,4 @@ $(function () {
         $(".linking_list").hide();
     });
 
-    // 飘窗
-    var floatImage01 = new imgFloat(".floatImage01",{
-        "time":20,
-        "speedx":2,
-        "speedy":3
-    });
-    floatImage01.resize();
-    floatImage01.move();
-
-    var floatImage02 = new imgFloat(".floatImage02",{
-        "time":20,
-        "speedx":2,
-        "speedy":2
-    });
-    floatImage02.resize();
-    floatImage02.move();
-    $(".floatImage .imgClose").click(function(){
-        $(this).parent(".floatImage").remove();
-    })
 })

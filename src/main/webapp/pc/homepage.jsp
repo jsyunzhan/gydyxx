@@ -116,15 +116,6 @@
                     <img src="${APP_PATH}/static/images/arrow_right.png">
                 </a>
                 <div class="swiper-wrapper banner_wrapper clearfix">
-                    <div class="swiper-slide">
-                        <img src="${APP_PATH}/static/images/banner.jpg">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="${APP_PATH}/static/images/banner.jpg">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="${APP_PATH}/static/images/banner.jpg">
-                    </div>
                 </div>
                 <div class="pagination"></div>
             </div>
@@ -359,19 +350,6 @@
             </div>
         </div>
     </div>
-
-<a href="javascript:;" class="floatImage floatImage01">
-    <img src="${APP_PATH}/static/images/icon_01.png">
-    <div class="imgClose">
-        <img src="${APP_PATH}/static/images/more1.png">
-    </div>
-</a>
-<a href="javascript:;" class="floatImage floatImage02">
-    <img src="${APP_PATH}/static/images/icon_02.png">
-    <div class="imgClose">
-        <img src="${APP_PATH}/static/images/more1.png">
-    </div>
-</a>
 
 </body>
 <script>

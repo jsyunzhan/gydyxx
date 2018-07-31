@@ -97,6 +97,7 @@ imgFloat.prototype.resize = function(){
 }
 
 imgFloat.prototype.move = function(){
+    console.log(this.obj_height);
     var This = this;
     function fun01(){
         if (This.top == true&&This.imgTop >= This.y) {
