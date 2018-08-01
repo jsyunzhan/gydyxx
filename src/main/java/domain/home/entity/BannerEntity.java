@@ -20,6 +20,8 @@ public class BannerEntity extends AbstractEntity{
     //状态id
     private Long statueId;
 
+    private Long statueCount;
+
     @Override
     public String toString() {
         return "BannerEntity{" +

@@ -282,6 +282,11 @@ $(function () {
             return
         }
 
+        if (selectedWindow.statueCount > 1){
+            showWarningMessage("飘窗不能超过二个，请先取消其他飘窗！");
+            return
+        }
+
         var msg = String.format("您确定要开启：<span style='color: red;'>{0}</span>？", selectedWindow.windowTitle);
 
         showConfirm(msg, function () {

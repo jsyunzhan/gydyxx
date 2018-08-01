@@ -279,6 +279,11 @@ $(function () {
             return
         }
 
+        if (selectedBanner.statueCount > 2){
+            showWarningMessage("轮播图不能超过三个，请先取消其他轮播图！");
+            return
+        }
+
 
 
         var msg = String.format("您确定要开启轮播图：<span style='color: red;'>{0}</span>？", selectedBanner.bannerTitle);

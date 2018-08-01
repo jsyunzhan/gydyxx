@@ -24,7 +24,7 @@
         t.PICTURE_PATH picturePath,
         t.MAIN_FLAG mainFlag,
         t.CHANGE_FLAG changeFlag,
-        (SELECT COUNT(*) FROM t_home_news b WHERE b.CHANGE_FLAG='1') changeCount,
+        (SELECT COUNT(*) FROM t_home_news b WHERE b.CHANGE_FLAG='1' AND b.DELETE_FLAG='1') changeCount,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,

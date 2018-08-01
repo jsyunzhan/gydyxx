@@ -22,6 +22,7 @@
         t.WINDOW_DETAILS,
         t.PICTURE_PATH picturePath,
         t.STATUE_ID statueId,
+        (SELECT COUNT(*) FROM t_home_window b WHERE b.STATUE_ID='1' AND b.DELETE_FLAG='1') statueCount,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
         t.UPDATE_USER_ID updateUserId,

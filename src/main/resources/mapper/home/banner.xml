@@ -21,6 +21,7 @@
         t.BANNER_TITLE bannerTitle,
         t.BANNER_DETAILS,
         t.PICTURE_PATH picturePath,
+        (SELECT COUNT(*) FROM t_home_banner b WHERE b.STATUE_ID='1' AND b.DELETE_FLAG='1') statueCount,
         t.STATUE_ID statueId,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
