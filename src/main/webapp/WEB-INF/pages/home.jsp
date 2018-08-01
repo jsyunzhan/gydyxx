@@ -9,11 +9,7 @@
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
-
     <link rel="shortcut icon" href="${APP_PATH}/static/images/backstage/backstage/favicon.ico">
-
-
-
     <%--以上三个meta不可或缺--%>
     <link rel="stylesheet" href="${APP_PATH}/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <%--<link href="${APP_PATH}/static/easyui/themes/default/easyui.css" rel="stylesheet" />--%>

@@ -44,6 +44,7 @@
 
 .news .title_news,.news .title_news a{
     color: #555;
+    cursor: auto;
 }
 
 .main_title01{
