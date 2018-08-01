@@ -137,6 +137,11 @@ $(function () {
                 return
             }
 
+            if (!$("input[name=file]").val()){
+                showErrorMessage("请选择图片！");
+                return
+            }
+
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/轮播图",
                 type:'POST',
