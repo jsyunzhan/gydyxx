@@ -15,6 +15,9 @@ public class NoticeEntity extends AbstractEntity{
 
     private byte[] noticeDetailsByte;
 
+
+    private Long noticeFlag;
+
     //公告内容
     private String noticeDetails;
 

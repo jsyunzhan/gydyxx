@@ -15,11 +15,11 @@ $(function () {
                 field: 'noticeTitle', title: "公告标题", width: 150, sortable: true,
                 align: 'left'
             }
-            // ,
-            // {
-            //     field: 'noticeDetails', title: "公告内容", width: 400, sortable: true,
-            //     align: 'left'
-            // }
+            ,
+            {
+                field: 'noticeFlag', title: "公告类型", width: 400, sortable: true,
+                align: 'left',formatter:result
+            }
         ]],
         toolbar: [
             {
@@ -306,5 +306,13 @@ $(function () {
         }
     });
 
+    function result(value, row, index) {
+
+        if (0 == value ) {
+            return "<span style='color:red;'>" + '对内' + "</span>";
+        } else {
+            return "<span style='color:blue;'>" + '对外' + "</span>";
+        }
+    }
 
 });
