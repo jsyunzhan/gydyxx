@@ -37,4 +37,9 @@
         WHERE t.TITLE like concat(concat('%',#{title}),'%')
     </select>
 
+    <delete id="searchDelete">
+        DELETE FROM t_home_search
+        WHERE TABLE_ID=#{id} AND URL=#{url}
+    </delete>
+
 </mapper>

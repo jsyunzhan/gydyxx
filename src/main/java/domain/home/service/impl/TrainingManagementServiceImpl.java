@@ -75,6 +75,9 @@ public class TrainingManagementServiceImpl implements TrainingManagementService{
     @Override
     public Boolean trainingDelete(Long id, Long loginId) {
         final Boolean flag = trainingDao.trainingDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/training/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("校本培训删除结果:",flag);
         }

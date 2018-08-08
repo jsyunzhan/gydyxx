@@ -75,6 +75,9 @@ public class LeaderManagementServiceImpl implements LeaderManagementService{
     @Override
     public Boolean leaderDelete(Long id, Long loginId) {
         final Boolean flag = leaderDao.leaderDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/leader/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("领导简介删除:",flag);
         }

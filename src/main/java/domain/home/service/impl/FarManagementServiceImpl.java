@@ -75,6 +75,9 @@ public class FarManagementServiceImpl implements FarManagementService{
     @Override
     public Boolean farDelete(Long id, Long loginId) {
         final Boolean flag = farDao.farDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/far/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("致用工作室删除结果:",flag);
         }

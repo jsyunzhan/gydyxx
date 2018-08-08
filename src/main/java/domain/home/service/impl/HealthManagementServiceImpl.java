@@ -75,6 +75,9 @@ public class HealthManagementServiceImpl implements HealthManagementService{
     @Override
     public Boolean healthDelete(Long id, Long loginId) {
         final Boolean flag = healthDao.healthDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/health/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("健康教育删除结果:",flag);
         }

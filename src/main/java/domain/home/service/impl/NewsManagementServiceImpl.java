@@ -79,7 +79,9 @@ public class NewsManagementServiceImpl implements NewsManagementService{
     public Boolean newsDelete(Long id, Long loginId) {
 
         final Boolean flag = newsDao.newsDelete(id,loginId) > 0;
-
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/news/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("新闻删除:",flag);
         }

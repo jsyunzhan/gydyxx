@@ -75,6 +75,9 @@ public class CivilizationManagementServiceImpl implements CivilizationManagement
     @Override
     public Boolean civilizationDelete(Long id, Long loginId) {
         final Boolean flag = civilizationDao.civilizationDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/civilization/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("文明创建删除结果:",flag);
         }

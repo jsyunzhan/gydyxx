@@ -75,6 +75,9 @@ public class HomeschoolManagementServiceImpl implements HomeschoolManagementServ
     @Override
     public Boolean homeschoolDelete(Long id, Long loginId) {
         final Boolean flag = homeschoolDao.homeschoolDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/homeschool/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("家校心桥删除结果:",flag);
         }

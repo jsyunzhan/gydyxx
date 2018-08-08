@@ -79,7 +79,9 @@ public class WroksManagementServiceImpl implements WroksManagementService{
     @Override
     public Boolean worksDelete(Long id, Long loginId) {
         final Boolean flag = wroksDao.worksDelete(id,loginId) > 0;
-
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/works/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("作品删除结果:",flag);
         }

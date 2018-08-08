@@ -79,6 +79,9 @@ public class StudentManagementServiceImpl implements StudentManagementService{
     public Boolean studentDelete(Long id, Long loginId) {
         final Boolean flag = studentDao.studentDelete(id,loginId) > 0;
 
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/student/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("学子风采删除结果:",flag);
         }

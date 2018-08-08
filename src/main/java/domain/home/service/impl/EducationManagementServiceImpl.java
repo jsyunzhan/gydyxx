@@ -76,6 +76,9 @@ public class EducationManagementServiceImpl implements EducationManagementServic
     @Override
     public Boolean educationDelete(Long id, Long loginId) {
         final Boolean flag = educationDao.educationDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/education/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("教育科研删除结果:",flag);
         }

@@ -75,6 +75,9 @@ public class WindowManagementServiceImpl implements WindowManagementService{
     @Override
     public Boolean windowDelete(Long id, Long loginId) {
         final Boolean flag = windowDao.windowDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/window/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("飘窗删除结果:",flag);
         }

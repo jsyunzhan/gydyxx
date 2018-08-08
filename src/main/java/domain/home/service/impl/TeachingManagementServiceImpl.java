@@ -75,6 +75,9 @@ public class TeachingManagementServiceImpl implements TeachingManagementService{
     @Override
     public Boolean teachingDelete(Long id, Long loginId) {
         final Boolean flag = teachingDao.teachingDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/teaching/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("教学资源删除结果:",flag);
         }

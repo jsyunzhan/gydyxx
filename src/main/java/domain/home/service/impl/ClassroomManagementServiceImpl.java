@@ -75,6 +75,9 @@ public class ClassroomManagementServiceImpl implements ClassroomManagementServic
     @Override
     public Boolean classroomDelete(Long id, Long loginId) {
         final Boolean flag = classroomDao.classroomDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/classroom/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("致用课堂删除结果:",flag);
         }

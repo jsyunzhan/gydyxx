@@ -76,6 +76,9 @@ public class YiManagementServiceImpl implements YiManagementService{
     @Override
     public Boolean yiDelete(Long id, Long loginId) {
         final Boolean flag = yiDao.yiDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/yi/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("致用邑删除:",flag);
         }

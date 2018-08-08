@@ -75,6 +75,9 @@ public class SchoolManagementServiceImpl implements SchoolManagementService{
     @Override
     public Boolean schoolDelete(Long id, Long loginId) {
         final Boolean flag = schoolDao.schoolDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/school/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("学校风采删除结果:",flag);
         }

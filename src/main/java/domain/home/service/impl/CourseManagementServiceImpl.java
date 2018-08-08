@@ -76,6 +76,9 @@ public class CourseManagementServiceImpl implements CourseManagementService{
     @Override
     public Boolean courseDelete(Long id, Long loginId) {
         final Boolean flag = courseDao.courseDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/course/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("班本课程删除结果:",flag);
         }

@@ -75,6 +75,9 @@ public class ResourcesManagementServiceImpl implements ResourcesManagementServic
     @Override
     public Boolean resourcesDelete(Long id, Long loginId) {
         final Boolean flag = resourcesDao.resourcesDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/resources/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("家校资源删除结果:",flag);
         }

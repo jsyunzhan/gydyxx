@@ -75,6 +75,9 @@ public class CommunityManagementServiceImpl implements CommunityManagementServic
     @Override
     public Boolean communityDelete(Long id, Long loginId) {
         final Boolean flag = communityDao.communityDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/community/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("精品社团删除结果:",flag);
         }

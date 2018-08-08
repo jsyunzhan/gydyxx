@@ -73,6 +73,9 @@ public class BannerManagementServiceImpl implements BannerManagementService{
     @Override
     public Boolean bannerDelete(Long id, Long loginId) {
         final Boolean flag = bannerDao.bannerDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/banner/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("轮播图删除结果:",flag);
         }

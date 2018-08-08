@@ -75,6 +75,9 @@ public class RulesManagementServiceImpl implements RulesManagementService{
     @Override
     public Boolean rulesDelete(Long id, Long loginId) {
         final Boolean flag = rulesDao.rulesDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/rules/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("规章制度删除结果:",flag);
         }

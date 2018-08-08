@@ -75,6 +75,9 @@ public class LawManagementServiceImpl implements LawManagementService{
     @Override
     public Boolean lawDelete(Long id, Long loginId) {
         final Boolean flag = lawDao.lawDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/law/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("法制校园删除结果:",flag);
         }

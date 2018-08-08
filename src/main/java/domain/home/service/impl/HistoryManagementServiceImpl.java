@@ -75,8 +75,11 @@ public class HistoryManagementServiceImpl implements HistoryManagementService{
     @Override
     public Boolean historyDelete(Long id, Long loginId) {
         final Boolean flag = historyDao.historyDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/history/details/");
+        }
         if (LOGGER.isDebugEnabled()){
-            LOGGER.debug("校史天地修改:",flag);
+            LOGGER.debug("校史天地删除:",flag);
         }
         return flag;
     }

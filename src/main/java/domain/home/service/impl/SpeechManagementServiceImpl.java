@@ -75,8 +75,11 @@ public class SpeechManagementServiceImpl implements SpeechManagementService{
     @Override
     public Boolean speechDelete(Long id, Long loginId) {
         final Boolean flag = speechDao.speechDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/speech/details/");
+        }
         if (LOGGER.isDebugEnabled()){
-            LOGGER.debug("国旗下讲话修改:",flag);
+            LOGGER.debug("国旗下讲话删除:",flag);
         }
         return flag;
     }

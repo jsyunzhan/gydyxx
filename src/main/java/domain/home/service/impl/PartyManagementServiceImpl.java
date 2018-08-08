@@ -77,6 +77,9 @@ public class PartyManagementServiceImpl implements PartyManagementService{
     @Override
     public Boolean partyDelete(Long id, Long loginId) {
         final Boolean flag = partyDao.partyDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/party/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("党建工会删除结果:",flag);
         }

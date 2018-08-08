@@ -75,6 +75,9 @@ public class CelebrateManagementServiceImpl implements CelebrateManagementServic
     @Override
     public Boolean celebrateDelete(Long id, Long loginId) {
         final Boolean flag = celebrateDao.celebrateDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/celebrate/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("校园节庆删除结果:",flag);
         }

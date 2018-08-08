@@ -14,4 +14,5 @@ public interface SearchDao {
 
     List<SearchEntity> searchList(String title);
 
+    Integer searchDelete(@Param("id")Long id,@Param("url") String url);
 }

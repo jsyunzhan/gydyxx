@@ -75,6 +75,9 @@ public class ResponsibilityManagementServiceImpl implements ResponsibilityManage
     @Override
     public Boolean responsibilityDelete(Long id, Long loginId) {
         final Boolean flag = responsibilityDao.responsibilityDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/responsibility/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("责任督学删除结果:",flag);
         }

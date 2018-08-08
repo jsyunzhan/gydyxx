@@ -77,6 +77,9 @@ public class ProfileManagementServiceImpl implements ProfileManagementService{
     @Override
     public Boolean profileDelete(Long id, Long loginId) {
         final Boolean flag = profileDao.profileDelete(id,loginId) > 0;
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/profile/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("学校概删除结果:",flag);
         }

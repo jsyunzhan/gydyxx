@@ -79,7 +79,9 @@ public class NoticeManagementServiceImpl implements NoticeManagementService{
     public Boolean noticeDelete(Long id, Long loginId) {
 
         final Boolean flag = noticeDao.noticeDelete(id,loginId) > 0;
-
+        if (flag){
+            searchDao.searchDelete(id,"/homepage/notice/details/");
+        }
         if (LOGGER.isDebugEnabled()){
             LOGGER.debug("公告删除结果:",flag);
         }
