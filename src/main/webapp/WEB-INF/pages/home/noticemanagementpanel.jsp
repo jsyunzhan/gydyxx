@@ -37,6 +37,16 @@
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
             </tr>
 
+            <tr>
+                <th width="100"><label class="control-label required-mark" style="width:100px"
+                                       required="required">公告类型</label>
+                </th>
+                <td width="200">
+                    <input type="radio" name="noticeFlag" value='0' checked="checked" />对内
+                    <input type="radio" name="noticeFlag" value='1' style="margin-left: 20px">对外
+                </td>
+            </tr>
+
 
         </table>
 
@@ -80,6 +90,16 @@
                 </th>
                 <td width="200"><input class="easyui-textbox control" style="height:50px;width: 300px" name="noticeTitle" required="required"
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
+            </tr>
+
+            <tr>
+                <th width="100"><label class="control-label required-mark" style="width:100px"
+                                       required="required">公告类型</label>
+                </th>
+                <td width="200">
+                    <input type="radio" name="noticeFlag" value='0'/>对内
+                    <input type="radio" name="noticeFlag" value='1' style="margin-left: 20px">对外
+                </td>
             </tr>
 
         </table>

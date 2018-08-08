@@ -72,6 +72,7 @@
         <if test="picturePath!=null and picturePath!=''">
             PICTURE_PATH,
         </if>
+        NOTICE_FLAG,
         CREATE_USER_ID,
         CREATE_DATA
         ) VALUE (
@@ -80,6 +81,7 @@
         <if test="picturePath!=null and picturePath!=''">
             #{picturePath},
         </if>
+        #{noticeFlag},
         #{createUserId},
         NOW()
         )
@@ -93,6 +95,7 @@
         <if test="picturePath!=null and picturePath!=''">
             PICTURE_PATH=#{picturePath},
         </if>
+        NOTICE_FLAG=#{noticeFlag},
         UPDATE_USER_ID=#{updateUserId},
         UPDATE_DATA=NOW()
         WHERE ID=#{id}
