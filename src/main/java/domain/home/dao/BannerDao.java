@@ -24,4 +24,6 @@ public interface BannerDao {
     Integer bannerOpen(@Param("id") Long id,@Param("updateUserId") Long loginId);
 
     Integer bannerClose(@Param("id") Long id,@Param("updateUserId") Long loginId);
+
+    BannerEntity bannerDetails(Long id);
 }

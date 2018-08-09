@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_BANNER_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -57,16 +59,17 @@ public class BannerManagementController extends AbstractActionController{
     }
 
 
-//    @RequestMapping(value = "/homepage/banner/details/{id}")
-//    @ResponseBody
-//    public ModelAndView bannerDetails(@PathVariable("id") Long id){
-//        final Map<String, Object> map = new HashMap<>(4);
-//        map.put("title",classroomEntity.getClassroomTitle());
-//        map.put("details",classroomEntity.getClassroomDetails());
-//        map.put("picturePath",newsEntity.getPicturePath());
-//        map.put("createDate",classroomEntity.getCreateDate());
-//        return new ModelAndView("pc//zyktdetails",map);
-//    }
+    @RequestMapping(value = "/homepage/banner/details/{id}")
+    @ResponseBody
+    public ModelAndView bannerDetails(@PathVariable("id") Long id){
+        final BannerEntity bannerEntity = bannerManagementService.bannerDetails(id);
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",bannerEntity.getBannerTitle());
+        map.put("details",bannerEntity.getBannerDetails());
+        map.put("picturePath",bannerEntity.getPicturePath());
+        map.put("createDate",bannerEntity.getCreateDate());
+        return new ModelAndView("pc/search/banner",map);
+    }
 
     /**
      * 轮播图新增

@@ -52,4 +52,11 @@ public interface BannerManagementService {
      * @return Boolean
      */
     Boolean bannerClose(Long id, Long loginId);
+
+    /**
+     * 轮播图查看详情
+     * @param id
+     * @return
+     */
+    BannerEntity bannerDetails(Long id);
 }

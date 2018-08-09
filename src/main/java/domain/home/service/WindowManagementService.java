@@ -52,4 +52,6 @@ public interface WindowManagementService {
      * @return Boolean
      */
     Boolean windowClose(Long id, Long loginId);
+
+    WindowEntity windowDetails(Long id);
 }

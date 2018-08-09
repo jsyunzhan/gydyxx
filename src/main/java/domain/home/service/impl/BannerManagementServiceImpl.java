@@ -104,4 +104,9 @@ public class BannerManagementServiceImpl implements BannerManagementService{
         }
         return flag;
     }
+
+    @Override
+    public BannerEntity bannerDetails(Long id) {
+        return bannerDao.bannerDetails(id);
+    }
 }

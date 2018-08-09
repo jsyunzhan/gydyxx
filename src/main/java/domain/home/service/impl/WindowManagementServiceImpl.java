@@ -106,4 +106,9 @@ public class WindowManagementServiceImpl implements WindowManagementService{
         }
         return flag;
     }
+
+    @Override
+    public WindowEntity windowDetails(Long id) {
+        return windowDao.windowDetails(id);
+    }
 }

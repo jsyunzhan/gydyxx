@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static domain.home.HomeWebForward.TO_WINDOW_PAGE;
 import static domain.home.HomeWebURLMapping.*;
@@ -51,6 +53,18 @@ public class WindowManagementController extends AbstractActionController{
     @ResponseBody
     public List<WindowEntity> windowAllList(WindowEntity windowEntity){
         return windowManagementService.windowAllList(windowEntity);
+    }
+
+    @RequestMapping(value = "/homepage/window/details/{id}")
+    @ResponseBody
+    public ModelAndView windowDetails(@PathVariable("id") Long id){
+        final WindowEntity windowEntity = windowManagementService.windowDetails(id);
+        final Map<String, Object> map = new HashMap<>(4);
+        map.put("title",windowEntity.getWindowTitle());
+        map.put("details",windowEntity.getWindowDetails());
+        map.put("picturePath",windowEntity.getPicturePath());
+        map.put("createDate",windowEntity.getCreateDate());
+        return new ModelAndView("pc/search/window",map);
     }
 
     /**
