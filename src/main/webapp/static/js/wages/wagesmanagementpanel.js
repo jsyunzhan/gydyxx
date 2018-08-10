@@ -107,8 +107,8 @@ $(function () {
     });
 
     var $addWagesWin = $('#addWagesWin').window({
-        title: "新增", closed: true, modal: true, height: 380,
-        width: 600, iconCls: 'icon-add', collapsible: false, minimizable: false,
+        title: "新增", closed: true, modal: true, height: 220,
+        width: 400, iconCls: 'icon-add', collapsible: false, minimizable: false,
         footer: '#addWagesWinFooter',
         onClose: function () {
             $('#addWagesForm').form('disableValidation').form('reset');
@@ -158,8 +158,8 @@ $(function () {
     });
 
     var $editWagesWin = $('#editWagesWin').window({
-        title: "修改", closed: true, modal: true, height: 380,
-        width: 600, iconCls: 'icon-edit', collapsible: false, minimizable: false,
+        title: "修改", closed: true, modal: true, height: 220,
+        width: 400, iconCls: 'icon-edit', collapsible: false, minimizable: false,
         footer: '#editWagesWinFooter',
         onClose: function () {
             $('#editWagesForm').form('disableValidation').form('reset');
