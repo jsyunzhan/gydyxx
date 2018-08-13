@@ -9,12 +9,11 @@
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
-    <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/swiper/idangerous.swiper.css">
     <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/public.css">
     <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/publicPart.css">
     <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/homepage.css">
     <script type="text/javascript" src="${APP_PATH}/static/jq/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="${APP_PATH}/static/swiper/idangerous.swiper.min.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/newSwiper.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/public.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/homepage.js"></script>
@@ -41,83 +40,84 @@
         <div class="content">
             <%--导航栏--%>
             <div class="navigation clearfix">
-                    <div class="title_tab">
-                        <div class="first_title"><a href="${APP_PATH}/pc/homepage.jsp">学校首页</a></div>
-                    </div>
-                    <div class="title_tab">
-                        <div class="first_title">致用校园</div>
-                        <div class="second_title">
-                            <a href="${APP_PATH}/homepage/profile/details">学校概况</a>
-                            <a href="${APP_PATH}/pc/zyxiaoyuan/ldjj.jsp">领导简介</a>
-                            <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp">通知公告</a>
-                            <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp">校园新闻</a>
-                            <a href="${APP_PATH}/pc/zyxiaoyuan/djgh.jsp">党建工会</a>
-                            <a href="${APP_PATH}/pc/zyxiaoyuan/gzzd.jsp">规章制度</a>
-                            <a href="${APP_PATH}/pc/zyxiaoyuan/zrdx.jsp">责任督学</a>
-                            <a href="${APP_PATH}/pc/zyxiaoyuan/wmcj.jsp">文明创建</a>
-                            <a href="${APP_PATH}/pc/zyxiaoyuan/fzxy.jsp">法治校园</a>
-                            <a href="${APP_PATH}/pc/zyxiaoyuan/xyfg.jsp">校园风光</a>
-                        </div>
-                    </div>
-                    <div class="title_tab">
-                        <div class="first_title">致用学院</div>
-                        <div class="second_title">
-                            <a href="${APP_PATH}/pc/zyxueyuan/ktyj.jsp">课题研究</a>
-                            <a href="${APP_PATH}/pc/zyxueyuan/xbpx.jsp">校本培训</a>
-                            <a href="${APP_PATH}/pc/zyxueyuan/jyky.jsp">教育科研</a>
-                            <a href="${APP_PATH}/pc/zyxueyuan/zykt.jsp">致用课堂</a>
-                        </div>
-                    </div>
-                    <div class="title_tab">
-                        <div class="first_title">致用园丁</div>
-                        <div class="second_title">
-                            <a href="${APP_PATH}/pc/zyyuanding/msfc.jsp">名师风采</a>
-                            <a href="${APP_PATH}/pc/zyyuanding/zygzs.jsp">致远工作室</a>
-                            <a href="${APP_PATH}/pc/zyyuanding/jxzy.jsp">教学资源</a>
-                        </div>
-                    </div>
-                    <div class="title_tab">
-                        <div class="first_title">致用少年</div>
-                        <div class="second_title">
-                            <a href="${APP_PATH}/pc/zyshaonian/zyy.jsp">致用邑</a>
-                            <a href="${APP_PATH}/pc/zyshaonian/gqxjh.jsp">国旗下讲话</a>
-                            <a href="${APP_PATH}/pc/zyshaonian/xzfc.jsp">学子风采</a>
-                            <a href="${APP_PATH}/pc/zyshaonian/zpzs.jsp">作品展示</a>
-                        </div>
-                    </div>
-                    <div class="title_tab">
-                        <div class="first_title">致用课程</div>
-                        <div class="second_title">
-                            <a href="${APP_PATH}/pc/zykecheng/xyjq.jsp">校园节庆</a>
-                            <a href="${APP_PATH}/pc/zykecheng/jpst.jsp">精品社团</a>
-                            <a href="${APP_PATH}/pc/zykecheng/bbkc.jsp">班本课程</a>
-                        </div>
-                    </div>
-                    <div class="title_tab">
-                        <div class="first_title">致睦家校</div>
-                        <div class="second_title">
-                            <a href="${APP_PATH}/pc/zmjiaxiao/jxxq.jsp">家校心桥</a>
-                            <a href="${APP_PATH}/pc/zmjiaxiao/jkjy.jsp">健康教育</a>
-                            <a href="${APP_PATH}/pc/zmjiaxiao/jxziyuan.jsp">家校资源</a>
-                            <a href="${APP_PATH}/pc/zmjiaxiao/mail.jsp">校长信箱</a>
-                        </div>
-                    </div>
-                    <div class="title_tab">
-                        <div class="first_title"><a href="${APP_PATH}/pc/contact.jsp">联系我们</a></div>
+                <div class="title_tab">
+                    <div class="first_title"><a href="${APP_PATH}/pc/homepage.jsp">学校首页</a></div>
+                </div>
+                <div class="title_tab">
+                    <div class="first_title">致用校园</div>
+                    <div class="second_title">
+                        <a href="${APP_PATH}/homepage/profile/details">学校概况</a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/ldjj.jsp">领导简介</a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/tzgg.jsp">通知公告</a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/xyxw.jsp">校园新闻</a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/djgh.jsp">党建工会</a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/gzzd.jsp">规章制度</a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/zrdx.jsp">责任督学</a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/wmcj.jsp">文明创建</a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/fzxy.jsp">法治校园</a>
+                        <a href="${APP_PATH}/pc/zyxiaoyuan/xyfg.jsp">校园风光</a>
                     </div>
                 </div>
+                <div class="title_tab">
+                    <div class="first_title">致用学院</div>
+                    <div class="second_title">
+                        <a href="${APP_PATH}/pc/zyxueyuan/ktyj.jsp">课题研究</a>
+                        <a href="${APP_PATH}/pc/zyxueyuan/xbpx.jsp">校本培训</a>
+                        <a href="${APP_PATH}/pc/zyxueyuan/jyky.jsp">教育科研</a>
+                        <a href="${APP_PATH}/pc/zyxueyuan/zykt.jsp">致用课堂</a>
+                    </div>
+                </div>
+                <div class="title_tab">
+                    <div class="first_title">致用园丁</div>
+                    <div class="second_title">
+                        <a href="${APP_PATH}/pc/zyyuanding/msfc.jsp">名师风采</a>
+                        <a href="${APP_PATH}/pc/zyyuanding/zygzs.jsp">致远工作室</a>
+                        <a href="${APP_PATH}/pc/zyyuanding/jxzy.jsp">教学资源</a>
+                    </div>
+                </div>
+                <div class="title_tab">
+                    <div class="first_title">致用少年</div>
+                    <div class="second_title">
+                        <a href="${APP_PATH}/pc/zyshaonian/zyy.jsp">致用邑</a>
+                        <a href="${APP_PATH}/pc/zyshaonian/gqxjh.jsp">国旗下讲话</a>
+                        <a href="${APP_PATH}/pc/zyshaonian/xzfc.jsp">学子风采</a>
+                        <a href="${APP_PATH}/pc/zyshaonian/zpzs.jsp">作品展示</a>
+                    </div>
+                </div>
+                <div class="title_tab">
+                    <div class="first_title">致用课程</div>
+                    <div class="second_title">
+                        <a href="${APP_PATH}/pc/zykecheng/xyjq.jsp">校园节庆</a>
+                        <a href="${APP_PATH}/pc/zykecheng/jpst.jsp">精品社团</a>
+                        <a href="${APP_PATH}/pc/zykecheng/bbkc.jsp">班本课程</a>
+                    </div>
+                </div>
+                <div class="title_tab">
+                    <div class="first_title">致睦家校</div>
+                    <div class="second_title">
+                        <a href="${APP_PATH}/pc/zmjiaxiao/jxxq.jsp">家校心桥</a>
+                        <a href="${APP_PATH}/pc/zmjiaxiao/jkjy.jsp">健康教育</a>
+                        <a href="${APP_PATH}/pc/zmjiaxiao/jxziyuan.jsp">家校资源</a>
+                        <a href="${APP_PATH}/pc/zmjiaxiao/mail.jsp">校长信箱</a>
+                    </div>
+                </div>
+                <div class="title_tab">
+                    <div class="first_title"><a href="${APP_PATH}/pc/contact.jsp">联系我们</a></div>
+                </div>
+            </div>
 
             <%--轮播图--%>
-            <div class="swiper-container banner">
-                <a class="arrow-left" href="#">
-                    <img src="${APP_PATH}/static/images/arrow_left.png">
-                </a>
-                <a class="arrow-right" href="#">
-                    <img src="${APP_PATH}/static/images/arrow_right.png">
-                </a>
-                <div class="swiper-wrapper banner_wrapper clearfix">
+            <div class="banner-container" id="banner01">
+                <div class="banner-wrapper"></div>
+                <div class="bannerBtn">
+                    <div class="prevBtn">
+                        <img src="${APP_PATH}/static/images/arrow_left.png">
+                    </div>
+                    <div class="nextBtn">
+                        <img src="${APP_PATH}/static/images/arrow_right.png">
+                    </div>
                 </div>
-                <div class="pagination"></div>
+                <div class="pagetion"></div>
             </div>
 
             <%--通知新闻类--%>
@@ -140,9 +140,18 @@
                     <div class="content_news"></div>
                     <div class="main_content clearfix">
                         <div class="main_content_left">
-                            <div class="swiper-container news_banner">
-                                <div class="swiper-wrapper"></div>
-                                <div class="pagination01"></div>
+                            <div class="banner-container" id="banner02">
+                                <div class="banner-wrapper"></div>
+                                <div class="bannerBtn">
+                                    <div class="prevBtn">
+                                        <img src="${APP_PATH}/static/images/prev.png">
+                                    </div>
+                                    <div class="nextBtn">
+                                        <img src="${APP_PATH}/static/images/next.png">
+                                    </div>
+                                </div>
+                                <div class="pagetion"></div>
+                                <div class="pageBg"></div>
                             </div>
                         </div>
                         <div class="main_content_right">
@@ -323,10 +332,10 @@
                     <div class="title_mien">
                         <img src="${APP_PATH}/static/images/school_fc.png">
                     </div>
-                    <div class="swiper-container mien_pic">
-                        <div class="swiper-wrapper">
+                    <div class="banner-container mien_pic" id="banner03">
+                        <div class="banner-wrapper">
                         </div>
-                        <div class="pagination02"></div>
+                        <div class="pagination"></div>
                     </div>
                 </div>
             </div>

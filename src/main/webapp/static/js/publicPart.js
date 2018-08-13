@@ -16,11 +16,22 @@ $(function () {
     });
 
     // 搜索
-    $(".wrapper .search span").click(function () {
+    function searchMethod(){
         var title = $(".search_input input").val();
         var url = path + "/homepage/home/search?title=" + title;
         window.location.href = url;
+    }
+
+    $(".wrapper .search span").click(function () {
+        searchMethod()
     });
+
+    $(document).keydown(function(event){
+        if(event.keyCode == 13){
+            searchMethod();
+        }
+    });
+
 
     // 校史天地
     $.ajax({
@@ -41,4 +52,4 @@ $(function () {
             })
         }
     });
-})
+});

@@ -28,7 +28,7 @@ $(function () {
             var dd=font.replace(/<\/?.+?>/g,"");
             var dds=dd.replace(/ /g,"");
             var dds=dds.slice(0,30);
-            _html += '<div class="main_title" name="'+event[0].id+'">'+event[0].newsTitle+'</div>';
+            _html += '<div class="main_title" name="'+event[0].id+'">'+event[0].newsTitle+'</div><br/>';
             _html += '<div class="secondary_title" name="'+event[0].id+'">'+dds+'<a href="javascript:;">[更多]</a></div>'
             $(".content_news").append(_html);
             // 新闻中心跳转详情
@@ -51,23 +51,34 @@ $(function () {
                     type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
                     success:function (r) {
                         var _html = "";
-                        _html += '<div class="swiper-slide" name="'+event[0].id+'"><img src="data:image/gif;base64,'+r+'"><div class="newsPic_font">'+event[i].newsTitle+'</div><div class="newsPic_title"></div></div>';
-                        $(".news_banner .swiper-wrapper").append(_html);
+                        _html += '<div class="banner-solid" name="'+event[i].id+'"><img src="data:image/gif;base64,'+r+'"><p class="newsPic_font">'+event[i].newsTitle+'</p></div>';
+                        $("#banner02 .banner-wrapper").append(_html);
+                        $("#banner02 .pagetion").append("<span></span>");
                     }
                 })
             }
-            // 新闻轮播图
-            var news_banner = new Swiper(".news_banner",{
-                autoplay : 3000,
-                speed: 1000,
-                loop:true,
-                pagination: '.pagination01',
-                paginationClickable: true,
-                autoplayDisableOnInteraction : false
+            $("#banner02 .pagetion span:nth-child(1)").addClass("bannerChoosen");
+            var _htmlLast = $("#banner02 .banner-solid:nth-last-child(1)").clone();
+            var _htmlFirst = $("#banner02 .banner-solid:nth-child(1)").clone();
+            $("#banner02 .banner-wrapper").append(_htmlFirst);
+            $("#banner02 .banner-wrapper").prepend(_htmlLast);
+            // banner轮播
+            var banner02 = new newSwiper({
+                "name":"#banner02",
+                "width":300,
+                "speed":20,
+                "time":5000
+            });
+            banner02.autoplay();
+            $("#banner02 .nextBtn").click(function(){
+                banner02.next();
+            });
+            $("#banner02 .prevBtn").click(function(){
+                banner02.prev();
             });
             // 新闻中心跳转详情
-            $(".news_banner .swiper-slide .newsPic_font").click(function(){
-                var url = path + '/homepage/news/details/'+$(this).parent(".swiper-slide").attr("name");
+            $("#banner02 .banner-solid").click(function(){
+                var url = path + '/homepage/news/details/'+$(this).attr("name");
                 window.location.href = url;
             })
         }
@@ -178,6 +189,7 @@ $(function () {
         url:path + "/homepage/school/list",
         type:"GET",dataType:"json",async:false,
         success:function (event) {
+            console.log(event);
             for(var i=0;i<event.length;i++){
                 var data = {picturePath:event[i].picturePath};
                 $.ajax({
@@ -185,23 +197,37 @@ $(function () {
                     type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
                     success:function (r) {
                         var _html = "";
-                        _html += '<div class="swiper-slide clearfix"><div class="mien_pic_child"><img src="data:image/gif;base64,'+r+'"><img src="../static/images/frame.png"></div></div>';
-                        $(".mien_pic .swiper-wrapper").append(_html);
+                        _html += '<div class="banner-solid" title="'+event[i].schoolTitle+'" name="'+event[i].id+'"><div class="mien_pic_child"><img src="data:image/gif;base64,'+r+'"><img src="../static/images/frame.png"></div></div>';
+                        $("#banner03 .banner-wrapper").append(_html);
                     }
                 })
             }
             if(event.length>4){
-                // 学校风采图片切换
-                var mien_pic = new Swiper(".mien_pic",{
-                    autoplay : 5000,
-                    speed: 1000,
-                    loop:true,
-                    pagination: '.pagination02',
-                    paginationClickable: true,
-                    slidesPerView: 4,
-                    autoplayDisableOnInteraction : false
-                });
+                var num =0;
+                var ML = parseInt($("#banner03 .banner-wrapper").css("margin-left"));
+                var timer = setInterval(function(){
+                    if (num>-275){
+                        num -= 1;
+                        var newML = ML+num;
+                        $("#banner03 .banner-wrapper").css("margin-left",newML+"px");
+                    }else{
+                        $("#banner03 .banner-wrapper").append($("#banner03 .banner-solid:nth-child(1)").clone());
+                        $("#banner03 .banner-solid:nth-child(1)").remove();
+                        $("#banner03 .banner-wrapper").css("margin-left","0px");
+                        num = 0;
+                    }
+                    // 校园风光跳转详情
+                    $("#banner03 .banner-solid").click(function(){
+                        var url = path + '/homepage/school/details/'+$(this).attr("name");
+                        window.location.href = url;
+                    })
+                },40);
             }
+            // 校园风光跳转详情
+            $("#banner03 .banner-solid").click(function(){
+                var url = path + '/homepage/school/details/'+$(this).attr("name");
+                window.location.href = url;
+            })
         }
     });
 
@@ -217,35 +243,40 @@ $(function () {
                     type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
                     success:function (r) {
                         var _html = "";
-                        _html += '<div class="swiper-slide" name="'+event[0].id+'"><img src="data:image/gif;base64,'+r+'"></div>';
-                        $(".banner_wrapper").append(_html);
+                        _html += '<div class="banner-solid" name="'+event[i].id+'"><img src="data:image/gif;base64,'+r+'"></div>';
+                        $("#banner01 .banner-wrapper").append(_html);
+                        $("#banner01 .pagetion").append("<span></span>");
                     }
                 })
             }
-            // 调用swiper插件
-            var banner = new Swiper(".banner",{
-                autoplay : 3000,
-                speed: 1000,
-                loop:true,
-                pagination: '.pagination',
-                paginationClickable: true,
-                autoplayDisableOnInteraction : false
+            $("#banner01 .pagetion span:nth-child(1)").addClass("bannerChoosen");
+            var _htmlLast = $("#banner01 .banner-solid:nth-last-child(1)").clone();
+            var _htmlFirst = $("#banner01 .banner-solid:nth-child(1)").clone();
+            $("#banner01 .banner-wrapper").append(_htmlFirst);
+            $("#banner01 .banner-wrapper").prepend(_htmlLast);
+            // banner轮播
+            var banner01 = new newSwiper({
+                "name":"#banner01",
+                "width":1200,
+                "speed":20,
+                "time":8000
             });
-            $(".arrow-left").on("click", function(e){
-                e.preventDefault();
-                banner.swipePrev();
+            banner01.autoplay();
+            $("#banner01 .nextBtn").click(function(){
+                banner01.next();
             });
-            $(".arrow-right").on("click", function(e){
-                e.preventDefault();
-                banner.swipeNext();
+            $("#banner01 .prevBtn").click(function(){
+                banner01.prev();
             });
             // 点击飘窗跳转
-            $(".banner_wrapper .swiper-slide").click(function () {
-                var url = path + '/homepage/banner/details/'+$(this).attr("name");
-                window.location.href = url;
-            })
+            // $(".banner_wrapper .swiper-slide").click(function () {
+            //     var url = path + '/homepage/banner/details/'+$(this).attr("name");
+            //     window.location.href = url;
+            // })
         }
     });
+
+
 
     // 飘窗
     $.ajax({
@@ -269,8 +300,8 @@ $(function () {
             // 调用飘窗
             var floatImage = new imgFloat(".floatImage",{
                 "time":30,
-                "speedx":0.5,
-                "speedy":1
+                "speedx":0.8,
+                "speedy":0.5
             });
             floatImage.resize();
             floatImage.move();
@@ -278,10 +309,10 @@ $(function () {
                 $(this).parent(".floatImage").remove();
             })
             // 点击飘窗跳转
-            $(".floatImage a").click(function () {
-                var url = path + '/homepage/window/details/'+$(this).attr("name");
-                window.location.href = url;
-            })
+            // $(".floatImage a").click(function () {
+            //     var url = path + '/homepage/window/details/'+$(this).attr("name");
+            //     window.location.href = url;
+            // })
         }
     })
 

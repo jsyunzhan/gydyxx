@@ -1,45 +1,68 @@
 /*banner轮播*/
-.banner{
+#banner01{
+    overflow: hidden;
+    position: relative;
     height: 310px;
+}
+
+#banner01 .banner-wrapper{
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    font-size: 0;
+    margin-left: -1200px
+}
+
+#banner01 .banner-solid{
+    display: inline-block;
+    width: 1200px;
+}
+
+/*上一张下一张*/
+#banner01 .bannerBtn div{
+    cursor: pointer;
+}
+
+#banner01 .bannerBtn .prevBtn{
+    position: absolute;
+    left: 30px;
+    top: 130px;
+    width: 14px;
+}
+
+#banner01 .bannerBtn .nextBtn{
+    position: absolute;
+    right: 30px;
+    top: 130px;
+    width: 14px;
+}
+
+/*分页器*/
+#banner01 .pagetion{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 0;
+    bottom: 10%;
     z-index: 10;
 }
 
-.banner .pagination {
-    position: absolute;
-    left: 0;
-    text-align: center;
-    bottom:15px;
-    width: 100%;
-}
-
-.banner .swiper-pagination-switch {
+#banner01 .pagetion span{
     display: inline-block;
-    border-radius: 10px;
+    width: 14px;
+    height: 14px;
+    border-radius: 100px;
+    background: initial;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 0 3px;
+}
+
+#banner01 .pagetion .bannerChoosen{
     background: #fff;
-    margin: 0 5px;
-    cursor: pointer;
-    width: 11px;
-    height: 11px;
-}
-
-.banner .swiper-active-switch {
-    background: #ce6e0a;
-}
-
-.banner .arrow-left,.arrow-right{
-    position: absolute;
-    width: 15px;
-    height: 50px;
-    top: 130px;
-    z-index: 2;
-}
-
-.banner .arrow-left{
-    left: 55px;
-}
-
-.banner .arrow-right{
-    right: 55px;
 }
 
 /*通知公告*/
@@ -109,19 +132,26 @@
 
 .news .content_news{
     text-align: center;
+    height: 80px;
 }
 
 .news .content_news .main_title{
     font-size: 24px;
     color: #490d0d;
     line-height: 40px;
+    height: 40px;
     margin-top: 10px;
+    cursor: pointer;
+    display: inline-block;
 }
 
 .news .content_news .secondary_title{
     font-size: 18px;
     color: #565656;
     line-height: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: inline-block;
 }
 
 .news .content_news .secondary_title a{
@@ -137,46 +167,88 @@
     margin-top: 4px;
 }
 
-.news_banner{
+#banner02{
     width: 300px;
+    margin: 0 auto;
     height: 240px;
-}
-
-.news_banner .swiper-slide{
+    overflow: hidden;
     position: relative;
 }
 
-.news_banner .pagination01 {
+#banner02 .banner-wrapper{
     position: absolute;
-    right: 30px;
-    text-align: center;
-    bottom: 11px;
-    z-index: 3;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    font-size: 0;
+    margin-left: -300px
 }
 
-.news_banner .swiper-pagination-switch {
+#banner02 .banner-solid{
     display: inline-block;
-    border-radius: 10px;
-    background: #fff;
-    margin: 0 3px;
+    width: 300px;
+    position: relative;
+}
+
+/*上一张下一张*/
+#banner02 .bannerBtn div{
     cursor: pointer;
-    width: 8px;
-    height: 8px;
 }
 
-.news_banner .swiper-active-switch {
-    background: #ce6e0a;
+#banner02 .bannerBtn .prevBtn{
+    position: absolute;
+    left: 10px;
+    top: 100px;
+    width: 24px;
 }
 
-.news_banner .newsPic_title{
+#banner02 .bannerBtn .nextBtn{
+    position: absolute;
+    right: 10px;
+    top: 100px;
+    width: 24px;
+}
+
+/*分页器*/
+#banner02 .pagetion{
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    font-size: 0;
+    bottom: 0px;
+    z-index: 10;
+    line-height: 30px;
+    height: 30px;
+}
+
+#banner02 .pageBg{
     position: absolute;
     bottom: 0px;
     left: 0px;
+    height: 30px;
     width: 100%;
     background: #000;
-    opacity: 0.5;
-    filter:alpha(opacity=50);
-    height: 30px;
+    opacity: 0.7;
+    filter:alpha(opacity=70);
+    z-index: 5;
+}
+
+#banner02 .pagetion span{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    background: initial;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin: 10px auto;
+    margin-right: 5px;
+}
+
+#banner02 .pagetion .bannerChoosen{
+    background: #fff;
 }
 
 .newsPic_font{
@@ -187,7 +259,7 @@
     color: #fff;
     width: 100px;
     z-index: 20;
-    cursor: pointer;
+    font-size: 14px;
 }
 
 /*新闻列表*/
@@ -205,6 +277,12 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    cursor: pointer;
+}
+
+.news_list:hover{
+    text-decoration: underline;
+    color: #915519;
 }
 
 .news_list span{
@@ -276,6 +354,7 @@
 
 .exhibition .content_ex .ex_list p:hover{
     text-decoration: underline;
+    color: #915519;
 }
 
 .exhibition .content_ex .ex_list span{
@@ -298,12 +377,30 @@
     top: 40px;
 }
 
-.mien_pic{
+#banner03{
     width: 1100px;
     position: absolute;
     left: 40px;
     top: 120px;
     height: 190px;
+    overflow: hidden;
+}
+
+#banner03 .banner-wrapper{
+    position: absolute;
+    left: 0;
+    top: 0;
+    white-space: nowrap;
+    font-size: 0;
+    margin-left: 0;
+}
+
+#banner03 .banner-solid{
+    display: inline-block;
+    width: 245px;
+    height: 146px;
+    margin: 0 15px;
+    cursor: pointer;
 }
 
 .mien_pic_child{
@@ -311,7 +408,6 @@
     width: 245px;
     height: 146px;
     float: left;
-    margin: 0 15px;
 }
 
 .mien_pic_child img{
@@ -319,26 +415,12 @@
     z-index: 10;
 }
 
-.mien_pic .pagination02{
+.mien_pic .pagination{
     position: absolute;
     left: 0;
     text-align: center;
     bottom:0px;
     width: 100%;
-}
-
-.mien_pic .swiper-pagination-switch{
-    display: inline-block;
-    border-radius: 10px;
-    background: #fff;
-    margin: 0 5px;
-    cursor: pointer;
-    width: 40px;
-    height: 12px;
-}
-
-.mien_pic .swiper-active-switch{
-    background: #915519;
 }
 
 /*校史*/

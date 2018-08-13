@@ -59,7 +59,7 @@
     padding: 0 30px;
 }
 
-.newsCon p{
+.newsCon .newsCon_font,.newsCon p{
     line-height: 30px;
     font-size: 18px;
     color: #666;
@@ -99,4 +99,8 @@
     margin-bottom: 0;
     color: #666;
     cursor: pointer;
+}
+
+.newsCon .every_search:hover{
+    color: #915419;
 }

@@ -163,11 +163,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .notice .content_notice .notification:hover{
-    text-decoration: underline;
+    color: #915519;
     cursor: pointer;
 }
 
@@ -245,7 +245,11 @@
     overflow: hidden;
     white-space: nowrap;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 15px;
+}
+
+.infor .history .history_list:hover{
+    color: #915519;
 }
 
 .history .link{
@@ -292,7 +296,7 @@
 }
 
 .history .link .linking .linking_list .linkChoose{
-    color: #f12312;
+    color: #915519;
 }
 
 /*footer*/

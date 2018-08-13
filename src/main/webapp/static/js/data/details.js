@@ -14,7 +14,9 @@ $(function () {
             }
         })
     }
-    _html += details;
+    var dd = details.replace(/<p>/g,"<div class='newsCon_font'>");
+    dd = dd.replace(/<\/p>/g,"</div>");
+    _html += dd;
     $(".newsCon").append(_html);
 
 })
