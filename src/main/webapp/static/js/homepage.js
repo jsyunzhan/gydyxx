@@ -190,38 +190,39 @@ $(function () {
         url:path + "/homepage/school/list",
         type:"GET",dataType:"json",async:false,
         success:function (event) {
+            var _html = "";
             for(var i=0;i<event.length;i++){
                 var data = {picturePath:event[i].picturePath};
                 $.ajax({
                     url:path + "/home/picture/show",
                     type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
                     success:function (r) {
-                        var _html = "";
                         _html += '<div class="banner-solid" title="'+event[i].schoolTitle+'" name="'+event[i].id+'"><div class="mien_pic_child"><img src="data:image/gif;base64,'+r+'"><img src="../static/images/frame.png"></div></div>';
-                        $("#banner03 .banner-wrapper").append(_html);
                     }
                 })
             }
+            $("#banner03 .banner-wrapper").append('<div class="banner_con">'+_html+'</div>');
+            $("#banner03 .banner-wrapper").append('<div class="banner_con">'+_html+'</div>');
             if(event.length>4){
                 var num =0;
                 var ML = parseInt($("#banner03 .banner-wrapper").css("margin-left"));
-                var timer = setInterval(function(){
-                    if (num>-275){
+                function xyfg(){
+                    if (num>-275*event.length){
                         num -= 1;
                         var newML = ML+num;
-                        $("#banner03 .banner-wrapper").css("margin-left",newML+"px");
+                        $("#banner03 .banner-wrapper:nth-child(1)").css("margin-left",newML+"px");
                     }else{
-                        $("#banner03 .banner-wrapper").append($("#banner03 .banner-solid:nth-child(1)").clone());
-                        $("#banner03 .banner-solid:nth-child(1)").remove();
-                        $("#banner03 .banner-wrapper").css("margin-left","0px");
+                        $("#banner03 .banner-wrapper:nth-child(1)").css("margin-left","0px");
                         num = 0;
                     }
-                    // 校园风光跳转详情
-                    $("#banner03 .banner-solid").click(function(){
-                        var url = path + '/homepage/school/details/'+$(this).attr("name");
-                        window.location.href = url;
-                    })
-                },40);
+                }
+                var timer = setInterval(xyfg,40);
+                $("#banner03 .banner-solid").mouseover(function () {
+                    clearInterval(timer);
+                });
+                $("#banner03 .banner-solid").mouseout(function () {
+                    timer = setInterval(xyfg,40);
+                });
             }
             // 校园风光跳转详情
             $("#banner03 .banner-solid").click(function(){
