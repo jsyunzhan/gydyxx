@@ -13,6 +13,7 @@
 	        "name":"",
 	        "width":0,
 	        "speed":0,
+			"speedLong":0,
 	        "time":0
 	    };
 		extend(this.defaultparam,setting);
@@ -32,7 +33,7 @@
 			if (ML<maxML) {
 				var timer = setInterval(function(){
 					if(num<defaultparam.width){
-						num += defaultparam.speed;
+						num += defaultparam.speedLong;
 						var newML = ML+num;
 						$(defaultparam.name+" .banner-wrapper").css("margin-left",newML+"px");
 					}else{
@@ -46,7 +47,7 @@
 			}else{
 				var timer = setInterval(function(){
 					if(num<defaultparam.width){
-						num += defaultparam.speed;
+						num += defaultparam.speedLong;
 						var newML = ML+num;
 						$(defaultparam.name+" .banner-wrapper").css("margin-left",newML+"px");
 					}else{
@@ -60,7 +61,7 @@
 				},this.defaultparam.speed)
 			}
 		}
-	}
+	};
 
 	// 下一页
 	newSwiper.prototype.next = function(){
@@ -77,7 +78,7 @@
 			if (ML>maxML) {
 				var timer = setInterval(function(){
 					if(num>-1*defaultparam.width){
-						num -= defaultparam.speed;
+						num -= defaultparam.speedLong;
 						var newML = ML+num;
 						$(defaultparam.name+" .banner-wrapper").css("margin-left",newML+"px");
 					}else{
@@ -87,11 +88,11 @@
 						$(defaultparam.name+" .pagetion span:nth-child("+nthNum+")").addClass("bannerChoosen");
 						clearInterval(timer);
 					}
-				},20)
+				},this.defaultparam.speed)
 			}else{
 				var timer = setInterval(function(){
 					if(num>-1*defaultparam.width){
-						num -= defaultparam.speed;
+						num -= defaultparam.speedLong;
 						var newML = ML+num;
 						$(defaultparam.name+" .banner-wrapper").css("margin-left",newML+"px");
 					}else{
@@ -102,10 +103,10 @@
 						$(defaultparam.name+" .pagetion span:nth-child("+nthNum+")").addClass("bannerChoosen");
 						clearInterval(timer);
 					}
-				},20)
+				},this.defaultparam.speed)
 			}
 		}
-	}
+	};
 
 	newSwiper.prototype.autoplay = function(){
 		var This = this;

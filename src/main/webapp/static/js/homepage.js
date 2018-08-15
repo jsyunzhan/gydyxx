@@ -58,7 +58,7 @@ $(function () {
                 })
             }
             $("#banner02 .pagetion span:nth-child(1)").addClass("bannerChoosen");
-            var _htmlLast = $("#banner02 .banner-solid:nth-last-child(1)").clone();
+            var _htmlLast = $("#banner02 .banner-solid:last").clone();
             var _htmlFirst = $("#banner02 .banner-solid:nth-child(1)").clone();
             $("#banner02 .banner-wrapper").append(_htmlFirst);
             $("#banner02 .banner-wrapper").prepend(_htmlLast);
@@ -66,7 +66,8 @@ $(function () {
             var banner02 = new newSwiper({
                 "name":"#banner02",
                 "width":300,
-                "speed":20,
+                "speed":10,
+                "speedLong":10,
                 "time":5000
             });
             banner02.autoplay();
@@ -189,7 +190,6 @@ $(function () {
         url:path + "/homepage/school/list",
         type:"GET",dataType:"json",async:false,
         success:function (event) {
-            console.log(event);
             for(var i=0;i<event.length;i++){
                 var data = {picturePath:event[i].picturePath};
                 $.ajax({
@@ -250,7 +250,7 @@ $(function () {
                 })
             }
             $("#banner01 .pagetion span:nth-child(1)").addClass("bannerChoosen");
-            var _htmlLast = $("#banner01 .banner-solid:nth-last-child(1)").clone();
+            var _htmlLast = $("#banner01 .banner-solid:last").clone();
             var _htmlFirst = $("#banner01 .banner-solid:nth-child(1)").clone();
             $("#banner01 .banner-wrapper").append(_htmlFirst);
             $("#banner01 .banner-wrapper").prepend(_htmlLast);
@@ -258,7 +258,8 @@ $(function () {
             var banner01 = new newSwiper({
                 "name":"#banner01",
                 "width":1200,
-                "speed":20,
+                "speed":10,
+                "speedLong":30,
                 "time":8000
             });
             banner01.autoplay();
