@@ -13,7 +13,10 @@ function timestampToTime01(timestamp){
 function timestampToTime02(timestamp){
     var date = new Date(timestamp);
     M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-    D = date.getDate();
+    D = ""+date.getDate()+"";
+    if (D.length<2){
+        D = 0+D;
+    }
     return M+D;
 }
 

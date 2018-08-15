@@ -2,7 +2,7 @@ $(function () {
 
     // 导航栏下拉菜单
     $(".title_tab").mouseover(function () {
-        $(this).find(".second_title").slideDown(300);
+        $(this).find(".second_title").show();
 
         $(".title_tab .second_title a").mouseover(function () {
             $(this).addClass("title_over");
