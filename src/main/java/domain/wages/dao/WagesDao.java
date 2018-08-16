@@ -2,6 +2,7 @@ package domain.wages.dao;
 
 import domain.wages.entity.WagesEntity;
 import domain.wages.entity.WagesMainEntity;
+import domain.wages.entity.WagesQueryEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -29,5 +30,5 @@ public interface WagesDao {
 
     Integer wagesEditMain(WagesMainEntity wagesMainEntity);
 
-    List<WagesEntity> wagesListByAccountId(Long loginId);
+    List<WagesEntity> wagesListByAccountId(WagesQueryEntity wagesQueryEntity);
 }

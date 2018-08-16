@@ -2,11 +2,13 @@ package domain.wages.controller;
 
 import domain.shiro.controller.AbstractActionController;
 import domain.wages.entity.WagesEntity;
+import domain.wages.entity.WagesQueryEntity;
 import domain.wages.service.WagesQueryManagementService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,7 +45,8 @@ public class WagesQueryManagementController extends AbstractActionController{
      */
     @RequestMapping(value = WAGES_QUERY_MANAGEMENT_LIST)
     @ResponseBody
-    public List<WagesEntity> wagesList(){
-        return wagesQueryManagementService.wagesList(getLoginId());
+    public List<WagesEntity> wagesList(@RequestBody WagesQueryEntity wagesQueryEntity){
+        wagesQueryEntity.setId(getLoginId());
+        return wagesQueryManagementService.wagesList(wagesQueryEntity);
     }
 }

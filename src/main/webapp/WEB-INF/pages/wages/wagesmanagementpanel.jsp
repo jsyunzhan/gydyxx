@@ -40,7 +40,7 @@
             <tr>
                 <th><label class="control-label required-mark" style="width:80px">日期</label>
                 </th>
-                <td><input class="easyui-datebox" name="wagesDate" required="required"/></td>
+                <td><input class="easyui-datebox" name="wagesDate" required="required" data-options="prompt:'请选择...'"/></td>
             </tr>
 
         </table>
