@@ -52,7 +52,34 @@
 </head>
 <body class="easyui-layout">
 
-    <div class="wrapper">
+    <div style="height:107px" data-options="region:'north',collapsible:false">
+        <form id="queryWagesFrom" name="queryListenCountFrom" method="post">
+            <table align="center" style="line-height: 30px;margin-top: 10px">
+                <tr>
+                    <td><span style="margin-left: 15px;">发放起始时间：</span></td>
+                    <td><input class="easyui-datebox" name="startDate" required="required" data-options="prompt:'请选择...'"/></td>
+
+                    <td><span style="margin-left: 15px;">至：</span></td>
+                    <td><input class="easyui-datebox" name="endDate" required="required" data-options="prompt:'请选择...'"/></td>
+
+                </tr>
+            </table>
+            <table align="center" style="margin-bottom: 10px;margin-top: 10px">
+                <tr>
+                    <td colspan="7" style="text-align: center;">
+                                        <span style="margin-left: 10px;">
+                                            <a href="#" class="easyui-linkbutton"
+                                               id="logSearch">确定</a>
+                                            <a href="#" class="easyui-linkbutton"
+                                               id="logResert" style="margin-left:25px">取消</a>
+                                        </span>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div data-options="region:'center'" class="wrapper">
     </div>
 
 </body>

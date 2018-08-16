@@ -2,6 +2,7 @@ package domain.wages.service.impl;
 
 import domain.wages.dao.WagesDao;
 import domain.wages.entity.WagesEntity;
+import domain.wages.entity.WagesQueryEntity;
 import domain.wages.service.WagesQueryManagementService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +25,7 @@ public class WagesQueryManagementServiceImpl implements WagesQueryManagementServ
     }
 
     @Override
-    public List<WagesEntity> wagesList(Long loginId) {
-        return wagesDao.wagesListByAccountId(loginId);
+    public List<WagesEntity> wagesList(WagesQueryEntity wagesQueryEntity) {
+        return wagesDao.wagesListByAccountId(wagesQueryEntity);
     }
 }
