@@ -106,6 +106,7 @@
     color: #775640;
     margin-top: -1px;
     background: url("../../static/images/second_title.png") no-repeat;
+    font-family: "SimSun";
 }
 
 .title_tab .second_title .title_over{
@@ -246,6 +247,7 @@
     white-space: nowrap;
     cursor: pointer;
     font-size: 15px;
+    color: #707276;
 }
 
 .infor .history .history_list:hover{
