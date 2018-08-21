@@ -26,7 +26,7 @@
     line-height: 60px;
     font-size: 28px;
     color: #6D6969;
-    font-family: 'SimSun';
+    font-family: '宋体';
     padding: 0 24px;
     cursor: pointer;
     background: url("../../static/images/grayright.png") 245px 18px no-repeat;
@@ -43,8 +43,12 @@
 }
 
 .news .title_news,.news .title_news a{
-    color: #555;
+    color: #999;
     cursor: auto;
+}
+
+.news .title_news{
+    color: #555;
 }
 
 .main_title01{

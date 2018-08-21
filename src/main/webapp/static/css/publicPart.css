@@ -50,6 +50,7 @@
     box-sizing:border-box;
     -moz-box-sizing:border-box; /* Firefox */
     -webkit-box-sizing:border-box; /* Safari */
+    outline: 0;
 }
 
 .wrapper .search span{
@@ -67,8 +68,8 @@
     height: 57px;
     line-height: 57px;
     color: #fff;
-    font-family: 'SimSun';
-    font-size: 16px;
+    font-family: '宋体';
+    font-size: 18px;
 }
 
 .title_tab{
@@ -106,7 +107,8 @@
     color: #775640;
     margin-top: -1px;
     background: url("../../static/images/second_title.png") no-repeat;
-    font-family: "SimSun";
+    font-family: '宋体';
+    font-size: 18px;
 }
 
 .title_tab .second_title .title_over{
@@ -195,7 +197,7 @@
 }
 
 .infor .history .history_con{
-    height: 306px;
+    height: 246px;
 }
 
 .news .title_news a,.history .title_news a,.title_ex a{
@@ -203,9 +205,10 @@
     right: 20px;
     top: 0;
     display: block;
-    font-size: 9px;
+    font-size: 12px;
     line-height: 44px;
     color: #490d0d;
+    font-weight: lighter;
 }
 
 .news .title_news{
@@ -214,6 +217,11 @@
 
 .news .title_news a{
     font-size: 16px;
+}
+
+.title_news a b{
+    font-weight: lighter;
+    color: #999;
 }
 
 .news .title_news a span,.history .title_news a span{
@@ -240,8 +248,8 @@
 .infor .history .history_list{
     margin: 0 20px;
     border-bottom: 1px dashed #e3e3e3;
-    height: 50px;
-    line-height: 70px;
+    height: 40px;
+    line-height: 54px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -295,6 +303,7 @@
     margin-top: -1px;
     background: #fff;
     color: #6d6e73;
+    line-height: 60px;
 }
 
 .history .link .linking .linking_list .linkChoose{

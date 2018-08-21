@@ -90,7 +90,7 @@
 }
 
 .notice .title_notice a{
-    font-size: 9px;
+    font-size: 12px;
 }
 
 /*新闻中心*/
@@ -293,6 +293,16 @@
 }
 
 /*校史天地*/
+.infor .history .history_con{
+    height: 301px;
+}
+
+.infor .history .history_list{
+    height: 50px;
+    line-height: 70px;
+}
+
+
 .infor .history .history_list{
     font-size: 16px;
 }
@@ -302,6 +312,7 @@
     float: left;
     width: 12.5%;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .infor .icon .icon_font{
@@ -350,7 +361,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     float: left;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .exhibition .content_ex .ex_list p:hover{
@@ -363,6 +374,7 @@
     width: 70px;
     text-align: right;
     float: left;
+    font-size: 12px;
 }
 
 /*学校风采*/
