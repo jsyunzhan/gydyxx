@@ -15,13 +15,13 @@
     </appender>
     <appender name="R" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender-->
-        <File>/home/logs/WeChatgyjyjtkxt.log</File>
+        <File>/home/logs/gydyxx.log</File>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} [%line] - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
             <maxIndex>100</maxIndex>
-            <FileNamePattern>/home/logs/WeChatgyjyjtkxt.log.%i</FileNamePattern>
+            <FileNamePattern>/home/logs/gydyxx.log.%i</FileNamePattern>
         </rollingPolicy>
         <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
             <MaxFileSize>200MB</MaxFileSize>

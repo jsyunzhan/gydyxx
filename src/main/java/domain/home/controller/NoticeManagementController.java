@@ -194,7 +194,7 @@ public class NoticeManagementController extends AbstractActionController{
             if(!file.isEmpty()) {
 
                 //文件存放路径
-                String dirPath = "D:/image/"+name+"/" + userName + "/" + year + "/" + month + "/" +data;
+                String dirPath = "/home/image/"+name+"/" + userName + "/" + year + "/" + month + "/" +data;
                 //创建文件夹
                 File dir = new File(dirPath);
                 if (!dir.exists()){
