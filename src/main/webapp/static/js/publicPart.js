@@ -42,7 +42,6 @@ $(function () {
     }
     isIE();
 
-
     // 校史天地
     $.ajax({
         url:path + "/homepage/history/list",
