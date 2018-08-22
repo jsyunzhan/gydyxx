@@ -32,6 +32,16 @@ $(function () {
         }
     });
 
+    // 判断IE浏览器给搜索加上val
+    function isIE(){
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器
+        if(isIE){
+            $(".search_input input").val("请输入关键字");
+        }
+    }
+    isIE();
+
 
     // 校史天地
     $.ajax({

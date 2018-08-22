@@ -22,6 +22,12 @@
 /*上一张下一张*/
 #banner01 .bannerBtn div{
     cursor: pointer;
+    transition: 0.2s;
+}
+
+#banner01 .bannerBtn div:hover{
+    top: 124px;
+    width: 20px;
 }
 
 #banner01 .bannerBtn .prevBtn{
@@ -116,7 +122,7 @@
     right: 20px;
     top: 0;
     display: block;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 44px;
     color: #490d0d;
 }
@@ -150,12 +156,11 @@
     color: #565656;
     line-height: 30px;
     height: 30px;
-    cursor: pointer;
     display: inline-block;
 }
 
 .news .content_news .secondary_title a{
-    color: #565656;
+    color: #490d0d;
 }
 
 /*新闻图轮播*/
@@ -200,6 +205,7 @@
     left: 10px;
     top: 100px;
     width: 24px;
+    transition: 0.2s;
 }
 
 #banner02 .bannerBtn .nextBtn{
@@ -207,6 +213,12 @@
     right: 10px;
     top: 100px;
     width: 24px;
+    transition: 0.2s;
+}
+
+#banner02 .bannerBtn .prevBtn:hover,#banner02 .bannerBtn .nextBtn:hover{
+    width: 30px;
+    top: 94px;
 }
 
 /*分页器*/
@@ -355,6 +367,10 @@
     color: #707276;
 }
 
+.exhibition .content_ex .ex_list:hover{
+    color: #915519;
+}
+
 .exhibition .content_ex .ex_list p{
     width: 290px;
     overflow: hidden;
@@ -362,11 +378,6 @@
     white-space: nowrap;
     float: left;
     font-size: 12px;
-}
-
-.exhibition .content_ex .ex_list p:hover{
-    text-decoration: underline;
-    color: #915519;
 }
 
 .exhibition .content_ex .ex_list span{
@@ -447,7 +458,7 @@
 }
 
 .news .title_news,.history .title_news{
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .history .title_news a{

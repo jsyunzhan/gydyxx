@@ -51,6 +51,7 @@
     -moz-box-sizing:border-box; /* Firefox */
     -webkit-box-sizing:border-box; /* Safari */
     outline: 0;
+    color: #666;
 }
 
 .wrapper .search span{
@@ -338,7 +339,7 @@
     background: #DDC7AC;
     color: #915519;
     width: 67px;
-    font-size: 9px;
+    font-size: 12px;
     line-height: 21px;
     border-radius: 11px;
     vertical-align: top;

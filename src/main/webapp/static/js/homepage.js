@@ -32,7 +32,7 @@ $(function () {
             _html += '<div class="secondary_title" name="'+event[0].id+'">'+dds+'<a href="javascript:;">[更多]</a></div>'
             $(".content_news").append(_html);
             // 新闻中心跳转详情
-            $(".main_title,.secondary_title").click(function(){
+            $(".main_title,.secondary_title a").click(function(){
                 var url = path + '/homepage/news/details/'+$(this).attr("name");
                 window.location.href = url;
             })
