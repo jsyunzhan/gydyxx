@@ -6,7 +6,7 @@
 }
 
 .leftClass_title{
-    font-size: 28px;
+    font-size: 24px;
     line-height: 65px;
     text-align: center;
     background: #915419;
@@ -24,7 +24,7 @@
 
 .leftClass_con .leftChild{
     line-height: 60px;
-    font-size: 28px;
+    font-size: 24px;
     color: #6D6969;
     font-family: '宋体';
     padding: 0 24px;
@@ -44,7 +44,7 @@
 
 .news .title_news,.news .title_news a{
     color: #999;
-    cursor: auto;
+    cursor: default;
 }
 
 .news .title_news{
