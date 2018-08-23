@@ -335,7 +335,7 @@
     text-align: center;
 }
 
-.footer_font p a{
+.footer_font p .loginBtn{
     display: inline-block;
     background: #DDC7AC;
     color: #915519;
@@ -345,4 +345,8 @@
     border-radius: 11px;
     vertical-align: top;
     margin-top: 4px;
+}
+
+.footer_font p .gxb{
+    color: #fff;
 }

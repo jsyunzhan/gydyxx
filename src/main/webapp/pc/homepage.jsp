@@ -349,9 +349,13 @@
                 </div>
                 <div class="footer_font">
                     <p style="line-height: 80px;">Copyright@2018 http://xxx.org All Rights Reserved</p>
-                    <p style="line-height: 30px;">学校地址：江苏省高邮市xxx路xxx号 邮编：225600 <a href="${APP_PATH}/security/movetologin">用户登录</a></p>
-                    <p style="line-height: 30px;">联系电话：0514-8xxxxxxx 苏ICP备xxxxxxxx号 校长信箱：xxxxx@163.com</p>
-                    <p style="line-height: 80px;">苏公网安备用 7852595156256</p>
+                    <p style="line-height: 30px;">学校地址：江苏省高邮市府前街4号 邮编：225600 <a href="${APP_PATH}/security/movetologin" class="loginBtn">用户登录</a></p>
+                    <p style="line-height: 30px;"><a href="http://www.miibeian.gov.cn/" target="_blank" class="gxb">苏ICP备10084223号</a></p>
+                    <p style="line-height: 80px;">
+                        <div style="width:300px;margin:0 auto; padding:20px 0;">
+                            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32108402000010" class="clearfix" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="${APP_PATH}/static/images/country.png" style="float:left;width:20px;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#fff;">苏公网安备 32108402000010号</p></a>
+                        </div>
+                    </p>
                 </div>
                 <div class="footer_img">
                     <img src="${APP_PATH}/static/images/img_01.png">
