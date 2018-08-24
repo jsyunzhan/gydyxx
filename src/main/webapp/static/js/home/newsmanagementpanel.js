@@ -341,6 +341,11 @@ $(function () {
             return
         }
 
+        if (!selectedNews.picturePath){
+            showWarningMessage("该新闻不包含图片，请重新选择！");
+            return
+        }
+
         if (1 == selectedNews.changeFlag){
             showWarningMessage("该新闻已是轮播图，请重新选择！");
             return
