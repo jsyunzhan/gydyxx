@@ -19,7 +19,7 @@
         SELECT
         t.ID id,
         t.WINDOW_TITLE windowTitle,
-        t.WINDOW_DETAILS,
+        t.WINDOW_URL windowUrl,
         t.PICTURE_PATH picturePath,
         t.STATUE_ID statueId,
         (SELECT COUNT(*) FROM t_home_window b WHERE b.STATUE_ID='1' AND b.DELETE_FLAG='1') statueCount,
@@ -68,7 +68,7 @@
         INSERT INTO t_home_window
         (
         WINDOW_TITLE,
-        WINDOW_DETAILS,
+        WINDOW_URL,
         <if test="picturePath!=null and picturePath!=''">
             PICTURE_PATH,
         </if>
@@ -76,7 +76,7 @@
         CREATE_DATA
         ) VALUE (
         #{windowTitle},
-        #{windowDetails},
+        #{windowUrl},
         <if test="picturePath!=null and picturePath!=''">
             #{picturePath},
         </if>
@@ -89,7 +89,7 @@
     <update id="windowEdit">
         UPDATE t_home_window SET
         WINDOW_TITLE=#{windowTitle},
-        WINDOW_DETAILS=#{windowDetails},
+        WINDOW_URL=#{windowUrl},
         <if test="picturePath!=null and picturePath!=''">
             PICTURE_PATH=#{picturePath},
         </if>

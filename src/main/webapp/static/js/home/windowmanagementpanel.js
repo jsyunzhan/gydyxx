@@ -14,6 +14,10 @@ $(function () {
             {
                 field: 'windowTitle', title: "飘窗标题", width: 150, sortable: true,
                 align: 'left'
+            },
+            {
+                field: 'windowUrl', title: "飘窗链接地址", width: 400, sortable: true,
+                align: 'left'
             }
             , {
                 field: 'statueId', title: "是否开启", width: 150, sortable: true,
@@ -104,9 +108,6 @@ $(function () {
 
     /*************新增*******************/
 
-    var reportAdd = UE.getEditor('containerAdd', {
-        initialFrameWidth: '100%', initialFrameHeight: 240
-    });
 
     var $addWindowForm = $('#addWindowForm').form({
         novalidate: true
@@ -120,7 +121,6 @@ $(function () {
             $('#pictureWindowForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#addWindowForm').form('disableValidation').form('reset');
-            reportAdd.setContent("");
         }
     });
 
@@ -132,11 +132,6 @@ $(function () {
 
             var windowData = $addWindowForm.serializeObject(),
                 url = path + "/home/windowmanpage/add";
-
-            if (!windowData.windowDetails){
-                showErrorMessage("正文不可为空！");
-                return
-            }
 
             if (!$("input[name=file]").val()){
                 showErrorMessage("请选择图片！");
@@ -178,9 +173,6 @@ $(function () {
 
     /*************修改*******************/
 
-    var reportEdit = UE.getEditor('containerEdit', {
-        initialFrameWidth: '100%', initialFrameHeight: 240
-    });
 
     var $editWindowForm = $('#editWindowForm').form({
         novalidate: true
@@ -194,7 +186,6 @@ $(function () {
             $('#pictureWindowForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editWindowForm').form('disableValidation').form('reset');
-            reportEdit.setContent("");
         }
     });
 
@@ -207,11 +198,6 @@ $(function () {
             var windowData = $editWindowForm.serializeObject(),
                 url = path + "/home/windowmanpage/edit";
             windowData.id = selectedWindow.id;
-
-            if (!windowData.windowDetails){
-                showErrorMessage("正文不可为空！");
-                return
-            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/飘窗",

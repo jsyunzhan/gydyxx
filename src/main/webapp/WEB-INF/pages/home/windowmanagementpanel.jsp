@@ -37,13 +37,18 @@
                 <td width="200"><input class="easyui-textbox control" style="height:50px;width: 300px" name="windowTitle" required="required"
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
             </tr>
+            <tr>
 
+                <th width="120"><label class="control-label required-mark" style="width:100px"
+                                       required="required">飘窗链接地址
 
+                </label>
+                </th>
+                <td width="200"><input class="easyui-textbox control" style="height:50px;width: 300px" name="windowUrl" required="required"
+                                       data-options="multiline:true,prompt:'请输入...'"/></td>
+
+            </tr>
         </table>
-
-        <div style="padding-top: 2px; margin-right: 2px">
-            <script id="containerAdd" name="windowDetails" type="text/plain"></script>
-        </div>
 
         <div style="text-align:center;padding:10px 5px">
             <a id="pictureWindowUploadBtnAdd" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
@@ -82,12 +87,16 @@
                 <td width="200"><input class="easyui-textbox control" style="height:50px;width: 300px" name="windowTitle" required="required"
                                        data-options="multiline:true,prompt:'请输入...'"/></td>
             </tr>
+            <tr>
+                <th width="120"><label class="control-label required-mark" style="width:100px"
+                                       required="required">飘窗链接地址
 
+                </label>
+                </th>
+                <td width="200"><input class="easyui-textbox control" style="height:50px;width: 300px" name="windowUrl" required="required"
+                                       data-options="multiline:true,prompt:'请输入...'"/></td>
+            </tr>
         </table>
-
-        <div style="padding-top: 2px; margin-right: 2px">
-            <script id="containerEdit" name="windowDetails" type="text/plain"></script>
-        </div>
 
         <div style="text-align:center;padding:10px 5px">
             <a id="pictureWindowUploadBtnEdit" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
