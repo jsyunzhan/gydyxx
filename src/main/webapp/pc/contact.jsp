@@ -6,10 +6,11 @@
     <meta name="renderer" content="webkit">
     <meta name="google" value="notranslate"><!-- 禁止Chrome 浏览器中自动提示翻译 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <link rel="icon" href="${APP_PATH}/static/images/favicon.ico" type="image/x-icon">
+
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
+    <link rel="icon" href="${APP_PATH}/static/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="../static/css/public.css">
     <link rel="stylesheet" type="text/css" href="../static/css/publicPart.css">
     <link rel="stylesheet" type="text/css" href="../static/css/secondaryPage.css">

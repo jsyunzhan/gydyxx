@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <link rel="icon" href="${APP_PATH}/static/images/favicon.ico" type="image/x-icon">
+
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
+    <link rel="icon" href="${APP_PATH}/static/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="${APP_PATH}/static/css/backstage/public.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/mail.css">
     <script src="${APP_PATH}/static/jq/jquery-1.7.2.min.js"></script>
