@@ -1,4 +1,51 @@
 $(function () {
+    // banner轮播图
+    $.ajax({
+        url:path + "/homepage/banner/list",
+        type:"GET",dataType:"json",
+        success:function(event){
+            for(var i=0;i<event.length;i++){
+                var data = {picturePath: event[i].picturePath};
+                $.ajax({
+                    url:path + "/home/picture/show",
+                    type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
+                    success:function (r) {
+                        var _html = "";
+                        _html += '<div class="banner-solid" name="'+event[i].id+'"><img src="data:image/gif;base64,'+r+'"></div>';
+                        $("#banner01 .banner-wrapper").append(_html);
+                        $("#banner01 .pagetion").append("<span></span>");
+                    }
+                })
+            }
+            $("#banner01 .pagetion span:nth-child(1)").addClass("bannerChoosen");
+            var _htmlLast = $("#banner01 .banner-solid:last").clone();
+            var _htmlFirst = $("#banner01 .banner-solid:nth-child(1)").clone();
+            $("#banner01 .banner-wrapper").append(_htmlFirst);
+            $("#banner01 .banner-wrapper").prepend(_htmlLast);
+            // banner轮播
+            var banner01 = new newSwiper({
+                "name":"#banner01",
+                "width":1200,
+                "speed":12,
+                "speedLong":40,
+                "time":8000
+            });
+            if(event.length>1) {
+                banner01.autoplay();
+                $("#banner01 .nextBtn").click(function () {
+                    banner01.next();
+                    banner01.clearAutoplay();
+                    banner01.autoplay();
+                });
+                $("#banner01 .prevBtn").click(function () {
+                    banner01.prev();
+                    banner01.clearAutoplay();
+                    banner01.autoplay();
+                });
+            }
+        }
+    });
+
     // 新闻中心
     $.ajax({
         url:path + "/homepage/news/list",
@@ -51,7 +98,7 @@ $(function () {
                     type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
                     success:function (r) {
                         var _html = "";
-                        _html += '<div class="banner-solid" name="'+event[i].id+'"><img src="data:image/gif;base64,'+r+'"><p class="newsPic_font">'+event[i].newsTitle+'</p></div>';
+                        _html += '<div class="banner-solid" name="'+event[i].id+'"><img src="data:image/gif;base64,'+r[0]+'"><p class="newsPic_font">'+event[i].newsTitle+'</p></div>';
                         $("#banner02 .banner-wrapper").append(_html);
                         $("#banner02 .pagetion").append("<span></span>");
                     }
@@ -66,17 +113,23 @@ $(function () {
             var banner02 = new newSwiper({
                 "name":"#banner02",
                 "width":300,
-                "speed":10,
-                "speedLong":10,
+                "speed":20,
+                "speedLong":20,
                 "time":5000
             });
-            banner02.autoplay();
-            $("#banner02 .nextBtn").click(function(){
-                banner02.next();
-            });
-            $("#banner02 .prevBtn").click(function(){
-                banner02.prev();
-            });
+            if(event.length>1){
+                banner02.autoplay();
+                $("#banner02 .nextBtn").click(function(){
+                    banner02.next();
+                    banner02.clearAutoplay();
+                    banner02.autoplay();
+                });
+                $("#banner02 .prevBtn").click(function(){
+                    banner02.prev();
+                    banner02.clearAutoplay();
+                    banner02.autoplay();
+                });
+            }
             // 新闻中心跳转详情
             $("#banner02 .banner-solid").click(function(){
                 var url = path + '/homepage/news/details/'+$(this).attr("name");
@@ -197,7 +250,7 @@ $(function () {
                     url:path + "/home/picture/show",
                     type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
                     success:function (r) {
-                        _html += '<div class="banner-solid" title="'+event[i].schoolTitle+'" name="'+event[i].id+'"><div class="mien_pic_child"><img src="data:image/gif;base64,'+r+'"><img src="../static/images/frame.png"></div></div>';
+                        _html += '<div class="banner-solid" title="'+event[i].schoolTitle+'" name="'+event[i].id+'"><div class="mien_pic_child"><img src="data:image/gif;base64,'+r[0]+'"><img src="../static/images/frame.png"></div></div>';
                     }
                 })
             }
@@ -232,49 +285,6 @@ $(function () {
         }
     });
 
-    // banner轮播图
-    $.ajax({
-        url:path + "/homepage/banner/list",
-        type:"GET",dataType:"json",
-        success:function(event){
-            for(var i=0;i<event.length;i++){
-                var data = {picturePath: event[i].picturePath};
-                $.ajax({
-                    url:path + "/home/picture/show",
-                    type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
-                    success:function (r) {
-                        var _html = "";
-                        _html += '<div class="banner-solid" name="'+event[i].id+'"><img src="data:image/gif;base64,'+r+'"></div>';
-                        $("#banner01 .banner-wrapper").append(_html);
-                        $("#banner01 .pagetion").append("<span></span>");
-                    }
-                })
-            }
-            $("#banner01 .pagetion span:nth-child(1)").addClass("bannerChoosen");
-            var _htmlLast = $("#banner01 .banner-solid:last").clone();
-            var _htmlFirst = $("#banner01 .banner-solid:nth-child(1)").clone();
-            $("#banner01 .banner-wrapper").append(_htmlFirst);
-            $("#banner01 .banner-wrapper").prepend(_htmlLast);
-            // banner轮播
-            var banner01 = new newSwiper({
-                "name":"#banner01",
-                "width":1200,
-                "speed":10,
-                "speedLong":30,
-                "time":8000
-            });
-            banner01.autoplay();
-            $("#banner01 .nextBtn").click(function(){
-                banner01.next();
-            });
-            $("#banner01 .prevBtn").click(function(){
-                banner01.prev();
-            });
-        }
-    });
-
-
-
     // 飘窗
     $.ajax({
         url:path + "/homepage/window/list",
@@ -288,7 +298,7 @@ $(function () {
                     url:path + "/home/picture/show",
                     type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
                     success:function (r) {
-                        _html += '<a href="javascript:;" name="'+event[i].id+'" ><img src="data:image/gif;base64,'+r+'"></a>';
+                        _html += '<a href="'+event[i].windowUrl+'" name="'+event[i].id+'" title="'+event[i].windowTitle+'" ><img src="data:image/gif;base64,'+r+'"></a>';
                     }
                 })
             }
@@ -305,11 +315,6 @@ $(function () {
             $(".floatImage .imgClose").click(function(){
                 $(this).parent(".floatImage").remove();
             })
-            // 点击飘窗跳转
-            // $(".floatImage a").click(function () {
-            //     var url = path + '/homepage/window/details/'+$(this).attr("name");
-            //     window.location.href = url;
-            // })
         }
     })
 

@@ -71,6 +71,11 @@
     background: #fff;
 }
 
+#banner01 .banner-solid img{
+    width: 1200px;
+    height: 310px;
+}
+
 /*通知公告*/
 .notice{
     float: left;
@@ -263,6 +268,11 @@
     background: #fff;
 }
 
+#banner02 .banner-solid img{
+    width: 300px;
+    height: 240px;
+}
+
 .newsPic_font{
     position: absolute;
     bottom: 0px;
@@ -447,6 +457,8 @@
 
 .mien_pic_child img{
     position: absolute;
+    width: 245px;
+    height: 146px;
     z-index: 10;
 }
 
@@ -478,8 +490,18 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
     z-index: 20;
+}
+
+.floatImage a{
+    float: left;
+    width: 200px;
+    height: 150px;
+}
+
+.floatImage a img{
+    width: 200px;
+    height: 150px;
 }
 
 .floatImage .imgClose{

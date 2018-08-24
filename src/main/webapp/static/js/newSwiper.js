@@ -9,6 +9,7 @@
 
 	function newSwiper(setting){
 		this.clickNum = 0;
+        this.clearObj = "";
 		this.defaultparam = {
 	        "name":"",
 	        "width":0,
@@ -110,8 +111,12 @@
 
 	newSwiper.prototype.autoplay = function(){
 		var This = this;
-		setInterval(function(){
+		this.clearObj = setInterval(function(){
 			This.next();
 		},this.defaultparam.time);
 	}
+
+    newSwiper.prototype.clearAutoplay = function(){
+        clearInterval(this.clearObj);
+    }
 
