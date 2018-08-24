@@ -290,7 +290,7 @@
                     <%--作品展示--%>
                     <div class="ex_child">
                         <div class="title_ex">
-                            <img src="${APP_PATH}/static/images/title_01.jpg">
+                            作品展示
                             <a href="${APP_PATH}/pc/zyshaonian/zpzs.jsp">更多></a>
                         </div>
                         <div class="content_ex"></div>
@@ -299,7 +299,7 @@
                     <%--名师风采--%>
                     <div class="ex_child">
                         <div class="title_ex">
-                            <img src="${APP_PATH}/static/images/title_02.jpg">
+                            名师风采
                             <a href="${APP_PATH}/pc/zyyuanding/msfc.jsp">更多></a>
                         </div>
                         <div class="content_ex"></div>
@@ -308,7 +308,7 @@
                     <%--学子风采--%>
                     <div class="ex_child">
                         <div class="title_ex">
-                            <img src="${APP_PATH}/static/images/title_03.jpg">
+                            学子风采
                             <a href="${APP_PATH}/pc/zyshaonian/xzfc.jsp">更多></a>
                         </div>
                         <div class="content_ex"></div>
@@ -317,7 +317,7 @@
                     <%--课题研究--%>
                     <div class="ex_child">
                         <div class="title_ex">
-                            <img src="${APP_PATH}/static/images/title_04.jpg">
+                            课题研究
                             <a href="${APP_PATH}/pc/zyxueyuan/ktyj.jsp">更多></a>
                         </div>
                         <div class="content_ex"></div>
@@ -353,7 +353,7 @@
                     <p style="line-height: 30px;"><a href="http://www.miibeian.gov.cn/" target="_blank" class="gxb">苏ICP备10084223号</a></p>
                     <p style="line-height: 80px;">
                         <div style="width:300px;margin:0 auto; padding:20px 0;">
-                            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32108402000010" class="clearfix" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="${APP_PATH}/static/images/country.png" style="float:left;width:20px;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#fff;">苏公网安备 32108402000010号</p></a></div>
+                            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32108402000010" class="clearfix" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="${APP_PATH}/static/images/country.png" style="float:left;width:20px;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#fff;">苏公网安备 32108402000010号</p></a>
                         </div>
                     </p>
                 </div>

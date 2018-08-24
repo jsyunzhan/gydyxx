@@ -12,7 +12,7 @@ $(function () {
             }
             $(".main_content_right").append(_html);
             // 新闻中心跳转详情
-            $(".notification").click(function () {
+            $(".news_list").click(function () {
                 var url = path + '/homepage/news/details/'+$(this).attr("name");
                 window.location.href = url;
             })
@@ -270,11 +270,6 @@ $(function () {
             $("#banner01 .prevBtn").click(function(){
                 banner01.prev();
             });
-            // 点击飘窗跳转
-            // $(".banner_wrapper .swiper-slide").click(function () {
-            //     var url = path + '/homepage/banner/details/'+$(this).attr("name");
-            //     window.location.href = url;
-            // })
         }
     });
 

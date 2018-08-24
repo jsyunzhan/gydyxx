@@ -350,6 +350,11 @@
 
 .title_ex{
     position: relative;
+    line-height: 42px;
+    padding-left: 10px;
+    border-top: 5px solid #90531a;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .title_ex a{
