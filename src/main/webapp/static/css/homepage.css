@@ -294,7 +294,7 @@
 
 .news_list:hover{
     text-decoration: underline;
-    color: #915519;
+    color: #ce6e0a;
 }
 
 .news_list span{
@@ -355,6 +355,7 @@
     border-top: 5px solid #90531a;
     background: #fff;
     border-bottom: 1px solid #e5e5e5;
+    color: #490d0d;
 }
 
 .title_ex a{
@@ -374,7 +375,7 @@
 }
 
 .exhibition .content_ex .ex_list:hover{
-    color: #915519;
+    color: #ce6e0a;
 }
 
 .exhibition .content_ex .ex_list p{
@@ -495,5 +496,5 @@
 
 .floatImage .imgClose:hover{
     text-decoration: underline;
-    color: #915519;
+    color: #ce6e0a;
 }

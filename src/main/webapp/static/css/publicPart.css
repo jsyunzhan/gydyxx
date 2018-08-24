@@ -170,7 +170,7 @@
 }
 
 .notice .content_notice .notification:hover{
-    color: #915519;
+    color: #ce6e0a;
     cursor: pointer;
 }
 
@@ -259,7 +259,7 @@
 }
 
 .infor .history .history_list:hover{
-    color: #915519;
+    color: #ce6e0a;
 }
 
 .history .link{
@@ -307,7 +307,7 @@
 }
 
 .history .link .linking .linking_list .linkChoose{
-    color: #915519;
+    color: #ce6e0a;
 }
 
 /*footer*/

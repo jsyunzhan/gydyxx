@@ -72,8 +72,9 @@
 
 .newsCon .imgDetial{
     margin: 0 auto;
-    margin-bottom: 30px;
-    width: 50%;
+    width: inherit;
+    max-width: 100%;
+    margin-bottom: 20px;
 }
 
 /*缩进*/

@@ -9,7 +9,7 @@ $(function () {
             type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
             success:function(event){
                 for (var i=0;i<event.length;i++){
-                    _html += '<div class="imgDetial"><img src="data:image/gif;base64,'+event[i]+'"></div>';
+                    _html += '<img src="data:image/gif;base64,'+event[i]+'"  class="imgDetial">';
                 }
             }
         })
