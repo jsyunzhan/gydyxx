@@ -70,7 +70,6 @@
     height: 57px;
     line-height: 57px;
     color: #fff;
-    font-family: '宋体';
     font-size: 20px;
 }
 
@@ -109,8 +108,7 @@
     color: #775640;
     margin-top: -1px;
     background: url("../../static/images/second_title.png") no-repeat;
-    font-family: '宋体';
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .title_tab .second_title .title_over{
@@ -214,7 +212,7 @@
 }
 
 .news .title_news{
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .news .title_news a{
@@ -256,7 +254,7 @@
     overflow: hidden;
     white-space: nowrap;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
     color: #707276;
 }
 

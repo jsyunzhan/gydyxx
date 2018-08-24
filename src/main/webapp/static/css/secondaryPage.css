@@ -6,7 +6,7 @@
 }
 
 .leftClass_title{
-    font-size: 24px;
+    font-size: 20px;
     line-height: 65px;
     text-align: center;
     background: #915419;
@@ -24,9 +24,8 @@
 
 .leftClass_con .leftChild{
     line-height: 60px;
-    font-size: 24px;
+    font-size: 20px;
     color: #6D6969;
-    font-family: '宋体';
     padding: 0 24px;
     cursor: pointer;
     background: url("../../static/images/grayright.png") 245px 18px no-repeat;
@@ -103,6 +102,7 @@
     margin-bottom: 0;
     color: #666;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .newsCon .every_search:hover{
