@@ -6,7 +6,6 @@
     <meta name="renderer" content="webkit">
     <meta name="google" value="notranslate"><!-- 禁止Chrome 浏览器中自动提示翻译 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
