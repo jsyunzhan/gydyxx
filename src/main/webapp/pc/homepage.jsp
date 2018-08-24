@@ -10,11 +10,13 @@
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
+    <link rel="icon" href="${APP_PATH}/static/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/public.css">
     <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/publicPart.css">
     <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/homepage.css">
     <script type="text/javascript" src="${APP_PATH}/static/jq/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/newSwiper.js"></script>
+    <script type="text/javascript" src="${APP_PATH}/static/js/jquery.SuperSlide.2.1.1.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/public.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/publicPart.js"></script>
     <script type="text/javascript" src="${APP_PATH}/static/js/homepage.js"></script>
@@ -108,17 +110,16 @@
             </div>
 
             <%--轮播图--%>
-            <div class="banner-container" id="banner01">
-                <div class="banner-wrapper"></div>
-                <div class="bannerBtn">
-                    <div class="prevBtn">
-                        <img src="${APP_PATH}/static/images/arrow_left.png">
-                    </div>
-                    <div class="nextBtn">
-                        <img src="${APP_PATH}/static/images/arrow_right.png">
-                    </div>
+            <div class="slideBox01">
+                <div class="hd">
+                    <ul></ul>
                 </div>
-                <div class="pagetion"></div>
+                <div class="bd">
+                    <ul></ul>
+                </div>
+                <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+                <a class="prev" href="javascript:;"></a>
+                <a class="next" href="javascript:;"></a>
             </div>
 
             <%--通知新闻类--%>
@@ -141,18 +142,17 @@
                     <div class="content_news"></div>
                     <div class="main_content clearfix">
                         <div class="main_content_left">
-                            <div class="banner-container" id="banner02">
-                                <div class="banner-wrapper"></div>
-                                <div class="bannerBtn">
-                                    <div class="prevBtn">
-                                        <img src="${APP_PATH}/static/images/prev.png">
-                                    </div>
-                                    <div class="nextBtn">
-                                        <img src="${APP_PATH}/static/images/next.png">
-                                    </div>
+                            <div class="slideBox02">
+                                <div class="hd">
+                                    <ul></ul>
                                 </div>
-                                <div class="pagetion"></div>
-                                <div class="pageBg"></div>
+                                <div class="bd">
+                                    <ul></ul>
+                                    <div class="slideBox02_bg"></div>
+                                </div>
+                                <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+                                <a class="prev" href="javascript:;"></a>
+                                <a class="next" href="javascript:;"></a>
                             </div>
                         </div>
                         <div class="main_content_right">

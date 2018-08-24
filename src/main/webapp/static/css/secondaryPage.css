@@ -6,7 +6,7 @@
 }
 
 .leftClass_title{
-    font-size: 20px;
+    font-size: 18px;
     line-height: 65px;
     text-align: center;
     background: #915419;
@@ -24,7 +24,7 @@
 
 .leftClass_con .leftChild{
     line-height: 60px;
-    font-size: 20px;
+    font-size: 16px;
     color: #6D6969;
     padding: 0 24px;
     cursor: pointer;
@@ -52,7 +52,7 @@
 
 .main_title01{
     text-align: center;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 30px;
     padding: 24px 0;
     color: #460D0D;
@@ -64,7 +64,7 @@
 
 .newsCon .newsCon_font,.newsCon p{
     line-height: 30px;
-    font-size: 18px;
+    font-size: 16px;
     color: #666;
     text-indent: 2em;
     margin-bottom: 15px;
@@ -86,17 +86,20 @@
     display: block;
     float: left;
     width: 684px;
-    line-height: 40px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    line-height: 60px;
+    height: 40px;
 }
 
 .newsCon .listChild02{
     display: block;
     width: 120px;
     float: right;
-    line-height: 40px;
+    text-align: right;
+    line-height: 60px;
+    height: 50px;
 }
 
 .newsCon .every_search{
@@ -104,6 +107,7 @@
     color: #666;
     cursor: pointer;
     font-size: 16px;
+    border-bottom: 1px dashed #ccc;
 }
 
 .newsCon .every_search:hover{

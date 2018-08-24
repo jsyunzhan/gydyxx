@@ -70,7 +70,7 @@
     height: 57px;
     line-height: 57px;
     color: #fff;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .title_tab{
@@ -108,7 +108,7 @@
     color: #775640;
     margin-top: -1px;
     background: url("../../static/images/second_title.png") no-repeat;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .title_tab .second_title .title_over{
@@ -160,7 +160,7 @@
 .notice .content_notice .notification{
     width: 200px;
     line-height: 30px;
-    padding: 0 15px;
+    padding: 0 20px;
     color: #716363;
     word-break: break-all;
     overflow: hidden;
@@ -212,11 +212,11 @@
 }
 
 .news .title_news{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .news .title_news a{
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .title_news a b{

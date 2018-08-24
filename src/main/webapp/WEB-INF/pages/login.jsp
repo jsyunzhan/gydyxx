@@ -17,6 +17,7 @@
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
+    <link rel="icon" href="${APP_PATH}/static/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="${APP_PATH}/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/backstage/public.css">
     <link rel="stylesheet" href="${APP_PATH}/static/css/backstage/login.css">

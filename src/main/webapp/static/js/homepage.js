@@ -11,38 +11,13 @@ $(function () {
                     type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
                     success:function (r) {
                         var _html = "";
-                        _html += '<div class="banner-solid" name="'+event[i].id+'"><img src="data:image/gif;base64,'+r+'"></div>';
-                        $("#banner01 .banner-wrapper").append(_html);
-                        $("#banner01 .pagetion").append("<span></span>");
+                        _html += '<li><a href="javascript:;"><img src="data:image/gif;base64,'+r+'" /></a></li>';
+                        $(".slideBox01 .bd ul").append(_html);
+                        $(".slideBox01 .hd ul").append("<li></li>");
                     }
                 })
             }
-            $("#banner01 .pagetion span:nth-child(1)").addClass("bannerChoosen");
-            var _htmlLast = $("#banner01 .banner-solid:last").clone();
-            var _htmlFirst = $("#banner01 .banner-solid:nth-child(1)").clone();
-            $("#banner01 .banner-wrapper").append(_htmlFirst);
-            $("#banner01 .banner-wrapper").prepend(_htmlLast);
-            // banner轮播
-            var banner01 = new newSwiper({
-                "name":"#banner01",
-                "width":1200,
-                "speed":12,
-                "speedLong":40,
-                "time":8000
-            });
-            if(event.length>1) {
-                banner01.autoplay();
-                $("#banner01 .nextBtn").click(function () {
-                    banner01.next();
-                    banner01.clearAutoplay();
-                    banner01.autoplay();
-                });
-                $("#banner01 .prevBtn").click(function () {
-                    banner01.prev();
-                    banner01.clearAutoplay();
-                    banner01.autoplay();
-                });
-            }
+            jQuery(".slideBox01").slide({mainCell:".bd ul",effect:"left",autoPlay:true,easing:"easeOutCirc",interTime:8000});
         }
     });
 
@@ -76,7 +51,7 @@ $(function () {
             var dds=dd.replace(/ /g,"");
             var dds=dds.slice(0,30);
             _html += '<div class="main_title" name="'+event[0].id+'">'+event[0].newsTitle+'</div><br/>';
-            _html += '<div class="secondary_title" name="'+event[0].id+'">'+dds+'<a href="javascript:;">[更多]</a></div>'
+            _html += '<div class="secondary_title" name="'+event[0].id+'">——&nbsp;&nbsp;'+dds+' . . . <a href="javascript:;">[更多]</a></div>'
             $(".content_news").append(_html);
             // 新闻中心跳转详情
             $(".main_title,.secondary_title a").click(function(){
@@ -98,40 +73,15 @@ $(function () {
                     type:"POST",contentType: "application/json",data:JSON.stringify(data),async:false,
                     success:function (r) {
                         var _html = "";
-                        _html += '<div class="banner-solid" name="'+event[i].id+'"><img src="data:image/gif;base64,'+r[0]+'"><p class="newsPic_font">'+event[i].newsTitle+'</p></div>';
-                        $("#banner02 .banner-wrapper").append(_html);
-                        $("#banner02 .pagetion").append("<span></span>");
+                        _html += '<li name="'+event[i].id+'"><a href="javascript:;"><img src="data:image/gif;base64,'+r[0]+'" /></a><p>'+event[i].newsTitle+'</p></li>';
+                        $(".slideBox02 .bd ul").append(_html);
+                        $(".slideBox02 .hd ul").append("<li>"+(i+1)+"</li>");
                     }
                 })
             }
-            $("#banner02 .pagetion span:nth-child(1)").addClass("bannerChoosen");
-            var _htmlLast = $("#banner02 .banner-solid:last").clone();
-            var _htmlFirst = $("#banner02 .banner-solid:nth-child(1)").clone();
-            $("#banner02 .banner-wrapper").append(_htmlFirst);
-            $("#banner02 .banner-wrapper").prepend(_htmlLast);
-            // banner轮播
-            var banner02 = new newSwiper({
-                "name":"#banner02",
-                "width":300,
-                "speed":20,
-                "speedLong":20,
-                "time":5000
-            });
-            if(event.length>1){
-                banner02.autoplay();
-                $("#banner02 .nextBtn").click(function(){
-                    banner02.next();
-                    banner02.clearAutoplay();
-                    banner02.autoplay();
-                });
-                $("#banner02 .prevBtn").click(function(){
-                    banner02.prev();
-                    banner02.clearAutoplay();
-                    banner02.autoplay();
-                });
-            }
+            jQuery(".slideBox02").slide({mainCell:".bd ul",effect:"fold",autoPlay:true,easing:"easeInQuint",interTime:5000});
             // 新闻中心跳转详情
-            $("#banner02 .banner-solid").click(function(){
+            $(".slideBox02 .bd ul li").click(function(){
                 var url = path + '/homepage/news/details/'+$(this).attr("name");
                 window.location.href = url;
             })

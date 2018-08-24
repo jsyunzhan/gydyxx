@@ -1,81 +1,3 @@
-/*banner轮播*/
-#banner01{
-    overflow: hidden;
-    position: relative;
-    height: 310px;
-}
-
-#banner01 .banner-wrapper{
-    position: absolute;
-    left: 0;
-    top: 0;
-    white-space: nowrap;
-    font-size: 0;
-    margin-left: -1200px
-}
-
-#banner01 .banner-solid{
-    display: inline-block;
-    width: 1200px;
-}
-
-/*上一张下一张*/
-#banner01 .bannerBtn div{
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#banner01 .bannerBtn div:hover{
-    top: 124px;
-    width: 20px;
-}
-
-#banner01 .bannerBtn .prevBtn{
-    position: absolute;
-    left: 30px;
-    top: 130px;
-    width: 14px;
-}
-
-#banner01 .bannerBtn .nextBtn{
-    position: absolute;
-    right: 30px;
-    top: 130px;
-    width: 14px;
-}
-
-/*分页器*/
-#banner01 .pagetion{
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    font-size: 0;
-    bottom: 10%;
-    z-index: 10;
-}
-
-#banner01 .pagetion span{
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 100px;
-    background: initial;
-    border: 2px solid #fff;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    margin: 0 3px;
-}
-
-#banner01 .pagetion .bannerChoosen{
-    background: #fff;
-}
-
-#banner01 .banner-solid img{
-    width: 1200px;
-    height: 310px;
-}
-
 /*通知公告*/
 .notice{
     float: left;
@@ -92,12 +14,12 @@
 
 .notice .content_notice .notification {
     width: 250px;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 39px;
 }
 
 .notice .title_notice{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .notice .title_notice a{
@@ -147,7 +69,7 @@
 }
 
 .news .content_news .main_title{
-    font-size: 20px;
+    font-size: 24px;
     color: #490d0d;
     line-height: 40px;
     height: 40px;
@@ -175,102 +97,6 @@
     border: 2px solid #e5e5e5;
     margin: 0px 20px;
     margin-top: 4px;
-}
-
-#banner02{
-    width: 300px;
-    margin: 0 auto;
-    height: 240px;
-    overflow: hidden;
-    position: relative;
-}
-
-#banner02 .banner-wrapper{
-    position: absolute;
-    left: 0;
-    top: 0;
-    white-space: nowrap;
-    font-size: 0;
-    margin-left: -300px
-}
-
-#banner02 .banner-solid{
-    display: inline-block;
-    width: 300px;
-    position: relative;
-}
-
-/*上一张下一张*/
-#banner02 .bannerBtn div{
-    cursor: pointer;
-}
-
-#banner02 .bannerBtn .prevBtn{
-    position: absolute;
-    left: 10px;
-    top: 100px;
-    width: 24px;
-    transition: 0.2s;
-}
-
-#banner02 .bannerBtn .nextBtn{
-    position: absolute;
-    right: 10px;
-    top: 100px;
-    width: 24px;
-    transition: 0.2s;
-}
-
-#banner02 .bannerBtn .prevBtn:hover,#banner02 .bannerBtn .nextBtn:hover{
-    width: 30px;
-    top: 94px;
-}
-
-/*分页器*/
-#banner02 .pagetion{
-    position: absolute;
-    width: 100%;
-    text-align: right;
-    font-size: 0;
-    bottom: 0px;
-    z-index: 10;
-    line-height: 30px;
-    height: 30px;
-}
-
-#banner02 .pageBg{
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    height: 30px;
-    width: 100%;
-    background: #000;
-    opacity: 0.7;
-    filter:alpha(opacity=70);
-    z-index: 5;
-}
-
-#banner02 .pagetion span{
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 100px;
-    background: initial;
-    border: 2px solid #fff;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    margin: 10px auto;
-    margin-right: 5px;
-}
-
-#banner02 .pagetion .bannerChoosen{
-    background: #fff;
-}
-
-#banner02 .banner-solid img{
-    width: 300px;
-    height: 240px;
 }
 
 .newsPic_font{
@@ -366,6 +192,7 @@
     background: #fff;
     border-bottom: 1px solid #e5e5e5;
     color: #490d0d;
+    font-size: 18px;
 }
 
 .title_ex a{
@@ -477,7 +304,7 @@
 }
 
 .news .title_news,.history .title_news{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .history .title_news a{
@@ -520,3 +347,59 @@
     text-decoration: underline;
     color: #ce6e0a;
 }
+
+/* banner */
+.slideBox01{ width:1200px; height:310px; overflow:hidden; position:relative; border:1px solid #ddd;  }
+.slideBox01 .hd{ height:15px; position:absolute; left: 50%; width: 200px; margin-left:-100px; bottom:20px; z-index:1;}
+.slideBox01 .hd ul{ zoom:1; float:left; text-align: center; width: 200px;  }
+.slideBox01 .hd ul li{ display: inline-block; border-radius: 50px; margin: 0 5px;width:15px;height:15px;cursor:pointer; background: inherit;border: 2px solid #fff; box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box}
+.slideBox01 .hd ul li.on{background:#fff;}
+.slideBox01 .bd{ position:relative; height:100%; z-index:0;   }
+.slideBox01 .bd li{ zoom:1; vertical-align:middle; }
+.slideBox01 .bd img{ width:1200px; height:310px; display:block;  }
+
+/* 下面是前/后按钮代码，如果不需要删除即可 */
+.slideBox01 .prev,
+.slideBox01 .next{ position:absolute; left:3%; top:50%; margin-top:-25px; display:block; width:32px; height:40px; background:url(../../static/images/slider-arrow.png) -110px 5px no-repeat; filter:alpha(opacity=50);opacity:0.5;   }
+.slideBox01 .next{ left:auto; right:3%; background-position:8px 5px; }
+.slideBox01 .prev:hover, .slideBox01 .next:hover{ filter:alpha(opacity=100);opacity:1;  }
+.slideBox01 .prevStop{ display:none;  }
+.slideBox01 .nextStop{ display:none;  }
+
+/* 新闻 */
+.slideBox02{ width:300px; height:240px; overflow:hidden; position:relative;}
+.slideBox02 .hd{ position:absolute; right:10px; bottom:10px; z-index:1;}
+.slideBox02 .hd ul{ zoom:1; float:left; text-align: center;}
+.slideBox02 .hd ul li{ display: inline-block;  margin: 0 2px;width:16px;height:16px; line-height:14px;cursor:pointer; font-size: 12px;background: #fff;}
+.slideBox02 .hd ul li.on{background:#f00;color: #fff;}
+.slideBox02 .bd{ position:relative; height:100%; z-index:0;   }
+.slideBox02 .bd li{ zoom:1; vertical-align:middle; }
+.slideBox02 .bd img{ width:300px; height:240px; display:block;  }
+.slideBox02 .bd p{
+    position: absolute;
+    bottom:0;
+    left: 10px;
+    line-height: 36px;
+    color: #fff;
+    z-index: 2;
+    font-size: 14px;
+}
+.slideBox02_bg{
+    position: absolute;
+    width:100%;
+    height: 36px;
+    left: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.5;
+    filter: alpha(50);
+
+}
+
+/* 下面是前/后按钮代码，如果不需要删除即可 */
+.slideBox02 .prev,
+.slideBox02 .next{ position:absolute; left:3%; top:50%; margin-top:-25px; display:block; width:32px; height:40px; background:url(../../static/images/slider-arrow.png) -110px 5px no-repeat; filter:alpha(opacity=50);opacity:0.5;   }
+.slideBox02 .next{ left:auto; right:3%; background-position:8px 5px; }
+.slideBox02 .prev:hover, .slideBox02 .next:hover{ filter:alpha(opacity=100);opacity:1;  }
+.slideBox02 .prevStop{ display:none;  }
+.slideBox02 .nextStop{ display:none;  }

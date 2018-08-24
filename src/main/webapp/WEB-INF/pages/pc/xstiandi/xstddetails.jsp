@@ -9,6 +9,7 @@
     <%
         pageContext.setAttribute("APP_PATH", request.getContextPath());
     %>
+    <link rel="icon" href="${APP_PATH}/static/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/public.css">
     <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/publicPart.css">
     <link rel="stylesheet" type="text/css" href="${APP_PATH}/static/css/secondaryPage.css">
