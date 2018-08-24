@@ -160,7 +160,7 @@
             </div>
             <div class="footer_font">
                 <p style="line-height: 80px;">Copyright@2018 http://xxx.org All Rights Reserved</p>
-                <p style="line-height: 30px;">学校地址：江苏省高邮市xxx路xxx号 邮编：225600 <a href="${APP_PATH}/security/movetologin" class="loginBtn">用户登录</a></p>
+                <p style="line-height: 30px;">学校地址：江苏省高邮市府前街4号 邮编：225600 <a href="${APP_PATH}/security/movetologin" class="loginBtn">用户登录</a></p>
                 <p style="line-height: 30px;"><a href="http://www.miibeian.gov.cn/" target="_blank" class="gxb">苏ICP备10084223号</a></p>
                 <p style="line-height: 80px;">
                     <div style="width:300px;margin:0 auto; padding:20px 0;">
