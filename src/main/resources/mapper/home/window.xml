@@ -37,7 +37,7 @@
         SELECT
         t.ID id,
         t.WINDOW_TITLE windowTitle,
-        t.WINDOW_DETAILS,
+        t.WINDOW_URL windowUrl,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
