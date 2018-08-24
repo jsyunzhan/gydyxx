@@ -1,5 +1,5 @@
 <html>
 <body>
-<jsp:forward page="/security/movetologin"/>
+<jsp:forward page="/pc/homepage.jsp"/>
 </body>
 </html>
