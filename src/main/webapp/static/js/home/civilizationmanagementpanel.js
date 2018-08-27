@@ -290,8 +290,10 @@ $(function () {
                     pictureDiv.empty();
 
                     for (var i=0;i<r.length;i++){
-                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100px;height:100px">';
-                        pictureDiv.append(i+picture);
+                        var picture = '<div style="float:left;width: 20%;margin: 0 2.5%;border: 1px solid #ccc; box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;margin-bottom: 10px;">'
+                        picture += '<img src="data:image/gif;base64,' + r[i] + '">'
+                        picture += '<p style="text-align: center;-webkit-margin-before: 0em;-webkit-margin-after: 0em;line-height: 30px;">'+i+'</p></div>';
+                        pictureDiv.append(picture);
                     }
                     $pictureCiviliztionWin.window('close');
                 }
