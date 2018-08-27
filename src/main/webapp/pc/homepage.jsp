@@ -334,9 +334,7 @@
                         <img src="${APP_PATH}/static/images/school_fc.png">
                     </div>
                     <div class="banner-container mien_pic" id="banner03">
-                        <div class="banner-wrapper">
-                        </div>
-                        <div class="pagination"></div>
+                        <div class="banner-wrapper"></div>
                     </div>
                 </div>
             </div>

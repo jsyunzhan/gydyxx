@@ -250,7 +250,7 @@
     position: absolute;
     left: 40px;
     top: 120px;
-    height: 190px;
+    height: 146px;
     overflow: hidden;
 }
 
@@ -273,13 +273,13 @@
 
 #banner03 .banner-wrapper .banner_con{
     display: inline-block;
+    font-size: 0;
 }
 
 .mien_pic_child{
     position: relative;
     width: 245px;
     height: 146px;
-    float: left;
 }
 
 .mien_pic_child img{
@@ -393,7 +393,7 @@
     background: #000;
     opacity: 0.5;
     filter: alpha(50);
-
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
 }
 
 /* 下面是前/后按钮代码，如果不需要删除即可 */

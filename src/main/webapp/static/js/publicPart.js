@@ -61,4 +61,6 @@ $(function () {
             })
         }
     });
+
+    $(".footer").height("215px");
 });

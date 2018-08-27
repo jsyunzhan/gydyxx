@@ -256,9 +256,9 @@ $(function () {
             $("body").append(_html);
             // 调用飘窗
             var floatImage = new imgFloat(".floatImage",{
-                "time":20,
+                "time":12,
                 "speedx":0.8,
-                "speedy":0.5
+                "speedy": 0.6
             });
             floatImage.resize();
             floatImage.move();

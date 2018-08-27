@@ -139,56 +139,6 @@ imgFloat.prototype.move = function(){
     })
 }
 
-// 弹窗
-function pop(setting){
-    this.defaultparam = {
-        "html" : '',
-        "events" : {"":function(){},"":function(){},"":function(){},"":function(){}}
-    };
-    this.pop_num = "window_"+parseInt(Math.random()*100000);
-    extend(this.defaultparam,setting);
-}
-
-pop.prototype.popup = function(){
-    $("body").append("<div id="+this.pop_num+" style='z-index:999999'></div>");
-    $("body").append('<div id="mask"></div>');
-    $("#"+this.pop_num).append(this.defaultparam.html);
-    $("#"+this.pop_num).css("position","fixed");
-    center("#"+this.pop_num);
-    var This = this;
-    for(var key in this.defaultparam.events){
-        !function(key){
-            $(key).click(function(){
-                This.defaultparam.events[key]();
-            });
-        }(key)
-    }
-}
-
-pop.prototype.popdown = function(){
-    $("#"+this.pop_num).remove();
-    $("#mask").remove();
-}
-// 弹窗示例
-// $(function(){
-// 	$(".btn").click(function(){
-// 		var flag = new pop({
-// 			"html":'<div class="popup"><div class="close"></div><div class="close1"></div></div>',
-// 			"events":{
-// 				".close":function(){
-// 					console.log(1);
-// 					flag.popdown();
-// 				},
-// 				".close1":function(){
-// 					flag.popdown();
-// 					console.log(2);
-// 				}
-// 			}
-// 		});
-// 		flag.popup();
-// 	});
-// })
-
 function IEVersion() {
     var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
     var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器
