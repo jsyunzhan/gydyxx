@@ -19,7 +19,6 @@
         SELECT
         t.ID id,
         t.BANNER_TITLE bannerTitle,
-        t.BANNER_DETAILS,
         t.PICTURE_PATH picturePath,
         (SELECT COUNT(*) FROM t_home_banner b WHERE b.STATUE_ID='1' AND b.DELETE_FLAG='1') statueCount,
         t.STATUE_ID statueId,
@@ -37,7 +36,6 @@
         SELECT
         t.ID id,
         t.BANNER_TITLE bannerTitle,
-        t.BANNER_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -52,7 +50,6 @@
         SELECT
         t.ID id,
         t.BANNER_TITLE bannerTitle,
-        t.BANNER_DETAILS,
         t.PICTURE_PATH picturePath,
         t.CREATE_USER_ID createUserId,
         t.CREATE_DATA createDate,
@@ -68,7 +65,6 @@
         INSERT INTO t_home_banner
         (
         BANNER_TITLE,
-        BANNER_DETAILS,
         <if test="picturePath!=null and picturePath!=''">
             PICTURE_PATH,
         </if>
@@ -76,7 +72,6 @@
         CREATE_DATA
         ) VALUE (
         #{bannerTitle},
-        #{bannerDetails},
         <if test="picturePath!=null and picturePath!=''">
             #{picturePath},
         </if>
@@ -89,7 +84,6 @@
     <update id="bannerEdit">
         UPDATE t_home_banner SET
         BANNER_TITLE=#{bannerTitle},
-        BANNER_DETAILS=#{bannerDetails},
         <if test="picturePath!=null and picturePath!=''">
             PICTURE_PATH=#{picturePath},
         </if>

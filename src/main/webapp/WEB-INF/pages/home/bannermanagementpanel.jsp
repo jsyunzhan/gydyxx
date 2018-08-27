@@ -49,11 +49,6 @@
 
         </div>
 
-        <div style="padding-top: 2px; margin-right: 2px">
-            <script id="containerAdd" name="bannerDetails" type="text/plain"></script>
-        </div>
-
-
 
         <div width="200" id="addPicture"></div>
     </form>
@@ -94,12 +89,6 @@
             </a>
 
         </div>
-
-        <div style="padding-top: 2px; margin-right: 2px">
-            <script id="containerEdit" name="bannerDetails" type="text/plain"></script>
-        </div>
-
-
 
         <div width="200" id="editPicture"></div>
     </form>

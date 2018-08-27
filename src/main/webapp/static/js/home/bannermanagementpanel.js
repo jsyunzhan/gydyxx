@@ -102,9 +102,6 @@ $(function () {
     });
 
     /*************新增*******************/
-    var reportAdd = UE.getEditor('containerAdd', {
-        initialFrameWidth: '100%', initialFrameHeight: 240
-    });
 
     var $addBannerForm = $('#addBannerForm').form({
         novalidate: true
@@ -119,7 +116,7 @@ $(function () {
             $('#addPicture,#editPicture').empty();
             $('#addBannerForm').form('disableValidation').form('reset');
             // var ue = UE.getEditor('containerAdd');//初始化对象
-            reportAdd.setContent('');
+
         }
     });
 
@@ -132,10 +129,6 @@ $(function () {
             var bannerData = $addBannerForm.serializeObject(),
                 url = path + "/home/bannermanpage/add";
 
-            if (!bannerData.bannerDetails){
-                showErrorMessage("正文不可为空！");
-                return
-            }
 
             if (!$("input[name=file]").val()){
                 showErrorMessage("请选择图片！");
@@ -178,10 +171,6 @@ $(function () {
 
     /*************修改*******************/
 
-    var reportEdit = UE.getEditor('containerEdit', {
-        initialFrameWidth: '100%', initialFrameHeight: 240
-    });
-
     var $editBannerForm = $('#editBannerForm').form({
         novalidate: true
     });
@@ -194,7 +183,6 @@ $(function () {
             $('#pictureBannerForm').form('reset');
             $('#addPicture,#editPicture').empty();
             $('#editBannerForm').form('disableValidation').form('reset');
-            reportEdit.setContent('');
         }
     });
 
@@ -208,10 +196,6 @@ $(function () {
                 url = path + "/home/bannermanpage/edit";
             bannerData.id = selectedBanner.id;
 
-            if (!bannerData.bannerDetails){
-                showErrorMessage("正文不可为空！");
-                return
-            }
 
             $.ajax({
                 url: path + "/home/noticemanpage/pictureUpload/轮播图",
@@ -369,9 +353,7 @@ $(function () {
                     pictureDiv.empty();
 
                     for (var i=0;i<r.length;i++){
-                        var picture = '<div style="float:left;width: 20%;margin: 0 2.5%;border: 1px solid #ccc; box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;margin-bottom: 10px;">'
-                        picture += '<img src="data:image/gif;base64,' + r[i] + '" style="height: 100px;">'
-                        picture += '<p style="text-align: center;-webkit-margin-before: 0em;-webkit-margin-after: 0em;line-height: 30px;">'+i+'</p></div>';
+                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
                         pictureDiv.append(picture);
                     }
                     $pictureBannerWin.window('close');
