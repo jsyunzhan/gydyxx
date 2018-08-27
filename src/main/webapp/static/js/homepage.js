@@ -205,8 +205,8 @@ $(function () {
                 })
             }
             $("#banner03 .banner-wrapper").append('<div class="banner_con">'+_html+'</div>');
-            $("#banner03 .banner-wrapper").append('<div class="banner_con">'+_html+'</div>');
             if(event.length>4){
+                $("#banner03 .banner-wrapper").append('<div class="banner_con">'+_html+'</div>');
                 var num =0;
                 var ML = parseInt($("#banner03 .banner-wrapper").css("margin-left"));
                 function xyfg(){
