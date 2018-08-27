@@ -41,10 +41,6 @@
 
         </table>
 
-        <div style="padding-top: 2px; margin-right: 2px">
-            <script id="containerAdd" name="leaderDetails" type="text/plain"></script>
-        </div>
-
         <div style="text-align:center;padding:10px 5px">
             <a id="pictureLeaderUploadBtnAdd" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
                class="easyui-linkbutton"
@@ -53,6 +49,12 @@
             </a>
 
         </div>
+
+        <div style="padding-top: 2px; margin-right: 2px">
+            <script id="containerAdd" name="leaderDetails" type="text/plain"></script>
+        </div>
+
+
 
         <div width="200" id="addPicture"></div>
     </form>
@@ -84,9 +86,6 @@
             </tr>
 
         </table>
-        <div style="padding-top: 2px; margin-right: 2px">
-            <script id="containerEdit" name="leaderDetails" type="text/plain"></script>
-        </div>
 
         <div style="text-align:center;padding:10px 5px">
             <a id="pictureLeaderUploadBtnEdit" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
@@ -96,6 +95,12 @@
             </a>
 
         </div>
+
+        <div style="padding-top: 2px; margin-right: 2px">
+            <script id="containerEdit" name="leaderDetails" type="text/plain"></script>
+        </div>
+
+
 
         <div width="200" id="editPicture"></div>
     </form>

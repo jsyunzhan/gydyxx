@@ -40,10 +40,6 @@
 
         </table>
 
-        <div style="padding-top: 2px; margin-right: 2px">
-            <script id="containerAdd" name="studentDetails" type="text/plain"></script>
-        </div>
-
         <div style="text-align:center;padding:10px 5px">
             <a id="pictureStudentUploadBtnAdd" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
                class="easyui-linkbutton"
@@ -52,6 +48,12 @@
             </a>
 
         </div>
+
+        <div style="padding-top: 2px; margin-right: 2px">
+            <script id="containerAdd" name="studentDetails" type="text/plain"></script>
+        </div>
+
+
 
         <div width="200" id="addPicture"></div>
     </form>
@@ -84,10 +86,6 @@
 
         </table>
 
-        <div style="padding-top: 2px; margin-right: 2px">
-            <script id="containerEdit" name="studentDetails" type="text/plain"></script>
-        </div>
-
         <div style="text-align:center;padding:10px 5px">
             <a id="pictureStudentUploadBtnEdit" href="javascript:void(0);" iconCls="l-btn-icon icon-add"
                class="easyui-linkbutton"
@@ -95,6 +93,12 @@
                 图片上传
             </a>
         </div>
+
+        <div style="padding-top: 2px; margin-right: 2px">
+            <script id="containerEdit" name="studentDetails" type="text/plain"></script>
+        </div>
+
+
 
         <div width="200" id="editPicture"></div>
     </form>
