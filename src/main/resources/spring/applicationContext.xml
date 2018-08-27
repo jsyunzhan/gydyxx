@@ -28,7 +28,7 @@
         <!-- 指定默认的编码格式，默认ISO-8859-1 -->
         <property name="defaultEncoding" value="utf-8"></property>
         <!-- 上传文件的最大值 单位是字节 -->
-        <!--<property name="maxUploadSize" value="10000000"></property>-->
+        <property name="maxUploadSize" value="10485760"></property>
         <!-- 上传文件的临时文件夹 -->
         <property name="uploadTempDir" value="upload"></property>
     </bean>
