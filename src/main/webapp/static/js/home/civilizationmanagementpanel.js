@@ -290,8 +290,8 @@ $(function () {
                     pictureDiv.empty();
 
                     for (var i=0;i<r.length;i++){
-                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100%;height:100%">';
-                        pictureDiv.append(picture);
+                        var picture = '<img src="data:image/gif;base64,' + r[i] + '" style="width:100px;height:100px">';
+                        pictureDiv.append(i+picture);
                     }
                     $pictureCiviliztionWin.window('close');
                 }
